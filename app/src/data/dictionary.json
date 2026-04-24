@@ -1,0 +1,170 @@
+{
+  "CAT": {
+    "phonetic": "/kæt/",
+    "pos": "n.",
+    "meaning": "猫；猫科动物",
+    "example": "The cat is sleeping on the sofa.",
+    "exampleCn": "那只猫正睡在沙发上。",
+    "extra": "常见搭配：black cat / stray cat / cat nap（小憩）"
+  },
+  "ACT": {
+    "phonetic": "/ækt/",
+    "pos": "v. / n.",
+    "meaning": "行动；表演；法案",
+    "example": "We must act now to protect the environment.",
+    "exampleCn": "我们必须立即行动以保护环境。",
+    "extra": "派生词：action, actor, active"
+  },
+  "DOG": {
+    "phonetic": "/dɒɡ/",
+    "pos": "n.",
+    "meaning": "狗",
+    "example": "My dog loves to chase the ball.",
+    "exampleCn": "我的狗喜欢追球。",
+    "extra": "俚语：lucky dog（幸运儿）"
+  },
+  "GOD": {
+    "phonetic": "/ɡɒd/",
+    "pos": "n.",
+    "meaning": "神；上帝",
+    "example": "Many cultures worship different gods.",
+    "exampleCn": "许多文化崇拜不同的神。",
+    "extra": "常见短语：oh my god / thank god"
+  },
+  "STAR": {
+    "phonetic": "/stɑːr/",
+    "pos": "n. / v.",
+    "meaning": "星星；明星；主演",
+    "example": "She became a famous movie star.",
+    "exampleCn": "她成为了一位著名的电影明星。",
+    "extra": "短语：shooting star（流星）, star-studded（众星云集的）"
+  },
+  "RATS": {
+    "phonetic": "/ræts/",
+    "pos": "n. (pl.)",
+    "meaning": "老鼠（复数）；（口语）糟了",
+    "example": "The old barn was full of rats.",
+    "exampleCn": "那座旧谷仓里满是老鼠。",
+    "extra": "单数：rat；口语感叹：Rats! 表示懊恼"
+  },
+  "TAR": {
+    "phonetic": "/tɑːr/",
+    "pos": "n.",
+    "meaning": "焦油；沥青",
+    "example": "Workers poured hot tar on the road.",
+    "exampleCn": "工人们把热沥青浇在路上。",
+    "extra": "tarmac（停机坪/柏油路面）由此词衍生"
+  },
+  "LOVE": {
+    "phonetic": "/lʌv/",
+    "pos": "n. / v.",
+    "meaning": "爱；喜爱",
+    "example": "I love reading books before bed.",
+    "exampleCn": "我喜欢睡前读书。",
+    "extra": "网球中 love = 0 分；常见：fall in love（坠入爱河）"
+  },
+  "VOLE": {
+    "phonetic": "/vəʊl/",
+    "pos": "n.",
+    "meaning": "田鼠",
+    "example": "A vole scurried across the field.",
+    "exampleCn": "一只田鼠从田野里窜过。",
+    "extra": "和 mouse 相似但尾巴较短；是猫头鹰常见猎物"
+  },
+  "RAIN": {
+    "phonetic": "/reɪn/",
+    "pos": "n. / v.",
+    "meaning": "雨；下雨",
+    "example": "It's going to rain this afternoon.",
+    "exampleCn": "今天下午将会下雨。",
+    "extra": "习语：rain cats and dogs（倾盆大雨）"
+  },
+  "RAN": {
+    "phonetic": "/ræn/",
+    "pos": "v.",
+    "meaning": "run 的过去式：跑；经营",
+    "example": "He ran to catch the last bus.",
+    "exampleCn": "他跑去赶最后一班公交。",
+    "extra": "过去分词是 run：I have run five miles."
+  },
+  "AIR": {
+    "phonetic": "/eər/",
+    "pos": "n. / v.",
+    "meaning": "空气；播出",
+    "example": "We need fresh air in this room.",
+    "exampleCn": "这个房间需要新鲜空气。",
+    "extra": "短语：on air（正在播出）, air out（通风）"
+  },
+  "PLAY": {
+    "phonetic": "/pleɪ/",
+    "pos": "v. / n.",
+    "meaning": "玩；演奏；戏剧",
+    "example": "The children play in the park every day.",
+    "exampleCn": "孩子们每天在公园玩耍。",
+    "extra": "player / playful / playwright 都是同根词"
+  },
+  "PAL": {
+    "phonetic": "/pæl/",
+    "pos": "n.",
+    "meaning": "好朋友；伙伴（口语）",
+    "example": "He's been my pal since childhood.",
+    "exampleCn": "他从小就是我的好朋友。",
+    "extra": "比 friend 更口语化；pen pal = 笔友"
+  },
+  "LAY": {
+    "phonetic": "/leɪ/",
+    "pos": "v.",
+    "meaning": "放置；铺设；（鸡）下蛋",
+    "example": "Please lay the book on the table.",
+    "exampleCn": "请把书放在桌上。",
+    "extra": "注意：lay 及物，lie 不及物，初学常混淆"
+  },
+  "SMILE": {
+    "phonetic": "/smaɪl/",
+    "pos": "n. / v.",
+    "meaning": "微笑",
+    "example": "Her smile brightened the whole room.",
+    "exampleCn": "她的微笑照亮了整个房间。",
+    "extra": "习语：smile from ear to ear（笑得合不拢嘴）"
+  },
+  "MILE": {
+    "phonetic": "/maɪl/",
+    "pos": "n.",
+    "meaning": "英里（约 1.6 公里）",
+    "example": "The school is two miles from my home.",
+    "exampleCn": "学校离我家有两英里。",
+    "extra": "1 mile ≈ 1.609 km；milestone = 里程碑"
+  },
+  "LIME": {
+    "phonetic": "/laɪm/",
+    "pos": "n.",
+    "meaning": "青柠；酸橙",
+    "example": "Add a slice of lime to the drink.",
+    "exampleCn": "在饮料里加一片青柠。",
+    "extra": "别和 lemon（柠檬）混淆；lime green = 青柠色"
+  },
+  "HOUSE": {
+    "phonetic": "/haʊs/",
+    "pos": "n.",
+    "meaning": "房子；住宅",
+    "example": "They just bought a new house.",
+    "exampleCn": "他们刚买了新房子。",
+    "extra": "动词读作 /haʊz/，意为'收容'；household = 家庭"
+  },
+  "HOSE": {
+    "phonetic": "/həʊz/",
+    "pos": "n.",
+    "meaning": "软管；水龙带",
+    "example": "He watered the flowers with a garden hose.",
+    "exampleCn": "他用花园水管给花浇水。",
+    "extra": "消防软管叫 fire hose"
+  },
+  "USE": {
+    "phonetic": "/juːz/",
+    "pos": "v. / n.",
+    "meaning": "使用；用途",
+    "example": "Can I use your pen for a moment?",
+    "exampleCn": "我可以借用一下你的笔吗？",
+    "extra": "名词读 /juːs/，动词读 /juːz/；useful/useless 同根"
+  }
+}

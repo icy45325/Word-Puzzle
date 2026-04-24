@@ -1,0 +1,18 @@
+{
+  "ads.enabled": false,
+  "ads.level_complete_interstitial.enabled": true,
+  "ads.rewarded_extra_coins.enabled": true,
+  "iap.enabled": false,
+  "leaderboard.global.enabled": false,
+  "leaderboard.friends.enabled": false,
+  "dailyChallenge.enabled": false,
+  "hint.available": false,
+  "hint.cost": 30,
+  "reward.wordBase": 5,
+  "reward.wordPerLetter": 2,
+  "reward.levelComplete": 25,
+  "reward.levelPerfectBonus": 25,
+  "reward.dailyCheckIn": 20,
+  "reward.streakPerDay": 5,
+  "reward.adRewarded": 30
+}

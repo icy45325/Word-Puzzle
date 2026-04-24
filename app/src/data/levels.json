@@ -1,0 +1,73 @@
+{
+  "levels": [
+    {
+      "id": "L01",
+      "letters": ["C", "A", "T"],
+      "answers": [
+        { "word": "CAT", "row": 0, "col": 0, "dir": "H" },
+        { "word": "ACT", "row": 0, "col": 1, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L02",
+      "letters": ["D", "O", "G"],
+      "answers": [
+        { "word": "DOG", "row": 0, "col": 0, "dir": "H" },
+        { "word": "GOD", "row": 0, "col": 2, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L03",
+      "letters": ["S", "T", "A", "R"],
+      "answers": [
+        { "word": "STAR", "row": 0, "col": 0, "dir": "H" },
+        { "word": "RATS", "row": 0, "col": 3, "dir": "V" },
+        { "word": "TAR", "row": 0, "col": 1, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L04",
+      "letters": ["L", "O", "V", "E"],
+      "answers": [
+        { "word": "LOVE", "row": 0, "col": 0, "dir": "H" },
+        { "word": "VOLE", "row": 0, "col": 2, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L05",
+      "letters": ["R", "A", "I", "N"],
+      "answers": [
+        { "word": "RAIN", "row": 0, "col": 0, "dir": "H" },
+        { "word": "RAN", "row": 0, "col": 0, "dir": "V" },
+        { "word": "AIR", "row": 0, "col": 1, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L06",
+      "letters": ["P", "L", "A", "Y"],
+      "answers": [
+        { "word": "PLAY", "row": 0, "col": 0, "dir": "H" },
+        { "word": "PAL", "row": 0, "col": 0, "dir": "V" },
+        { "word": "LAY", "row": 0, "col": 1, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L07",
+      "letters": ["S", "M", "I", "L", "E"],
+      "answers": [
+        { "word": "SMILE", "row": 0, "col": 0, "dir": "H" },
+        { "word": "MILE", "row": 0, "col": 1, "dir": "V" },
+        { "word": "LIME", "row": 0, "col": 3, "dir": "V" }
+      ]
+    },
+    {
+      "id": "L08",
+      "letters": ["H", "O", "U", "S", "E"],
+      "answers": [
+        { "word": "HOUSE", "row": 0, "col": 0, "dir": "H" },
+        { "word": "HOSE", "row": 0, "col": 0, "dir": "V" },
+        { "word": "USE", "row": 0, "col": 2, "dir": "V" }
+      ]
+    }
+  ]
+}

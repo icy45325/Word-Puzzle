@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "WordScapes ZH",
+    "slug": "wordscapes-zh",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "wordscapeszh",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.icy45325.wordscapeszh"
+    },
+    "android": {
+      "package": "com.icy45325.wordscapeszh",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F2A3F"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "home.title": "拼词学英语",
+  "home.subtitle": "Wordscapes 风格 · 拼完即学",
+  "home.start": "开始游戏 Start",
+  "home.profile": "我的 Profile",
+  "home.tagline": "滑动字母拼出单词，拼完解锁中文释义、音标、例句。",
+  "game.preview.placeholder": "滑动字母…",
+  "game.foundLabel": "已找到",
+  "game.bonusLabel": "额外发现",
+  "profile.title": "我的",
+  "profile.guest": "游客账号",
+  "profile.coins": "金币",
+  "profile.streak": "连胜",
+  "profile.linkAccount": "绑定账号（敬请期待）",
+  "profile.leaderboard": "排行榜（敬请期待）",
+  "profile.store": "商店（敬请期待）"
+}
