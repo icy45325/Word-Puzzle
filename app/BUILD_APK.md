@@ -5,7 +5,37 @@ any network or Expo Go.
 
 > Output: `app/android/app/build/outputs/apk/release/app-release.apk`
 
+There are two paths. Pick whichever fits — both produce the same kind of
+sideloadable APK and the app runs fully offline once installed.
+
 ---
+
+## Option A — EAS Build (cloud, no SDK required) — recommended
+
+If you don't want to install Android Studio / JDK locally, let Expo's build
+servers do it. The project is already wired to EAS project
+`03dbff27-1493-4159-9fab-ab9b79202c73` (see `app/app.json` →
+`expo.extra.eas.projectId` and `app/eas.json`).
+
+```bash
+cd app
+npm install -g eas-cli         # or: use `npx eas-cli@latest` everywhere below
+eas login                      # one-time, free Expo account
+eas build -p android --profile preview
+```
+
+When the build finishes (~10 min), the CLI prints a download URL — open it on
+your phone and tap install (or `adb install` the file). The `preview` profile
+in `eas.json` is configured to emit an APK with `distribution: internal`,
+which is exactly what you want for sideloading.
+
+First-ever build will ask whether to generate a new Android keystore on EAS —
+say yes; Expo will manage and reuse it for every subsequent build under that
+project ID, so updates install over the previous version cleanly.
+
+---
+
+## Option B — Local Gradle build (fully offline / no Expo account)
 
 ## 1. One-time toolchain setup
 

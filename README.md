@@ -18,9 +18,21 @@ npx expo start
 
 ### 打独立 APK（离线安装到手机）
 
-需要 JDK 17 + Android SDK（platform-34, build-tools 34.0.0），完整步骤见
-[`app/BUILD_APK.md`](app/BUILD_APK.md)。装好工具链后一条命令就能产出签名后的
-APK：
+两条路二选一，详细说明见 [`app/BUILD_APK.md`](app/BUILD_APK.md)。
+
+**A. EAS Build（云端，推荐，不用装 Android SDK）**
+
+项目已绑定 EAS project `03dbff27-1493-4159-9fab-ab9b79202c73`：
+
+```bash
+cd app
+npm install -g eas-cli
+eas login
+eas build -p android --profile preview
+# 编译完终端会给出 APK 下载链接，手机直接装
+```
+
+**B. 本地 Gradle 编译（完全离线，需 JDK 17 + Android SDK）**
 
 ```bash
 cd app
