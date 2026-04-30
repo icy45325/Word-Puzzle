@@ -16,6 +16,19 @@ npx expo start
 # 或用手机 Expo Go 扫描终端里的二维码。
 ```
 
+### 打独立 APK（离线安装到手机）
+
+需要 JDK 17 + Android SDK（platform-34, build-tools 34.0.0），完整步骤见
+[`app/BUILD_APK.md`](app/BUILD_APK.md)。装好工具链后一条命令就能产出签名后的
+APK：
+
+```bash
+cd app
+npm run apk
+# 产物：app/android/app/build/outputs/apk/release/app-release.apk
+adb install -r app/android/app/build/outputs/apk/release/app-release.apk
+```
+
 ### 当前 MVP 能做什么
 
 - 圆形字母转盘 + 手势滑动拼词
