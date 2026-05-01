@@ -7,6 +7,10 @@
     "scheme": "wordscapeszh",
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
+    "splash": {
+      "backgroundColor": "#0F2A3F",
+      "resizeMode": "contain"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.icy45325.wordscapeszh"
@@ -25,6 +29,7 @@
       "eas": {
         "projectId": "03dbff27-1493-4159-9fab-ab9b79202c73"
       }
-    }
+    },
+    "owner": "icywangs-organization"
   }
 }
