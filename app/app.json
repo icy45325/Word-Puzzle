@@ -28,6 +28,11 @@
     "extra": {
       "eas": {
         "projectId": "03dbff27-1493-4159-9fab-ab9b79202c73"
+      },
+      "googleClientIds": {
+        "android": "YOUR_GOOGLE_ANDROID_CLIENT_ID.apps.googleusercontent.com",
+        "ios": "YOUR_GOOGLE_IOS_CLIENT_ID.apps.googleusercontent.com",
+        "web": "YOUR_GOOGLE_WEB_CLIENT_ID.apps.googleusercontent.com"
       }
     },
     "owner": "icywangs-organization"
