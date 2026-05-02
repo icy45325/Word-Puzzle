@@ -11,11 +11,17 @@ import { ServicesProvider } from './src/services';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { GameScreen } from './src/screens/GameScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
+import { VocabularyScreen } from './src/screens/VocabularyScreen';
+import { LeaderboardScreen } from './src/screens/LeaderboardScreen';
+import { FriendsScreen } from './src/screens/FriendsScreen';
 
 export type RootStackParamList = {
   Home: undefined;
   Game: undefined;
   Profile: undefined;
+  Vocabulary: undefined;
+  Leaderboard: undefined;
+  Friends: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -44,6 +50,21 @@ export default function App() {
                 name="Profile"
                 component={ProfileScreen}
                 options={{ title: '我的 Profile' }}
+              />
+              <Stack.Screen
+                name="Vocabulary"
+                component={VocabularyScreen}
+                options={{ title: '我的词表 Vocabulary' }}
+              />
+              <Stack.Screen
+                name="Leaderboard"
+                component={LeaderboardScreen}
+                options={{ title: '排行榜 Leaderboard' }}
+              />
+              <Stack.Screen
+                name="Friends"
+                component={FriendsScreen}
+                options={{ title: '好友 Friends' }}
               />
             </Stack.Navigator>
           </NavigationContainer>
