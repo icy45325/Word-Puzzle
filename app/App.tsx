@@ -14,6 +14,7 @@ import { ProfileScreen } from './src/screens/ProfileScreen';
 import { VocabularyScreen } from './src/screens/VocabularyScreen';
 import { LeaderboardScreen } from './src/screens/LeaderboardScreen';
 import { FriendsScreen } from './src/screens/FriendsScreen';
+import { LoginScreen } from './src/screens/LoginScreen';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   Vocabulary: undefined;
   Leaderboard: undefined;
   Friends: undefined;
+  Login: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -65,6 +67,11 @@ export default function App() {
                 name="Friends"
                 component={FriendsScreen}
                 options={{ title: '好友 Friends' }}
+              />
+              <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+                options={{ title: '登录 Login' }}
               />
             </Stack.Navigator>
           </NavigationContainer>

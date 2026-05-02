@@ -5,8 +5,12 @@ import { useCurrentUser, useServices } from '../services';
 import { useEconomy } from '../hooks/useEconomy';
 import { useUnlocks } from '../hooks/useUnlocks';
 import { t } from '../i18n';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../../App';
 
-export function ProfileScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+
+export function ProfileScreen({ navigation }: Props) {
   const services = useServices();
   const user = useCurrentUser();
   const { state } = useEconomy();
@@ -47,9 +51,14 @@ export function ProfileScreen() {
         <View style={styles.actions}>
           <Pressable
             style={styles.linkBtn}
-            disabled={!user?.isAnonymous}
-            onPress={() => {
-              // Login route is added in step 7
+            onPress={async () => {
+              if (user?.isAnonymous) {
+                navigation.navigate('Login');
+              } else {
+                await services.auth.signOut();
+                // After signOut the cached user resets; ServicesProvider's
+                // listener picks up the next anonymous user on next launch.
+              }
             }}
           >
             <Text style={styles.linkText}>
