@@ -22,8 +22,10 @@ export interface AuthService {
 export interface ProgressState {
   userId: Uuid;
   currentLevelIndex: number;
+  furthestLevelIndex: number;
   completedLevelIds: string[];
   foundWordsByLevel: Record<string, string[]>;
+  chapterRewardsClaimed: number[];
   schemaVersion: number;
 }
 
@@ -33,6 +35,26 @@ export interface ProgressRepo {
   // Used when an anonymous user signs in to a real account — merge local data.
   migrate(fromUserId: Uuid, toUserId: Uuid): Promise<void>;
   reset(userId: Uuid): Promise<void>;
+}
+
+export interface LearnedWord {
+  word: string;
+  levelId: string;
+  firstFoundAt: number;
+  isBonus: boolean;
+}
+
+export interface LearnedWordsRepo {
+  add(userId: Uuid, entry: LearnedWord): Promise<void>;
+  list(userId: Uuid): Promise<LearnedWord[]>;
+  migrate(fromUserId: Uuid, toUserId: Uuid): Promise<void>;
+  clear(userId: Uuid): Promise<void>;
+}
+
+export interface Friend {
+  userId: Uuid;
+  displayName: string;
+  addedAt: number;
 }
 
 export interface ScoreRecord {
@@ -54,6 +76,10 @@ export interface LeaderboardService {
   submit(record: ScoreRecord): Promise<void>;
   getTop(scope: LeaderboardScope, n: number): Promise<ScoreRecord[]>;
   getPersonalBest(levelId: string): Promise<ScoreRecord | null>;
+  myFriendCode(userId: Uuid): string;
+  listFriends(userId: Uuid): Promise<Friend[]>;
+  addFriend(userId: Uuid, code: string): Promise<{ ok: boolean; reason?: string }>;
+  removeFriend(userId: Uuid, friendUserId: Uuid): Promise<void>;
 }
 
 export interface EconomyState {
@@ -81,6 +107,10 @@ export interface EconomyService {
     kind: 'hint' | 'reveal_letter' | 'skip_level',
     cost: number
   ): Promise<{ ok: boolean; state: EconomyState }>;
+  grantChapterReward(
+    userId: Uuid,
+    args: { chapter: number; coins: number; hints: number }
+  ): Promise<EconomyState>;
   subscribe(userId: Uuid, listener: (s: EconomyState) => void): () => void;
 }
 
@@ -152,6 +182,7 @@ export interface RemoteConfig {
 export interface Services {
   auth: AuthService;
   progress: ProgressRepo;
+  learnedWords: LearnedWordsRepo;
   leaderboard: LeaderboardService;
   economy: EconomyService;
   ads: AdsService;
