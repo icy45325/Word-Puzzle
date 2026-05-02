@@ -1,10 +1,20 @@
-import type { AuthService, User } from '../types';
+import type { AuthService, LearnedWordsRepo, ProgressRepo, User } from '../types';
 import { keys, readJson, writeJson } from '../../store/storage';
 import { uuidv4 } from '../../utils/uuid';
+
+export interface LinkedIdentity {
+  userId: string;
+  displayName: string;
+}
 
 export class AnonymousAuth implements AuthService {
   private cached: User | null = null;
   private listeners = new Set<(u: User) => void>();
+
+  constructor(
+    private readonly progress: ProgressRepo,
+    private readonly learnedWords: LearnedWordsRepo
+  ) {}
 
   async getCurrentUser(): Promise<User> {
     if (this.cached) return this.cached;
@@ -25,19 +35,41 @@ export class AnonymousAuth implements AuthService {
   }
 
   async link(): Promise<User> {
-    // Real provider linking not implemented in MVP. When we plug in
-    // Firebase/Supabase/Apple, call services.progress.migrate(oldId, newId)
-    // from here before flipping the cached user.
-    throw new Error('AuthService.link: not implemented in MVP');
+    throw new Error('AuthService.link: use linkWithIdentity for v2 sign-in flow');
+  }
+
+  // Step-7 (Google sign-in) call site: pass the resolved Google identity in,
+  // we migrate local data and flip the cached user.
+  async linkWithIdentity(identity: LinkedIdentity): Promise<User> {
+    const current = await this.getCurrentUser();
+    if (!current.isAnonymous) return current;
+    if (current.userId !== identity.userId) {
+      await this.progress.migrate(current.userId, identity.userId);
+      await this.learnedWords.migrate(current.userId, identity.userId);
+    }
+    const next: User = {
+      userId: identity.userId,
+      displayName: identity.displayName,
+      isAnonymous: false,
+      createdAt: current.createdAt,
+    };
+    await writeJson(keys.user(), next);
+    this.cached = next;
+    this.listeners.forEach((fn) => fn(next));
+    return next;
   }
 
   async signOut(): Promise<void> {
-    // Anonymous users don't sign out in the traditional sense; this is a
-    // no-op placeholder that keeps UI code simple.
+    // Anonymous users don't sign out. After Google sign-in this resets to a
+    // fresh guest identity so the next launch starts clean.
+    this.cached = null;
+    await writeJson(keys.user(), null as unknown as User);
   }
 
   onChange(listener: (user: User) => void): () => void {
     this.listeners.add(listener);
-    return () => this.listeners.delete(listener);
+    return () => {
+      this.listeners.delete(listener);
+    };
   }
 }

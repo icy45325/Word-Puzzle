@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from '
 import type { Services, User } from './types';
 import { AnonymousAuth } from './auth/AnonymousAuth';
 import { LocalProgressRepo } from './progress/LocalProgressRepo';
+import { LocalLearnedWordsRepo } from './learnedWords/LocalLearnedWordsRepo';
 import { LocalLeaderboard } from './leaderboard/LocalLeaderboard';
 import { LocalEconomy } from './economy/LocalEconomy';
 import { NoopAds } from './ads/NoopAds';
@@ -12,13 +13,27 @@ import { StaticRemoteConfig } from './remoteConfig/StaticRemoteConfig';
 export function createDefaultServices(): Services {
   const remoteConfig = new StaticRemoteConfig();
   const analytics = new ConsoleAnalytics();
-  const auth = new AnonymousAuth();
+  const auth = new AnonymousAuth(
+    new LocalProgressRepo(),
+    new LocalLearnedWordsRepo()
+  );
   const progress = new LocalProgressRepo();
+  const learnedWords = new LocalLearnedWordsRepo();
   const leaderboard = new LocalLeaderboard();
   const economy = new LocalEconomy(remoteConfig);
   const ads = new NoopAds(remoteConfig, analytics);
   const iap = new NoopIap(remoteConfig, analytics);
-  return { auth, progress, leaderboard, economy, ads, iap, analytics, remoteConfig };
+  return {
+    auth,
+    progress,
+    learnedWords,
+    leaderboard,
+    economy,
+    ads,
+    iap,
+    analytics,
+    remoteConfig,
+  };
 }
 
 interface Ctx {

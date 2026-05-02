@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const NAMESPACE = 'ws';
-export const CURRENT_SCHEMA_VERSION = 1;
+export const CURRENT_SCHEMA_VERSION = 2;
 
 export const keys = {
   user: () => `${NAMESPACE}:user`,
@@ -9,6 +9,8 @@ export const keys = {
   economy: (userId: string) => `${NAMESPACE}:${userId}:economy`,
   scores: (userId: string) => `${NAMESPACE}:${userId}:scores`,
   entitlements: (userId: string) => `${NAMESPACE}:${userId}:entitlements`,
+  learnedWords: (userId: string) => `${NAMESPACE}:${userId}:learnedWords`,
+  friends: (userId: string) => `${NAMESPACE}:${userId}:friends`,
 };
 
 export async function readJson<T>(key: string): Promise<T | null> {
