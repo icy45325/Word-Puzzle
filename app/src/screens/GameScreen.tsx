@@ -3,14 +3,18 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CoinHud } from '../components/CoinHud';
 import { CrosswordGrid } from '../components/CrosswordGrid';
+import { HintButton } from '../components/HintButton';
 import { LetterWheel } from '../components/LetterWheel';
 import { LevelCompleteModal } from '../components/LevelCompleteModal';
 import { WordDetailModal } from '../components/WordDetailModal';
 import { WordPreview } from '../components/WordPreview';
+import { WordsFoundPanel } from '../components/WordsFoundPanel';
 import { useGameState } from '../hooks/useGameState';
+import { useServices } from '../services';
 import { t } from '../i18n';
 
 export function GameScreen() {
+  const services = useServices();
   const {
     level,
     layout,
@@ -18,30 +22,59 @@ export function GameScreen() {
     bonusWords,
     totalAnswers,
     levelCompleted,
+    isLastLevel,
+    revealedCells,
     submitWord,
+    revealLetter,
     nextLevel,
   } = useGameState();
+
+  const failsBeforeAutoOpen = services.remoteConfig.getNumber(
+    'wordDetail.failsBeforeAutoOpen',
+    3
+  );
 
   const [preview, setPreview] = useState('');
   const [detail, setDetail] = useState<{ word: string; isBonus: boolean } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [panelOpen, setPanelOpen] = useState(false);
+
+  const showToast = useCallback((msg: string, ms = 1200) => {
+    setToast(msg);
+    setTimeout(() => setToast((t) => (t === msg ? null : t)), ms);
+  }, []);
 
   const handleSubmit = useCallback(
     (raw: string) => {
       const outcome = submitWord(raw);
-      if (outcome.kind === 'answer' || outcome.kind === 'bonus') {
-        setDetail({ word: outcome.word, isBonus: outcome.isBonus });
-        setToast(null);
+      if (outcome.kind === 'answer') {
+        if (outcome.failedCountForThisWord >= failsBeforeAutoOpen) {
+          setDetail({ word: outcome.word, isBonus: false });
+        } else {
+          const coins =
+            services.remoteConfig.getNumber('reward.wordBase', 5) +
+            services.remoteConfig.getNumber('reward.wordPerLetter', 2) *
+              outcome.word.length;
+          showToast(t('game.toast.coinReward', { coins }));
+        }
+      } else if (outcome.kind === 'bonus') {
+        const coins =
+          services.remoteConfig.getNumber('reward.wordBase', 5) +
+          services.remoteConfig.getNumber('reward.wordPerLetter', 2) *
+            outcome.word.length;
+        showToast(t('game.toast.coinReward', { coins }));
       } else if (outcome.kind === 'already_in_level' || outcome.kind === 'duplicate') {
-        setToast('已经找过啦 Already found');
-        setTimeout(() => setToast(null), 1000);
+        showToast(t('game.toast.duplicate'), 800);
       } else if (outcome.kind === 'not_a_word' && raw.length >= 2) {
-        setToast('不是有效单词 Not a word');
-        setTimeout(() => setToast(null), 1000);
+        showToast(t('game.toast.notWord'), 800);
       }
     },
-    [submitWord]
+    [submitWord, failsBeforeAutoOpen, services.remoteConfig, showToast]
   );
+
+  const handleHintInsufficient = useCallback(() => {
+    showToast(t('hint.insufficient'));
+  }, [showToast]);
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -53,9 +86,24 @@ export function GameScreen() {
           {t('game.foundLabel')} {foundAnswers.length}/{totalAnswers}
           {bonusWords.length > 0 ? `   ·   ${t('game.bonusLabel')} ${bonusWords.length}` : ''}
         </Text>
+        <View style={styles.actionsRow}>
+          <Pressable
+            style={styles.foundBtn}
+            onPress={() => setPanelOpen(true)}
+          >
+            <Text style={styles.foundBtnText}>
+              {t('game.wordsFound', { count: foundAnswers.length + bonusWords.length })}
+            </Text>
+          </Pressable>
+          <HintButton onReveal={revealLetter} onInsufficient={handleHintInsufficient} />
+        </View>
       </View>
 
-      <CrosswordGrid layout={layout} foundWords={foundAnswers} />
+      <CrosswordGrid
+        layout={layout}
+        foundWords={foundAnswers}
+        revealedCells={revealedCells}
+      />
 
       <WordPreview word={preview || t('game.preview.placeholder')} />
 
@@ -73,19 +121,16 @@ export function GameScreen() {
         />
       </View>
 
-      {bonusWords.length > 0 ? (
-        <View style={styles.bonusBar}>
-          {bonusWords.map((w) => (
-            <Pressable
-              key={w}
-              style={styles.bonusPill}
-              onPress={() => setDetail({ word: w, isBonus: true })}
-            >
-              <Text style={styles.bonusPillText}>{w}</Text>
-            </Pressable>
-          ))}
-        </View>
-      ) : null}
+      <WordsFoundPanel
+        visible={panelOpen}
+        foundAnswers={foundAnswers}
+        bonusWords={bonusWords}
+        onClose={() => setPanelOpen(false)}
+        onTapWord={(word, isBonus) => {
+          setPanelOpen(false);
+          setDetail({ word, isBonus });
+        }}
+      />
 
       <WordDetailModal
         word={detail?.word ?? null}
@@ -94,12 +139,14 @@ export function GameScreen() {
       />
 
       <LevelCompleteModal
-        visible={levelCompleted && !detail}
+        visible={levelCompleted && !detail && !panelOpen}
         levelId={level.id}
         wordsFound={foundAnswers.length}
         totalWords={totalAnswers}
         bonusCount={bonusWords.length}
-        onNext={nextLevel}
+        onNext={isLastLevel ? () => undefined : nextLevel}
+        nextDisabled={isLastLevel}
+        nextDisabledLabel={t('game.lastLevel')}
       />
     </SafeAreaView>
   );
@@ -115,6 +162,23 @@ const styles = StyleSheet.create({
   },
   levelLabel: { fontSize: 14, color: '#9AB8CF', letterSpacing: 2 },
   progress: { marginTop: 4, fontSize: 14, color: '#F7F9FC', fontWeight: '600' },
+  actionsRow: {
+    marginTop: 10,
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+  },
+  foundBtn: {
+    backgroundColor: '#1C3D57',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 999,
+  },
+  foundBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#F7F9FC',
+  },
   wheelWrap: {
     flex: 1,
     alignItems: 'center',
@@ -130,18 +194,4 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   toastText: { color: '#F7C948', fontSize: 12, fontWeight: '600' },
-  bonusBar: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    paddingHorizontal: 16,
-    gap: 8,
-    justifyContent: 'center',
-  },
-  bonusPill: {
-    backgroundColor: 'rgba(247, 201, 72, 0.25)',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 999,
-  },
-  bonusPillText: { fontSize: 12, fontWeight: '700', color: '#F7C948' },
 });

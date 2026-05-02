@@ -8,6 +8,8 @@ interface Props {
   totalWords: number;
   bonusCount: number;
   onNext: () => void;
+  nextDisabled?: boolean;
+  nextDisabledLabel?: string;
 }
 
 export function LevelCompleteModal({
@@ -17,6 +19,8 @@ export function LevelCompleteModal({
   totalWords,
   bonusCount,
   onNext,
+  nextDisabled,
+  nextDisabledLabel,
 }: Props) {
   return (
     <Modal visible={visible} transparent animationType="fade">
@@ -28,8 +32,16 @@ export function LevelCompleteModal({
             <Stat label="答案" value={`${wordsFound}/${totalWords}`} />
             <Stat label="额外" value={`${bonusCount}`} />
           </View>
-          <Pressable style={styles.nextBtn} onPress={onNext}>
-            <Text style={styles.nextText}>下一关 Next</Text>
+          <Pressable
+            style={[styles.nextBtn, nextDisabled && styles.nextBtnDisabled]}
+            onPress={onNext}
+            disabled={nextDisabled}
+          >
+            <Text style={styles.nextText}>
+              {nextDisabled
+                ? nextDisabledLabel ?? '已通关 All Done'
+                : '下一关 Next'}
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -80,5 +92,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
+  nextBtnDisabled: { opacity: 0.5 },
   nextText: { color: '#F7C948', fontSize: 16, fontWeight: '700' },
 });
