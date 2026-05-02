@@ -8,9 +8,10 @@ const GAP = 6;
 interface Props {
   layout: LevelLayout;
   foundWords: string[];
+  revealedCells?: Record<string, true>;
 }
 
-export function CrosswordGrid({ layout, foundWords }: Props) {
+export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
   const foundSet = useMemo(() => new Set(foundWords.map((w) => w.toUpperCase())), [foundWords]);
 
   const grid: (Cell | null)[][] = useMemo(() => {
@@ -31,14 +32,30 @@ export function CrosswordGrid({ layout, foundWords }: Props) {
             if (!cell) {
               return <View key={`c${r}-${c}`} style={styles.empty} />;
             }
-            const revealed = cell.answerWords.some((w) => foundSet.has(w));
+            const fromFound = cell.answerWords.some((w) => foundSet.has(w));
+            const fromHint = !!revealedCells?.[`${cell.row},${cell.col}`];
+            const revealed = fromFound || fromHint;
             return (
               <View
                 key={`c${r}-${c}`}
-                style={[styles.cell, revealed ? styles.cellRevealed : styles.cellHidden]}
+                style={[
+                  styles.cell,
+                  revealed
+                    ? fromFound
+                      ? styles.cellRevealed
+                      : styles.cellHinted
+                    : styles.cellHidden,
+                ]}
               >
                 {revealed ? (
-                  <Text style={styles.letter}>{cell.letter}</Text>
+                  <Text
+                    style={[
+                      styles.letter,
+                      fromFound ? styles.letterFound : styles.letterHinted,
+                    ]}
+                  >
+                    {cell.letter}
+                  </Text>
                 ) : null}
               </View>
             );
@@ -72,6 +89,9 @@ const styles = StyleSheet.create({
   cellRevealed: {
     backgroundColor: '#F7F9FC',
   },
+  cellHinted: {
+    backgroundColor: '#F7C948',
+  },
   empty: {
     width: CELL_SIZE,
     height: CELL_SIZE,
@@ -80,6 +100,7 @@ const styles = StyleSheet.create({
   letter: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0F2A3F',
   },
+  letterFound: { color: '#0F2A3F' },
+  letterHinted: { color: '#0F2A3F' },
 });

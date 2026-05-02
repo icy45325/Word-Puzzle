@@ -31,11 +31,16 @@ export class LocalEconomy implements EconomyService {
     const c = this.cache.get(userId);
     if (c) return c;
     const persisted = await readJson<EconomyState>(keys.economy(userId));
-    const state = persisted
-      ? { ...empty(userId), ...persisted, userId }
-      : empty(userId);
-    this.cache.set(userId, state);
-    return state;
+    if (persisted) {
+      const state = { ...empty(userId), ...persisted, userId };
+      this.cache.set(userId, state);
+      return state;
+    }
+    const fresh = empty(userId);
+    fresh.hints = this.rc.getNumber('hint.startingCount', 0);
+    this.cache.set(userId, fresh);
+    if (fresh.hints > 0) await this.persist(fresh);
+    return fresh;
   }
 
   async grant(userId: Uuid, event: EconomyEvent): Promise<EconomyState> {
@@ -84,11 +89,26 @@ export class LocalEconomy implements EconomyService {
     cost: number
   ): Promise<{ ok: boolean; state: EconomyState }> {
     const state = { ...(await this.getState(userId)) };
-    if (state.coins < cost) return { ok: false, state };
-    state.coins -= cost;
-    if (kind === 'hint') state.hints = Math.max(0, state.hints - 0);
+    if (kind === 'hint') {
+      if (state.hints < cost) return { ok: false, state };
+      state.hints -= cost;
+    } else {
+      if (state.coins < cost) return { ok: false, state };
+      state.coins -= cost;
+    }
     await this.persist(state);
     return { ok: true, state };
+  }
+
+  async grantChapterReward(
+    userId: Uuid,
+    args: { chapter: number; coins: number; hints: number }
+  ): Promise<EconomyState> {
+    const state = { ...(await this.getState(userId)) };
+    state.coins += args.coins;
+    state.hints += args.hints;
+    await this.persist(state);
+    return state;
   }
 
   subscribe(userId: Uuid, listener: (s: EconomyState) => void): () => void {
