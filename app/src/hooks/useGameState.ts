@@ -366,6 +366,38 @@ export function useGameState() {
     dispatch({ type: 'NEXT_LEVEL', levelIndex: next });
   }, [state.levelIndex]);
 
+  const claimChapterReward = useCallback(async () => {
+    if (!user) return null;
+    const chapterSize = services.remoteConfig.getNumber('chapter.size', 10);
+    const chapterIdx = Math.floor(state.levelIndex / chapterSize) + 1;
+    const rewardCoins = services.remoteConfig.getNumber('chapter.rewardCoins', 100);
+    const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
+    const baseHints = services.remoteConfig.getNumber('chapter.hintsGranted', 3);
+    const grantedHints = state.levelIndex + 1 <= hintCapLevel ? baseHints : 0;
+
+    await services.economy.grantChapterReward(user.userId, {
+      chapter: chapterIdx,
+      coins: rewardCoins,
+      hints: grantedHints,
+    });
+    const prev = await services.progress.load(user.userId);
+    if (!prev.chapterRewardsClaimed.includes(chapterIdx)) {
+      await services.progress.save({
+        ...prev,
+        chapterRewardsClaimed: [...prev.chapterRewardsClaimed, chapterIdx],
+      });
+    }
+    services.analytics.track({
+      name: 'level_complete',
+      props: {
+        levelId: `chapter_${chapterIdx}`,
+        score: rewardCoins,
+        timeMs: 0,
+      },
+    });
+    return { chapter: chapterIdx, coins: rewardCoins, hints: grantedHints };
+  }, [services, state.levelIndex, user]);
+
   const resetLevel = useCallback(() => dispatch({ type: 'RESET_LEVEL' }), []);
 
   const chapterSize = services.remoteConfig.getNumber('chapter.size', 10);
@@ -390,6 +422,7 @@ export function useGameState() {
     revealLetter,
     nextLevel,
     resetLevel,
+    claimChapterReward,
     wordDetail: (word: string) => lookup(word),
     isLastLevel: state.levelIndex >= LEVELS.length - 1,
   };

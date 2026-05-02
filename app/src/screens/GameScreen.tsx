@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { ChapterRewardModal } from '../components/ChapterRewardModal';
 import { CoinHud } from '../components/CoinHud';
 import { CrosswordGrid } from '../components/CrosswordGrid';
 import { HintButton } from '../components/HintButton';
@@ -22,11 +23,14 @@ export function GameScreen() {
     bonusWords,
     totalAnswers,
     levelCompleted,
+    isChapterEnd,
+    chapterIndex,
     isLastLevel,
     revealedCells,
     submitWord,
     revealLetter,
     nextLevel,
+    claimChapterReward,
   } = useGameState();
 
   const failsBeforeAutoOpen = services.remoteConfig.getNumber(
@@ -38,6 +42,14 @@ export function GameScreen() {
   const [detail, setDetail] = useState<{ word: string; isBonus: boolean } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
+
+  const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
+  const chapterHintsGranted = services.remoteConfig.getNumber('chapter.hintsGranted', 3);
+  const chapterCoinsReward = services.remoteConfig.getNumber('chapter.rewardCoins', 100);
+  const levelNumber = Number(level.id.replace(/^L0?/, '')) || 1;
+  const hintsForThisChapter =
+    levelNumber <= hintCapLevel ? chapterHintsGranted : 0;
+  const hintCapped = chapterHintsGranted > 0 && hintsForThisChapter === 0;
 
   const showToast = useCallback((msg: string, ms = 1200) => {
     setToast(msg);
@@ -139,7 +151,7 @@ export function GameScreen() {
       />
 
       <LevelCompleteModal
-        visible={levelCompleted && !detail && !panelOpen}
+        visible={levelCompleted && !isChapterEnd && !detail && !panelOpen}
         levelId={level.id}
         wordsFound={foundAnswers.length}
         totalWords={totalAnswers}
@@ -147,6 +159,18 @@ export function GameScreen() {
         onNext={isLastLevel ? () => undefined : nextLevel}
         nextDisabled={isLastLevel}
         nextDisabledLabel={t('game.lastLevel')}
+      />
+
+      <ChapterRewardModal
+        visible={levelCompleted && isChapterEnd && !detail && !panelOpen}
+        chapter={chapterIndex}
+        coins={chapterCoinsReward}
+        hints={hintsForThisChapter}
+        hintCapped={hintCapped}
+        onClaim={async () => {
+          await claimChapterReward();
+          if (!isLastLevel) nextLevel();
+        }}
       />
     </SafeAreaView>
   );
