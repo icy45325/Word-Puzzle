@@ -157,3 +157,68 @@ The app is fully offline:
   script again. Keep `release.keystore` and `keystore.properties` if you want
   to keep signing the same identity (Android refuses to update an installed
   app whose APK is signed by a different key).
+
+---
+
+## 5. (Optional) Provisioning Google sign-in
+
+The Profile screen offers a "Continue with Google" button. It only works once
+you've created an OAuth client in Google Cloud Console and pasted the IDs into
+`app/app.json` → `extra.googleClientIds`. Until then the button shows a
+localized hint and does nothing destructive.
+
+### 5a. Find your Android signing fingerprint
+
+Google needs the SHA-1 of the keystore that signed the APK.
+
+- **EAS-managed keystore (Option A above):**
+  ```bash
+  eas credentials
+  # → Android → production → Show keystore information
+  ```
+  Copy the line beginning with `SHA1 Fingerprint:`.
+
+- **Local keystore (Option B):**
+  ```bash
+  keytool -list -v \
+    -keystore app/android/app/release.keystore \
+    -alias "${KEYSTORE_ALIAS:-wordscapes}" \
+    -storepass "${KEYSTORE_PASSWORD:-wordscapes-zh}"
+  ```
+  Copy the `SHA1` line.
+
+### 5b. Create OAuth clients in GCP
+
+1. Open https://console.cloud.google.com/apis/credentials and pick (or create)
+   a project.
+2. Click **+ Create credentials → OAuth client ID** and create three clients:
+   - **Android**
+     - Package name: `com.icy45325.wordscapeszh`
+     - SHA-1: the value from 5a
+   - **iOS** (only if you'll ship to iOS)
+     - Bundle ID: `com.icy45325.wordscapeszh`
+   - **Web application** — required by `expo-auth-session/providers/google`
+     even on native; just save it without redirect URIs for now.
+3. Copy each client's `…apps.googleusercontent.com` ID.
+
+### 5c. Paste IDs into `app.json`
+
+```jsonc
+"extra": {
+  "googleClientIds": {
+    "android": "PASTE_HERE.apps.googleusercontent.com",
+    "ios": "PASTE_HERE.apps.googleusercontent.com",
+    "web": "PASTE_HERE.apps.googleusercontent.com"
+  }
+}
+```
+
+Rebuild the APK after the change (the IDs are baked into the binary at build
+time). Then on first sign-in, the in-app browser hands the user to Google,
+returns an access token, and `AnonymousAuth.linkWithIdentity` migrates local
+progress / economy / scores / friends / learnedWords into the new
+`google:<sub>` userId namespace.
+
+If you change the keystore SHA-1 (e.g. switching from EAS-managed to local
+keystore), re-add the new SHA-1 to the Android OAuth client in GCP — the old
+one stops working immediately.
