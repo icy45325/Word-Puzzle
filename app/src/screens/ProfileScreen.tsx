@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
+import { AnonymousAuth } from '../services/auth/AnonymousAuth';
 import { useEconomy } from '../hooks/useEconomy';
 import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
@@ -20,6 +28,8 @@ export function ProfileScreen({ navigation }: Props) {
   const unlocks = useUnlocks();
   const { theme } = useTheme();
   const [learnedCount, setLearnedCount] = useState(0);
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState('');
 
   useEffect(() => {
     if (!user) return;
@@ -32,6 +42,20 @@ export function ProfileScreen({ navigation }: Props) {
       cancelled = true;
     };
   }, [services, user]);
+
+  const openEdit = () => {
+    if (!user) return;
+    setDraft(user.displayName);
+    setEditing(true);
+  };
+
+  const saveEdit = async () => {
+    const auth = services.auth as AnonymousAuth;
+    if (typeof auth.setDisplayName === 'function') {
+      await auth.setDisplayName(draft);
+    }
+    setEditing(false);
+  };
 
   return (
     <GradientBackground>
@@ -49,7 +73,10 @@ export function ProfileScreen({ navigation }: Props) {
 
         <View style={styles.content}>
           <View style={styles.card}>
-            <Text style={styles.name}>{user?.displayName ?? '—'}</Text>
+            <Pressable onPress={openEdit} style={styles.nameRow}>
+              <Text style={styles.name}>{user?.displayName ?? '—'}</Text>
+              <Text style={styles.editIcon}>✏️</Text>
+            </Pressable>
             <Text style={styles.sub}>
               {user?.isAnonymous ? t('profile.guest') : 'Signed in'}
             </Text>
@@ -80,6 +107,48 @@ export function ProfileScreen({ navigation }: Props) {
           </Pressable>
           <Text style={styles.actionHint}>{t('login.googleHint')}</Text>
         </View>
+
+        <Modal
+          visible={editing}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setEditing(false)}
+        >
+          <Pressable
+            style={styles.editBackdrop}
+            onPress={() => setEditing(false)}
+          />
+          <View style={styles.editCardWrap}>
+            <View style={styles.editCard}>
+              <Text style={styles.editTitle}>修改昵称</Text>
+              <TextInput
+                style={styles.editInput}
+                value={draft}
+                onChangeText={setDraft}
+                autoFocus
+                maxLength={24}
+                placeholder="输入新昵称"
+                placeholderTextColor="#94A3B8"
+              />
+              <View style={styles.editButtons}>
+                <Pressable
+                  style={[styles.editBtn, styles.editBtnGhost]}
+                  onPress={() => setEditing(false)}
+                >
+                  <Text style={styles.editBtnGhostText}>取消</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.editBtn, { backgroundColor: theme.primary }]}
+                  onPress={saveEdit}
+                >
+                  <Text style={[styles.editBtnText, { color: theme.primaryText }]}>
+                    保存
+                  </Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </SafeAreaView>
     </GradientBackground>
   );
@@ -122,7 +191,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.06)',
   },
+  nameRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   name: { fontSize: 22, fontWeight: '900', color: '#F8FAFC' },
+  editIcon: { fontSize: 16, opacity: 0.7 },
   sub: { marginTop: 4, color: 'rgba(255,255,255,0.5)', fontSize: 13 },
   statsGrid: {
     marginTop: 22,
@@ -147,4 +218,42 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 16,
   },
+  editBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+  },
+  editCardWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+  },
+  editCard: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 22,
+    padding: 22,
+    gap: 14,
+  },
+  editTitle: { fontSize: 18, fontWeight: '900', color: '#0F172A' },
+  editInput: {
+    backgroundColor: '#F1F5F9',
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#0F172A',
+  },
+  editButtons: { flexDirection: 'row', gap: 10 },
+  editBtn: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  editBtnGhost: { backgroundColor: '#F1F5F9' },
+  editBtnGhostText: { color: '#64748B', fontWeight: '900' },
+  editBtnText: { fontWeight: '900', fontSize: 14 },
 });

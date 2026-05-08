@@ -104,7 +104,7 @@ export interface EconomyService {
   grant(userId: Uuid, event: EconomyEvent): Promise<EconomyState>;
   spend(
     userId: Uuid,
-    kind: 'hint' | 'reveal_letter' | 'skip_level',
+    kind: 'hint' | 'reveal_letter' | 'skip_level' | 'coins_to_hint',
     cost: number
   ): Promise<{ ok: boolean; state: EconomyState }>;
   grantChapterReward(

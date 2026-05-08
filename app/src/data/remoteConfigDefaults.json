@@ -9,6 +9,8 @@
   "hint.available": true,
   "hint.cost": 1,
   "hint.startingCount": 3,
+  "hint.coinsExchange.enabled": true,
+  "hint.coinsExchange.cost": 50,
   "chapter.size": 10,
   "chapter.rewardCoins": 100,
   "chapter.hintsGranted": 3,

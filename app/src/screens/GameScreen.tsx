@@ -91,10 +91,6 @@ export function GameScreen({ navigation }: Props) {
     [submitWord, failsBeforeAutoOpen, services.remoteConfig, showToast]
   );
 
-  const handleHintInsufficient = useCallback(() => {
-    showToast(t('hint.insufficient'));
-  }, [showToast]);
-
   return (
     <GradientBackground>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
@@ -111,10 +107,7 @@ export function GameScreen({ navigation }: Props) {
             <Text style={styles.headerLabel}>当前目标</Text>
             <Text style={styles.headerTitle}>{level.id}</Text>
           </View>
-          <HintButton
-            onReveal={revealLetter}
-            onInsufficient={handleHintInsufficient}
-          />
+          <HintButton onReveal={revealLetter} />
         </View>
 
         <View style={styles.gridWrap}>

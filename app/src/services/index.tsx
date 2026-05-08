@@ -62,8 +62,12 @@ export function ServicesProvider({ services, children }: Props) {
       resolved.analytics.track({ name: 'app_open' });
       setUser(u);
     })();
+    const unsub = resolved.auth.onChange((u) => {
+      setUser(u);
+    });
     return () => {
       cancelled = true;
+      unsub();
     };
   }, [resolved]);
 

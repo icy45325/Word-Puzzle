@@ -1,5 +1,5 @@
-import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
 import { useUnlocks } from '../hooks/useUnlocks';
@@ -14,11 +14,31 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Map'>;
 
 const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).levels;
 
+// Vertical pitch between consecutive nodes (node height + gap from styles).
+const NODE_PITCH = 84 + 28;
+
 export function MapScreen({ navigation }: Props) {
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();
   const furthest = unlocks.furthestLevel;
+  const scrollRef = useRef<ScrollView>(null);
+
+  // Auto-scroll so the current level sits roughly 1/3 down the viewport
+  // once we know `furthest` (i.e. once unlocks have hydrated).
+  useEffect(() => {
+    if (!unlocks.loaded) return;
+    const screenH = Dimensions.get('window').height;
+    const targetY = Math.max(
+      0,
+      (furthest - 1) * NODE_PITCH - screenH * 0.33
+    );
+    // Defer one frame so the ScrollView has measured.
+    const timer = setTimeout(() => {
+      scrollRef.current?.scrollTo({ y: targetY, animated: false });
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [unlocks.loaded, furthest]);
 
   const handlePick = async (oneBased: number) => {
     if (!user || oneBased > furthest) return;
@@ -43,6 +63,7 @@ export function MapScreen({ navigation }: Props) {
         </View>
 
         <ScrollView
+          ref={scrollRef}
           contentContainerStyle={styles.scroll}
           showsVerticalScrollIndicator={false}
         >

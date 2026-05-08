@@ -66,6 +66,17 @@ export class AnonymousAuth implements AuthService {
     await writeJson(keys.user(), null as unknown as User);
   }
 
+  async setDisplayName(name: string): Promise<User> {
+    const current = await this.getCurrentUser();
+    const trimmed = name.trim().slice(0, 24);
+    if (!trimmed || trimmed === current.displayName) return current;
+    const next: User = { ...current, displayName: trimmed };
+    await writeJson(keys.user(), next);
+    this.cached = next;
+    this.listeners.forEach((fn) => fn(next));
+    return next;
+  }
+
   onChange(listener: (user: User) => void): () => void {
     this.listeners.add(listener);
     return () => {

@@ -85,13 +85,19 @@ export class LocalEconomy implements EconomyService {
 
   async spend(
     userId: Uuid,
-    kind: 'hint' | 'reveal_letter' | 'skip_level',
+    kind: 'hint' | 'reveal_letter' | 'skip_level' | 'coins_to_hint',
     cost: number
   ): Promise<{ ok: boolean; state: EconomyState }> {
     const state = { ...(await this.getState(userId)) };
     if (kind === 'hint') {
       if (state.hints < cost) return { ok: false, state };
       state.hints -= cost;
+    } else if (kind === 'coins_to_hint') {
+      // Spend coins to gain 1 hint per `cost` coins. Single-shot exchange:
+      // cost is the price for one hint; we charge once and grant 1 hint.
+      if (state.coins < cost) return { ok: false, state };
+      state.coins -= cost;
+      state.hints += 1;
     } else {
       if (state.coins < cost) return { ok: false, state };
       state.coins -= cost;

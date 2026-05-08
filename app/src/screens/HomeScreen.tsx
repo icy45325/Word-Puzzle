@@ -8,6 +8,7 @@ import { useUnlocks } from '../hooks/useUnlocks';
 import { useTheme } from '../theme/ThemeProvider';
 import { GradientBackground } from '../components/GradientBackground';
 import { AppLogo } from '../components/AppLogo';
+import { ShimmerOverlay } from '../components/ShimmerOverlay';
 import { TopBar } from '../components/TopBar';
 import { ThemePickerModal } from '../components/ThemePickerModal';
 
@@ -81,7 +82,7 @@ export function HomeScreen({ navigation }: Props) {
             </View>
           </Pressable>
 
-          {/* Big play button */}
+          {/* Big play button with subtle shimmer sweep */}
           <Pressable
             style={[styles.playBtn, { backgroundColor: '#FFFFFF' }]}
             onPress={() => navigation.navigate('Game')}
@@ -89,6 +90,7 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={[styles.playLabel, { color: theme.primary }]}>
               ▶  {continueLabel}
             </Text>
+            <ShimmerOverlay borderRadius={28} intensity={0.55} />
           </Pressable>
 
           {/* 2x2 menu */}
@@ -248,6 +250,7 @@ const styles = StyleSheet.create({
     shadowRadius: 30,
     shadowOffset: { width: 0, height: 14 },
     elevation: 14,
+    overflow: 'hidden',
   },
   playLabel: { fontSize: 24, fontWeight: '900', letterSpacing: -0.5 },
   grid: {

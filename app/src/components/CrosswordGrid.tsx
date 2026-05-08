@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { Animated, StyleSheet, Text, View } from 'react-native';
 import type { Cell, LevelLayout } from '../utils/gridLayout';
 
 const CELL_SIZE = 44;
@@ -12,7 +12,10 @@ interface Props {
 }
 
 export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
-  const foundSet = useMemo(() => new Set(foundWords.map((w) => w.toUpperCase())), [foundWords]);
+  const foundSet = useMemo(
+    () => new Set(foundWords.map((w) => w.toUpperCase())),
+    [foundWords]
+  );
 
   const grid: (Cell | null)[][] = useMemo(() => {
     const rows: (Cell | null)[][] = Array.from({ length: layout.rows }, () =>
@@ -36,33 +39,67 @@ export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
             const fromHint = !!revealedCells?.[`${cell.row},${cell.col}`];
             const revealed = fromFound || fromHint;
             return (
-              <View
+              <AnimatedCell
                 key={`c${r}-${c}`}
-                style={[
-                  styles.cell,
-                  revealed
-                    ? fromFound
-                      ? styles.cellRevealed
-                      : styles.cellHinted
-                    : styles.cellHidden,
-                ]}
-              >
-                {revealed ? (
-                  <Text
-                    style={[
-                      styles.letter,
-                      fromFound ? styles.letterFound : styles.letterHinted,
-                    ]}
-                  >
-                    {cell.letter}
-                  </Text>
-                ) : null}
-              </View>
+                cell={cell}
+                revealed={revealed}
+                fromFound={fromFound}
+              />
             );
           })}
         </View>
       ))}
     </View>
+  );
+}
+
+interface AnimatedCellProps {
+  cell: Cell;
+  revealed: boolean;
+  fromFound: boolean;
+}
+
+function AnimatedCell({ cell, revealed, fromFound }: AnimatedCellProps) {
+  const scale = useRef(new Animated.Value(revealed ? 1 : 0.85)).current;
+  const wasRevealed = useRef(revealed);
+
+  useEffect(() => {
+    if (!wasRevealed.current && revealed) {
+      // pop: 0.5 → overshoot 1.15 → settle at 1
+      scale.setValue(0.5);
+      Animated.spring(scale, {
+        toValue: 1,
+        friction: 4,
+        tension: 120,
+        useNativeDriver: true,
+      }).start();
+    }
+    wasRevealed.current = revealed;
+  }, [revealed, scale]);
+
+  return (
+    <Animated.View
+      style={[
+        styles.cell,
+        revealed
+          ? fromFound
+            ? styles.cellRevealed
+            : styles.cellHinted
+          : styles.cellHidden,
+        { transform: [{ scale }] },
+      ]}
+    >
+      {revealed ? (
+        <Text
+          style={[
+            styles.letter,
+            fromFound ? styles.letterFound : styles.letterHinted,
+          ]}
+        >
+          {cell.letter}
+        </Text>
+      ) : null}
+    </Animated.View>
   );
 }
 
