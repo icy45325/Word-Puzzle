@@ -79,18 +79,25 @@ const styles = StyleSheet.create({
     width: CELL_SIZE,
     height: CELL_SIZE,
     marginRight: GAP,
-    borderRadius: 6,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.05)',
   },
   cellHidden: {
-    backgroundColor: '#1C3D57',
+    backgroundColor: 'rgba(0,0,0,0.30)',
   },
   cellRevealed: {
-    backgroundColor: '#F7F9FC',
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
   },
   cellHinted: {
-    backgroundColor: '#F7C948',
+    backgroundColor: '#FACC15',
   },
   empty: {
     width: CELL_SIZE,
@@ -99,8 +106,8 @@ const styles = StyleSheet.create({
   },
   letter: {
     fontSize: 22,
-    fontWeight: '700',
+    fontWeight: '900',
   },
-  letterFound: { color: '#0F2A3F' },
-  letterHinted: { color: '#0F2A3F' },
+  letterFound: { color: '#0F172A' },
+  letterHinted: { color: '#0F172A' },
 });

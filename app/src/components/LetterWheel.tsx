@@ -108,6 +108,9 @@ export function LetterWheel({ letters, onSubmit, onPreview }: Props) {
   return (
     <GestureDetector gesture={pan}>
       <View style={styles.wheel} collapsable={false}>
+        {/* Background ring */}
+        <View pointerEvents="none" style={styles.ring} />
+        <View pointerEvents="none" style={styles.ringInner} />
         <Svg
           width={WHEEL_SIZE}
           height={WHEEL_SIZE}
@@ -117,12 +120,11 @@ export function LetterWheel({ letters, onSubmit, onPreview }: Props) {
           {polylinePoints.length > 0 && (
             <Polyline
               points={polylinePoints}
-              stroke="#F7C948"
+              stroke="rgba(255,255,255,0.85)"
               strokeWidth={8}
               strokeLinecap="round"
               strokeLinejoin="round"
               fill="none"
-              opacity={0.75}
             />
           )}
           {selectedIndexes.map((i) => (
@@ -131,7 +133,7 @@ export function LetterWheel({ letters, onSubmit, onPreview }: Props) {
               cx={tiles[i].x}
               cy={tiles[i].y}
               r={TILE_RADIUS}
-              fill="#F7C948"
+              fill="#FFFFFF"
             />
           ))}
         </Svg>
@@ -146,11 +148,21 @@ export function LetterWheel({ letters, onSubmit, onPreview }: Props) {
                 {
                   left: t.x - TILE_RADIUS,
                   top: t.y - TILE_RADIUS,
-                  backgroundColor: selected ? '#F7C948' : '#1C3D57',
+                  backgroundColor: selected
+                    ? '#FFFFFF'
+                    : 'rgba(255,255,255,0.10)',
+                  borderColor: selected
+                    ? '#FFFFFF'
+                    : 'rgba(255,255,255,0.10)',
                 },
               ]}
             >
-              <Text style={[styles.tileText, selected && { color: '#0F2A3F' }]}>
+              <Text
+                style={[
+                  styles.tileText,
+                  { color: selected ? '#0F172A' : '#F8FAFC' },
+                ]}
+              >
                 {t.letter}
               </Text>
             </View>
@@ -168,22 +180,42 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'relative',
   },
+  ring: {
+    position: 'absolute',
+    width: WHEEL_SIZE,
+    height: WHEEL_SIZE,
+    borderRadius: WHEEL_SIZE / 2,
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  ringInner: {
+    position: 'absolute',
+    width: WHEEL_SIZE - 24,
+    height: WHEEL_SIZE - 24,
+    top: 12,
+    left: 12,
+    borderRadius: (WHEEL_SIZE - 24) / 2,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.05)',
+    borderStyle: 'dashed',
+  },
   tile: {
     position: 'absolute',
     width: TILE_RADIUS * 2,
     height: TILE_RADIUS * 2,
     borderRadius: TILE_RADIUS,
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
     shadowOpacity: 0.25,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
-    elevation: 4,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
   tileText: {
     fontSize: 28,
-    fontWeight: '800',
-    color: '#F7F9FC',
+    fontWeight: '900',
   },
 });

@@ -4,6 +4,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
 import { useEconomy } from '../hooks/useEconomy';
 import { useUnlocks } from '../hooks/useUnlocks';
+import { GradientBackground } from '../components/GradientBackground';
+import { TopBar } from '../components/TopBar';
+import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
@@ -15,6 +18,7 @@ export function ProfileScreen({ navigation }: Props) {
   const user = useCurrentUser();
   const { state } = useEconomy();
   const unlocks = useUnlocks();
+  const { theme } = useTheme();
   const [learnedCount, setLearnedCount] = useState(0);
 
   useEffect(() => {
@@ -30,45 +34,54 @@ export function ProfileScreen({ navigation }: Props) {
   }, [services, user]);
 
   return (
-    <SafeAreaView style={styles.safe} edges={['bottom']}>
-      <View style={styles.content}>
-        <View style={styles.card}>
-          <Text style={styles.name}>{user?.displayName ?? '—'}</Text>
-          <Text style={styles.sub}>
-            {user?.isAnonymous ? t('profile.guest') : 'Signed in'}
-          </Text>
-          <View style={styles.statsGrid}>
-            <Stat label={t('profile.coins')} value={`${state?.coins ?? 0}`} />
-            <Stat label={t('profile.hints')} value={`${state?.hints ?? 0}`} />
-            <Stat
-              label={t('profile.furthest')}
-              value={`L${unlocks.furthestLevel}`}
-            />
-            <Stat label={t('profile.learnedCount')} value={`${learnedCount}`} />
-          </View>
+    <GradientBackground>
+      <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
+        <TopBar />
+        <View style={styles.headerRow}>
+          <Pressable
+            style={styles.backBtn}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.backIcon}>‹</Text>
+          </Pressable>
+          <Text style={styles.title}>{t('profile.title')}</Text>
         </View>
 
-        <View style={styles.actions}>
+        <View style={styles.content}>
+          <View style={styles.card}>
+            <Text style={styles.name}>{user?.displayName ?? '—'}</Text>
+            <Text style={styles.sub}>
+              {user?.isAnonymous ? t('profile.guest') : 'Signed in'}
+            </Text>
+            <View style={styles.statsGrid}>
+              <Stat label={t('profile.coins')} value={`${state?.coins ?? 0}`} />
+              <Stat label={t('profile.hints')} value={`${state?.hints ?? 0}`} />
+              <Stat
+                label={t('profile.furthest')}
+                value={`L${unlocks.furthestLevel}`}
+              />
+              <Stat label={t('profile.learnedCount')} value={`${learnedCount}`} />
+            </View>
+          </View>
+
           <Pressable
-            style={styles.linkBtn}
+            style={[styles.linkBtn, { backgroundColor: theme.primary }]}
             onPress={async () => {
               if (user?.isAnonymous) {
                 navigation.navigate('Login');
               } else {
                 await services.auth.signOut();
-                // After signOut the cached user resets; ServicesProvider's
-                // listener picks up the next anonymous user on next launch.
               }
             }}
           >
-            <Text style={styles.linkText}>
+            <Text style={[styles.linkText, { color: theme.primaryText }]}>
               🔗 {user?.isAnonymous ? t('profile.linkAccount') : t('profile.signOut')}
             </Text>
           </Pressable>
           <Text style={styles.actionHint}>{t('login.googleHint')}</Text>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </GradientBackground>
   );
 }
 
@@ -82,34 +95,56 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#0F2A3F' },
-  content: { padding: 24, gap: 16 },
-  card: {
-    backgroundColor: '#1C3D57',
-    borderRadius: 14,
-    padding: 20,
+  safe: { flex: 1 },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 8,
+    paddingBottom: 4,
+    gap: 12,
   },
-  name: { fontSize: 20, fontWeight: '700', color: '#F7F9FC' },
-  sub: { marginTop: 4, color: '#9AB8CF', fontSize: 13 },
+  backBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backIcon: { fontSize: 26, color: '#F8FAFC', marginTop: -3 },
+  title: { fontSize: 24, fontWeight: '900', color: '#F8FAFC', letterSpacing: -0.5 },
+  content: { padding: 20, gap: 16 },
+  card: {
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderRadius: 24,
+    padding: 22,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.06)',
+  },
+  name: { fontSize: 22, fontWeight: '900', color: '#F8FAFC' },
+  sub: { marginTop: 4, color: 'rgba(255,255,255,0.5)', fontSize: 13 },
   statsGrid: {
-    marginTop: 18,
+    marginTop: 22,
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 24,
   },
   stat: { minWidth: 100 },
-  statValue: { fontSize: 22, fontWeight: '800', color: '#F7C948' },
-  statLabel: { fontSize: 12, color: '#9AB8CF', marginTop: 2 },
-  actions: {
-    backgroundColor: 'rgba(255,255,255,0.04)',
-    borderRadius: 14,
-    padding: 16,
-    gap: 8,
-  },
+  statValue: { fontSize: 24, fontWeight: '900', color: '#FACC15' },
+  statLabel: { fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 2, fontWeight: '700', letterSpacing: 1 },
   linkBtn: {
-    paddingVertical: 12,
-    paddingHorizontal: 12,
+    paddingVertical: 16,
+    paddingHorizontal: 18,
+    borderRadius: 16,
+    alignItems: 'center',
   },
-  linkText: { color: '#F7C948', fontSize: 15, fontWeight: '600' },
-  actionHint: { color: '#6B8AA5', fontSize: 12, paddingHorizontal: 12 },
+  linkText: { fontSize: 15, fontWeight: '900' },
+  actionHint: {
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: 11,
+    paddingHorizontal: 4,
+    textAlign: 'center',
+    lineHeight: 16,
+  },
 });

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Confetti } from './Confetti';
+import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 
 interface Props {
@@ -19,26 +22,42 @@ export function ChapterRewardModal({
   hintCapped,
   onClaim,
 }: Props) {
+  const { theme } = useTheme();
   return (
     <Modal visible={visible} transparent animationType="fade">
       <View style={styles.backdrop}>
+        <Confetti active={visible} />
         <View style={styles.card}>
-          <Text style={styles.title}>{t('chapterReward.title', { chapter })}</Text>
-
-          <View style={styles.rewards}>
-            <RewardRow icon="🪙" label={t('chapterReward.coins', { coins })} />
-            {hints > 0 ? (
-              <RewardRow icon="💡" label={t('chapterReward.hints', { hints })} />
+          <LinearGradient
+            colors={theme.gradient as unknown as [string, string, string]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.header}
+          >
+            <Text style={styles.medal}>🏅</Text>
+            <Text style={styles.title}>
+              {t('chapterReward.title', { chapter })}
+            </Text>
+          </LinearGradient>
+          <View style={styles.body}>
+            <View style={styles.rewards}>
+              <RewardRow icon="🪙" label={t('chapterReward.coins', { coins })} />
+              {hints > 0 ? (
+                <RewardRow icon="💡" label={t('chapterReward.hints', { hints })} />
+              ) : null}
+            </View>
+            {hintCapped ? (
+              <Text style={styles.cap}>{t('chapterReward.cap')}</Text>
             ) : null}
+            <Pressable
+              style={[styles.btn, { backgroundColor: theme.primary }]}
+              onPress={onClaim}
+            >
+              <Text style={[styles.btnText, { color: theme.primaryText }]}>
+                {t('chapterReward.next')} ▶
+              </Text>
+            </Pressable>
           </View>
-
-          {hintCapped ? (
-            <Text style={styles.cap}>{t('chapterReward.cap')}</Text>
-          ) : null}
-
-          <Pressable style={styles.btn} onPress={onClaim}>
-            <Text style={styles.btnText}>{t('chapterReward.next')}</Text>
-          </Pressable>
         </View>
       </View>
     </Modal>
@@ -48,7 +67,7 @@ export function ChapterRewardModal({
 function RewardRow({ icon, label }: { icon: string; label: string }) {
   return (
     <View style={styles.rewardRow}>
-      <Text style={styles.icon}>{icon}</Text>
+      <Text style={styles.rewardIcon}>{icon}</Text>
       <Text style={styles.rewardText}>{label}</Text>
     </View>
   );
@@ -57,7 +76,7 @@ function RewardRow({ icon, label }: { icon: string; label: string }) {
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.55)',
+    backgroundColor: 'rgba(0,0,0,0.65)',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
@@ -65,32 +84,49 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     maxWidth: 380,
-    backgroundColor: '#F7F9FC',
-    borderRadius: 16,
-    padding: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 28,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOpacity: 0.4,
+    shadowRadius: 30,
+    shadowOffset: { width: 0, height: 16 },
+    elevation: 20,
+  },
+  header: {
+    paddingTop: 32,
+    paddingBottom: 28,
+    paddingHorizontal: 24,
     alignItems: 'center',
   },
-  title: { fontSize: 22, fontWeight: '800', color: '#0F2A3F' },
-  rewards: { marginTop: 20, marginBottom: 16, gap: 8, alignSelf: 'stretch' },
+  medal: { fontSize: 56, marginBottom: 8 },
+  title: {
+    fontSize: 26,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: -0.5,
+    textAlign: 'center',
+  },
+  body: { padding: 24, gap: 12, alignItems: 'center' },
+  rewards: { alignSelf: 'stretch', gap: 10 },
   rewardRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#0F2A3F',
-    borderRadius: 12,
+    backgroundColor: '#0F172A',
+    borderRadius: 14,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 14,
     gap: 12,
   },
-  icon: { fontSize: 22 },
-  rewardText: { fontSize: 16, fontWeight: '700', color: '#F7C948' },
-  cap: { fontSize: 12, color: '#3B5C75', marginBottom: 8, textAlign: 'center' },
+  rewardIcon: { fontSize: 22 },
+  rewardText: { fontSize: 16, fontWeight: '900', color: '#FACC15' },
+  cap: { fontSize: 12, color: '#64748B', textAlign: 'center' },
   btn: {
     alignSelf: 'stretch',
-    backgroundColor: '#0F2A3F',
-    paddingVertical: 12,
-    borderRadius: 10,
+    paddingVertical: 16,
+    borderRadius: 16,
     alignItems: 'center',
     marginTop: 4,
   },
-  btnText: { color: '#F7C948', fontSize: 16, fontWeight: '700' },
+  btnText: { fontSize: 17, fontWeight: '900' },
 });

@@ -7,17 +7,21 @@
     "scheme": "wordscapeszh",
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
+    "icon": "./assets/icon.png",
     "splash": {
+      "image": "./assets/icon.png",
       "backgroundColor": "#0F2A3F",
       "resizeMode": "contain"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.icy45325.wordscapeszh"
+      "bundleIdentifier": "com.icy45325.wordscapeszh",
+      "icon": "./assets/icon.png"
     },
     "android": {
       "package": "com.icy45325.wordscapeszh",
       "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#0F2A3F"
       }
     },

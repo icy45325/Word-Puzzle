@@ -1,21 +1,28 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChapterRewardModal } from '../components/ChapterRewardModal';
-import { CoinHud } from '../components/CoinHud';
 import { CrosswordGrid } from '../components/CrosswordGrid';
+import { GradientBackground } from '../components/GradientBackground';
 import { HintButton } from '../components/HintButton';
 import { LetterWheel } from '../components/LetterWheel';
 import { LevelCompleteModal } from '../components/LevelCompleteModal';
+import { TopBar } from '../components/TopBar';
 import { WordDetailModal } from '../components/WordDetailModal';
 import { WordPreview } from '../components/WordPreview';
 import { WordsFoundPanel } from '../components/WordsFoundPanel';
+import { useEconomy } from '../hooks/useEconomy';
 import { useGameState } from '../hooks/useGameState';
 import { useServices } from '../services';
 import { t } from '../i18n';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../../App';
 
-export function GameScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Game'>;
+
+export function GameScreen({ navigation }: Props) {
   const services = useServices();
+  const { state: economyState } = useEconomy();
   const {
     level,
     layout,
@@ -53,7 +60,7 @@ export function GameScreen() {
 
   const showToast = useCallback((msg: string, ms = 1200) => {
     setToast(msg);
-    setTimeout(() => setToast((t) => (t === msg ? null : t)), ms);
+    setTimeout(() => setToast((cur) => (cur === msg ? null : cur)), ms);
   }, []);
 
   const handleSubmit = useCallback(
@@ -89,133 +96,186 @@ export function GameScreen() {
   }, [showToast]);
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <CoinHud />
+    <GradientBackground>
+      <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
+        <TopBar />
 
-      <View style={styles.header}>
-        <Text style={styles.levelLabel}>{level.id}</Text>
-        <Text style={styles.progress}>
-          {t('game.foundLabel')} {foundAnswers.length}/{totalAnswers}
-          {bonusWords.length > 0 ? `   ·   ${t('game.bonusLabel')} ${bonusWords.length}` : ''}
-        </Text>
-        <View style={styles.actionsRow}>
+        <View style={styles.header}>
+          <Pressable
+            style={styles.backBtn}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.backIcon}>‹</Text>
+          </Pressable>
+          <View style={styles.headerCenter}>
+            <Text style={styles.headerLabel}>当前目标</Text>
+            <Text style={styles.headerTitle}>{level.id}</Text>
+          </View>
+          <HintButton
+            onReveal={revealLetter}
+            onInsufficient={handleHintInsufficient}
+          />
+        </View>
+
+        <View style={styles.gridWrap}>
+          <CrosswordGrid
+            layout={layout}
+            foundWords={foundAnswers}
+            revealedCells={revealedCells}
+          />
+        </View>
+
+        <View style={styles.progressRow}>
+          <Text style={styles.progressText}>
+            {t('game.foundLabel')} {foundAnswers.length}/{totalAnswers}
+            {bonusWords.length > 0
+              ? `   ·   ${t('game.bonusLabel')} ${bonusWords.length}`
+              : ''}
+          </Text>
           <Pressable
             style={styles.foundBtn}
             onPress={() => setPanelOpen(true)}
           >
             <Text style={styles.foundBtnText}>
-              {t('game.wordsFound', { count: foundAnswers.length + bonusWords.length })}
+              {t('game.wordsFound', {
+                count: foundAnswers.length + bonusWords.length,
+              })}
             </Text>
           </Pressable>
-          <HintButton onReveal={revealLetter} onInsufficient={handleHintInsufficient} />
         </View>
-      </View>
 
-      <CrosswordGrid
-        layout={layout}
-        foundWords={foundAnswers}
-        revealedCells={revealedCells}
-      />
+        <WordPreview word={preview || t('game.preview.placeholder')} />
 
-      <WordPreview word={preview || t('game.preview.placeholder')} />
+        {toast ? (
+          <View style={styles.toast}>
+            <Text style={styles.toastText}>{toast}</Text>
+          </View>
+        ) : null}
 
-      {toast ? (
-        <View style={styles.toast}>
-          <Text style={styles.toastText}>{toast}</Text>
+        <View style={styles.wheelWrap}>
+          <LetterWheel
+            letters={level.letters}
+            onSubmit={handleSubmit}
+            onPreview={setPreview}
+          />
         </View>
-      ) : null}
 
-      <View style={styles.wheelWrap}>
-        <LetterWheel
-          letters={level.letters}
-          onSubmit={handleSubmit}
-          onPreview={setPreview}
+        <WordsFoundPanel
+          visible={panelOpen}
+          foundAnswers={foundAnswers}
+          bonusWords={bonusWords}
+          onClose={() => setPanelOpen(false)}
+          onTapWord={(word, isBonus) => {
+            setPanelOpen(false);
+            setDetail({ word, isBonus });
+          }}
         />
-      </View>
 
-      <WordsFoundPanel
-        visible={panelOpen}
-        foundAnswers={foundAnswers}
-        bonusWords={bonusWords}
-        onClose={() => setPanelOpen(false)}
-        onTapWord={(word, isBonus) => {
-          setPanelOpen(false);
-          setDetail({ word, isBonus });
-        }}
-      />
+        <WordDetailModal
+          word={detail?.word ?? null}
+          isBonus={detail?.isBonus}
+          onClose={() => setDetail(null)}
+        />
 
-      <WordDetailModal
-        word={detail?.word ?? null}
-        isBonus={detail?.isBonus}
-        onClose={() => setDetail(null)}
-      />
+        <LevelCompleteModal
+          visible={levelCompleted && !isChapterEnd && !detail && !panelOpen}
+          levelId={level.id}
+          wordsFound={foundAnswers.length}
+          totalWords={totalAnswers}
+          bonusCount={bonusWords.length}
+          totalCoins={economyState?.coins}
+          onNext={isLastLevel ? () => undefined : nextLevel}
+          nextDisabled={isLastLevel}
+          nextDisabledLabel={t('game.lastLevel')}
+        />
 
-      <LevelCompleteModal
-        visible={levelCompleted && !isChapterEnd && !detail && !panelOpen}
-        levelId={level.id}
-        wordsFound={foundAnswers.length}
-        totalWords={totalAnswers}
-        bonusCount={bonusWords.length}
-        onNext={isLastLevel ? () => undefined : nextLevel}
-        nextDisabled={isLastLevel}
-        nextDisabledLabel={t('game.lastLevel')}
-      />
-
-      <ChapterRewardModal
-        visible={levelCompleted && isChapterEnd && !detail && !panelOpen}
-        chapter={chapterIndex}
-        coins={chapterCoinsReward}
-        hints={hintsForThisChapter}
-        hintCapped={hintCapped}
-        onClaim={async () => {
-          await claimChapterReward();
-          if (!isLastLevel) nextLevel();
-        }}
-      />
-    </SafeAreaView>
+        <ChapterRewardModal
+          visible={levelCompleted && isChapterEnd && !detail && !panelOpen}
+          chapter={chapterIndex}
+          coins={chapterCoinsReward}
+          hints={hintsForThisChapter}
+          hintCapped={hintCapped}
+          onClaim={async () => {
+            await claimChapterReward();
+            if (!isLastLevel) nextLevel();
+          }}
+        />
+      </SafeAreaView>
+    </GradientBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#0F2A3F' },
+  safe: { flex: 1 },
   header: {
-    paddingHorizontal: 24,
-    paddingTop: 4,
-    paddingBottom: 12,
-    alignItems: 'center',
-  },
-  levelLabel: { fontSize: 14, color: '#9AB8CF', letterSpacing: 2 },
-  progress: { marginTop: 4, fontSize: 14, color: '#F7F9FC', fontWeight: '600' },
-  actionsRow: {
-    marginTop: 10,
     flexDirection: 'row',
-    gap: 10,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 8,
+    paddingBottom: 4,
+    gap: 12,
+  },
+  backBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backIcon: { fontSize: 26, color: '#F8FAFC', marginTop: -3 },
+  headerCenter: { flex: 1, alignItems: 'center' },
+  headerLabel: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: 'rgba(255,255,255,0.4)',
+    letterSpacing: 2,
+  },
+  headerTitle: {
+    marginTop: 2,
+    fontSize: 22,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    letterSpacing: -0.5,
+  },
+  gridWrap: {
+    marginTop: 16,
+    paddingVertical: 18,
+    marginHorizontal: 20,
+    backgroundColor: 'rgba(0,0,0,0.20)',
+    borderRadius: 28,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.06)',
     alignItems: 'center',
   },
+  progressRow: {
+    marginTop: 14,
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  progressText: { fontSize: 13, fontWeight: '700', color: '#F8FAFC' },
   foundBtn: {
-    backgroundColor: '#1C3D57',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
     borderRadius: 999,
   },
-  foundBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: '#F7F9FC',
+  foundBtnText: { fontSize: 12, fontWeight: '700', color: '#F8FAFC' },
+  toast: {
+    alignSelf: 'center',
+    backgroundColor: 'rgba(250,204,21,0.20)',
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 999,
+    marginTop: 6,
   },
+  toastText: { color: '#FACC15', fontSize: 12, fontWeight: '700' },
   wheelWrap: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingBottom: 32,
+    paddingBottom: 24,
   },
-  toast: {
-    alignSelf: 'center',
-    backgroundColor: 'rgba(247, 201, 72, 0.2)',
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 999,
-    marginVertical: 4,
-  },
-  toastText: { color: '#F7C948', fontSize: 12, fontWeight: '600' },
 });
