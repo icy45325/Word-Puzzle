@@ -1,170 +1,2186 @@
 {
+  "ABS": {
+    "phonetic": "/æbz/",
+    "pos": "n.",
+    "meaning": "腹肌（口语）",
+    "example": "He works out for abs.",
+    "exampleCn": "他锻炼练腹肌。",
+    "extra": "short for abdominal muscles"
+  },
+  "ACT": {
+    "phonetic": "/ækt/",
+    "pos": "v./n.",
+    "meaning": "行动；表演；法案",
+    "example": "We must act now.",
+    "exampleCn": "我们必须立即行动。",
+    "extra": "action / actor 同根"
+  },
+  "AIR": {
+    "phonetic": "/eər/",
+    "pos": "n./v.",
+    "meaning": "空气；播出",
+    "example": "Fresh air is healthy.",
+    "exampleCn": "新鲜空气有益健康。",
+    "extra": "on air / airy"
+  },
+  "ALE": {
+    "phonetic": "/eɪl/",
+    "pos": "n.",
+    "meaning": "麦芽啤酒",
+    "example": "A pint of ale.",
+    "exampleCn": "一品脱麦啤。",
+    "extra": "pale ale 常见"
+  },
+  "ALERT": {
+    "phonetic": "/əˈlɜːrt/",
+    "pos": "adj.",
+    "meaning": "警觉的",
+    "example": "Stay alert.",
+    "exampleCn": "保持警觉。",
+    "extra": "red alert = 红色警报"
+  },
+  "ALES": {
+    "phonetic": "/eɪlz/",
+    "pos": "n.pl.",
+    "meaning": "麦芽啤酒",
+    "example": "Different ales on tap.",
+    "exampleCn": "多种麦芽啤酒供选。",
+    "extra": "ale = 麦啾"
+  },
+  "ALL": {
+    "phonetic": "/ɔːl/",
+    "pos": "adj.",
+    "meaning": "所有的",
+    "example": "All students are here.",
+    "exampleCn": "所有学生都在这。",
+    "extra": "all in all"
+  },
+  "ALP": {
+    "phonetic": "/ælp/",
+    "pos": "n.",
+    "meaning": "高山牧场",
+    "example": "A green alp.",
+    "exampleCn": "青翠的高山牧场。",
+    "extra": "阿尔卑斯 Alps 衍生"
+  },
+  "ALTER": {
+    "phonetic": "/ˈɔːltər/",
+    "pos": "v.",
+    "meaning": "改变",
+    "example": "Alter the design.",
+    "exampleCn": "改变设计。",
+    "extra": "alteration 同根"
+  },
+  "AMP": {
+    "phonetic": "/æmp/",
+    "pos": "n.",
+    "meaning": "安培；放大器",
+    "example": "A 10-amp fuse.",
+    "exampleCn": "10 安培保险丝。",
+    "extra": "电流单位"
+  },
+  "ANT": {
+    "phonetic": "/ænt/",
+    "pos": "n.",
+    "meaning": "蚂蚁",
+    "example": "Ants work together.",
+    "exampleCn": "蚂蚁齐心协作。",
+    "extra": "复数 ants"
+  },
+  "APE": {
+    "phonetic": "/eɪp/",
+    "pos": "n.",
+    "meaning": "猴",
+    "example": "An ape in the zoo.",
+    "exampleCn": "动物园的猴。",
+    "extra": "ape = 类人猴"
+  },
+  "APT": {
+    "phonetic": "/æpt/",
+    "pos": "adj.",
+    "meaning": "恰当的；倾向的",
+    "example": "An apt remark.",
+    "exampleCn": "恰当的话。",
+    "extra": "apt to forget = 易忘的"
+  },
+  "ARC": {
+    "phonetic": "/ɑːrk/",
+    "pos": "n.",
+    "meaning": "弧；弧形",
+    "example": "Draw an arc on paper.",
+    "exampleCn": "在纸上画一个弧。",
+    "extra": "arch（拱）相关"
+  },
+  "ARE": {
+    "phonetic": "/ɑːr/",
+    "pos": "v.",
+    "meaning": "be 的复数现在时",
+    "example": "They are my friends.",
+    "exampleCn": "他们是我的朋友。",
+    "extra": "I am / you are / they are"
+  },
+  "ARES": {
+    "phonetic": "/ˈeəriːz/",
+    "pos": "n.",
+    "meaning": "战神阿瑞斯",
+    "example": "Ares, the war god.",
+    "exampleCn": "战神阿瑞斯。",
+    "extra": "希腊神话"
+  },
+  "ARM": {
+    "phonetic": "/ɑːrm/",
+    "pos": "n.",
+    "meaning": "手臂",
+    "example": "Strong arms.",
+    "exampleCn": "强壮的手臂。",
+    "extra": "arms = 武器"
+  },
+  "ARMED": {
+    "phonetic": "/ɑːrmd/",
+    "pos": "adj.",
+    "meaning": "武装的",
+    "example": "Armed forces.",
+    "exampleCn": "武装部队。",
+    "extra": "arm 动词的过去分词"
+  },
+  "ARMS": {
+    "phonetic": "/ɑːrmz/",
+    "pos": "n.pl.",
+    "meaning": "手臂；武器",
+    "example": "Open arms.",
+    "exampleCn": "张开双臂。",
+    "extra": "亦指武器"
+  },
+  "ARSE": {
+    "phonetic": "/ɑːrs/",
+    "pos": "n.",
+    "meaning": "屁股（英俵）",
+    "example": "British slang term.",
+    "exampleCn": "英式俵语。",
+    "extra": "不正式用法"
+  },
+  "ART": {
+    "phonetic": "/ɑːrt/",
+    "pos": "n.",
+    "meaning": "艺术；技艺",
+    "example": "She studies modern art.",
+    "exampleCn": "她研究现代艺术。",
+    "extra": "artist / artistic 同根"
+  },
+  "ARTS": {
+    "phonetic": "/ɑːrts/",
+    "pos": "n.pl.",
+    "meaning": "艺术；文科",
+    "example": "Liberal arts education.",
+    "exampleCn": "人文学科教育。",
+    "extra": "arts and crafts"
+  },
+  "ASP": {
+    "phonetic": "/æsp/",
+    "pos": "n.",
+    "meaning": "小毒蛇",
+    "example": "Beware of the asp.",
+    "exampleCn": "小心毒蛇。",
+    "extra": "asp 是种类"
+  },
+  "ASTER": {
+    "phonetic": "/ˈæstər/",
+    "pos": "n.",
+    "meaning": "紫菀",
+    "example": "Purple aster.",
+    "exampleCn": "紫色紫菀。",
+    "extra": "花卉名"
+  },
+  "ATE": {
+    "phonetic": "/eɪt/",
+    "pos": "v.",
+    "meaning": "eat 的过去式",
+    "example": "I ate breakfast at seven.",
+    "exampleCn": "我七点吃早饭。",
+    "extra": "past tense of eat"
+  },
+  "BAKE": {
+    "phonetic": "/beɪk/",
+    "pos": "v.",
+    "meaning": "烘烤",
+    "example": "Bake a cake.",
+    "exampleCn": "烤蛋糕。",
+    "extra": "baker / bakery"
+  },
+  "BAKER": {
+    "phonetic": "/ˈbeɪkər/",
+    "pos": "n.",
+    "meaning": "面包师",
+    "example": "The baker bakes.",
+    "exampleCn": "面包师烘焙。",
+    "extra": "baker's dozen = 13"
+  },
+  "BAR": {
+    "phonetic": "/bɑːr/",
+    "pos": "n.",
+    "meaning": "酒吧；横杆",
+    "example": "They met at the bar.",
+    "exampleCn": "他们在酒吧见面。",
+    "extra": "chocolate bar / bar exam"
+  },
+  "BARD": {
+    "phonetic": "/bɑːrd/",
+    "pos": "n.",
+    "meaning": "吟游诗人",
+    "example": "The Bard of Avon.",
+    "exampleCn": "艾芌河畔吟游诗人（莎士比亚）。",
+    "extra": "诗人代称"
+  },
+  "BARE": {
+    "phonetic": "/beər/",
+    "pos": "adj.",
+    "meaning": "裸露的",
+    "example": "Bare feet.",
+    "exampleCn": "光脚。",
+    "extra": "barefoot"
+  },
+  "BARED": {
+    "phonetic": "/beərd/",
+    "pos": "v.",
+    "meaning": "bare 过去式",
+    "example": "He bared his soul.",
+    "exampleCn": "他坦露心声。",
+    "extra": "bare = 暴露"
+  },
+  "BAT": {
+    "phonetic": "/bæt/",
+    "pos": "n.",
+    "meaning": "蝗蝠；球棒",
+    "example": "The bat flew at night.",
+    "exampleCn": "蝗蝠夜里飞行。",
+    "extra": "baseball bat"
+  },
+  "BEAK": {
+    "phonetic": "/biːk/",
+    "pos": "n.",
+    "meaning": "鸟嘴",
+    "example": "Sharp beak.",
+    "exampleCn": "尖喙。",
+    "extra": "鸟类专用"
+  },
+  "BEAR": {
+    "phonetic": "/beər/",
+    "pos": "n.",
+    "meaning": "熊",
+    "example": "A brown bear.",
+    "exampleCn": "一只棕熊。",
+    "extra": "动词意为忍受"
+  },
+  "BEARD": {
+    "phonetic": "/bɪərd/",
+    "pos": "n.",
+    "meaning": "胡须",
+    "example": "A long beard.",
+    "exampleCn": "长胡子。",
+    "extra": "bearded 同根"
+  },
+  "BRAD": {
+    "phonetic": "/bræd/",
+    "pos": "n.",
+    "meaning": "小钉子",
+    "example": "A tiny brad.",
+    "exampleCn": "一颗小钉。",
+    "extra": "木工术语"
+  },
+  "BRAE": {
+    "phonetic": "/breɪ/",
+    "pos": "n.",
+    "meaning": "山坡（苏格兰）",
+    "example": "A grassy brae.",
+    "exampleCn": "草坡。",
+    "extra": "苏格兰英语"
+  },
+  "BRAKE": {
+    "phonetic": "/breɪk/",
+    "pos": "n.",
+    "meaning": "刹车",
+    "example": "Step on the brake.",
+    "exampleCn": "踩刹车。",
+    "extra": "brake vs break"
+  },
+  "BREAD": {
+    "phonetic": "/bred/",
+    "pos": "n.",
+    "meaning": "面包",
+    "example": "Fresh bread.",
+    "exampleCn": "新鲜面包。",
+    "extra": "breadwinner = 养家者"
+  },
+  "BREAK": {
+    "phonetic": "/breɪk/",
+    "pos": "v./n.",
+    "meaning": "打破；休息",
+    "example": "Take a break.",
+    "exampleCn": "休息一下。",
+    "extra": "break / broke / broken"
+  },
+  "BRED": {
+    "phonetic": "/bred/",
+    "pos": "v.",
+    "meaning": "breed 过去式",
+    "example": "Pure-bred dogs.",
+    "exampleCn": "纯种犬。",
+    "extra": "breed / bred / bred"
+  },
+  "BREED": {
+    "phonetic": "/briːd/",
+    "pos": "v.",
+    "meaning": "繁殖",
+    "example": "Dogs breed easily.",
+    "exampleCn": "狗易繁殖。",
+    "extra": "breed / bred / bred"
+  },
+  "CAKE": {
+    "phonetic": "/keɪk/",
+    "pos": "n.",
+    "meaning": "蛋糕",
+    "example": "A birthday cake.",
+    "exampleCn": "生日蛋糕。",
+    "extra": "piece of cake = 容易"
+  },
+  "CAR": {
+    "phonetic": "/kɑːr/",
+    "pos": "n.",
+    "meaning": "汽车",
+    "example": "He drives a red car.",
+    "exampleCn": "他开一辆红色汽车。",
+    "extra": "sports car / car park"
+  },
   "CAT": {
     "phonetic": "/kæt/",
     "pos": "n.",
     "meaning": "猫；猫科动物",
     "example": "The cat is sleeping on the sofa.",
     "exampleCn": "那只猫正睡在沙发上。",
-    "extra": "常见搭配：black cat / stray cat / cat nap（小憩）"
+    "extra": "black cat / cat nap"
   },
-  "ACT": {
-    "phonetic": "/ækt/",
-    "pos": "v. / n.",
-    "meaning": "行动；表演；法案",
-    "example": "We must act now to protect the environment.",
-    "exampleCn": "我们必须立即行动以保护环境。",
-    "extra": "派生词：action, actor, active"
+  "CLEAN": {
+    "phonetic": "/kliːn/",
+    "pos": "adj./v.",
+    "meaning": "干净的；清洁",
+    "example": "Clean the room.",
+    "exampleCn": "打扫房间。",
+    "extra": "cleaner / cleaning"
+  },
+  "CLEAR": {
+    "phonetic": "/klɪər/",
+    "pos": "adj.",
+    "meaning": "清楚的",
+    "example": "A clear sky.",
+    "exampleCn": "晴朗的天空。",
+    "extra": "clearly 同根"
+  },
+  "CLEAT": {
+    "phonetic": "/kliːt/",
+    "pos": "n.",
+    "meaning": "楷子；钉鞋",
+    "example": "Football cleats.",
+    "exampleCn": "足球钉鞋。",
+    "extra": "运动术语"
+  },
+  "DAM": {
+    "phonetic": "/dæm/",
+    "pos": "n.",
+    "meaning": "水坝",
+    "example": "Hoover Dam.",
+    "exampleCn": "胡佛水坝。",
+    "extra": "dam vs damn 注意拼写"
+  },
+  "DARE": {
+    "phonetic": "/deər/",
+    "pos": "v.",
+    "meaning": "敢；挑战",
+    "example": "I dare you.",
+    "exampleCn": "我看你敢。",
+    "extra": "I dare say = 我敢说"
+  },
+  "DEAD": {
+    "phonetic": "/ded/",
+    "pos": "adj.",
+    "meaning": "死的",
+    "example": "The plant is dead.",
+    "exampleCn": "植物死了。",
+    "extra": "dead end = 死路"
+  },
+  "DEAR": {
+    "phonetic": "/dɪər/",
+    "pos": "adj.",
+    "meaning": "亲爱的",
+    "example": "My dear friend.",
+    "exampleCn": "我亲爱的朋友。",
+    "extra": "Dear Sir / Dear Madam"
+  },
+  "DEBAR": {
+    "phonetic": "/dɪˈbɑːr/",
+    "pos": "v.",
+    "meaning": "禁止；排除",
+    "example": "Debar from entry.",
+    "exampleCn": "禁止入内。",
+    "extra": "正式法律用词"
+  },
+  "DERMA": {
+    "phonetic": "/ˈdɜːrmə/",
+    "pos": "n.",
+    "meaning": "真皮",
+    "example": "Skin's derma layer.",
+    "exampleCn": "皮肤的真皮层。",
+    "extra": "dermatology 同根"
   },
   "DOG": {
     "phonetic": "/dɒɡ/",
     "pos": "n.",
     "meaning": "狗",
-    "example": "My dog loves to chase the ball.",
-    "exampleCn": "我的狗喜欢追球。",
-    "extra": "俚语：lucky dog（幸运儿）"
+    "example": "My dog loves the ball.",
+    "exampleCn": "我的狗喜欢球。",
+    "extra": "lucky dog（幸运儿）"
+  },
+  "DRAB": {
+    "phonetic": "/dræb/",
+    "pos": "adj.",
+    "meaning": "单调的",
+    "example": "Drab clothing.",
+    "exampleCn": "单调的衣着。",
+    "extra": "drab color"
+  },
+  "DRAM": {
+    "phonetic": "/dræm/",
+    "pos": "n.",
+    "meaning": "少量（液体单位）",
+    "example": "A dram of whisky.",
+    "exampleCn": "一点威士忌。",
+    "extra": "苏格兰常用"
+  },
+  "DREAM": {
+    "phonetic": "/driːm/",
+    "pos": "n./v.",
+    "meaning": "梦；梦想",
+    "example": "Follow your dream.",
+    "exampleCn": "追逐梦想。",
+    "extra": "dreamer / dreamy"
+  },
+  "DREAR": {
+    "phonetic": "/drɪər/",
+    "pos": "adj.",
+    "meaning": "阴郁的（诗用）",
+    "example": "A drear winter.",
+    "exampleCn": "阴郁的冬天。",
+    "extra": "dreary 的诗用变体"
+  },
+  "EAR": {
+    "phonetic": "/ɪər/",
+    "pos": "n.",
+    "meaning": "耳朵",
+    "example": "The dog has long ears.",
+    "exampleCn": "这只狗有长耳朵。",
+    "extra": "play it by ear（随机应变）"
+  },
+  "EARS": {
+    "phonetic": "/ɪərz/",
+    "pos": "n.pl.",
+    "meaning": "耳朵（复数）",
+    "example": "Cover your ears.",
+    "exampleCn": "捂住耳朵。",
+    "extra": "ear 的复数"
+  },
+  "EARTH": {
+    "phonetic": "/ɜːrθ/",
+    "pos": "n.",
+    "meaning": "地球；土壤",
+    "example": "Earth is round.",
+    "exampleCn": "地球是圆的。",
+    "extra": "down to earth = 务实的"
+  },
+  "EAT": {
+    "phonetic": "/iːt/",
+    "pos": "v.",
+    "meaning": "吃",
+    "example": "Let's eat dinner together.",
+    "exampleCn": "我们一起吃晚饭吧。",
+    "extra": "过去式 ate / 过去分词 eaten"
+  },
+  "EATER": {
+    "phonetic": "/ˈiːtər/",
+    "pos": "n.",
+    "meaning": "食客；食用者",
+    "example": "Big eater.",
+    "exampleCn": "大胃王。",
+    "extra": "eater 派生"
+  },
+  "ECLAT": {
+    "phonetic": "/eɪˈklɑː/",
+    "pos": "n.",
+    "meaning": "辉煌；显赫",
+    "example": "With great eclat.",
+    "exampleCn": "盛大辉煌地。",
+    "extra": "法语借词"
+  },
+  "EELS": {
+    "phonetic": "/iːlz/",
+    "pos": "n.pl.",
+    "meaning": "鳗鱼（复数）",
+    "example": "Eels are slippery.",
+    "exampleCn": "鳗鱼很滑。",
+    "extra": "eel 的复数"
+  },
+  "ELAN": {
+    "phonetic": "/eɪˈlɑːn/",
+    "pos": "n.",
+    "meaning": "热情；活力",
+    "example": "With great elan.",
+    "exampleCn": "充满活力。",
+    "extra": "法语借词"
+  },
+  "ELMS": {
+    "phonetic": "/elmz/",
+    "pos": "n.pl.",
+    "meaning": "榆树（复数）",
+    "example": "Tall elms line the road.",
+    "exampleCn": "高大榆树排列道路。",
+    "extra": "elm 树"
+  },
+  "EMIT": {
+    "phonetic": "/ɪˈmɪt/",
+    "pos": "v.",
+    "meaning": "发出；散发",
+    "example": "Emit light.",
+    "exampleCn": "发光。",
+    "extra": "emission 同根"
+  },
+  "ENLIST": {
+    "phonetic": "/ɪnˈlɪst/",
+    "pos": "v.",
+    "meaning": "入伍；招募",
+    "example": "He enlisted in the army.",
+    "exampleCn": "他参军了。",
+    "extra": "同根：list / listed"
+  },
+  "EONS": {
+    "phonetic": "/ˈiːɒnz/",
+    "pos": "n.pl.",
+    "meaning": "亿万年",
+    "example": "It took eons.",
+    "exampleCn": "花了亿万年。",
+    "extra": "eon = 极长时间"
+  },
+  "ERA": {
+    "phonetic": "/ˈɪərə/",
+    "pos": "n.",
+    "meaning": "时代；纪元",
+    "example": "A new era of technology.",
+    "exampleCn": "新的科技时代。",
+    "extra": "同：epoch / age"
+  },
+  "ERAS": {
+    "phonetic": "/ˈɪərəz/",
+    "pos": "n.pl.",
+    "meaning": "时代（复数）",
+    "example": "Different eras.",
+    "exampleCn": "不同时代。",
+    "extra": "era 的复数"
+  },
+  "EROS": {
+    "phonetic": "/ˈɪərɒs/",
+    "pos": "n.",
+    "meaning": "爱神厄洛斯",
+    "example": "Eros, the Greek god.",
+    "exampleCn": "希腊爱神厄洛斯。",
+    "extra": "希腊神话人物"
+  },
+  "FAKE": {
+    "phonetic": "/feɪk/",
+    "pos": "adj.",
+    "meaning": "假的",
+    "example": "A fake smile.",
+    "exampleCn": "假笑。",
+    "extra": "fake news"
+  },
+  "FAN": {
+    "phonetic": "/fæn/",
+    "pos": "n.",
+    "meaning": "粉丝；风扇",
+    "example": "I am a big fan.",
+    "exampleCn": "我是大粉丝。",
+    "extra": "electric fan / fan club"
+  },
+  "FAR": {
+    "phonetic": "/fɑːr/",
+    "pos": "adv.",
+    "meaning": "远",
+    "example": "It's far from here.",
+    "exampleCn": "离这里很远。",
+    "extra": "further / farther"
+  },
+  "FAT": {
+    "phonetic": "/fæt/",
+    "pos": "adj.",
+    "meaning": "胖的；脂肪",
+    "example": "The cat is fat.",
+    "exampleCn": "这只猫很胖。",
+    "extra": "low-fat 食品"
   },
   "GOD": {
     "phonetic": "/ɡɒd/",
     "pos": "n.",
     "meaning": "神；上帝",
-    "example": "Many cultures worship different gods.",
-    "exampleCn": "许多文化崇拜不同的神。",
-    "extra": "常见短语：oh my god / thank god"
+    "example": "Many cultures worship gods.",
+    "exampleCn": "许多文化崇拜神。",
+    "extra": "oh my god"
   },
-  "STAR": {
-    "phonetic": "/stɑːr/",
-    "pos": "n. / v.",
-    "meaning": "星星；明星；主演",
-    "example": "She became a famous movie star.",
-    "exampleCn": "她成为了一位著名的电影明星。",
-    "extra": "短语：shooting star（流星）, star-studded（众星云集的）"
-  },
-  "RATS": {
-    "phonetic": "/ræts/",
-    "pos": "n. (pl.)",
-    "meaning": "老鼠（复数）；（口语）糟了",
-    "example": "The old barn was full of rats.",
-    "exampleCn": "那座旧谷仓里满是老鼠。",
-    "extra": "单数：rat；口语感叹：Rats! 表示懊恼"
-  },
-  "TAR": {
-    "phonetic": "/tɑːr/",
+  "HADER": {
+    "phonetic": "/ˈheɪdər/",
     "pos": "n.",
-    "meaning": "焦油；沥青",
-    "example": "Workers poured hot tar on the road.",
-    "exampleCn": "工人们把热沥青浇在路上。",
-    "extra": "tarmac（停机坪/柏油路面）由此词衍生"
+    "meaning": "冰雹云（罕见）",
+    "example": "A hader cloud.",
+    "exampleCn": "冰雹云。",
+    "extra": "罕用气象词"
   },
-  "LOVE": {
-    "phonetic": "/lʌv/",
-    "pos": "n. / v.",
-    "meaning": "爱；喜爱",
-    "example": "I love reading books before bed.",
-    "exampleCn": "我喜欢睡前读书。",
-    "extra": "网球中 love = 0 分；常见：fall in love（坠入爱河）"
-  },
-  "VOLE": {
-    "phonetic": "/vəʊl/",
+  "HARE": {
+    "phonetic": "/heər/",
     "pos": "n.",
-    "meaning": "田鼠",
-    "example": "A vole scurried across the field.",
-    "exampleCn": "一只田鼠从田野里窜过。",
-    "extra": "和 mouse 相似但尾巴较短；是猫头鹰常见猎物"
+    "meaning": "野兔",
+    "example": "A swift hare.",
+    "exampleCn": "敏捷的野兔。",
+    "extra": "tortoise and the hare"
   },
-  "RAIN": {
-    "phonetic": "/reɪn/",
-    "pos": "n. / v.",
-    "meaning": "雨；下雨",
-    "example": "It's going to rain this afternoon.",
-    "exampleCn": "今天下午将会下雨。",
-    "extra": "习语：rain cats and dogs（倾盆大雨）"
-  },
-  "RAN": {
-    "phonetic": "/ræn/",
+  "HARED": {
+    "phonetic": "/heərd/",
     "pos": "v.",
-    "meaning": "run 的过去式：跑；经营",
-    "example": "He ran to catch the last bus.",
-    "exampleCn": "他跑去赶最后一班公交。",
-    "extra": "过去分词是 run：I have run five miles."
+    "meaning": "飞奔（hare 过去式）",
+    "example": "She hared off.",
+    "exampleCn": "她飞奔而去。",
+    "extra": "英式俵语"
   },
-  "AIR": {
-    "phonetic": "/eər/",
-    "pos": "n. / v.",
-    "meaning": "空气；播出",
-    "example": "We need fresh air in this room.",
-    "exampleCn": "这个房间需要新鲜空气。",
-    "extra": "短语：on air（正在播出）, air out（通风）"
-  },
-  "PLAY": {
-    "phonetic": "/pleɪ/",
-    "pos": "v. / n.",
-    "meaning": "玩；演奏；戏剧",
-    "example": "The children play in the park every day.",
-    "exampleCn": "孩子们每天在公园玩耍。",
-    "extra": "player / playful / playwright 都是同根词"
-  },
-  "PAL": {
-    "phonetic": "/pæl/",
-    "pos": "n.",
-    "meaning": "好朋友；伙伴（口语）",
-    "example": "He's been my pal since childhood.",
-    "exampleCn": "他从小就是我的好朋友。",
-    "extra": "比 friend 更口语化；pen pal = 笔友"
-  },
-  "LAY": {
-    "phonetic": "/leɪ/",
+  "HATE": {
+    "phonetic": "/heɪt/",
     "pos": "v.",
-    "meaning": "放置；铺设；（鸡）下蛋",
-    "example": "Please lay the book on the table.",
-    "exampleCn": "请把书放在桌上。",
-    "extra": "注意：lay 及物，lie 不及物，初学常混淆"
+    "meaning": "讨厌；恨",
+    "example": "I hate cold weather.",
+    "exampleCn": "我讨厌冷天气。",
+    "extra": "love-hate relationship"
   },
-  "SMILE": {
-    "phonetic": "/smaɪl/",
-    "pos": "n. / v.",
-    "meaning": "微笑",
-    "example": "Her smile brightened the whole room.",
-    "exampleCn": "她的微笑照亮了整个房间。",
-    "extra": "习语：smile from ear to ear（笑得合不拢嘴）"
-  },
-  "MILE": {
-    "phonetic": "/maɪl/",
+  "HATER": {
+    "phonetic": "/ˈheɪtər/",
     "pos": "n.",
-    "meaning": "英里（约 1.6 公里）",
-    "example": "The school is two miles from my home.",
-    "exampleCn": "学校离我家有两英里。",
-    "extra": "1 mile ≈ 1.609 km；milestone = 里程碑"
+    "meaning": "憎恨者（俵语）",
+    "example": "Don't be a hater.",
+    "exampleCn": "别当黑粉。",
+    "extra": "网络流行词"
   },
-  "LIME": {
-    "phonetic": "/laɪm/",
+  "HEAR": {
+    "phonetic": "/hɪər/",
+    "pos": "v.",
+    "meaning": "听见",
+    "example": "Can you hear me?",
+    "exampleCn": "能听到我吗？",
+    "extra": "hear / heard / heard"
+  },
+  "HEARD": {
+    "phonetic": "/hɜːrd/",
+    "pos": "v.",
+    "meaning": "hear 过去式",
+    "example": "I heard the news.",
+    "exampleCn": "我听说了。",
+    "extra": "hear / heard / heard"
+  },
+  "HEART": {
+    "phonetic": "/hɑːrt/",
     "pos": "n.",
-    "meaning": "青柠；酸橙",
-    "example": "Add a slice of lime to the drink.",
-    "exampleCn": "在饮料里加一片青柠。",
-    "extra": "别和 lemon（柠檬）混淆；lime green = 青柠色"
+    "meaning": "心；心脏；中心",
+    "example": "My heart races.",
+    "exampleCn": "我的心狂跳。",
+    "extra": "heart of the city"
+  },
+  "HEAT": {
+    "phonetic": "/hiːt/",
+    "pos": "n.",
+    "meaning": "热；高温",
+    "example": "Summer heat is strong.",
+    "exampleCn": "夏天热气强烈。",
+    "extra": "heat wave = 热浪"
+  },
+  "HER": {
+    "phonetic": "/hɜːr/",
+    "pos": "pron.",
+    "meaning": "她（宾格）",
+    "example": "I gave her a book.",
+    "exampleCn": "我给了她一本书。",
+    "extra": "she / her / hers"
+  },
+  "HERO": {
+    "phonetic": "/ˈhɪərəʊ/",
+    "pos": "n.",
+    "meaning": "英雄",
+    "example": "Every kid loves a hero.",
+    "exampleCn": "每个孩子都爱英雄。",
+    "extra": "heroine = 女英雄"
+  },
+  "HOES": {
+    "phonetic": "/həʊz/",
+    "pos": "n.pl.",
+    "meaning": "hoe（锄头）的复数",
+    "example": "Farmers use hoes.",
+    "exampleCn": "农民用锄头。",
+    "extra": "hoe = 锄头"
+  },
+  "HOOT": {
+    "phonetic": "/huːt/",
+    "pos": "v./n.",
+    "meaning": "猫头鹰叫；嘲笑",
+    "example": "The owl hoots.",
+    "exampleCn": "猫头鹰叫。",
+    "extra": "俵语 a hoot = 很有趣"
+  },
+  "HORSE": {
+    "phonetic": "/hɔːrs/",
+    "pos": "n.",
+    "meaning": "马",
+    "example": "The horse runs fast.",
+    "exampleCn": "马跑得快。",
+    "extra": "horseback riding"
+  },
+  "HOSE": {
+    "phonetic": "/həʊz/",
+    "pos": "n.",
+    "meaning": "软管",
+    "example": "A garden hose.",
+    "exampleCn": "花园水管。",
+    "extra": "fire hose = 消防水带"
+  },
+  "HOST": {
+    "phonetic": "/həʊst/",
+    "pos": "n./v.",
+    "meaning": "主持人；主办",
+    "example": "He is the host.",
+    "exampleCn": "他是主持人。",
+    "extra": "host a party"
+  },
+  "HOTS": {
+    "phonetic": "/hɒts/",
+    "pos": "n.pl.",
+    "meaning": "强烈兴趣（口语）",
+    "example": "She has the hots for him.",
+    "exampleCn": "她对他很心动。",
+    "extra": "常见短语 hots for"
   },
   "HOUSE": {
     "phonetic": "/haʊs/",
     "pos": "n.",
     "meaning": "房子；住宅",
-    "example": "They just bought a new house.",
-    "exampleCn": "他们刚买了新房子。",
-    "extra": "动词读作 /haʊz/，意为'收容'；household = 家庭"
+    "example": "A new house.",
+    "exampleCn": "新房子。",
+    "extra": "动词读 /haʊz/"
   },
-  "HOSE": {
-    "phonetic": "/həʊz/",
+  "ILL": {
+    "phonetic": "/ɪl/",
+    "pos": "adj.",
+    "meaning": "生病的",
+    "example": "He fell ill yesterday.",
+    "exampleCn": "他昨天生病了。",
+    "extra": "illness 同根"
+  },
+  "INLETS": {
+    "phonetic": "/ˈɪnlɛts/",
+    "pos": "n.pl.",
+    "meaning": "小湾的复数",
+    "example": "Quiet inlets.",
+    "exampleCn": "宁静的小湾。",
+    "extra": "inlet = 入口/小湾"
+  },
+  "INN": {
+    "phonetic": "/ɪn/",
     "pos": "n.",
-    "meaning": "软管；水龙带",
-    "example": "He watered the flowers with a garden hose.",
-    "exampleCn": "他用花园水管给花浇水。",
-    "extra": "消防软管叫 fire hose"
+    "meaning": "小旅馆",
+    "example": "They stayed at the inn.",
+    "exampleCn": "他们住在小旅馆。",
+    "extra": "innkeeper = 旅馆主人"
+  },
+  "ITEM": {
+    "phonetic": "/ˈaɪtəm/",
+    "pos": "n.",
+    "meaning": "项目；物品",
+    "example": "On the agenda item.",
+    "exampleCn": "议程项目。",
+    "extra": "itemize 同根"
+  },
+  "ITS": {
+    "phonetic": "/ɪts/",
+    "pos": "pron.",
+    "meaning": "它的",
+    "example": "Its tail wags.",
+    "exampleCn": "它的尾巴摇。",
+    "extra": "it's vs its 区分"
+  },
+  "JAKE": {
+    "phonetic": "/dʒeɪk/",
+    "pos": "n.",
+    "meaning": "没问题（俵）",
+    "example": "It's all jake.",
+    "exampleCn": "一切都好。",
+    "extra": "口语用法少见"
+  },
+  "LACER": {
+    "phonetic": "/ˈleɪsər/",
+    "pos": "n.",
+    "meaning": "系带的人/物",
+    "example": "A shoe lacer.",
+    "exampleCn": "系鞋带工具。",
+    "extra": "lace 派生"
+  },
+  "LAKE": {
+    "phonetic": "/leɪk/",
+    "pos": "n.",
+    "meaning": "湖泊",
+    "example": "A blue lake.",
+    "exampleCn": "蓝色湖泊。",
+    "extra": "Great Lakes 美加边境"
+  },
+  "LANCE": {
+    "phonetic": "/læns/",
+    "pos": "n.",
+    "meaning": "长矛",
+    "example": "A knight's lance.",
+    "exampleCn": "骑士的长矛。",
+    "extra": "lancer = 骑兵"
+  },
+  "LANE": {
+    "phonetic": "/leɪn/",
+    "pos": "n.",
+    "meaning": "小路；车道",
+    "example": "A bike lane.",
+    "exampleCn": "自行车道。",
+    "extra": "fast lane / slow lane"
+  },
+  "LAP": {
+    "phonetic": "/læp/",
+    "pos": "n.",
+    "meaning": "大腿；一圈",
+    "example": "The cat sat on his lap.",
+    "exampleCn": "猫坐在他腿上。",
+    "extra": "跑道一圈也叫 lap"
+  },
+  "LATER": {
+    "phonetic": "/ˈleɪtər/",
+    "pos": "adv.",
+    "meaning": "稍后",
+    "example": "See you later.",
+    "exampleCn": "回头见。",
+    "extra": "late 的比较级"
+  },
+  "LATTE": {
+    "phonetic": "/ˈlɑːteɪ/",
+    "pos": "n.",
+    "meaning": "拿铁",
+    "example": "A vanilla latte.",
+    "exampleCn": "香草拿铁。",
+    "extra": "咖啡饮品"
+  },
+  "LAY": {
+    "phonetic": "/leɪ/",
+    "pos": "v.",
+    "meaning": "放置；铺设",
+    "example": "Lay the book here.",
+    "exampleCn": "把书放这。",
+    "extra": "及物动词；lie 不及物"
+  },
+  "LEAN": {
+    "phonetic": "/liːn/",
+    "pos": "v./adj.",
+    "meaning": "倾斜；瘦的",
+    "example": "Lean on me.",
+    "exampleCn": "靠在我身上。",
+    "extra": "lean meat = 瘦肉"
+  },
+  "LEAP": {
+    "phonetic": "/liːp/",
+    "pos": "v.",
+    "meaning": "跳跃",
+    "example": "Leap over the fence.",
+    "exampleCn": "跳过栅栏。",
+    "extra": "leap year = 闰年"
+  },
+  "LEAPS": {
+    "phonetic": "/liːps/",
+    "pos": "v./n.pl.",
+    "meaning": "leap 的第三人称单数",
+    "example": "She leaps high.",
+    "exampleCn": "她跳得高。",
+    "extra": "by leaps and bounds"
+  },
+  "LEAS": {
+    "phonetic": "/liːz/",
+    "pos": "n.pl.",
+    "meaning": "草地的复数",
+    "example": "Green leas of grass.",
+    "exampleCn": "绿色草地。",
+    "extra": "lea = 草地"
+  },
+  "LENT": {
+    "phonetic": "/lent/",
+    "pos": "v.",
+    "meaning": "lend 过去式",
+    "example": "She lent me a pen.",
+    "exampleCn": "她借我一支笔。",
+    "extra": "lend / lent / lent"
+  },
+  "LIME": {
+    "phonetic": "/laɪm/",
+    "pos": "n.",
+    "meaning": "青柠",
+    "example": "A slice of lime.",
+    "exampleCn": "一片青柠。",
+    "extra": "lime green = 青柠色"
+  },
+  "LIMES": {
+    "phonetic": "/laɪmz/",
+    "pos": "n.pl.",
+    "meaning": "lime 的复数",
+    "example": "Buy two limes.",
+    "exampleCn": "买两个青柠。",
+    "extra": "复数形式"
+  },
+  "LIMIT": {
+    "phonetic": "/ˈlɪmɪt/",
+    "pos": "n.",
+    "meaning": "限制",
+    "example": "Speed limit.",
+    "exampleCn": "限速。",
+    "extra": "limited 同根"
+  },
+  "LISTEN": {
+    "phonetic": "/ˈlɪsən/",
+    "pos": "v.",
+    "meaning": "听",
+    "example": "Listen carefully.",
+    "exampleCn": "仔细听。",
+    "extra": "silent 是字母重排"
+  },
+  "LIT": {
+    "phonetic": "/lɪt/",
+    "pos": "v./adj.",
+    "meaning": "点亮的；light 的过去式",
+    "example": "The room is lit.",
+    "exampleCn": "房间被点亮。",
+    "extra": "俵语：lit = 兴奋的"
+  },
+  "LITES": {
+    "phonetic": "/laɪts/",
+    "pos": "n.pl.",
+    "meaning": "lite（轻质版）的复数",
+    "example": "Various lites available.",
+    "exampleCn": "多种轻量版可选。",
+    "extra": "产品命名常见"
+  },
+  "LOVE": {
+    "phonetic": "/lʌv/",
+    "pos": "n./v.",
+    "meaning": "爱",
+    "example": "I love reading.",
+    "exampleCn": "我喜欢阅读。",
+    "extra": "网球中 love = 0 分"
+  },
+  "MAD": {
+    "phonetic": "/mæd/",
+    "pos": "adj.",
+    "meaning": "疯的；生气的",
+    "example": "Don't get mad.",
+    "exampleCn": "别生气。",
+    "extra": "mad about = 痴迷"
+  },
+  "MADRE": {
+    "phonetic": "/ˈmɑːdreɪ/",
+    "pos": "n.",
+    "meaning": "母亲（西班牙语借词）",
+    "example": "Mi madre is great.",
+    "exampleCn": "我妈妈很棒。",
+    "extra": "常见外来词"
+  },
+  "MAKE": {
+    "phonetic": "/meɪk/",
+    "pos": "v.",
+    "meaning": "做；制造",
+    "example": "Make a wish.",
+    "exampleCn": "许愿。",
+    "extra": "make / made / made"
+  },
+  "MAP": {
+    "phonetic": "/mæp/",
+    "pos": "n.",
+    "meaning": "地图",
+    "example": "Read the map.",
+    "exampleCn": "看地图。",
+    "extra": "map out = 规划"
+  },
+  "MAR": {
+    "phonetic": "/mɑːr/",
+    "pos": "v.",
+    "meaning": "损坏；破坏",
+    "example": "Don't mar the surface.",
+    "exampleCn": "别损坏表面。",
+    "extra": "mar 的过去式 marred"
+  },
+  "MARE": {
+    "phonetic": "/meər/",
+    "pos": "n.",
+    "meaning": "母马",
+    "example": "A brown mare.",
+    "exampleCn": "一匹棕色母马。",
+    "extra": "反义：stallion"
+  },
+  "MARS": {
+    "phonetic": "/mɑːrz/",
+    "pos": "n.",
+    "meaning": "火星；mar 的第三人称单数",
+    "example": "Mars is red.",
+    "exampleCn": "火星是红色的。",
+    "extra": "行星名"
+  },
+  "MARTS": {
+    "phonetic": "/mɑːrts/",
+    "pos": "n.pl.",
+    "meaning": "集市的复数",
+    "example": "Local marts.",
+    "exampleCn": "当地市场。",
+    "extra": "mart = 商场"
+  },
+  "MAST": {
+    "phonetic": "/mɑːst/",
+    "pos": "n.",
+    "meaning": "桅杆",
+    "example": "A tall mast.",
+    "exampleCn": "高大的桅杆。",
+    "extra": "帆船术语"
+  },
+  "MATE": {
+    "phonetic": "/meɪt/",
+    "pos": "n.",
+    "meaning": "伙伴",
+    "example": "My best mate.",
+    "exampleCn": "我最好的伙伴。",
+    "extra": "英式 mate"
+  },
+  "MATS": {
+    "phonetic": "/mæts/",
+    "pos": "n.pl.",
+    "meaning": "垫子（复数）",
+    "example": "Yoga mats.",
+    "exampleCn": "瑜伽垫。",
+    "extra": "mat 的复数"
+  },
+  "MEAD": {
+    "phonetic": "/miːd/",
+    "pos": "n.",
+    "meaning": "蜂蜜酒",
+    "example": "Mead is ancient.",
+    "exampleCn": "蜂蜜酒历史悠久。",
+    "extra": "中世纪饮品"
+  },
+  "MEAR": {
+    "phonetic": "/mɪər/",
+    "pos": "n.",
+    "meaning": "边界（古英语）",
+    "example": "An old mear.",
+    "exampleCn": "古老边界。",
+    "extra": "罕用"
+  },
+  "MEAT": {
+    "phonetic": "/miːt/",
+    "pos": "n.",
+    "meaning": "肉",
+    "example": "Eat less meat.",
+    "exampleCn": "少吃肉。",
+    "extra": "meatball = 肉丸"
+  },
+  "MEET": {
+    "phonetic": "/miːt/",
+    "pos": "v.",
+    "meaning": "遇见",
+    "example": "Nice to meet you.",
+    "exampleCn": "很高兴见到你。",
+    "extra": "meet / met / met"
+  },
+  "META": {
+    "phonetic": "/ˈmetə/",
+    "pos": "adj.",
+    "meaning": "元；超越",
+    "example": "Meta data.",
+    "exampleCn": "元数据。",
+    "extra": "常见前缀"
+  },
+  "MILE": {
+    "phonetic": "/maɪl/",
+    "pos": "n.",
+    "meaning": "英里",
+    "example": "Two miles away.",
+    "exampleCn": "两英里外。",
+    "extra": "1 mile ≈ 1.609 km"
+  },
+  "MILES": {
+    "phonetic": "/maɪlz/",
+    "pos": "n.pl.",
+    "meaning": "mile 的复数",
+    "example": "Many miles to go.",
+    "exampleCn": "还有很多英里要走。",
+    "extra": "复数形式"
+  },
+  "MILS": {
+    "phonetic": "/mɪlz/",
+    "pos": "n.pl.",
+    "meaning": "mil（千分之一英寸）的复数",
+    "example": "Measured in mils.",
+    "exampleCn": "以 mil 为单位测量。",
+    "extra": "mil = 1/1000 英寸"
+  },
+  "MILTS": {
+    "phonetic": "/mɪlts/",
+    "pos": "n.pl.",
+    "meaning": "鱼精囊（复数）",
+    "example": "Fish milts.",
+    "exampleCn": "鱼精囊。",
+    "extra": "milt = 鱼精囊"
+  },
+  "MIME": {
+    "phonetic": "/maɪm/",
+    "pos": "n.",
+    "meaning": "哑剧",
+    "example": "A mime artist.",
+    "exampleCn": "哑剧演员。",
+    "extra": "mimic 同根"
+  },
+  "MIST": {
+    "phonetic": "/mɪst/",
+    "pos": "n.",
+    "meaning": "雾气",
+    "example": "Morning mist.",
+    "exampleCn": "晨雾。",
+    "extra": "misty 同根"
+  },
+  "MITE": {
+    "phonetic": "/maɪt/",
+    "pos": "n.",
+    "meaning": "螨虫；少许",
+    "example": "A dust mite.",
+    "exampleCn": "尘螨。",
+    "extra": "mighty 类似拼写"
+  },
+  "MITS": {
+    "phonetic": "/mɪts/",
+    "pos": "n.pl.",
+    "meaning": "连指手套（复数 mitt 简写）",
+    "example": "Wear mits.",
+    "exampleCn": "戴手套。",
+    "extra": "mitt 简写"
+  },
+  "MORTS": {
+    "phonetic": "/mɔːrts/",
+    "pos": "n.pl.",
+    "meaning": "mort（号角声）的复数",
+    "example": "Hunting morts.",
+    "exampleCn": "狩猎号角声。",
+    "extra": "罕用"
+  },
+  "MOST": {
+    "phonetic": "/məʊst/",
+    "pos": "adj.",
+    "meaning": "最多的",
+    "example": "Most people agree.",
+    "exampleCn": "大多数人同意。",
+    "extra": "most of all"
+  },
+  "MOTS": {
+    "phonetic": "/məʊz/",
+    "pos": "n.pl.",
+    "meaning": "mot（妙语）复数",
+    "example": "Witty mots.",
+    "exampleCn": "机智妙语。",
+    "extra": "法语借词"
+  },
+  "NAP": {
+    "phonetic": "/næp/",
+    "pos": "n./v.",
+    "meaning": "小睡",
+    "example": "Take a short nap.",
+    "exampleCn": "小睡一下。",
+    "extra": "cat nap"
+  },
+  "NAPLES": {
+    "phonetic": "/ˈneɪpəlz/",
+    "pos": "n.",
+    "meaning": "那不勒斯（地名）",
+    "example": "I visited Naples.",
+    "exampleCn": "我去了那不勒斯。",
+    "extra": "意大利城市"
+  },
+  "NEAP": {
+    "phonetic": "/niːp/",
+    "pos": "adj.",
+    "meaning": "小潮的",
+    "example": "Neap tide is weak.",
+    "exampleCn": "小潮潮位低。",
+    "extra": "neap tide = 小潮"
+  },
+  "NEST": {
+    "phonetic": "/nest/",
+    "pos": "n.",
+    "meaning": "鸟巢",
+    "example": "A bird's nest.",
+    "exampleCn": "一个鸟巢。",
+    "extra": "empty nest = 空巢"
+  },
+  "NETS": {
+    "phonetic": "/nets/",
+    "pos": "n.pl.",
+    "meaning": "网（复数）",
+    "example": "Fishing nets.",
+    "exampleCn": "渔网。",
+    "extra": "net 的复数"
+  },
+  "NIL": {
+    "phonetic": "/nɪl/",
+    "pos": "n.",
+    "meaning": "零；无",
+    "example": "The score was nil.",
+    "exampleCn": "比分为零。",
+    "extra": "体育中比 zero 更常用（英式）"
+  },
+  "NOR": {
+    "phonetic": "/nɔːr/",
+    "pos": "conj.",
+    "meaning": "也不",
+    "example": "Neither he nor she.",
+    "exampleCn": "他和她都不。",
+    "extra": "neither...nor"
+  },
+  "NOSE": {
+    "phonetic": "/nəʊz/",
+    "pos": "n.",
+    "meaning": "鼻子",
+    "example": "Her nose is small.",
+    "exampleCn": "她鼻子小。",
+    "extra": "nose dive = 仰冲"
+  },
+  "NOT": {
+    "phonetic": "/nɒt/",
+    "pos": "adv.",
+    "meaning": "不；非",
+    "example": "I do not agree.",
+    "exampleCn": "我不同意。",
+    "extra": "not at all"
+  },
+  "NOTE": {
+    "phonetic": "/nəʊt/",
+    "pos": "n./v.",
+    "meaning": "笔记；注意",
+    "example": "Note the time.",
+    "exampleCn": "记下时间。",
+    "extra": "noteworthy = 值得注意"
+  },
+  "NOTES": {
+    "phonetic": "/nəʊts/",
+    "pos": "n.pl.",
+    "meaning": "笔记（复数）",
+    "example": "Take notes in class.",
+    "exampleCn": "课堂记笔记。",
+    "extra": "note 的复数"
+  },
+  "NUT": {
+    "phonetic": "/nʌt/",
+    "pos": "n.",
+    "meaning": "坚果；螺母",
+    "example": "He cracked the nut.",
+    "exampleCn": "他敲开坚果。",
+    "extra": "in a nutshell（简言之）"
+  },
+  "ONE": {
+    "phonetic": "/wʌn/",
+    "pos": "num.",
+    "meaning": "一",
+    "example": "I want one apple.",
+    "exampleCn": "我想要一个苹果。",
+    "extra": "first / once 同根"
+  },
+  "ONES": {
+    "phonetic": "/wʌnz/",
+    "pos": "n.pl.",
+    "meaning": "一（们）；个位",
+    "example": "The little ones.",
+    "exampleCn": "小家伙们。",
+    "extra": "复数代词用法"
+  },
+  "ONSET": {
+    "phonetic": "/ˈɒnset/",
+    "pos": "n.",
+    "meaning": "开始；发作",
+    "example": "The onset of winter.",
+    "exampleCn": "冬季的开始。",
+    "extra": "sudden onset"
+  },
+  "OPTS": {
+    "phonetic": "/ɒpts/",
+    "pos": "v.",
+    "meaning": "opt 第三人称单数",
+    "example": "She opts for tea.",
+    "exampleCn": "她选择茶。",
+    "extra": "opt = 选择"
+  },
+  "ORES": {
+    "phonetic": "/ɔːrz/",
+    "pos": "n.pl.",
+    "meaning": "矿石的复数",
+    "example": "Iron ores are mined.",
+    "exampleCn": "开采铁矿石。",
+    "extra": "ore = 矿石"
+  },
+  "PAL": {
+    "phonetic": "/pæl/",
+    "pos": "n.",
+    "meaning": "好朋友（口语）",
+    "example": "He's my pal.",
+    "exampleCn": "他是我朋友。",
+    "extra": "pen pal = 笔友"
+  },
+  "PALE": {
+    "phonetic": "/peɪl/",
+    "pos": "adj.",
+    "meaning": "苍白的",
+    "example": "Her face was pale.",
+    "exampleCn": "她脸色苍白。",
+    "extra": "pale skin"
+  },
+  "PALES": {
+    "phonetic": "/peɪlz/",
+    "pos": "n.pl./v.",
+    "meaning": "pale 复数/相形见绌s",
+    "example": "It pales next to gold.",
+    "exampleCn": "与金相比黑然失色。",
+    "extra": "动词用法少见"
+  },
+  "PAN": {
+    "phonetic": "/pæn/",
+    "pos": "n.",
+    "meaning": "平底锅",
+    "example": "Heat oil in the pan.",
+    "exampleCn": "在锅里热油。",
+    "extra": "frying pan"
+  },
+  "PANEL": {
+    "phonetic": "/ˈpænəl/",
+    "pos": "n.",
+    "meaning": "面板；专家小组",
+    "example": "A solar panel.",
+    "exampleCn": "太阳能板。",
+    "extra": "control panel"
+  },
+  "PARE": {
+    "phonetic": "/peər/",
+    "pos": "v.",
+    "meaning": "削皮；削减",
+    "example": "Pare expenses.",
+    "exampleCn": "削减开支。",
+    "extra": "pare down"
+  },
+  "PARES": {
+    "phonetic": "/peərz/",
+    "pos": "v.",
+    "meaning": "pare 第三人称单数",
+    "example": "She pares the apple.",
+    "exampleCn": "她削苹果皮。",
+    "extra": "pare = 削皮"
+  },
+  "PARSE": {
+    "phonetic": "/pɑːrs/",
+    "pos": "v.",
+    "meaning": "分析；解析",
+    "example": "Parse the sentence.",
+    "exampleCn": "分析这句话。",
+    "extra": "编程也用 parse"
+  },
+  "PAS": {
+    "phonetic": "/pɑː/",
+    "pos": "n.",
+    "meaning": "舞步（法语借词）",
+    "example": "A pas de deux.",
+    "exampleCn": "双人舞。",
+    "extra": "芊蕾术语"
+  },
+  "PAT": {
+    "phonetic": "/pæt/",
+    "pos": "v.",
+    "meaning": "轻拍",
+    "example": "She patted the puppy.",
+    "exampleCn": "她轻拍小狗。",
+    "extra": "pat on the back（鼓励）"
+  },
+  "PEAL": {
+    "phonetic": "/piːl/",
+    "pos": "n.",
+    "meaning": "钟声；雷鸣",
+    "example": "A peal of bells.",
+    "exampleCn": "一阵钟声。",
+    "extra": "peal of laughter"
+  },
+  "PEALS": {
+    "phonetic": "/piːlz/",
+    "pos": "n.pl.",
+    "meaning": "阵阵",
+    "example": "Peals of laughter.",
+    "exampleCn": "阵阵笑声。",
+    "extra": "复数形式"
+  },
+  "PEAR": {
+    "phonetic": "/peər/",
+    "pos": "n.",
+    "meaning": "梨",
+    "example": "A juicy pear.",
+    "exampleCn": "一个多汁的梨。",
+    "extra": "苹果 apple 同类"
+  },
+  "PEARS": {
+    "phonetic": "/peərz/",
+    "pos": "n.pl.",
+    "meaning": "梨",
+    "example": "I love pears.",
+    "exampleCn": "我爱梨。",
+    "extra": "pear 的复数"
+  },
+  "PEAS": {
+    "phonetic": "/piːz/",
+    "pos": "n.pl.",
+    "meaning": "豌豆",
+    "example": "Green peas.",
+    "exampleCn": "青豆。",
+    "extra": "pea 的复数"
+  },
+  "PENAL": {
+    "phonetic": "/ˈpiːnəl/",
+    "pos": "adj.",
+    "meaning": "刑罚的",
+    "example": "Penal code.",
+    "exampleCn": "刑法典。",
+    "extra": "penalty 同根"
+  },
+  "PLANE": {
+    "phonetic": "/pleɪn/",
+    "pos": "n.",
+    "meaning": "飞机；平面",
+    "example": "A jet plane.",
+    "exampleCn": "喷气式飞机。",
+    "extra": "airplane 缩写"
+  },
+  "PLAY": {
+    "phonetic": "/pleɪ/",
+    "pos": "v./n.",
+    "meaning": "玩；演奏；戏剧",
+    "example": "Children play here.",
+    "exampleCn": "孩子们在这玩。",
+    "extra": "player / playful"
+  },
+  "PLEA": {
+    "phonetic": "/pliː/",
+    "pos": "n.",
+    "meaning": "恻求",
+    "example": "A plea for help.",
+    "exampleCn": "求救。",
+    "extra": "plead 同根"
+  },
+  "POST": {
+    "phonetic": "/pəʊst/",
+    "pos": "n./v.",
+    "meaning": "邮件；张贴",
+    "example": "Post the letter.",
+    "exampleCn": "寄信。",
+    "extra": "postcard = 明信片"
+  },
+  "POTS": {
+    "phonetic": "/pɒts/",
+    "pos": "n.pl.",
+    "meaning": "锅；罐（复数）",
+    "example": "Pots and pans.",
+    "exampleCn": "锅碗瓢盆。",
+    "extra": "pot 的复数"
+  },
+  "RAIN": {
+    "phonetic": "/reɪn/",
+    "pos": "n./v.",
+    "meaning": "雨；下雨",
+    "example": "It rains in summer.",
+    "exampleCn": "夏天下雨。",
+    "extra": "rain cats and dogs"
+  },
+  "RAKE": {
+    "phonetic": "/reɪk/",
+    "pos": "n./v.",
+    "meaning": "耙子；用耙子耙",
+    "example": "Rake the leaves.",
+    "exampleCn": "耙落叶。",
+    "extra": "gardening tool"
+  },
+  "RAM": {
+    "phonetic": "/ræm/",
+    "pos": "n.",
+    "meaning": "公羊；撞",
+    "example": "A ram with horns.",
+    "exampleCn": "有角的公羊。",
+    "extra": "ram into = 撞入"
+  },
+  "RAMP": {
+    "phonetic": "/ræmp/",
+    "pos": "n.",
+    "meaning": "坡道；斜面",
+    "example": "Wheelchair ramp.",
+    "exampleCn": "轮椅坡道。",
+    "extra": "on-ramp = 入匝道"
+  },
+  "RAMS": {
+    "phonetic": "/ræmz/",
+    "pos": "n.pl.",
+    "meaning": "公羊（复数）",
+    "example": "Two rams collide.",
+    "exampleCn": "两只公羊相撞。",
+    "extra": "ram 的复数"
+  },
+  "RAN": {
+    "phonetic": "/ræn/",
+    "pos": "v.",
+    "meaning": "run 的过去式",
+    "example": "He ran fast yesterday.",
+    "exampleCn": "他昨天跑得很快。",
+    "extra": "run / ran / run"
+  },
+  "RAPE": {
+    "phonetic": "/reɪp/",
+    "pos": "n.",
+    "meaning": "油菜（也作动词指强奸）",
+    "example": "Rape oil.",
+    "exampleCn": "菜籽油。",
+    "extra": "注意词义敏感，多指植物"
+  },
+  "RASE": {
+    "phonetic": "/reɪz/",
+    "pos": "v.",
+    "meaning": "夷为平地（古拼写）",
+    "example": "Rase the building.",
+    "exampleCn": "夷平建筑。",
+    "extra": "常作 raze"
+  },
+  "RAT": {
+    "phonetic": "/ræt/",
+    "pos": "n.",
+    "meaning": "老鼠",
+    "example": "A rat ran across the floor.",
+    "exampleCn": "一只老鼠跑过地板。",
+    "extra": "复数 rats"
+  },
+  "RATE": {
+    "phonetic": "/reɪt/",
+    "pos": "n./v.",
+    "meaning": "比率；评分",
+    "example": "A high rate of success.",
+    "exampleCn": "高成功率。",
+    "extra": "rating 同根"
+  },
+  "RATES": {
+    "phonetic": "/reɪts/",
+    "pos": "n.pl.",
+    "meaning": "比率（复数）",
+    "example": "Interest rates.",
+    "exampleCn": "利率。",
+    "extra": "rate 的复数"
+  },
+  "RATS": {
+    "phonetic": "/ræts/",
+    "pos": "n.pl.",
+    "meaning": "老鼠；糟了！",
+    "example": "Rats! I missed it.",
+    "exampleCn": "糟了！我错过了。",
+    "extra": "rat 的复数"
+  },
+  "RAW": {
+    "phonetic": "/rɔː/",
+    "pos": "adj.",
+    "meaning": "生的；未加工的",
+    "example": "Eat raw vegetables.",
+    "exampleCn": "吃生蔬菜。",
+    "extra": "raw material = 原料"
+  },
+  "READ": {
+    "phonetic": "/riːd/",
+    "pos": "v.",
+    "meaning": "阅读",
+    "example": "I read books.",
+    "exampleCn": "我读书。",
+    "extra": "read / read / read（拼写不变发音变）"
+  },
+  "REAM": {
+    "phonetic": "/riːm/",
+    "pos": "n.",
+    "meaning": "令（纸量单位）",
+    "example": "A ream of paper.",
+    "exampleCn": "一令纸。",
+    "extra": "500 张"
+  },
+  "REAP": {
+    "phonetic": "/riːp/",
+    "pos": "v.",
+    "meaning": "收割；获得",
+    "example": "Reap the harvest.",
+    "exampleCn": "收获庄稼。",
+    "extra": "reaper = 收割者"
+  },
+  "REAPS": {
+    "phonetic": "/riːps/",
+    "pos": "v.",
+    "meaning": "reap 第三人称单数",
+    "example": "Reap what you sow.",
+    "exampleCn": "种瓜得瓜。",
+    "extra": "reap = 收获"
+  },
+  "REAR": {
+    "phonetic": "/rɪər/",
+    "pos": "n./v.",
+    "meaning": "后部；养育",
+    "example": "At the rear.",
+    "exampleCn": "在后面。",
+    "extra": "rear-view mirror"
+  },
+  "REBAR": {
+    "phonetic": "/ˈriːbɑːr/",
+    "pos": "n.",
+    "meaning": "钢筋",
+    "example": "Rebar in concrete.",
+    "exampleCn": "混凝土中的钢筋。",
+    "extra": "建筑术语"
+  },
+  "ROSE": {
+    "phonetic": "/rəʊz/",
+    "pos": "n.",
+    "meaning": "玫瑰；rise 过去式",
+    "example": "A red rose.",
+    "exampleCn": "一朵红玫瑰。",
+    "extra": "rose / rose / risen"
+  },
+  "ROTS": {
+    "phonetic": "/rɒts/",
+    "pos": "v.",
+    "meaning": "rot 第三人称单数",
+    "example": "The fruit rots.",
+    "exampleCn": "水果腐烂。",
+    "extra": "rot = 腐烂"
+  },
+  "SAKE": {
+    "phonetic": "/seɪk/",
+    "pos": "n.",
+    "meaning": "缘故；目的",
+    "example": "For your sake.",
+    "exampleCn": "为了你。",
+    "extra": "for the sake of"
+  },
+  "SALE": {
+    "phonetic": "/seɪl/",
+    "pos": "n.",
+    "meaning": "出售；销售",
+    "example": "On sale today.",
+    "exampleCn": "今日特价。",
+    "extra": "for sale"
+  },
+  "SAP": {
+    "phonetic": "/sæp/",
+    "pos": "n.",
+    "meaning": "树液",
+    "example": "Maple sap.",
+    "exampleCn": "枫树树液。",
+    "extra": "俵语 sap = 笨蛋"
+  },
+  "SAW": {
+    "phonetic": "/sɔː/",
+    "pos": "v.",
+    "meaning": "see 的过去式",
+    "example": "I saw a movie.",
+    "exampleCn": "我看了一部电影。",
+    "extra": "see / saw / seen"
+  },
+  "SEAL": {
+    "phonetic": "/siːl/",
+    "pos": "n.",
+    "meaning": "海豹；封条",
+    "example": "A seal swims fast.",
+    "exampleCn": "海豹游得快。",
+    "extra": "sealed = 密封的"
+  },
+  "SEAR": {
+    "phonetic": "/sɪər/",
+    "pos": "v.",
+    "meaning": "烧灼；煎",
+    "example": "Sear the steak.",
+    "exampleCn": "煎牛排。",
+    "extra": "searing pain"
+  },
+  "SENT": {
+    "phonetic": "/sent/",
+    "pos": "v.",
+    "meaning": "send 过去式",
+    "example": "I sent the letter.",
+    "exampleCn": "我寄了信。",
+    "extra": "send / sent / sent"
+  },
+  "SERA": {
+    "phonetic": "/ˈsɪərə/",
+    "pos": "n.pl.",
+    "meaning": "serum（血清）的复数",
+    "example": "Different sera tested.",
+    "exampleCn": "测试不同血清。",
+    "extra": "医学复数"
+  },
+  "SHARE": {
+    "phonetic": "/ʃeər/",
+    "pos": "n./v.",
+    "meaning": "分享；股份",
+    "example": "Share the cake.",
+    "exampleCn": "分享蛋糕。",
+    "extra": "sharing 同根"
+  },
+  "SHARES": {
+    "phonetic": "/ʃeərz/",
+    "pos": "n.pl.",
+    "meaning": "股份（复数）",
+    "example": "Buy shares.",
+    "exampleCn": "购买股份。",
+    "extra": "share 的复数"
+  },
+  "SHARP": {
+    "phonetic": "/ʃɑːrp/",
+    "pos": "adj.",
+    "meaning": "锋利的",
+    "example": "A sharp knife.",
+    "exampleCn": "锋利的刀。",
+    "extra": "sharpen 同根"
+  },
+  "SHORE": {
+    "phonetic": "/ʃɔːr/",
+    "pos": "n.",
+    "meaning": "岸；海岸",
+    "example": "Walk along the shore.",
+    "exampleCn": "沿岸散步。",
+    "extra": "shoreline = 海岸线"
+  },
+  "SHOT": {
+    "phonetic": "/ʃɒt/",
+    "pos": "n.",
+    "meaning": "射击；尝试",
+    "example": "A great shot.",
+    "exampleCn": "精彩的一击。",
+    "extra": "give it a shot"
+  },
+  "SILENT": {
+    "phonetic": "/ˈsaɪlənt/",
+    "pos": "adj.",
+    "meaning": "安静的",
+    "example": "Be silent please.",
+    "exampleCn": "请保持安静。",
+    "extra": "listen 是字母重排"
+  },
+  "SIT": {
+    "phonetic": "/sɪt/",
+    "pos": "v.",
+    "meaning": "坐",
+    "example": "Please sit down.",
+    "exampleCn": "请坐下。",
+    "extra": "sit / sat / sat"
+  },
+  "SLIM": {
+    "phonetic": "/slɪm/",
+    "pos": "adj.",
+    "meaning": "苗条的",
+    "example": "A slim build.",
+    "exampleCn": "苗条的身材。",
+    "extra": "slim down = 减肥"
+  },
+  "SLIME": {
+    "phonetic": "/slaɪm/",
+    "pos": "n.",
+    "meaning": "黏液；史莱姆",
+    "example": "Kids love slime.",
+    "exampleCn": "孩子们爱玩史莱姆。",
+    "extra": "slimy 同根"
+  },
+  "SMART": {
+    "phonetic": "/smɑːrt/",
+    "pos": "adj.",
+    "meaning": "聪明的",
+    "example": "A smart kid.",
+    "exampleCn": "聪明的孩子。",
+    "extra": "smart phone / smart watch"
+  },
+  "SMILE": {
+    "phonetic": "/smaɪl/",
+    "pos": "n./v.",
+    "meaning": "微笑",
+    "example": "A bright smile.",
+    "exampleCn": "灿烂的微笑。",
+    "extra": "smile from ear to ear"
+  },
+  "SON": {
+    "phonetic": "/sʌn/",
+    "pos": "n.",
+    "meaning": "儿子",
+    "example": "They have one son.",
+    "exampleCn": "他们有一个儿子。",
+    "extra": "反义：daughter"
+  },
+  "SONE": {
+    "phonetic": "/səʊn/",
+    "pos": "n.",
+    "meaning": "宋（响度单位）",
+    "example": "Measured in sones.",
+    "exampleCn": "以宋为单位测量。",
+    "extra": "声学单位"
+  },
+  "SORE": {
+    "phonetic": "/sɔːr/",
+    "pos": "adj.",
+    "meaning": "疼痛的",
+    "example": "My arm is sore.",
+    "exampleCn": "我胳膊疼。",
+    "extra": "常用：sore throat"
+  },
+  "SORT": {
+    "phonetic": "/sɔːrt/",
+    "pos": "v./n.",
+    "meaning": "分类；种类",
+    "example": "Sort by date.",
+    "exampleCn": "按日期分类。",
+    "extra": "sort of = 有点"
+  },
+  "SPA": {
+    "phonetic": "/spɑː/",
+    "pos": "n.",
+    "meaning": "水疗；温泉",
+    "example": "Day at the spa.",
+    "exampleCn": "在水疗中心。",
+    "extra": "spa day"
+  },
+  "SPARE": {
+    "phonetic": "/speər/",
+    "pos": "adj./v.",
+    "meaning": "备用的；抽出",
+    "example": "Spare time for me.",
+    "exampleCn": "为我抽出时间。",
+    "extra": "spare key = 备用钥匙"
+  },
+  "SPEAR": {
+    "phonetic": "/spɪər/",
+    "pos": "n.",
+    "meaning": "矛；长枪",
+    "example": "Throw the spear.",
+    "exampleCn": "掷出长矛。",
+    "extra": "spearhead = 先锋"
+  },
+  "SPOT": {
+    "phonetic": "/spɒt/",
+    "pos": "n./v.",
+    "meaning": "斑点；地点",
+    "example": "A nice spot.",
+    "exampleCn": "好地方。",
+    "extra": "on the spot = 当场"
+  },
+  "STAR": {
+    "phonetic": "/stɑːr/",
+    "pos": "n./v.",
+    "meaning": "星星；明星；主演",
+    "example": "She became a star.",
+    "exampleCn": "她成为明星。",
+    "extra": "shooting star / star-studded"
+  },
+  "STARE": {
+    "phonetic": "/steər/",
+    "pos": "v.",
+    "meaning": "凝视",
+    "example": "Don't stare.",
+    "exampleCn": "别盯着看。",
+    "extra": "staring 同根"
+  },
+  "STEN": {
+    "phonetic": "/sten/",
+    "pos": "n.",
+    "meaning": "司登冲锋枪",
+    "example": "A Sten gun.",
+    "exampleCn": "司登冲锋枪。",
+    "extra": "二战英国武器"
+  },
+  "STOMP": {
+    "phonetic": "/stɒmp/",
+    "pos": "v.",
+    "meaning": "跱脚",
+    "example": "Stomp on the ground.",
+    "exampleCn": "在地上跱脚。",
+    "extra": "stomp 的动作感"
+  },
+  "STONE": {
+    "phonetic": "/stəʊn/",
+    "pos": "n.",
+    "meaning": "石头",
+    "example": "A stone wall.",
+    "exampleCn": "石墙。",
+    "extra": "stone-cold = 冰冷"
+  },
+  "STOP": {
+    "phonetic": "/stɒp/",
+    "pos": "v.",
+    "meaning": "停止",
+    "example": "Please stop.",
+    "exampleCn": "请停下。",
+    "extra": "stop sign"
+  },
+  "STORM": {
+    "phonetic": "/stɔːrm/",
+    "pos": "n.",
+    "meaning": "暴风雨",
+    "example": "A heavy storm.",
+    "exampleCn": "强暴风雨。",
+    "extra": "thunderstorm = 雷暴"
+  },
+  "SUN": {
+    "phonetic": "/sʌn/",
+    "pos": "n.",
+    "meaning": "太阳",
+    "example": "The sun is bright.",
+    "exampleCn": "太阳很亮。",
+    "extra": "sunny / sunshine"
+  },
+  "TAB": {
+    "phonetic": "/tæb/",
+    "pos": "n.",
+    "meaning": "标签；账单",
+    "example": "Click on the new tab.",
+    "exampleCn": "点击新标签。",
+    "extra": "browser tab"
+  },
+  "TAKE": {
+    "phonetic": "/teɪk/",
+    "pos": "v.",
+    "meaning": "拿；带",
+    "example": "Take the book.",
+    "exampleCn": "拿这本书。",
+    "extra": "take / took / taken"
+  },
+  "TAME": {
+    "phonetic": "/teɪm/",
+    "pos": "adj.",
+    "meaning": "驯服的",
+    "example": "A tame lion.",
+    "exampleCn": "驯服的狮子。",
+    "extra": "tamer 同根"
+  },
+  "TAN": {
+    "phonetic": "/tæn/",
+    "pos": "n./v.",
+    "meaning": "晒黑；棕褐色",
+    "example": "He got a deep tan.",
+    "exampleCn": "他晒得很黑。",
+    "extra": "sunbathing → tan"
+  },
+  "TAP": {
+    "phonetic": "/tæp/",
+    "pos": "v./n.",
+    "meaning": "轻敲；水龙头",
+    "example": "Tap the screen lightly.",
+    "exampleCn": "轻触屏幕。",
+    "extra": "tap water = 自来水"
+  },
+  "TAR": {
+    "phonetic": "/tɑːr/",
+    "pos": "n.",
+    "meaning": "焦油；沥青",
+    "example": "Workers poured hot tar.",
+    "exampleCn": "工人浇热沥青。",
+    "extra": "tarmac 由此衍生"
+  },
+  "TARES": {
+    "phonetic": "/teərz/",
+    "pos": "n.pl.",
+    "meaning": "杂草",
+    "example": "Tares in the wheat.",
+    "exampleCn": "麦中杂草。",
+    "extra": "圣经常见词"
+  },
+  "TARS": {
+    "phonetic": "/tɑːrz/",
+    "pos": "n.pl.",
+    "meaning": "tar 的复数",
+    "example": "Different tars are used.",
+    "exampleCn": "使用不同的沥青。",
+    "extra": "tar 的复数"
+  },
+  "TEA": {
+    "phonetic": "/tiː/",
+    "pos": "n.",
+    "meaning": "茶；茶水",
+    "example": "Would you like some tea?",
+    "exampleCn": "你想喝点茶吗？",
+    "extra": "green tea / tea time"
+  },
+  "TEAM": {
+    "phonetic": "/tiːm/",
+    "pos": "n.",
+    "meaning": "团队",
+    "example": "A great team.",
+    "exampleCn": "一个好团队。",
+    "extra": "teammate / teamwork"
+  },
+  "TEAR": {
+    "phonetic": "/tɪər/",
+    "pos": "n.",
+    "meaning": "眼泪",
+    "example": "A tear rolled down.",
+    "exampleCn": "一滴眼泪落下。",
+    "extra": "动词读 /teər/，意撞裂"
+  },
+  "TEARS": {
+    "phonetic": "/tɪərz/",
+    "pos": "n.pl.",
+    "meaning": "眼泪（复数）",
+    "example": "Tears of joy.",
+    "exampleCn": "喜悦的泪水。",
+    "extra": "tear 的复数"
+  },
+  "TENS": {
+    "phonetic": "/tenz/",
+    "pos": "n.pl.",
+    "meaning": "十的倍数",
+    "example": "Tens of people.",
+    "exampleCn": "数十人。",
+    "extra": "in tens"
+  },
+  "TIME": {
+    "phonetic": "/taɪm/",
+    "pos": "n.",
+    "meaning": "时间",
+    "example": "What time is it?",
+    "exampleCn": "几点了？",
+    "extra": "timely 同根"
+  },
+  "TIN": {
+    "phonetic": "/tɪn/",
+    "pos": "n.",
+    "meaning": "锡；罐头",
+    "example": "A tin of beans.",
+    "exampleCn": "一罐豆子。",
+    "extra": "tin = 英式罐头；can = 美式"
+  },
+  "TINSEL": {
+    "phonetic": "/ˈtɪnsəl/",
+    "pos": "n.",
+    "meaning": "金属箔丝（圣诞装饰）",
+    "example": "Tinsel on the tree.",
+    "exampleCn": "树上的金属箔丝。",
+    "extra": "圣诞树常见装饰"
+  },
+  "TIS": {
+    "phonetic": "/tɪz/",
+    "pos": "v.",
+    "meaning": "it is 的缩写（古）",
+    "example": "Tis the season.",
+    "exampleCn": "这正是时候。",
+    "extra": "诗用古语"
+  },
+  "TOE": {
+    "phonetic": "/təʊ/",
+    "pos": "n.",
+    "meaning": "脚趋",
+    "example": "I stubbed my toe.",
+    "exampleCn": "我撞到脚趋。",
+    "extra": "big toe = 大拇指"
+  },
+  "TON": {
+    "phonetic": "/tʌn/",
+    "pos": "n.",
+    "meaning": "吨",
+    "example": "A ton of coal.",
+    "exampleCn": "一吨煤。",
+    "extra": "1 ton ≈ 1000 kg"
+  },
+  "TONE": {
+    "phonetic": "/təʊn/",
+    "pos": "n.",
+    "meaning": "音调；语调",
+    "example": "In a serious tone.",
+    "exampleCn": "严肃的语调。",
+    "extra": "tone of voice"
+  },
+  "TONES": {
+    "phonetic": "/təʊnz/",
+    "pos": "n.pl.",
+    "meaning": "音调（复数）",
+    "example": "Soft tones of voice.",
+    "exampleCn": "柔和的语调。",
+    "extra": "tone 的复数"
+  },
+  "TOPS": {
+    "phonetic": "/tɒps/",
+    "pos": "n.pl.",
+    "meaning": "上衣（复数）",
+    "example": "Wear cool tops.",
+    "exampleCn": "穿酷上衣。",
+    "extra": "top 的复数"
+  },
+  "TOTE": {
+    "phonetic": "/təʊt/",
+    "pos": "v./n.",
+    "meaning": "手提；手提包",
+    "example": "A canvas tote bag.",
+    "exampleCn": "帆布手提包。",
+    "extra": "tote bag 常见"
+  },
+  "TRAMS": {
+    "phonetic": "/træmz/",
+    "pos": "n.pl.",
+    "meaning": "电车的复数",
+    "example": "European trams.",
+    "exampleCn": "欧洲电车。",
+    "extra": "tram = 有轨电车"
+  },
+  "UNS": {
+    "phonetic": "/ʌnz/",
+    "pos": "n.",
+    "meaning": "one 的口语复数（俵语）",
+    "example": "Pick the little uns.",
+    "exampleCn": "挑小的。",
+    "extra": "罕见，常仅出现拼词游戏"
   },
   "USE": {
     "phonetic": "/juːz/",
-    "pos": "v. / n.",
+    "pos": "v./n.",
     "meaning": "使用；用途",
-    "example": "Can I use your pen for a moment?",
-    "exampleCn": "我可以借用一下你的笔吗？",
-    "extra": "名词读 /juːs/，动词读 /juːz/；useful/useless 同根"
+    "example": "Can I use this?",
+    "exampleCn": "我能用这个吗？",
+    "extra": "名词 /juːs/，动词 /juːz/"
+  },
+  "VOLE": {
+    "phonetic": "/vəʊl/",
+    "pos": "n.",
+    "meaning": "田鼠",
+    "example": "A vole in the field.",
+    "exampleCn": "田里的田鼠。",
+    "extra": "猫头鹰常见猎物"
+  },
+  "WAKE": {
+    "phonetic": "/weɪk/",
+    "pos": "v.",
+    "meaning": "醒来",
+    "example": "Wake up early.",
+    "exampleCn": "早起。",
+    "extra": "wake / woke / woken"
+  },
+  "WAS": {
+    "phonetic": "/wɒz/",
+    "pos": "v.",
+    "meaning": "is/am 的过去式",
+    "example": "He was here.",
+    "exampleCn": "他刚才在这。",
+    "extra": "past tense of be"
   }
 }
