@@ -1,27 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useServices } from '../services';
+import { useCurrentUser, useServices } from '../services';
 import { useTheme } from '../theme/ThemeProvider';
 import { lookup } from '../utils/wordValidation';
 import { speak } from '../utils/speech';
+import { t } from '../i18n';
 
 interface Props {
   word: string | null;
   isBonus?: boolean;
+  /** When true, the mastery row (我记住了 / 还没记住) is hidden — useful
+   *  inside the quiz screen where mastery is updated via quiz answers. */
+  hideMastery?: boolean;
   onClose: () => void;
 }
 
-export function WordDetailModal({ word, isBonus, onClose }: Props) {
+export function WordDetailModal({ word, isBonus, hideMastery, onClose }: Props) {
   const services = useServices();
+  const user = useCurrentUser();
   const { theme } = useTheme();
   const entry = word ? lookup(word) : null;
+  const [feedback, setFeedback] = useState<string | null>(null);
 
   useEffect(() => {
     if (!word) return;
     services.analytics.track({ name: 'word_detail_shown', props: { word } });
     speak(word);
+    setFeedback(null);
   }, [services, word]);
+
+  const handleMastery = useCallback(
+    async (delta: 1 | -1) => {
+      if (!word || !user) return;
+      await services.learnedWords.setMastery(user.userId, word, delta);
+      setFeedback(
+        delta === 1
+          ? t('wordDetail.markedRemembered')
+          : t('wordDetail.markedReview')
+      );
+    },
+    [services, user, word]
+  );
 
   if (!word) return null;
 
@@ -69,12 +89,33 @@ export function WordDetailModal({ word, isBonus, onClose }: Props) {
             ) : (
               <Text style={styles.meaning}>（词库暂无扩展信息）</Text>
             )}
+            {!hideMastery ? (
+              <View style={styles.masteryRow}>
+                <Pressable
+                  style={[styles.masteryBtn, styles.masteryBtnAgain]}
+                  onPress={() => handleMastery(-1)}
+                >
+                  <Text style={styles.masteryBtnAgainText}>
+                    {t('wordDetail.notYet')}
+                  </Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.masteryBtn, styles.masteryBtnGot]}
+                  onPress={() => handleMastery(1)}
+                >
+                  <Text style={styles.masteryBtnGotText}>
+                    {t('wordDetail.remembered')}
+                  </Text>
+                </Pressable>
+              </View>
+            ) : null}
+            {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
             <Pressable
               style={[styles.closeBtn, { backgroundColor: theme.primary }]}
               onPress={onClose}
             >
               <Text style={[styles.closeText, { color: theme.primaryText }]}>
-                太棒了
+                {t('wordDetail.continue')}
               </Text>
             </Pressable>
           </View>
@@ -183,4 +224,32 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   closeText: { fontSize: 17, fontWeight: '900' },
+  masteryRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 4,
+  },
+  masteryBtn: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 14,
+    alignItems: 'center',
+    borderWidth: 1.5,
+  },
+  masteryBtnAgain: {
+    backgroundColor: '#FEF3C7',
+    borderColor: '#FCD34D',
+  },
+  masteryBtnAgainText: { fontSize: 13, fontWeight: '900', color: '#92400E' },
+  masteryBtnGot: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#86EFAC',
+  },
+  masteryBtnGotText: { fontSize: 13, fontWeight: '900', color: '#166534' },
+  feedback: {
+    fontSize: 12,
+    color: '#64748B',
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
 });

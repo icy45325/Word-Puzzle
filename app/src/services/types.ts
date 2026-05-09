@@ -42,6 +42,13 @@ export interface LearnedWord {
   levelId: string;
   firstFoundAt: number;
   isBonus: boolean;
+  // Spaced-repetition fields. Optional so legacy entries lazy-migrate to
+  // sensible defaults (masteryLevel=0, nextReviewDue=firstFoundAt, etc.).
+  masteryLevel?: number; // 0-5; 5 = mastered
+  lastReviewedAt?: number;
+  nextReviewDue?: number;
+  reviewCount?: number;
+  correctStreak?: number;
 }
 
 export interface LearnedWordsRepo {
@@ -49,6 +56,20 @@ export interface LearnedWordsRepo {
   list(userId: Uuid): Promise<LearnedWord[]>;
   migrate(fromUserId: Uuid, toUserId: Uuid): Promise<void>;
   clear(userId: Uuid): Promise<void>;
+  /** Update one word's mastery + scheduling after a review attempt. */
+  applyReviewResult(
+    userId: Uuid,
+    word: string,
+    correct: boolean
+  ): Promise<LearnedWord | null>;
+  /** Force-set mastery (used by manual "I remember it / not yet" buttons). */
+  setMastery(
+    userId: Uuid,
+    word: string,
+    delta: 1 | -1
+  ): Promise<LearnedWord | null>;
+  /** Words whose nextReviewDue is in the past (default now()). */
+  getDue(userId: Uuid, now?: number): Promise<LearnedWord[]>;
 }
 
 export interface Friend {

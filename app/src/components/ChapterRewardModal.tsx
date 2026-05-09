@@ -11,6 +11,9 @@ interface Props {
   coins: number;
   hints: number;
   hintCapped: boolean;
+  /** Words newly learned in this chapter (target + bonus). Shown as a
+   *  scrollable chip row above the claim button. */
+  newWords?: string[];
   onClaim: () => void;
 }
 
@@ -20,6 +23,7 @@ export function ChapterRewardModal({
   coins,
   hints,
   hintCapped,
+  newWords,
   onClaim,
 }: Props) {
   const { theme } = useTheme();
@@ -48,6 +52,25 @@ export function ChapterRewardModal({
             </View>
             {hintCapped ? (
               <Text style={styles.cap}>{t('chapterReward.cap')}</Text>
+            ) : null}
+            {newWords && newWords.length > 0 ? (
+              <View style={styles.newWordsBlock}>
+                <Text style={styles.newWordsLabel}>
+                  {t('chapterReward.newWords', { count: newWords.length })}
+                </Text>
+                <View style={styles.newWordsChips}>
+                  {newWords.slice(0, 12).map((w) => (
+                    <View key={w} style={styles.newWordChip}>
+                      <Text style={styles.newWordChipText}>{w}</Text>
+                    </View>
+                  ))}
+                  {newWords.length > 12 ? (
+                    <Text style={styles.newWordsMore}>
+                      +{newWords.length - 12}
+                    </Text>
+                  ) : null}
+                </View>
+              </View>
             ) : null}
             <Pressable
               style={[styles.btn, { backgroundColor: theme.primary }]}
@@ -121,6 +144,45 @@ const styles = StyleSheet.create({
   rewardIcon: { fontSize: 22 },
   rewardText: { fontSize: 16, fontWeight: '900', color: '#FACC15' },
   cap: { fontSize: 12, color: '#64748B', textAlign: 'center' },
+  newWordsBlock: {
+    alignSelf: 'stretch',
+    backgroundColor: '#F8FAFC',
+    borderRadius: 16,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    gap: 8,
+  },
+  newWordsLabel: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#475569',
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+  },
+  newWordsChips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  newWordChip: {
+    backgroundColor: '#0F172A',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  newWordChipText: {
+    color: '#FACC15',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
+  newWordsMore: {
+    color: '#475569',
+    fontSize: 12,
+    fontWeight: '700',
+    alignSelf: 'center',
+  },
   btn: {
     alignSelf: 'stretch',
     paddingVertical: 16,

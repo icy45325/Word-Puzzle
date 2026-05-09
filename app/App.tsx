@@ -17,6 +17,7 @@ import { LeaderboardScreen } from './src/screens/LeaderboardScreen';
 import { FriendsScreen } from './src/screens/FriendsScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { MapScreen } from './src/screens/MapScreen';
+import { ReviewQuizScreen } from './src/screens/ReviewQuizScreen';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -27,6 +28,7 @@ export type RootStackParamList = {
   Leaderboard: undefined;
   Friends: undefined;
   Login: undefined;
+  ReviewQuiz: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -52,6 +54,7 @@ export default function App() {
                 <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
                 <Stack.Screen name="Friends" component={FriendsScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="ReviewQuiz" component={ReviewQuizScreen} />
               </Stack.Navigator>
             </NavigationContainer>
             <StatusBar style="light" />

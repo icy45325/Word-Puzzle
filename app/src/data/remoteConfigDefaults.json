@@ -26,5 +26,7 @@
   "reward.levelPerfectBonus": 25,
   "reward.dailyCheckIn": 20,
   "reward.streakPerDay": 5,
-  "reward.adRewarded": 30
+  "reward.adRewarded": 30,
+  "review.batchSize": 5,
+  "review.coinPerCorrect": 5
 }

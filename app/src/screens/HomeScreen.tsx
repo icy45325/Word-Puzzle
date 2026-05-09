@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useFocusEffect } from '@react-navigation/native';
 import { t } from '../i18n';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 import { useUnlocks } from '../hooks/useUnlocks';
+import { useCurrentUser, useServices } from '../services';
 import { useTheme } from '../theme/ThemeProvider';
 import { GradientBackground } from '../components/GradientBackground';
 import { AppLogo } from '../components/AppLogo';
@@ -16,8 +18,27 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function HomeScreen({ navigation }: Props) {
   const { theme } = useTheme();
+  const services = useServices();
+  const user = useCurrentUser();
   const unlocks = useUnlocks();
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [dueCount, setDueCount] = useState(0);
+
+  const refreshDue = React.useCallback(() => {
+    if (!user) return;
+    services.learnedWords
+      .getDue(user.userId)
+      .then((due) => setDueCount(due.length));
+  }, [services, user]);
+
+  useEffect(() => {
+    refreshDue();
+  }, [refreshDue]);
+
+  // Re-pull on focus so finishing a quiz / round drops the badge.
+  useFocusEffect(React.useCallback(() => {
+    refreshDue();
+  }, [refreshDue]));
 
   const continueLevel = unlocks.loaded ? unlocks.furthestLevel : 1;
   const continueLabel = unlocks.loaded
@@ -81,6 +102,23 @@ export function HomeScreen({ navigation }: Props) {
               <Text style={styles.pathTitle}>地图 ›</Text>
             </View>
           </Pressable>
+
+          {/* Daily review nudge — only when there are due words */}
+          {dueCount > 0 ? (
+            <Pressable
+              style={styles.reviewCta}
+              onPress={() => navigation.navigate('ReviewQuiz')}
+            >
+              <Text style={styles.reviewIcon}>📚</Text>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.reviewTitle}>
+                  {t('home.reviewCta', { count: dueCount })}
+                </Text>
+                <Text style={styles.reviewHint}>{t('home.reviewCtaHint')}</Text>
+              </View>
+              <Text style={styles.reviewArrow}>›</Text>
+            </Pressable>
+          ) : null}
 
           {/* Big play button with subtle shimmer sweep */}
           <Pressable
@@ -240,6 +278,36 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '900',
     color: '#FFFFFF',
+  },
+  reviewCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(34, 197, 94, 0.18)',
+    borderColor: 'rgba(34, 197, 94, 0.40)',
+    borderWidth: 1,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+    borderRadius: 20,
+    marginBottom: 12,
+    gap: 12,
+  },
+  reviewIcon: { fontSize: 28 },
+  reviewTitle: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#F8FAFC',
+  },
+  reviewHint: {
+    marginTop: 2,
+    fontSize: 11,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.6)',
+  },
+  reviewArrow: {
+    fontSize: 24,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    opacity: 0.6,
   },
   playBtn: {
     paddingVertical: 22,

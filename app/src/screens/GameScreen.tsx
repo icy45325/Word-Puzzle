@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChapterRewardModal } from '../components/ChapterRewardModal';
@@ -13,15 +13,21 @@ import { WordPreview } from '../components/WordPreview';
 import { WordsFoundPanel } from '../components/WordsFoundPanel';
 import { useEconomy } from '../hooks/useEconomy';
 import { useGameState } from '../hooks/useGameState';
-import { useServices } from '../services';
+import { useCurrentUser, useServices } from '../services';
 import { t } from '../i18n';
+import levelsJson from '../data/levels.json';
+import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Game'>;
 
+const ALL_LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] })
+  .levels;
+
 export function GameScreen({ navigation }: Props) {
   const services = useServices();
+  const user = useCurrentUser();
   const { state: economyState } = useEconomy();
   const {
     level,
@@ -39,6 +45,32 @@ export function GameScreen({ navigation }: Props) {
     nextLevel,
     claimChapterReward,
   } = useGameState();
+  const [chapterWords, setChapterWords] = useState<string[]>([]);
+
+  // When the chapter just ended, gather every word the player learned in
+  // this chapter across all 10 levels (target + bonus) so we can show
+  // them as chips on the reward modal.
+  useEffect(() => {
+    if (!isChapterEnd || !user) return;
+    let cancelled = false;
+    (async () => {
+      const progress = await services.progress.load(user.userId);
+      const chapterLevelIds = ALL_LEVELS.filter((l) => l.chapter === chapterIndex).map(
+        (l) => l.id
+      );
+      const words = new Set<string>();
+      for (const id of chapterLevelIds) {
+        for (const w of progress.foundWordsByLevel[id] ?? []) words.add(w);
+      }
+      // Include the just-completed level since save may not have flushed yet
+      for (const w of foundAnswers) words.add(w);
+      for (const w of bonusWords) words.add(w);
+      if (!cancelled) setChapterWords([...words].sort());
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [isChapterEnd, chapterIndex, services, user, foundAnswers, bonusWords]);
 
   const failsBeforeAutoOpen = services.remoteConfig.getNumber(
     'wordDetail.failsBeforeAutoOpen',
@@ -188,6 +220,7 @@ export function GameScreen({ navigation }: Props) {
           coins={chapterCoinsReward}
           hints={hintsForThisChapter}
           hintCapped={hintCapped}
+          newWords={chapterWords}
           onClaim={async () => {
             await claimChapterReward();
             if (!isLastLevel) nextLevel();
