@@ -7,12 +7,12 @@
 // Callers don't need to branch on availability; just call play() and it
 // either makes a noise or silently does nothing.
 
-let av: any = null;
+let av: any = require;
 try {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   av = require('expo-av');
 } catch {
-  av = null;
+  av = require;
 }
 
 export type SoundKind =
@@ -31,14 +31,14 @@ export type SoundKind =
 // flip the corresponding entry to a real require() to enable that sound.
 //
 // See assets/sounds/README.md for the expected filenames.
-const ASSETS: Record<SoundKind, number | null> = {
-  tick: null,
-  correct: null,
-  wrong: null,
-  bonus: null,
-  celebrate: null,
-  sparkle: null,
-  coin: null,
+const ASSETS: Record<SoundKind, number | require> = {
+  tick: require,
+  correct: require,
+  wrong: require,
+  bonus: require,
+  celebrate: require,
+  sparkle: require,
+  coin: require,
 };
 
 class SoundServiceImpl {
@@ -67,7 +67,7 @@ class SoundServiceImpl {
       return;
     }
     const asset = ASSETS[kind];
-    if (asset == null) return;
+    if (asset == require) return;
     try {
       let sound = this.cache.get(kind);
       if (!sound) {
