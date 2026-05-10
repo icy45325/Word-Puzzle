@@ -225,46 +225,15 @@
     {
       "id": "L09",
       "letters": [
-        "L",
-        "I",
-        "T",
-        "E",
-        "S"
-      ],
-      "answers": [
-        {
-          "word": "LITES",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "SIT",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "LIT",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 1
-    },
-    {
-      "id": "L10",
-      "letters": [
         "P",
-        "E",
         "A",
         "R",
+        "E",
         "S"
       ],
       "answers": [
         {
-          "word": "PEARS",
+          "word": "PARES",
           "row": 0,
           "col": 0,
           "dir": "H"
@@ -276,21 +245,64 @@
           "dir": "V"
         },
         {
-          "word": "SPARE",
+          "word": "EAR",
           "row": 0,
-          "col": 4,
+          "col": 3,
           "dir": "V"
         },
         {
-          "word": "ERA",
+          "word": "ARE",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "REAPS",
+          "word": "SPEAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1
+    },
+    {
+      "id": "L10",
+      "letters": [
+        "B",
+        "E",
+        "A",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "BEAST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
           "row": 0,
           "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BASTE",
+          "row": 0,
+          "col": 0,
           "dir": "V"
         }
       ],
@@ -299,29 +311,28 @@
     {
       "id": "L11",
       "letters": [
-        "T",
-        "E",
-        "A",
         "R",
-        "S"
+        "A",
+        "S",
+        "E"
       ],
       "answers": [
         {
-          "word": "TEARS",
+          "word": "RASE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ART",
+          "word": "SERA",
           "row": 0,
           "col": 2,
           "dir": "V"
         },
         {
-          "word": "SEAR",
+          "word": "ARE",
           "row": 0,
-          "col": 4,
+          "col": 1,
           "dir": "V"
         }
       ],
@@ -330,27 +341,33 @@
     {
       "id": "L12",
       "letters": [
-        "L",
+        "T",
         "A",
-        "N",
-        "C",
-        "E"
+        "P",
+        "E",
+        "S"
       ],
       "answers": [
         {
-          "word": "LANCE",
+          "word": "TAPES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "LEAN",
+          "word": "TEA",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "ELAN",
+          "word": "EAT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SPA",
           "row": 0,
           "col": 4,
           "dir": "V"
@@ -361,34 +378,34 @@
     {
       "id": "L13",
       "letters": [
-        "O",
-        "R",
-        "E",
+        "L",
+        "A",
+        "P",
         "S"
       ],
       "answers": [
         {
-          "word": "ORES",
+          "word": "LAPS",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ROSE",
+          "word": "ALP",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "EROS",
+          "word": "LAP",
           "row": 0,
-          "col": 2,
+          "col": 0,
           "dir": "V"
         },
         {
-          "word": "SORE",
+          "word": "PAL",
           "row": 0,
-          "col": 3,
+          "col": 2,
           "dir": "V"
         }
       ],
@@ -397,33 +414,33 @@
     {
       "id": "L14",
       "letters": [
+        "S",
         "H",
-        "E",
-        "A",
+        "O",
         "R",
         "T"
       ],
       "answers": [
         {
-          "word": "HEART",
+          "word": "SHORT",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ARE",
+          "word": "SORT",
           "row": 0,
-          "col": 2,
+          "col": 0,
           "dir": "V"
         },
         {
-          "word": "RAT",
+          "word": "ROTS",
           "row": 0,
           "col": 3,
           "dir": "V"
         },
         {
-          "word": "EAT",
+          "word": "HOTS",
           "row": 0,
           "col": 1,
           "dir": "V"
@@ -434,57 +451,32 @@
     {
       "id": "L15",
       "letters": [
-        "E",
-        "L",
+        "F",
         "A",
-        "N"
+        "T",
+        "E"
       ],
       "answers": [
         {
-          "word": "ELAN",
+          "word": "FATE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ALE",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "LEAN",
+          "word": "ATE",
           "row": 0,
           "col": 1,
           "dir": "V"
-        }
-      ],
-      "chapter": 2
-    },
-    {
-      "id": "L16",
-      "letters": [
-        "D",
-        "E",
-        "R",
-        "M",
-        "A"
-      ],
-      "answers": [
-        {
-          "word": "DERMA",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
         },
         {
-          "word": "DREAM",
+          "word": "FAT",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "MAR",
+          "word": "EAT",
           "row": 0,
           "col": 3,
           "dir": "V"
@@ -493,43 +485,74 @@
       "chapter": 2
     },
     {
-      "id": "L17",
+      "id": "L16",
       "letters": [
-        "M",
+        "E",
         "A",
-        "D",
         "R",
-        "E"
+        "T",
+        "H"
       ],
       "answers": [
         {
-          "word": "MADRE",
+          "word": "EARTH",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ERA",
+          "word": "HER",
           "row": 0,
           "col": 4,
           "dir": "V"
         },
         {
-          "word": "DEAR",
+          "word": "ERA",
           "row": 0,
-          "col": 2,
+          "col": 0,
           "dir": "V"
         },
         {
-          "word": "ARMED",
+          "word": "RAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2
+    },
+    {
+      "id": "L17",
+      "letters": [
+        "I",
+        "N",
+        "T",
+        "R",
+        "O"
+      ],
+      "answers": [
+        {
+          "word": "INTRO",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NOT",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "MEAR",
+          "word": "ION",
           "row": 0,
           "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 2,
           "dir": "V"
         }
       ],
@@ -538,26 +561,33 @@
     {
       "id": "L18",
       "letters": [
-        "M",
-        "I",
         "T",
-        "E"
+        "O",
+        "N",
+        "E",
+        "S"
       ],
       "answers": [
         {
-          "word": "MITE",
+          "word": "TONES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "TIME",
+          "word": "NEST",
           "row": 0,
           "col": 2,
           "dir": "V"
         },
         {
-          "word": "EMIT",
+          "word": "STONE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EONS",
           "row": 0,
           "col": 3,
           "dir": "V"
@@ -568,28 +598,29 @@
     {
       "id": "L19",
       "letters": [
-        "H",
+        "F",
+        "E",
         "A",
-        "T",
-        "E"
+        "R",
+        "S"
       ],
       "answers": [
         {
-          "word": "HATE",
+          "word": "FEARS",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "TEA",
+          "word": "EARS",
           "row": 0,
-          "col": 2,
+          "col": 1,
           "dir": "V"
         },
         {
-          "word": "ATE",
+          "word": "RASE",
           "row": 0,
-          "col": 1,
+          "col": 3,
           "dir": "V"
         }
       ],
@@ -598,34 +629,29 @@
     {
       "id": "L20",
       "letters": [
-        "E",
+        "T",
         "R",
-        "O",
-        "S"
+        "A",
+        "C",
+        "E"
       ],
       "answers": [
         {
-          "word": "EROS",
+          "word": "TRACE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ORES",
+          "word": "TEA",
           "row": 0,
-          "col": 2,
+          "col": 0,
           "dir": "V"
         },
         {
-          "word": "SORE",
+          "word": "EAR",
           "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "ROSE",
-          "row": 0,
-          "col": 1,
+          "col": 4,
           "dir": "V"
         }
       ],
@@ -634,35 +660,28 @@
     {
       "id": "L21",
       "letters": [
-        "D",
-        "R",
-        "E",
-        "A",
-        "M"
+        "N",
+        "O",
+        "T",
+        "E"
       ],
       "answers": [
         {
-          "word": "DREAM",
+          "word": "NOTE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "MARE",
+          "word": "NOT",
           "row": 0,
-          "col": 4,
+          "col": 0,
           "dir": "V"
         },
         {
-          "word": "ERA",
+          "word": "TOE",
           "row": 0,
           "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "ARE",
-          "row": 0,
-          "col": 3,
           "dir": "V"
         }
       ],
@@ -671,39 +690,33 @@
     {
       "id": "L22",
       "letters": [
-        "L",
+        "T",
         "I",
-        "M",
+        "L",
         "E",
         "S"
       ],
       "answers": [
         {
-          "word": "LIMES",
+          "word": "TILES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ELMS",
+          "word": "ITS",
           "row": 0,
-          "col": 3,
+          "col": 1,
           "dir": "V"
         },
         {
-          "word": "LIME",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "MILS",
+          "word": "LITE",
           "row": 0,
           "col": 2,
           "dir": "V"
         },
         {
-          "word": "SMILE",
+          "word": "SIT",
           "row": 0,
           "col": 4,
           "dir": "V"
@@ -714,29 +727,28 @@
     {
       "id": "L23",
       "letters": [
-        "B",
-        "E",
-        "A",
+        "T",
+        "O",
         "R",
-        "D"
+        "Y"
       ],
       "answers": [
         {
-          "word": "BEARD",
+          "word": "TORY",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ERA",
+          "word": "ROT",
           "row": 0,
-          "col": 1,
+          "col": 2,
           "dir": "V"
         },
         {
-          "word": "READ",
+          "word": "TRY",
           "row": 0,
-          "col": 3,
+          "col": 0,
           "dir": "V"
         }
       ],
@@ -745,41 +757,29 @@
     {
       "id": "L24",
       "letters": [
-        "P",
+        "H",
         "A",
-        "L",
+        "T",
         "E",
         "S"
       ],
       "answers": [
         {
-          "word": "PALES",
+          "word": "HATES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "PALE",
+          "word": "EAT",
           "row": 0,
-          "col": 0,
+          "col": 3,
           "dir": "V"
         },
         {
-          "word": "ALE",
+          "word": "ATE",
           "row": 0,
           "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "SEAL",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "LAP",
-          "row": 0,
-          "col": 2,
           "dir": "V"
         }
       ],
@@ -787,6 +787,67 @@
     },
     {
       "id": "L25",
+      "letters": [
+        "T",
+        "H",
+        "I",
+        "C",
+        "K"
+      ],
+      "answers": [
+        {
+          "word": "THICK",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ITCH",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "HIT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3
+    },
+    {
+      "id": "L26",
+      "letters": [
+        "I",
+        "T",
+        "C",
+        "H"
+      ],
+      "answers": [
+        {
+          "word": "ITCH",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIC",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "HIT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3
+    },
+    {
+      "id": "L27",
       "letters": [
         "T",
         "R",
@@ -802,82 +863,21 @@
           "dir": "H"
         },
         {
-          "word": "RATS",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "TARS",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 3
-    },
-    {
-      "id": "L26",
-      "letters": [
-        "B",
-        "A",
-        "R",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "BARE",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "ARE",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "ERA",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        }
-      ],
-      "chapter": 3
-    },
-    {
-      "id": "L27",
-      "letters": [
-        "S",
-        "T",
-        "O",
-        "N",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "STONE",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "NOT",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "SON",
+          "word": "TAR",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "EONS",
+          "word": "STAR",
           "row": 0,
           "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "MARTS",
+          "row": 0,
+          "col": 3,
           "dir": "V"
         }
       ],
@@ -886,29 +886,35 @@
     {
       "id": "L28",
       "letters": [
-        "P",
+        "L",
+        "I",
+        "T",
         "E",
-        "N",
-        "A",
-        "L"
+        "S"
       ],
       "answers": [
         {
-          "word": "PENAL",
+          "word": "LITES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "APE",
+          "word": "ITS",
           "row": 0,
-          "col": 3,
+          "col": 1,
           "dir": "V"
         },
         {
-          "word": "ELAN",
+          "word": "LITE",
           "row": 0,
-          "col": 1,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 4,
           "dir": "V"
         }
       ],
@@ -917,34 +923,28 @@
     {
       "id": "L29",
       "letters": [
-        "T",
-        "A",
-        "R",
-        "S"
+        "S",
+        "E",
+        "N",
+        "T"
       ],
       "answers": [
         {
-          "word": "TARS",
+          "word": "SENT",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "STAR",
+          "word": "STEN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TENS",
           "row": 0,
           "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "RATS",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "ARTS",
-          "row": 0,
-          "col": 1,
           "dir": "V"
         }
       ],
@@ -953,33 +953,26 @@
     {
       "id": "L30",
       "letters": [
-        "M",
-        "O",
-        "R",
         "T",
-        "S"
+        "O",
+        "N",
+        "E"
       ],
       "answers": [
         {
-          "word": "MORTS",
+          "word": "TONE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "SORT",
+          "word": "ONE",
           "row": 0,
-          "col": 4,
+          "col": 1,
           "dir": "V"
         },
         {
-          "word": "MOST",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "ROTS",
+          "word": "NOTE",
           "row": 0,
           "col": 2,
           "dir": "V"
@@ -989,6 +982,136 @@
     },
     {
       "id": "L31",
+      "letters": [
+        "N",
+        "I",
+        "C",
+        "H",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "NICHE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HEN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "CHIN",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "INCH",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L32",
+      "letters": [
+        "M",
+        "A",
+        "R",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MARTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "MARS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L33",
+      "letters": [
+        "B",
+        "E",
+        "A",
+        "R",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "BEARD",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L34",
+      "letters": [
+        "N",
+        "E",
+        "A",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "NEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RAN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L35",
       "letters": [
         "L",
         "I",
@@ -1005,81 +1128,31 @@
           "dir": "H"
         },
         {
+          "word": "LITES",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
           "word": "ENLIST",
           "row": 0,
           "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "NEST",
-          "row": 0,
-          "col": 5,
-          "dir": "V"
-        },
-        {
-          "word": "SIT",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "LITES",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "INLETS",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        }
-      ],
-      "chapter": 4
-    },
-    {
-      "id": "L32",
-      "letters": [
-        "E",
-        "N",
-        "L",
-        "I",
-        "S",
-        "T"
-      ],
-      "answers": [
-        {
-          "word": "ENLIST",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "LITES",
-          "row": 0,
-          "col": 2,
           "dir": "V"
         },
         {
           "word": "NIL",
           "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "SIT",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "TENS",
-          "row": 0,
           "col": 5,
           "dir": "V"
         },
         {
-          "word": "ITS",
+          "word": "INSET",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TIS",
           "row": 0,
           "col": 3,
           "dir": "V"
@@ -1088,31 +1161,37 @@
       "chapter": 4
     },
     {
-      "id": "L33",
+      "id": "L36",
       "letters": [
-        "L",
+        "P",
         "A",
-        "C",
+        "L",
         "E",
-        "R"
+        "S"
       ],
       "answers": [
         {
-          "word": "LACER",
+          "word": "PALES",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "CLEAR",
+          "word": "SALE",
           "row": 0,
-          "col": 2,
+          "col": 4,
           "dir": "V"
         },
         {
-          "word": "EAR",
+          "word": "PLEA",
           "row": 0,
-          "col": 3,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 2,
           "dir": "V"
         },
         {
@@ -1125,35 +1204,85 @@
       "chapter": 4
     },
     {
-      "id": "L34",
+      "id": "L37",
       "letters": [
-        "E",
-        "C",
-        "L",
         "A",
-        "T"
+        "S",
+        "T",
+        "E",
+        "R"
       ],
       "answers": [
         {
-          "word": "ECLAT",
+          "word": "ASTER",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "TEA",
+          "word": "EAT",
           "row": 0,
-          "col": 4,
+          "col": 3,
           "dir": "V"
         },
         {
-          "word": "EAT",
+          "word": "ARES",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "ACT",
+          "word": "TEAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L38",
+      "letters": [
+        "C",
+        "A",
+        "S",
+        "T",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CASTLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ECLAT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LACES",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
           "row": 0,
           "col": 3,
           "dir": "V"
@@ -1162,7 +1291,244 @@
       "chapter": 4
     },
     {
-      "id": "L35",
+      "id": "L39",
+      "letters": [
+        "D",
+        "R",
+        "E",
+        "A",
+        "M"
+      ],
+      "answers": [
+        {
+          "word": "DREAM",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "MADRE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L40",
+      "letters": [
+        "L",
+        "A",
+        "D",
+        "I",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "LADIES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LIED",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4
+    },
+    {
+      "id": "L41",
+      "letters": [
+        "D",
+        "E",
+        "T",
+        "A",
+        "I",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "DETAIL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "IDLE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L42",
+      "letters": [
+        "S",
+        "P",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SPARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "PAS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L43",
+      "letters": [
+        "D",
+        "R",
+        "E",
+        "A",
+        "M",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "DREAMS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MEAD",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "REAM",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L44",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "C",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "REACT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "CARET",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L45",
       "letters": [
         "N",
         "A",
@@ -1179,207 +1545,248 @@
           "dir": "H"
         },
         {
-          "word": "PENAL",
+          "word": "SALE",
           "row": 0,
-          "col": 2,
+          "col": 5,
           "dir": "V"
         },
         {
-          "word": "ELAN",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        }
-      ],
-      "chapter": 4
-    },
-    {
-      "id": "L36",
-      "letters": [
-        "S",
-        "H",
-        "A",
-        "R",
-        "P"
-      ],
-      "answers": [
-        {
-          "word": "SHARP",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "SPA",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "ASP",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        }
-      ],
-      "chapter": 4
-    },
-    {
-      "id": "L37",
-      "letters": [
-        "S",
-        "T",
-        "O",
-        "M",
-        "P"
-      ],
-      "answers": [
-        {
-          "word": "STOMP",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "POST",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "MOST",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        }
-      ],
-      "chapter": 4
-    },
-    {
-      "id": "L38",
-      "letters": [
-        "S",
-        "T",
-        "A",
-        "R",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "STARE",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "TEA",
+          "word": "ALES",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "RAT",
+          "word": "PALES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L46",
+      "letters": [
+        "P",
+        "E",
+        "A",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SAP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L47",
+      "letters": [
+        "P",
+        "E",
+        "N",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "PENAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ELAN",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "PLEA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L48",
+      "letters": [
+        "S",
+        "T",
+        "A",
+        "B",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "STABLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L49",
+      "letters": [
+        "I",
+        "N",
+        "L",
+        "E",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "INLETS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ENLIST",
           "row": 0,
           "col": 3,
           "dir": "V"
         },
         {
-          "word": "EARS",
+          "word": "LITE",
           "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "STAR",
-          "row": 0,
-          "col": 0,
+          "col": 2,
           "dir": "V"
         }
       ],
-      "chapter": 4
+      "chapter": 5
     },
     {
-      "id": "L39",
+      "id": "L50",
       "letters": [
+        "P",
+        "O",
+        "I",
+        "N",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "POINTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "OPTS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "INTO",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "NIP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SON",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5
+    },
+    {
+      "id": "L51",
+      "letters": [
+        "M",
         "A",
-        "L",
+        "S",
         "T",
         "E",
         "R"
       ],
       "answers": [
         {
-          "word": "ALTER",
+          "word": "MASTER",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ATE",
+          "word": "MAST",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "EAR",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "RATE",
+          "word": "ERAS",
           "row": 0,
           "col": 4,
           "dir": "V"
-        },
-        {
-          "word": "TAR",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
         }
       ],
-      "chapter": 4
+      "chapter": 6
     },
     {
-      "id": "L40",
-      "letters": [
-        "S",
-        "P",
-        "A",
-        "R",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "SPARE",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "PEAR",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "EARS",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "SPA",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 4
-    },
-    {
-      "id": "L41",
+      "id": "L52",
       "letters": [
         "S",
         "I",
@@ -1396,213 +1803,83 @@
           "dir": "H"
         },
         {
-          "word": "INLETS",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "LITES",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        }
-      ],
-      "chapter": 5
-    },
-    {
-      "id": "L42",
-      "letters": [
-        "E",
-        "A",
-        "R",
-        "T",
-        "H"
-      ],
-      "answers": [
-        {
-          "word": "EARTH",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "EAR",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "TEA",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        }
-      ],
-      "chapter": 5
-    },
-    {
-      "id": "L43",
-      "letters": [
-        "R",
-        "A",
-        "T",
-        "E",
-        "S"
-      ],
-      "answers": [
-        {
-          "word": "RATES",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "SEAR",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "ARES",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        }
-      ],
-      "chapter": 5
-    },
-    {
-      "id": "L44",
-      "letters": [
-        "S",
-        "H",
-        "A",
-        "R",
-        "E",
-        "S"
-      ],
-      "answers": [
-        {
-          "word": "SHARES",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "EAR",
-          "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "RASE",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "ARES",
+          "word": "LENT",
           "row": 0,
           "col": 2,
           "dir": "V"
         },
         {
-          "word": "HER",
+          "word": "ITS",
           "row": 0,
           "col": 1,
           "dir": "V"
-        },
-        {
-          "word": "SHARE",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
         }
       ],
-      "chapter": 5
+      "chapter": 6
     },
     {
-      "id": "L45",
+      "id": "L53",
       "letters": [
-        "I",
+        "E",
         "N",
         "L",
-        "E",
-        "T",
-        "S"
+        "I",
+        "S",
+        "T"
       ],
       "answers": [
         {
-          "word": "INLETS",
+          "word": "ENLIST",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "SIT",
+          "word": "INSET",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TINSEL",
           "row": 0,
           "col": 5,
           "dir": "V"
         },
         {
-          "word": "ENLIST",
+          "word": "LENT",
           "row": 0,
-          "col": 3,
+          "col": 2,
           "dir": "V"
         },
         {
-          "word": "TIN",
+          "word": "STEN",
           "row": 0,
           "col": 4,
           "dir": "V"
-        }
-      ],
-      "chapter": 5
-    },
-    {
-      "id": "L46",
-      "letters": [
-        "S",
-        "P",
-        "E",
-        "A",
-        "R"
-      ],
-      "answers": [
-        {
-          "word": "SPEAR",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
         },
         {
-          "word": "ARSE",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "PEAR",
+          "word": "NETS",
           "row": 0,
           "col": 1,
           "dir": "V"
         }
       ],
-      "chapter": 5
+      "chapter": 6
     },
     {
-      "id": "L47",
+      "id": "L54",
       "letters": [
         "R",
         "E",
-        "A",
         "P",
-        "S"
+        "L",
+        "A",
+        "Y"
       ],
       "answers": [
         {
-          "word": "REAPS",
+          "word": "REPLAY",
           "row": 0,
           "col": 0,
           "dir": "H"
@@ -1614,32 +1891,423 @@
           "dir": "V"
         },
         {
-          "word": "ARSE",
+          "word": "YEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "PARE",
           "row": 0,
           "col": 2,
           "dir": "V"
         }
       ],
-      "chapter": 5
+      "chapter": 6
     },
     {
-      "id": "L48",
+      "id": "L55",
       "letters": [
+        "B",
         "R",
         "E",
-        "B",
         "A",
-        "R"
+        "S",
+        "T"
       ],
       "answers": [
         {
-          "word": "REBAR",
+          "word": "BREAST",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
+          "word": "REST",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "BRAE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L56",
+      "letters": [
+        "K",
+        "I",
+        "T",
+        "C",
+        "H",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "KITCHEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CHIN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "HIT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L57",
+      "letters": [
+        "S",
+        "A",
+        "I",
+        "L",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "SAILED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LADIES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L58",
+      "letters": [
+        "T",
+        "A",
+        "B",
+        "L",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TABLES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "BASTE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L59",
+      "letters": [
+        "S",
+        "T",
+        "R",
+        "E",
+        "A",
+        "M",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "STREAMS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ASTER",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "MARES",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L60",
+      "letters": [
+        "A",
+        "N",
+        "S",
+        "W",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "ANSWER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SEW",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
           "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "WARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6
+    },
+    {
+      "id": "L61",
+      "letters": [
+        "M",
+        "I",
+        "L",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MILES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LIME",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SMILE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ELMS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MILE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L62",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "Y",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "PLAYER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "APE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "PEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "YEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L63",
+      "letters": [
+        "S",
+        "Q",
+        "U",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SQUARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "USE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ARSE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L64",
+      "letters": [
+        "C",
+        "R",
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CRATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
           "row": 0,
           "col": 1,
           "dir": "V"
@@ -1647,14 +2315,277 @@
         {
           "word": "ARE",
           "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L65",
+      "letters": [
+        "R",
+        "O",
+        "U",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "ROUTE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "OUTER",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TORE",
+          "row": 0,
           "col": 3,
           "dir": "V"
         }
       ],
-      "chapter": 5
+      "chapter": 7
     },
     {
-      "id": "L49",
+      "id": "L66",
+      "letters": [
+        "S",
+        "O",
+        "F",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SOFTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ROTS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "SORT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L67",
+      "letters": [
+        "C",
+        "I",
+        "R",
+        "C",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CIRCLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RICE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L68",
+      "letters": [
+        "E",
+        "A",
+        "R",
+        "N",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EARNS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EARN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L69",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PLATES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SLATE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "PLEA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L70",
+      "letters": [
+        "H",
+        "O",
+        "I",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "HOIST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "HIS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7
+    },
+    {
+      "id": "L71",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "L",
+        "E",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "PARLEY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALP",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LAY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L72",
       "letters": [
         "T",
         "I",
@@ -1677,9 +2608,9 @@
           "dir": "V"
         },
         {
-          "word": "NIL",
+          "word": "INSET",
           "row": 0,
-          "col": 2,
+          "col": 1,
           "dir": "V"
         },
         {
@@ -1687,312 +2618,484 @@
           "row": 0,
           "col": 4,
           "dir": "V"
-        },
-        {
-          "word": "TENS",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        },
-        {
-          "word": "ITS",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
         }
       ],
-      "chapter": 5
+      "chapter": 8
     },
     {
-      "id": "L50",
+      "id": "L73",
       "letters": [
-        "H",
-        "O",
+        "P",
+        "I",
+        "C",
+        "T",
+        "U",
         "R",
-        "S",
         "E"
       ],
       "answers": [
         {
-          "word": "HORSE",
+          "word": "PICTURE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "SORE",
+          "word": "RIP",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "TIP",
           "row": 0,
           "col": 3,
           "dir": "V"
         },
         {
-          "word": "EROS",
+          "word": "EPIC",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L74",
+      "letters": [
+        "M",
+        "A",
+        "S",
+        "T",
+        "E",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "MASTERY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEAM",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ASTER",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "YEAR",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "MAST",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L75",
+      "letters": [
+        "D",
+        "A",
+        "N",
+        "G",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "DANGER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EARN",
           "row": 0,
           "col": 4,
           "dir": "V"
         },
         {
-          "word": "HOES",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 5
-    },
-    {
-      "id": "L51",
-      "letters": [
-        "T",
-        "O",
-        "N",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "TONE",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "TON",
+          "word": "DARE",
           "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "NOTE",
+          "word": "NERD",
           "row": 0,
           "col": 2,
           "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 8
     },
     {
-      "id": "L52",
+      "id": "L76",
       "letters": [
         "C",
         "L",
         "E",
         "A",
-        "R"
-      ],
-      "answers": [
-        {
-          "word": "CLEAR",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "LACER",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        },
-        {
-          "word": "EAR",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "ARC",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "CAR",
-          "row": 0,
-          "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 6
-    },
-    {
-      "id": "L53",
-      "letters": [
-        "I",
         "T",
         "S"
       ],
       "answers": [
         {
-          "word": "ITS",
+          "word": "CLEATS",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "SIT",
-          "row": 0,
-          "col": 2,
-          "dir": "V"
-        },
-        {
-          "word": "TIS",
-          "row": 0,
-          "col": 1,
-          "dir": "V"
-        }
-      ],
-      "chapter": 6
-    },
-    {
-      "id": "L54",
-      "letters": [
-        "S",
-        "T",
-        "E",
-        "N"
-      ],
-      "answers": [
-        {
-          "word": "STEN",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "NEST",
+          "word": "ATE",
           "row": 0,
           "col": 3,
           "dir": "V"
         },
         {
-          "word": "TENS",
+          "word": "LACE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L77",
+      "letters": [
+        "S",
+        "T",
+        "R",
+        "E",
+        "A",
+        "M"
+      ],
+      "answers": [
+        {
+          "word": "STREAM",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TARES",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "SENT",
+          "word": "SEAR",
           "row": 0,
           "col": 0,
-          "dir": "V"
-        }
-      ],
-      "chapter": 6
-    },
-    {
-      "id": "L55",
-      "letters": [
-        "S",
-        "P",
-        "A"
-      ],
-      "answers": [
-        {
-          "word": "SPA",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
-        },
-        {
-          "word": "ASP",
-          "row": 0,
-          "col": 2,
           "dir": "V"
         },
         {
-          "word": "SAP",
+          "word": "ARTS",
           "row": 0,
-          "col": 0,
+          "col": 4,
           "dir": "V"
-        }
-      ],
-      "chapter": 6
-    },
-    {
-      "id": "L56",
-      "letters": [
-        "T",
-        "A",
-        "M",
-        "E"
-      ],
-      "answers": [
-        {
-          "word": "TAME",
-          "row": 0,
-          "col": 0,
-          "dir": "H"
         },
         {
           "word": "META",
           "row": 0,
-          "col": 2,
+          "col": 5,
           "dir": "V"
         },
         {
-          "word": "TEA",
+          "word": "REST",
           "row": 0,
-          "col": 0,
+          "col": 2,
           "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 8
     },
     {
-      "id": "L57",
+      "id": "L78",
       "letters": [
-        "C",
-        "L",
+        "F",
+        "O",
+        "S",
+        "T",
         "E",
-        "A",
-        "N"
+        "R"
       ],
       "answers": [
         {
-          "word": "CLEAN",
+          "word": "FOSTER",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ELAN",
+          "word": "TORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "FRETS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L79",
+      "letters": [
+        "G",
+        "A",
+        "R",
+        "D",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "GARDEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "READ",
           "row": 0,
           "col": 2,
           "dir": "V"
         },
         {
-          "word": "LANE",
+          "word": "EARN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "GRAND",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8
+    },
+    {
+      "id": "L80",
+      "letters": [
+        "S",
+        "H",
+        "A",
+        "R",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "SHARES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "HARE",
           "row": 0,
           "col": 1,
           "dir": "V"
         },
         {
-          "word": "ALE",
+          "word": "SHARE",
           "row": 0,
-          "col": 3,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 4,
           "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 8
     },
     {
-      "id": "L58",
+      "id": "L81",
       "letters": [
-        "R",
+        "F",
         "A",
-        "S",
-        "E"
+        "T",
+        "H",
+        "E",
+        "R",
+        "S"
       ],
       "answers": [
         {
-          "word": "RASE",
+          "word": "FATHERS",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "ERA",
+          "word": "ATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "HEAR",
           "row": 0,
           "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L82",
+      "letters": [
+        "H",
+        "I",
+        "S",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "HISTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROTS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "TRY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "HOTS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L83",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "PLANTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LEAN",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L84",
+      "letters": [
+        "M",
+        "A",
+        "R",
+        "K",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "MARKED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "MADRE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
           "dir": "V"
         },
         {
@@ -2002,46 +3105,36 @@
           "dir": "V"
         },
         {
-          "word": "SEAR",
+          "word": "DERMA",
           "row": 0,
-          "col": 2,
+          "col": 5,
           "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 9
     },
     {
-      "id": "L59",
+      "id": "L85",
       "letters": [
-        "T",
+        "R",
         "O",
+        "U",
+        "T",
+        "I",
         "N",
-        "E",
-        "S"
+        "E"
       ],
       "answers": [
         {
-          "word": "TONES",
+          "word": "ROUTINE",
           "row": 0,
           "col": 0,
           "dir": "H"
         },
         {
-          "word": "SON",
+          "word": "NOR",
           "row": 0,
-          "col": 4,
-          "dir": "V"
-        },
-        {
-          "word": "EONS",
-          "row": 0,
-          "col": 3,
-          "dir": "V"
-        },
-        {
-          "word": "NOT",
-          "row": 0,
-          "col": 2,
+          "col": 5,
           "dir": "V"
         },
         {
@@ -2049,21 +3142,456 @@
           "row": 0,
           "col": 1,
           "dir": "V"
+        },
+        {
+          "word": "UNIT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ION",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 9
     },
     {
-      "id": "L60",
+      "id": "L86",
       "letters": [
-        "T",
+        "B",
+        "L",
         "A",
-        "K",
-        "E"
+        "S",
+        "T",
+        "E",
+        "R"
       ],
       "answers": [
         {
-          "word": "TAKE",
+          "word": "BLASTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TEARS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "BASTE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L87",
+      "letters": [
+        "V",
+        "I",
+        "C",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "VICTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "IVY",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "TRY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L88",
+      "letters": [
+        "B",
+        "R",
+        "A",
+        "C",
+        "K",
+        "E",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "BRACKET",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEAR",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "CATER",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L89",
+      "letters": [
+        "C",
+        "O",
+        "U",
+        "N",
+        "T",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "COUNTRY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "TURN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L90",
+      "letters": [
+        "W",
+        "O",
+        "N",
+        "D",
+        "E",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "WONDERS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SORE",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9
+    },
+    {
+      "id": "L91",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "E",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PLANETS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAP",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L92",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "D",
+        "I",
+        "N",
+        "G"
+      ],
+      "answers": [
+        {
+          "word": "READING",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "GRADE",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "RANGED",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L93",
+      "letters": [
+        "R",
+        "A",
+        "N",
+        "G",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "RANGED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L94",
+      "letters": [
+        "F",
+        "R",
+        "I",
+        "E",
+        "N",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "FRIEND",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "END",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "REND",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L95",
+      "letters": [
+        "F",
+        "O",
+        "R",
+        "E",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "FOREST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EROS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "REST",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L96",
+      "letters": [
+        "P",
+        "O",
+        "E",
+        "T",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "POETRY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "PREY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L97",
+      "letters": [
+        "M",
+        "E",
+        "D",
+        "A",
+        "L",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MEDALS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "MEAD",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L98",
+      "letters": [
+        "M",
+        "A",
+        "R",
+        "K",
+        "E",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "MARKET",
           "row": 0,
           "col": 0,
           "dir": "H"
@@ -2071,17 +3599,102 @@
         {
           "word": "TEA",
           "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "MAR",
+          "row": 0,
           "col": 0,
           "dir": "V"
         },
         {
-          "word": "EAT",
+          "word": "EAR",
           "row": 0,
-          "col": 3,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 2,
           "dir": "V"
         }
       ],
-      "chapter": 6
+      "chapter": 10
+    },
+    {
+      "id": "L99",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "S",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PARSE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "REAP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
+    },
+    {
+      "id": "L100",
+      "letters": [
+        "H",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "HEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HARE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10
     }
   ]
 }

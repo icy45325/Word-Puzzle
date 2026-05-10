@@ -304,6 +304,342 @@ const SEED = [
   ['SIT', '/sɪt/', 'v.', '坐', 'Please sit down.', '请坐下。', 'sit / sat / sat'],
   ['TIS', '/tɪz/', 'v.', 'it is 的缩写（古）', 'Tis the season.', '这正是时候。', '诗用古语'],
   ['LIT', null, null, null, null, null, null], // dup
+
+  // ── Chapter 7-10 expansion: 6-7 letter mothers + secondaries ──
+  // STREAM family (S,T,R,E,A,M)
+  ['STREAM', '/striːm/', 'n.', '溪流；流', 'A clear stream.', '清澈的溪流。', 'streaming 同根'],
+  ['MASTER', '/ˈmɑːstər/', 'n./v.', '大师；掌握', 'Master the skill.', '掌握技能。', 'mastery / mastered'],
+  ['MATERS', null, null, null, null, null, null], // dup placeholder
+  ['MATES', '/meɪts/', 'n.', '伙伴（复数）', 'Best mates.', '最好的伙伴。', 'mate 复数'],
+  ['TEAMS', '/tiːmz/', 'n.', '队伍（复数）', 'Two teams played.', '两队比赛。', 'team 复数'],
+  ['TEARS', '/tɪərz/', 'n.', '眼泪（复数）', 'Tears of joy.', '喜悦的泪水。', 'tear 复数'],
+  ['STARE', '/steər/', 'v.', '盯着看', 'Don\'t stare.', '别盯着看。', 'staring 同根'],
+  ['MARES', '/meərz/', 'n.', '母马（复数）', 'Two mares grazed.', '两匹母马吃草。', 'mare 复数'],
+  ['SMART', '/smɑːrt/', 'adj.', '聪明的；精明的', 'A smart kid.', '一个聪明的孩子。', 'smart phone'],
+  ['MARTS', '/mɑːrts/', 'n.', '集市（复数）', 'Open marts.', '开放的集市。', 'mart 复数'],
+
+  // LISTEN family (L,I,S,T,E,N)
+  ['LISTEN', '/ˈlɪsən/', 'v.', '听', 'Listen carefully.', '仔细听。', 'listener 同根'],
+  ['SILENT', '/ˈsaɪlənt/', 'adj.', '沉默的；安静的', 'A silent room.', '安静的房间。', 'silence 同根'],
+  ['TINSEL', '/ˈtɪnsəl/', 'n.', '金属丝；闪光饰物', 'Gold tinsel.', '金色饰物。', '圣诞装饰常见'],
+  ['INSET', '/ˈɪnset/', 'n.', '插页；嵌入物', 'Map inset.', '地图嵌图。', 'in + set'],
+  ['STEIN', '/staɪn/', 'n.', '啤酒杯', 'Lift the stein.', '举起啤酒杯。', '德语借词'],
+  ['LIENS', '/liːnz/', 'n.', '留置权（复数）', 'Tax liens.', '税务留置权。', 'lien 复数'],
+  ['NEST', '/nest/', 'n.', '鸟巢', 'A bird\'s nest.', '一个鸟巢。', 'nesting 同根'],
+  ['TENS', '/tenz/', 'n.', '十（复数）', 'Tens of people.', '几十人。', 'ten 复数'],
+  ['TILE', '/taɪl/', 'n.', '瓷砖', 'Floor tile.', '地砖。', 'tiled 同根'],
+  ['TILES', '/taɪlz/', 'n.', '瓷砖（复数）', 'Pretty tiles.', '漂亮的瓷砖。', 'tile 复数'],
+  ['LITE', '/laɪt/', 'adj.', '低卡的；轻质的（口语）', 'Lite beer.', '低度啤酒。', 'light 简写'],
+  ['LITES', '/laɪts/', 'n.', '灯（复数 informal）', 'Pretty lites.', '漂亮的灯。', '同 lights'],
+
+  // PLATES family (P,L,A,T,E,S)
+  ['PLATES', '/pleɪts/', 'n.', '盘子（复数）', 'Stack of plates.', '一摞盘子。', 'plate 复数'],
+  ['PLATE', '/pleɪt/', 'n.', '盘子', 'A dinner plate.', '一个餐盘。', 'plated 同根'],
+  ['PLEAT', '/pliːt/', 'n.', '褶；裙褶', 'Skirt pleat.', '裙褶。', 'pleated 同根'],
+  ['PETAL', '/ˈpetəl/', 'n.', '花瓣', 'Rose petal.', '玫瑰花瓣。', '复数 petals'],
+  ['SLATE', '/sleɪt/', 'n.', '板岩；候选名单', 'Slate roof.', '板岩屋顶。', 'slate gray'],
+  ['STALE', '/steɪl/', 'adj.', '不新鲜的；陈旧的', 'Stale bread.', '不新鲜的面包。', 'stale joke'],
+  ['STEAL', '/stiːl/', 'v.', '偷', 'Don\'t steal.', '别偷东西。', 'steal / stole / stolen'],
+  ['LEAPS', '/liːps/', 'n./v.', '跳跃（复数/三单）', 'Leaps of faith.', '信念之跃。', 'leap 复数'],
+  ['TAPES', '/teɪps/', 'n.', '磁带（复数）', 'Old tapes.', '旧磁带。', 'tape 复数'],
+  ['PASTE', '/peɪst/', 'n./v.', '面糊；粘贴', 'Cut and paste.', '剪切和粘贴。', 'pasting 同根'],
+  ['SEAT', '/siːt/', 'n.', '座位', 'Take a seat.', '请坐。', 'seated 同根'],
+  ['SEAL', '/siːl/', 'n./v.', '海豹；密封', 'Seal the box.', '密封盒子。', 'sealed 同根'],
+  ['LEAP', '/liːp/', 'v./n.', '跳跃', 'A big leap.', '一大跳。', 'leap year'],
+  ['PEAS', '/piːz/', 'n.', '豌豆（复数）', 'Green peas.', '青豌豆。', 'pea 复数'],
+  ['LAPS', '/læps/', 'n.', '一圈（复数）', 'Three laps.', '三圈。', 'lap 复数'],
+  ['PATS', '/pæts/', 'n./v.', '轻拍（复数）', 'Pats on the back.', '轻拍背部。', 'pat 复数'],
+  ['TAPS', '/tæps/', 'n.', '水龙头（复数）', 'Two taps.', '两个水龙头。', 'tap 复数'],
+
+  // PLAYER family (P,L,A,Y,E,R)
+  ['PLAYER', '/ˈpleɪər/', 'n.', '玩家；运动员', 'Best player.', '最佳球员。', 'play + er'],
+  ['PARLEY', '/ˈpɑːrli/', 'n.', '会谈；谈判', 'Hold a parley.', '举行会谈。', '历史词'],
+  ['REPLAY', '/ˌriːˈpleɪ/', 'n.', '重播', 'Match replay.', '比赛重播。', 're + play'],
+  ['PEARL', '/pɜːrl/', 'n.', '珍珠', 'A pearl ring.', '珍珠戒指。', 'pearly 同根'],
+  ['LAYER', '/ˈleɪər/', 'n.', '层', 'A layer of snow.', '一层雪。', 'lay + er'],
+  ['RELAY', '/ˈriːleɪ/', 'n.', '接力', 'Relay race.', '接力赛。', 're + lay'],
+  ['REPLY', '/rɪˈplaɪ/', 'v./n.', '回复', 'Send a reply.', '发送回复。', 'replied 同根'],
+  ['PREY', '/preɪ/', 'n.', '猎物', 'Bird of prey.', '猛禽。', 'predator 同根'],
+  ['PRAY', '/preɪ/', 'v.', '祈祷', 'Pray for peace.', '祈祷和平。', 'prayer 同根'],
+  ['RYE', '/raɪ/', 'n.', '黑麦', 'Rye bread.', '黑麦面包。', 'rye whiskey'],
+  ['PALE', '/peɪl/', 'adj.', '苍白的', 'A pale face.', '苍白的脸。', 'paler 同根'],
+  ['YEAR', '/jɪər/', 'n.', '年', 'Last year.', '去年。', 'yearly 同根'],
+
+  // ANSWER family (A,N,S,W,E,R)
+  ['ANSWER', '/ˈænsər/', 'n./v.', '回答；答案', 'Give an answer.', '给出答案。', 'answered 同根'],
+  ['SWEAR', '/sweər/', 'v.', '发誓；咒骂', 'Swear an oath.', '发誓。', 'swore / sworn'],
+  ['WARES', '/weərz/', 'n.', '商品（复数）', 'Show your wares.', '展示商品。', 'ware 复数'],
+  ['WANES', '/weɪnz/', 'v.', '减弱（三单）', 'Power wanes.', '力量减弱。', 'wane 三单'],
+  ['SNARE', '/sneər/', 'n./v.', '陷阱；圈套', 'Set a snare.', '设陷阱。', 'snared 同根'],
+  ['EARNS', '/ɜːrnz/', 'v.', '赚（三单）', 'She earns well.', '她赚得多。', 'earn 三单'],
+  ['NEARS', '/nɪərz/', 'v.', '接近（三单）', 'It nears.', '它在接近。', 'near 三单'],
+  ['SANER', '/ˈseɪnər/', 'adj.', '更理智的', 'A saner choice.', '更理智的选择。', 'sane + er'],
+  ['WARE', '/weər/', 'n.', '商品；器物', 'Glass ware.', '玻璃器皿。', 'aware 同根'],
+  ['WARN', '/wɔːrn/', 'v.', '警告', 'I warn you.', '我警告你。', 'warning 同根'],
+  ['WARS', '/wɔːrz/', 'n.', '战争（复数）', 'The wars ended.', '战争结束了。', 'war 复数'],
+  ['ARES', null, null, null, null, null, null], // dup
+  ['EWES', '/juːz/', 'n.', '母羊（复数）', 'Two ewes.', '两只母羊。', 'ewe 复数'],
+  ['EWE', '/juː/', 'n.', '母羊', 'A young ewe.', '一只小母羊。', '复数 ewes'],
+  ['SEW', '/səʊ/', 'v.', '缝纫', 'Sew a button.', '缝扣子。', 'sewing 同根'],
+  ['ANEW', '/əˈnjuː/', 'adv.', '重新；再一次', 'Start anew.', '重新开始。', 'a + new'],
+
+  // FOREST family (F,O,R,E,S,T)
+  ['FOREST', '/ˈfɒrɪst/', 'n.', '森林', 'A pine forest.', '松林。', 'forestry 同根'],
+  ['FOSTER', '/ˈfɒstər/', 'v.', '寄养；培养', 'Foster a kitten.', '寄养小猫。', 'foster home'],
+  ['SOFTER', '/ˈsɒftər/', 'adj.', '更柔软的', 'A softer pillow.', '更柔软的枕头。', 'soft + er'],
+  ['STORE', '/stɔːr/', 'n./v.', '商店；储存', 'A toy store.', '一家玩具店。', 'storage 同根'],
+  ['ROSE', '/rəʊz/', 'n.', '玫瑰', 'A red rose.', '一朵红玫瑰。', 'roses 复数'],
+  ['SORE', '/sɔːr/', 'adj.', '疼痛的', 'A sore throat.', '喉咙痛。', 'sore loser'],
+  ['ORES', '/ɔːrz/', 'n.', '矿石（复数）', 'Iron ores.', '铁矿石。', 'ore 复数'],
+  ['FORE', '/fɔːr/', 'n.', '前部', 'To the fore.', '到前面。', 'forecast 同根'],
+  ['FORT', '/fɔːrt/', 'n.', '堡垒', 'An old fort.', '一个旧堡垒。', 'fortify 同根'],
+  ['SORT', '/sɔːrt/', 'v.', '分类', 'Sort the mail.', '分拣邮件。', 'sorted 同根'],
+  ['REST', '/rest/', 'n./v.', '休息；剩余', 'Take a rest.', '休息一下。', 'restful 同根'],
+  ['ROSE', null, null, null, null, null, null], // dup
+  ['FROES', null, null, null, null, null, null], // not used
+  ['ROES', '/rəʊz/', 'n.', '鱼卵（复数）', 'Fish roes.', '鱼卵。', 'roe 复数'],
+  ['TOES', '/təʊz/', 'n.', '脚趾（复数）', 'Cold toes.', '冰冷的脚趾。', 'toe 复数'],
+  ['FOES', '/fəʊz/', 'n.', '敌人（复数）', 'Old foes.', '老对手。', 'foe 复数'],
+  ['FOE', '/fəʊ/', 'n.', '敌人', 'Friend or foe.', '朋友还是敌人。', 'foe 复数 foes'],
+  ['FRO', '/frəʊ/', 'adv.', '向后', 'To and fro.', '来来回回。', '与 to 搭配'],
+
+  // GARDEN family (G,A,R,D,E,N)
+  ['GARDEN', '/ˈɡɑːrdən/', 'n.', '花园', 'A flower garden.', '花园。', 'gardener 同根'],
+  ['DANGER', '/ˈdeɪndʒər/', 'n.', '危险', 'In danger.', '处于危险中。', 'dangerous 同根'],
+  ['RANGED', '/reɪndʒd/', 'v.', '排列（过去式）', 'They ranged the books.', '他们排列书本。', 'range 过去式'],
+  ['ARGUE', null, null, null, null, null, null], // not used
+  ['GRADE', '/ɡreɪd/', 'n.', '等级；年级', 'Top grade.', '最高等级。', 'graded 同根'],
+  ['ANGER', '/ˈæŋɡər/', 'n.', '愤怒', 'In great anger.', '极度愤怒。', 'angry 同根'],
+  ['RAGED', '/reɪdʒd/', 'v.', '愤怒（过去式）', 'He raged at me.', '他对我大发雷霆。', 'rage 过去式'],
+  ['GRAND', '/ɡrænd/', 'adj.', '宏伟的', 'A grand hall.', '一个宏伟的大厅。', 'grandeur 同根'],
+  ['DEAR', '/dɪər/', 'adj./n.', '亲爱的', 'Dear friend.', '亲爱的朋友。', 'dearly 同根'],
+  ['DARE', '/deər/', 'v.', '敢', 'I dare you.', '我量你不敢。', 'daring 同根'],
+  ['READ', '/riːd/', 'v.', '阅读', 'Read a book.', '读书。', 'read / read / read'],
+  ['NEAR', '/nɪər/', 'adj.', '近的', 'Near home.', '靠近家。', 'nearer 同根'],
+  ['EARN', '/ɜːrn/', 'v.', '赚得', 'Earn money.', '赚钱。', 'earning 同根'],
+  ['DARN', '/dɑːrn/', 'v.', '缝补；该死', 'Darn it!', '该死！', '与 damn 同'],
+  ['REND', '/rend/', 'v.', '撕裂', 'Rend the cloth.', '撕开布。', 'rent 过去式'],
+  ['ENDED', null, null, null, null, null, null], // not used
+  ['NERD', '/nɜːrd/', 'n.', '书呆子', 'A computer nerd.', '电脑书呆子。', 'nerdy 同根'],
+  ['END', '/end/', 'n./v.', '结束', 'The end.', '结束了。', 'ended 同根'],
+  ['AGED', '/eɪdʒd/', 'adj.', '上了年纪的', 'An aged man.', '一位年长的男士。', 'age + ed'],
+
+  // CASTLE family (C,A,S,T,L,E)
+  ['CASTLE', '/ˈkɑːsəl/', 'n.', '城堡', 'A stone castle.', '一座石头城堡。', 'castles 复数'],
+  ['CLEATS', '/kliːts/', 'n.', '钉鞋（复数）', 'Soccer cleats.', '足球钉鞋。', 'cleat 复数'],
+  ['CLAST', null, null, null, null, null, null], // not used
+  ['LACES', '/leɪsɪz/', 'n.', '鞋带（复数）', 'Tie laces.', '系鞋带。', 'lace 复数'],
+  ['LACE', '/leɪs/', 'n./v.', '蕾丝；系带', 'A lace dress.', '蕾丝裙。', 'laced 同根'],
+  ['SCALE', '/skeɪl/', 'n.', '比例；秤', 'Large scale.', '大规模。', 'scaled 同根'],
+  ['CAST', '/kɑːst/', 'v./n.', '抛掷；演员阵容', 'Cast a vote.', '投票。', 'casting 同根'],
+  ['CATS', '/kæts/', 'n.', '猫（复数）', 'Three cats.', '三只猫。', 'cat 复数'],
+  ['LATE', '/leɪt/', 'adj.', '晚的；已故的', 'Late at night.', '深夜。', 'lately 同根'],
+  ['TALE', '/teɪl/', 'n.', '故事', 'A fairy tale.', '童话故事。', 'tales 复数'],
+  ['TEAL', '/tiːl/', 'n.', '水鸭；蓝绿色', 'Teal blue.', '蓝绿色。', '复数 teals'],
+  ['SALT', '/sɔːlt/', 'n.', '盐', 'Add salt.', '加盐。', 'salty 同根'],
+  ['CLEAT', '/kliːt/', 'n.', '系绳栓；防滑钉', 'A boat cleat.', '船上系缆桩。', '复数 cleats'],
+  ['ECLAT', null, null, null, null, null, null], // niche
+  ['ATE', null, null, null, null, null, null], // dup
+
+  // KITCHEN family (K,I,T,C,H,E,N) — 7-letter mother
+  ['KITCHEN', '/ˈkɪtʃɪn/', 'n.', '厨房', 'In the kitchen.', '在厨房里。', 'kitchens 复数'],
+  ['CHICKEN', null, null, null, null, null, null], // diff letters
+  ['THICK', '/θɪk/', 'adj.', '厚的', 'A thick book.', '一本厚书。', 'thicker 同根'],
+  ['ITCH', '/ɪtʃ/', 'n./v.', '痒', 'An itch on my arm.', '手臂痒。', 'itchy 同根'],
+  ['NICHE', '/niːʃ/', 'n.', '小生境；利基', 'Niche market.', '利基市场。', 'niche product'],
+  ['CHIN', '/tʃɪn/', 'n.', '下巴', 'Lift your chin.', '抬起下巴。', 'chin up'],
+  ['KNIT', '/nɪt/', 'v.', '编织', 'Knit a scarf.', '织围巾。', 'knitting 同根'],
+  ['HIKE', '/haɪk/', 'v./n.', '徒步', 'A long hike.', '长途徒步。', 'hiking 同根'],
+  ['THEN', '/ðen/', 'adv.', '然后', 'And then.', '然后。', 'thenceforth 同根'],
+  ['INCH', '/ɪntʃ/', 'n.', '英寸', 'One inch tall.', '一英寸高。', 'inches 复数'],
+  ['KIN', '/kɪn/', 'n.', '亲属', 'Next of kin.', '近亲。', 'kindred 同根'],
+  ['HIT', '/hɪt/', 'v.', '击中', 'Hit the ball.', '击球。', 'hitting 同根'],
+  ['ETCH', '/etʃ/', 'v.', '蚀刻', 'Etch glass.', '蚀刻玻璃。', 'etching 同根'],
+  ['HEN', '/hen/', 'n.', '母鸡', 'A black hen.', '一只黑母鸡。', 'hens 复数'],
+  ['NICK', '/nɪk/', 'v.', '划痕；偷', 'Nick the wood.', '划伤木头。', 'nicked 同根'],
+  ['ICK', null, null, null, null, null, null], // niche
+  ['TIC', '/tɪk/', 'n.', '抽搐', 'A nervous tic.', '神经性抽搐。', 'twitch 同义'],
+  ['ICK', null, null, null, null, null, null], // dup
+
+  // PICTURE family (P,I,C,T,U,R,E) — 7-letter mother
+  ['PICTURE', '/ˈpɪktʃər/', 'n.', '图片', 'Take a picture.', '拍张照片。', 'pictures 复数'],
+  ['CRUET', '/ˈkruːɪt/', 'n.', '调味瓶', 'Salt cruet.', '盐瓶。', '餐具'],
+  ['ERUPT', '/ɪˈrʌpt/', 'v.', '爆发', 'The volcano erupted.', '火山爆发。', 'erupted 同根'],
+  ['TRIPE', '/traɪp/', 'n.', '牛肚；废话', 'Beef tripe.', '牛肚。', 'tripe 是俚语废话'],
+  ['CURE', '/kjʊər/', 'v./n.', '治愈', 'Find a cure.', '找到治愈方法。', 'cured 同根'],
+  ['CUTE', '/kjuːt/', 'adj.', '可爱的', 'A cute baby.', '一个可爱的宝宝。', 'cuter 同根'],
+  ['RICE', '/raɪs/', 'n.', '米饭', 'Cooked rice.', '熟米饭。', 'rices 罕见'],
+  ['PIECE', null, null, null, null, null, null], // diff letters
+  ['CITE', '/saɪt/', 'v.', '引用', 'Cite the source.', '注明出处。', 'cited 同根'],
+  ['EPIC', '/ˈepɪk/', 'adj./n.', '史诗的', 'An epic story.', '史诗般的故事。', 'epics 复数'],
+  ['PIE', '/paɪ/', 'n.', '派；馅饼', 'Apple pie.', '苹果派。', 'pies 复数'],
+  ['CUE', '/kjuː/', 'n.', '提示；台球杆', 'Take the cue.', '接到提示。', 'cued 同根'],
+  ['TIP', '/tɪp/', 'n.', '小费；尖端', 'Leave a tip.', '留小费。', 'tipped 同根'],
+  ['RIP', '/rɪp/', 'v.', '撕开', 'Rip the paper.', '撕开纸张。', 'ripped 同根'],
+  ['PUT', '/pʊt/', 'v.', '放', 'Put it down.', '把它放下。', 'put / put / put'],
+  ['CUP', '/kʌp/', 'n.', '杯子', 'A cup of tea.', '一杯茶。', 'cups 复数'],
+  ['ICE', '/aɪs/', 'n.', '冰', 'Add ice.', '加冰。', 'icy 同根'],
+  ['CITRUS', null, null, null, null, null, null], // diff letters
+
+  // VICTORY family (V,I,C,T,O,R,Y) — 7-letter mother
+  ['VICTORY', '/ˈvɪktəri/', 'n.', '胜利', 'A clear victory.', '明显的胜利。', 'victorious 同根'],
+  ['IVORY', '/ˈaɪvəri/', 'n.', '象牙；象牙色', 'Ivory tower.', '象牙塔。', 'ivories 复数'],
+  ['CITY', '/ˈsɪti/', 'n.', '城市', 'In the city.', '在城市里。', 'cities 复数'],
+  ['TORY', '/ˈtɔːri/', 'n.', '保守党人', 'British Tory.', '英国保守党人。', '历史词'],
+  ['ROOT', null, null, null, null, null, null], // diff letters
+  ['RIOT', '/ˈraɪət/', 'n.', '骚乱', 'A street riot.', '街头骚乱。', 'rioting 同根'],
+  ['TRIO', '/ˈtriːoʊ/', 'n.', '三人组', 'A jazz trio.', '爵士三重奏。', '复数 trios'],
+  ['ROT', '/rɒt/', 'v./n.', '腐烂', 'Don\'t rot.', '别腐烂。', 'rotten 同根'],
+  ['TOY', '/tɔɪ/', 'n.', '玩具', 'A wooden toy.', '木玩具。', 'toys 复数'],
+  ['COY', '/kɔɪ/', 'adj.', '羞怯的', 'A coy smile.', '羞怯的微笑。', 'coyly 同根'],
+  ['CRY', '/kraɪ/', 'v./n.', '哭', 'Don\'t cry.', '别哭。', 'cried 过去式'],
+  ['TRY', '/traɪ/', 'v.', '尝试', 'Try harder.', '更努力。', 'tried 过去式'],
+  ['YOR', null, null, null, null, null, null], // not a word
+  ['IVY', '/ˈaɪvi/', 'n.', '常春藤', 'Ivy on the wall.', '墙上的常春藤。', 'ivies 复数'],
+  ['VIC', null, null, null, null, null, null], // not standalone
+  ['OIC', null, null, null, null, null, null], // not a word
+
+  // HISTORY family (H,I,S,T,O,R,Y) — 7-letter mother
+  ['HISTORY', '/ˈhɪstəri/', 'n.', '历史', 'World history.', '世界历史。', 'historical 同根'],
+  ['STORY', '/ˈstɔːri/', 'n.', '故事', 'Tell a story.', '讲个故事。', 'stories 复数'],
+  ['SHIRT', '/ʃɜːrt/', 'n.', '衬衫', 'A blue shirt.', '一件蓝衬衫。', 'shirts 复数'],
+  ['THIRTY', null, null, null, null, null, null], // diff letters
+  ['SHORT', '/ʃɔːrt/', 'adj.', '短的', 'A short walk.', '短途散步。', 'shorter 同根'],
+  ['HOIST', '/hɔɪst/', 'v.', '吊起', 'Hoist the flag.', '升起旗帜。', 'hoisted 同根'],
+  ['HOSTS', '/həʊsts/', 'n.', '主人（复数）', 'Two hosts.', '两位主人。', 'host 复数'],
+  ['ROTS', '/rɒts/', 'v.', '腐烂（三单）', 'Wood rots.', '木头腐烂。', 'rot 三单'],
+  ['TRIOS', '/ˈtriːoʊz/', 'n.', '三人组（复数）', 'Two trios.', '两个三重奏。', 'trio 复数'],
+  ['RIOTS', '/ˈraɪəts/', 'n.', '骚乱（复数）', 'Street riots.', '街头骚乱。', 'riot 复数'],
+  ['HOSE', '/həʊz/', 'n.', '软管', 'Garden hose.', '园艺软管。', 'hosed 同根'],
+  ['HOST', '/həʊst/', 'n.', '主人；主持人', 'A good host.', '一位好主人。', 'hosting 同根'],
+  ['SHOT', '/ʃɒt/', 'n.', '射击；一次', 'A long shot.', '远射。', 'shots 复数'],
+  ['HIS', '/hɪz/', 'pron.', '他的', 'His book.', '他的书。', '与 her 对应'],
+  ['HOT', '/hɒt/', 'adj.', '热的', 'Very hot.', '很热。', 'hotter 同根'],
+  ['TOY', null, null, null, null, null, null], // dup
+  ['STIR', '/stɜːr/', 'v.', '搅拌', 'Stir the soup.', '搅拌汤。', 'stirring 同根'],
+  ['ROT', null, null, null, null, null, null], // dup
+
+  // ── More 6-7 letter mothers (use existing secondaries already in dict) ──
+  ['FRIEND', '/frend/', 'n.', '朋友', 'A close friend.', '亲密的朋友。', 'friendly 同根'],
+  ['DETAIL', '/ˈdiːteɪl/', 'n.', '细节', 'Tiny detail.', '微小细节。', 'detailed 同根'],
+  ['POINTS', '/pɔɪnts/', 'n.', '要点（复数）', 'Key points.', '要点。', 'point 复数'],
+  ['COUNTRY', '/ˈkʌntri/', 'n.', '国家', 'A vast country.', '广阔的国家。', 'countries 复数'],
+  ['READING', '/ˈriːdɪŋ/', 'n.', '阅读', 'I love reading.', '我爱阅读。', 'read + ing'],
+  ['WONDERS', '/ˈwʌndərz/', 'n.', '奇迹（复数）', 'Seven wonders.', '七大奇迹。', 'wonder 复数'],
+  ['BRACKET', '/ˈbrækɪt/', 'n.', '括号；支架', 'In brackets.', '在括号内。', 'brackets 复数'],
+  ['FATHERS', '/ˈfɑːðərz/', 'n.', '父亲（复数）', 'Founding fathers.', '建国元勋。', 'father 复数'],
+  ['BLASTER', '/ˈblɑːstər/', 'n.', '喷砂机；爆破工', 'A sand blaster.', '喷砂机。', 'blast + er'],
+  ['PLANTER', '/ˈplɑːntər/', 'n.', '种植者；花盆', 'A wooden planter.', '木花盆。', 'plant + er'],
+  ['ROUTINE', '/ruːˈtiːn/', 'n.', '日常；惯例', 'Daily routine.', '日常生活。', 'routines 复数'],
+  ['PLANETS', '/ˈplænɪts/', 'n.', '行星（复数）', 'Inner planets.', '内行星。', 'planet 复数'],
+  ['DREAMS', '/driːmz/', 'n.', '梦（复数）', 'Sweet dreams.', '美梦。', 'dream 复数'],
+  ['MEMBER', null, null, null, null, null, null], // skip - double M
+  ['CIRCLE', '/ˈsɜːrkəl/', 'n.', '圆圈', 'A drawn circle.', '画的圆圈。', 'circular 同根'],
+  ['SQUARE', '/skweər/', 'n.', '正方形；广场', 'A town square.', '城镇广场。', 'squared 同根'],
+  ['BUTTER', null, null, null, null, null, null], // skip - double T
+  ['SAILED', '/seɪld/', 'v.', '航行（过去式）', 'They sailed home.', '他们航行回家。', 'sail 过去式'],
+  ['SAILOR', '/ˈseɪlər/', 'n.', '水手', 'A young sailor.', '年轻水手。', 'sail + or'],
+  ['MEDALS', '/ˈmedəlz/', 'n.', '奖牌（复数）', 'Gold medals.', '金牌。', 'medal 复数'],
+  ['NORMAL', null, null, null, null, null, null], // skip - double M? no, but limited anags
+  ['LADIES', '/ˈleɪdiz/', 'n.', '女士（复数）', 'Ladies first.', '女士优先。', 'lady 复数'],
+  ['MASTERY', '/ˈmɑːstəri/', 'n.', '掌握；精通', 'Self-mastery.', '自我掌握。', 'master + y'],
+  ['STREAMS', '/striːmz/', 'n.', '溪流（复数）', 'Mountain streams.', '山间溪流。', 'stream 复数'],
+  ['ANSWERED', null, null, null, null, null, null], // skip - 8 letters, double E
+  ['MARSHES', null, null, null, null, null, null], // skip - double S, less useful
+  ['POETRY', '/ˈpəʊətri/', 'n.', '诗歌', 'Modern poetry.', '现代诗歌。', 'poet + ry'],
+  ['MARKED', '/mɑːrkt/', 'v.', '标记（过去式）', 'He marked it.', '他做了标记。', 'mark 过去式'],
+  ['GLOBAL', null, null, null, null, null, null], // skip - double L
+  ['MARKET', '/ˈmɑːrkɪt/', 'n.', '市场', 'A flea market.', '跳蚤市场。', 'markets 复数'],
+  ['LATER', '/ˈleɪtər/', 'adv.', '稍后', 'See you later.', '稍后见。', 'late + r'],
+  ['ALERT', '/əˈlɜːrt/', 'adj.', '警觉的', 'Stay alert.', '保持警觉。', 'alerted 同根'],
+  ['ALTER', '/ˈɔːltər/', 'v.', '改变', 'Alter the plan.', '改变计划。', 'altered 同根'],
+
+  // Filler 5-letter words to enrich families
+  ['CRATE', '/kreɪt/', 'n.', '板条箱', 'A wood crate.', '一个木板条箱。', 'crates 复数'],
+  ['REACT', '/riˈækt/', 'v.', '反应', 'React quickly.', '迅速反应。', 'reaction 同根'],
+  ['TRACE', '/treɪs/', 'v./n.', '追踪；痕迹', 'No trace left.', '没留下痕迹。', 'traced 同根'],
+  ['CATER', '/ˈkeɪtər/', 'v.', '迎合；提供饮食', 'Cater to needs.', '迎合需求。', 'catered 同根'],
+  ['CARET', '/ˈkærɪt/', 'n.', '插入符号', 'A caret mark.', '插入符号。', '编辑标记'],
+  ['HEART', '/hɑːrt/', 'n.', '心', 'A kind heart.', '善良的心。', 'hearts 复数'],
+  ['EARTH', '/ɜːrθ/', 'n.', '地球；土', 'Save the earth.', '保护地球。', 'earthly 同根'],
+  ['HATER', '/ˈheɪtər/', 'n.', '讨厌某事的人', 'A loud hater.', '吵闹的喷子。', 'hate + r'],
+  ['RATES', '/reɪts/', 'n.', '速率（复数）', 'Low rates.', '低利率。', 'rate 复数'],
+  ['FATES', '/feɪts/', 'n.', '命运（复数）', 'Cruel fates.', '残酷命运。', 'fate 复数'],
+  ['FARES', '/feərz/', 'n.', '票价（复数）', 'Bus fares.', '公交票价。', 'fare 复数'],
+  ['FEARS', '/fɪərz/', 'n.', '恐惧（复数）', 'Childhood fears.', '童年恐惧。', 'fear 复数'],
+  ['FRETS', '/frets/', 'v.', '烦恼（三单）', 'She frets.', '她在烦恼。', 'fret 三单'],
+  ['HATES', '/heɪts/', 'v.', '讨厌（三单）', 'He hates lies.', '他讨厌谎言。', 'hate 三单'],
+  ['HEARS', '/hɪərz/', 'v.', '听（三单）', 'She hears it.', '她听见了。', 'hear 三单'],
+  ['HEAT', '/hiːt/', 'n.', '热', 'Summer heat.', '夏日炎热。', 'heated 同根'],
+  ['FATE', '/feɪt/', 'n.', '命运', 'A cruel fate.', '残酷的命运。', 'fated 同根'],
+  ['FARE', '/feər/', 'n.', '票价', 'Train fare.', '火车票价。', 'fares 复数'],
+  ['HARE', '/heər/', 'n.', '野兔', 'A swift hare.', '敏捷的野兔。', 'hares 复数'],
+  ['STABLE', '/ˈsteɪbəl/', 'adj./n.', '稳定的；马厩', 'A stable job.', '稳定的工作。', 'stables 复数'],
+  ['TABLES', '/ˈteɪbəlz/', 'n.', '桌子（复数）', 'Two tables.', '两张桌子。', 'table 复数'],
+  ['BASTE', '/beɪst/', 'v.', '浇汁', 'Baste the turkey.', '给火鸡浇汁。', 'basted 同根'],
+  ['BREAST', '/brest/', 'n.', '胸；胸脯', 'Chicken breast.', '鸡胸肉。', 'breasts 复数'],
+  ['BEAST', '/biːst/', 'n.', '野兽', 'A wild beast.', '野兽。', 'beasts 复数'],
+  ['BEATS', '/biːts/', 'v.', '打（三单）', 'He beats drums.', '他打鼓。', 'beat 三单'],
+  ['BATES', null, null, null, null, null, null], // proper-ish
+  ['SABER', '/ˈseɪbər/', 'n.', '军刀', 'A cavalry saber.', '骑兵军刀。', 'sabers 复数'],
+  ['SABRE', null, null, null, null, null, null], // dup
+  ['BATES', null, null, null, null, null, null], // dup
+  ['DINE', '/daɪn/', 'v.', '用餐', 'Dine out.', '外出就餐。', 'dined 同根'],
+  ['FINE', '/faɪn/', 'adj.', '好的；细的', 'A fine day.', '美好的一天。', 'finely 同根'],
+  ['FIND', '/faɪnd/', 'v.', '找到', 'Find a way.', '找方法。', 'found 过去式'],
+  ['RIDE', '/raɪd/', 'v.', '骑；乘', 'Ride a bike.', '骑自行车。', 'ridden 同根'],
+  ['RIND', '/raɪnd/', 'n.', '果皮', 'Lemon rind.', '柠檬皮。', 'rinds 复数'],
+  ['FIRE', '/faɪər/', 'n./v.', '火；解雇', 'Make a fire.', '生火。', 'fired 同根'],
+  ['IDLE', '/ˈaɪdəl/', 'adj.', '闲置的', 'An idle hour.', '空闲时间。', 'idly 同根'],
+  ['DIET', '/ˈdaɪət/', 'n.', '饮食', 'A healthy diet.', '健康饮食。', 'dieted 同根'],
+  ['EDIT', '/ˈedɪt/', 'v.', '编辑', 'Edit the file.', '编辑文件。', 'edited 同根'],
+  ['TIDE', '/taɪd/', 'n.', '潮汐', 'High tide.', '涨潮。', 'tides 复数'],
+  ['TIED', '/taɪd/', 'v.', '系（过去式）', 'He tied his shoes.', '他系鞋带。', 'tie 过去式'],
+  ['LIED', '/laɪd/', 'v.', '撒谎（过去式）', 'He lied.', '他撒了谎。', 'lie 过去式'],
+  ['DAILY', '/ˈdeɪli/', 'adj./adv.', '每日的', 'Daily news.', '每日新闻。', 'days 同根'],
+  ['LADY', '/ˈleɪdi/', 'n.', '女士', 'Old lady.', '老太太。', 'ladies 复数'],
+
+  // POETRY family extras
+  ['POET', '/ˈpəʊɪt/', 'n.', '诗人', 'A famous poet.', '著名诗人。', 'poets 复数'],
+  ['PORE', '/pɔːr/', 'n.', '毛孔', 'Skin pore.', '皮肤毛孔。', 'pores 复数'],
+  ['PORT', '/pɔːrt/', 'n.', '港口', 'Sea port.', '海港。', 'ports 复数'],
+  ['TYPE', '/taɪp/', 'n./v.', '类型；打字', 'Type fast.', '快速打字。', 'typed 同根'],
+  ['TROY', null, null, null, null, null, null], // proper noun
+  ['PYRE', '/paɪər/', 'n.', '柴堆；火葬堆', 'A funeral pyre.', '葬礼柴堆。', 'pyres 复数'],
+  ['PRY', '/praɪ/', 'v.', '撬开；窥探', 'Don\'t pry.', '别窥探。', 'pried 过去式'],
+  ['ROPE', '/rəʊp/', 'n.', '绳子', 'Tie the rope.', '系绳子。', 'roped 同根'],
+
+  // POINTS family extras
+  ['SPOT', '/spɒt/', 'n.', '斑点；位置', 'A red spot.', '红点。', 'spotted 同根'],
+  ['STOP', '/stɒp/', 'v.', '停止', 'Stop here.', '在这停。', 'stopped 同根'],
+  ['POST', null, null, null, null, null, null], // dup likely
+  ['POTS', '/pɒts/', 'n.', '锅（复数）', 'Cooking pots.', '炊锅。', 'pot 复数'],
+  ['OPTS', '/ɒpts/', 'v.', '选择（三单）', 'She opts in.', '她选择参加。', 'opt 三单'],
+  ['PINT', '/paɪnt/', 'n.', '品脱', 'A pint of milk.', '一品脱牛奶。', 'pints 复数'],
+  ['PION', '/ˈpaɪɒn/', 'n.', 'π 介子（物理）', 'A pion decay.', 'π 介子衰变。', '物理粒子'],
+  ['INTO', '/ˈɪntə/', 'prep.', '进入', 'Walk into the room.', '走进房间。', 'in + to'],
+  ['IONS', '/ˈaɪɒnz/', 'n.', '离子（复数）', 'Charged ions.', '带电离子。', 'ion 复数'],
+  ['ION', '/ˈaɪən/', 'n.', '离子', 'A positive ion.', '阳离子。', 'ions 复数'],
+  ['NIPS', '/nɪps/', 'v.', '夹（三单）', 'It nips at heels.', '它夹住脚跟。', 'nip 三单'],
+  ['TIPS', '/tɪps/', 'n.', '小费（复数）', 'Good tips.', '不错的小费。', 'tip 复数'],
+  ['NIP', '/nɪp/', 'v.', '夹；轻咬', 'Nip in the bud.', '防患未然。', 'nipped 同根'],
+  ['SNIP', '/snɪp/', 'v.', '剪', 'Snip the thread.', '剪线。', 'snipped 同根'],
+
+  // ROUTINE family extras
+  ['ROUTE', '/ruːt/', 'n.', '路线', 'Best route.', '最佳路线。', 'routes 复数'],
+  ['OUTER', '/ˈaʊtər/', 'adj.', '外面的', 'Outer space.', '外太空。', 'inner 反义'],
+  ['TUNE', '/tjuːn/', 'n.', '曲调', 'A catchy tune.', '朗朗上口的曲调。', 'tuning 同根'],
+  ['TURN', '/tɜːrn/', 'v.', '转动', 'Turn left.', '左转。', 'turned 同根'],
+  ['RUIN', '/ˈruːɪn/', 'v.', '毁掉', 'Don\'t ruin it.', '别毁了。', 'ruined 同根'],
+  ['UNIT', '/ˈjuːnɪt/', 'n.', '单位', 'One unit.', '一个单位。', 'units 复数'],
+  ['INERT', '/ɪˈnɜːrt/', 'adj.', '惰性的', 'Inert gas.', '惰性气体。', 'inertia 同根'],
+  ['INTRO', '/ˈɪntroʊ/', 'n.', '介绍（口语）', 'Quick intro.', '简短介绍。', 'intro = introduction'],
+  ['NOTE', '/nəʊt/', 'n.', '便条', 'A short note.', '简短便条。', 'notes 复数'],
+  ['TONE', '/təʊn/', 'n.', '语调；色调', 'A friendly tone.', '友好的语气。', 'tones 复数'],
+  ['TONER', '/ˈtəʊnər/', 'n.', '爽肤水；调色剂', 'Apply toner.', '涂爽肤水。', 'toners 复数'],
+  ['IRON', '/ˈaɪərn/', 'n.', '铁；熨斗', 'Cast iron.', '铸铁。', 'irons 复数'],
+  ['TORE', '/tɔːr/', 'v.', '撕（过去式）', 'He tore it.', '他撕了它。', 'tear 过去式'],
+  ['RITE', '/raɪt/', 'n.', '仪式', 'Sacred rite.', '神圣仪式。', 'rites 复数'],
 ];
 
 // Filter out the placeholder duplicate entries
@@ -472,6 +808,10 @@ const CHAPTER_PROFILES = [
   { chapter: 4, lengths: [5, 5, 6] },
   { chapter: 5, lengths: [5, 6, 6] },
   { chapter: 6, lengths: [6, 6, 7] },
+  { chapter: 7, lengths: [5, 6, 6] },
+  { chapter: 8, lengths: [6, 6, 7] },
+  { chapter: 9, lengths: [6, 7, 7] },
+  { chapter: 10, lengths: [6, 7, 7] },
 ];
 
 const motherPool = {};
