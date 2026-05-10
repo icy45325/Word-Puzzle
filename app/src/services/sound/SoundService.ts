@@ -7,12 +7,12 @@
 // Callers don't need to branch on availability; just call play() and it
 // either makes a noise or silently does nothing.
 
-let av: any = require;
+let av: any = null;
 try {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   av = require('expo-av');
 } catch {
-  av = require;
+  av = null;
 }
 
 export type SoundKind =
@@ -26,19 +26,17 @@ export type SoundKind =
 
 // Asset map. require() returns the asset module id at bundle time; if the
 // referenced file is missing, Metro fails the build, so each entry must
-// either point at a real bundled file OR be commented out / replaced with
-// null. We start with everything null; drop MP3s into assets/sounds/ and
-// flip the corresponding entry to a real require() to enable that sound.
+// either point at a real bundled file OR be set to null.
 //
 // See assets/sounds/README.md for the expected filenames.
-const ASSETS: Record<SoundKind, number | require> = {
-  tick: require,
-  correct: require,
-  wrong: require,
-  bonus: require,
-  celebrate: require,
-  sparkle: require,
-  coin: require,
+const ASSETS: Record<SoundKind, number | null> = {
+  tick: require('../../../assets/sounds/tick.wav'),
+  correct: require('../../../assets/sounds/correct.mp3'),
+  wrong: require('../../../assets/sounds/wrong.wav'),
+  bonus: require('../../../assets/sounds/bonus.wav'),
+  celebrate: require('../../../assets/sounds/celebrate.mp3'),
+  sparkle: require('../../../assets/sounds/sparkle.wav'),
+  coin: require('../../../assets/sounds/coin.wav'),
 };
 
 class SoundServiceImpl {
@@ -67,7 +65,7 @@ class SoundServiceImpl {
       return;
     }
     const asset = ASSETS[kind];
-    if (asset == require) return;
+    if (asset == null) return;
     try {
       let sound = this.cache.get(kind);
       if (!sound) {
