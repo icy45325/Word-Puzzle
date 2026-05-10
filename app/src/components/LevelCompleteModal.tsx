@@ -3,13 +3,17 @@ import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Confetti } from './Confetti';
 import { useTheme } from '../theme/ThemeProvider';
+import { t } from '../i18n';
+import type { PraiseKeys } from '../utils/praise';
 
 interface Props {
   visible: boolean;
-  levelId: string;
+  /** Display label for the level, e.g. "Level 6". */
+  levelLabel: string;
+  /** Praise tier + i18n keys, computed by GameScreen on level complete. */
+  praise: PraiseKeys | null;
   wordsFound: number;
   totalWords: number;
-  bonusCount: number;
   coinsEarned?: number;
   totalCoins?: number;
   onNext: () => void;
@@ -19,10 +23,10 @@ interface Props {
 
 export function LevelCompleteModal({
   visible,
-  levelId,
+  levelLabel,
+  praise,
   wordsFound,
   totalWords,
-  bonusCount,
   coinsEarned = 25,
   totalCoins,
   onNext,
@@ -30,6 +34,12 @@ export function LevelCompleteModal({
   nextDisabledLabel,
 }: Props) {
   const { theme } = useTheme();
+  const title = praise
+    ? t(praise.titleKey, undefined, '卓越！')
+    : t('levelComplete.titleFallback', undefined, '卓越！');
+  const subtitle = praise
+    ? t(praise.subtitleKey, undefined, '')
+    : '';
   return (
     <Modal visible={visible} transparent animationType="fade">
       <View style={styles.backdrop}>
@@ -42,20 +52,27 @@ export function LevelCompleteModal({
             style={styles.header}
           >
             <Text style={styles.trophy}>🏆</Text>
-            <Text style={styles.title}>卓越！</Text>
-            <Text style={styles.subtitle}>{levelId} · 关卡完成</Text>
+            <Text style={styles.title}>{title}</Text>
+            {subtitle ? <Text style={styles.praiseSub}>{subtitle}</Text> : null}
+            <Text style={styles.subtitle}>
+              {levelLabel} · {t('levelComplete.cleared', undefined, '关卡完成')}
+            </Text>
           </LinearGradient>
           <View style={styles.body}>
             <View style={styles.statsRow}>
-              <Stat label="答案" value={`${wordsFound}/${totalWords}`} />
+              <Stat
+                label={t('levelComplete.statAnswers', undefined, '答案')}
+                value={`${wordsFound}/${totalWords}`}
+              />
               <View style={styles.divider} />
-              <Stat label="额外" value={`${bonusCount}`} />
-              <View style={styles.divider} />
-              <Stat label="奖励" value={`+${coinsEarned} 💰`} />
+              <Stat
+                label={t('levelComplete.statReward', undefined, '奖励')}
+                value={`+${coinsEarned} 💰`}
+              />
             </View>
             {typeof totalCoins === 'number' ? (
               <Text style={styles.totalCoins}>
-                总金币 {totalCoins} 💰
+                {t('levelComplete.totalCoins', { coins: totalCoins }, `总金币 ${totalCoins} 💰`)}
               </Text>
             ) : null}
             <Pressable
@@ -69,8 +86,8 @@ export function LevelCompleteModal({
             >
               <Text style={[styles.nextText, { color: theme.primaryText }]}>
                 {nextDisabled
-                  ? nextDisabledLabel ?? '已通关 All Done'
-                  : '继续冒险 ▶'}
+                  ? nextDisabledLabel ?? t('levelComplete.allDone', undefined, '已通关 All Done')
+                  : t('levelComplete.next', undefined, '继续冒险 ▶')}
               </Text>
             </Pressable>
           </View>
@@ -116,8 +133,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   trophy: { fontSize: 56, marginBottom: 8 },
-  title: { fontSize: 32, fontWeight: '900', color: '#FFFFFF', letterSpacing: -1 },
-  subtitle: { marginTop: 4, fontSize: 14, fontWeight: '700', color: 'rgba(255,255,255,0.85)' },
+  title: { fontSize: 32, fontWeight: '900', color: '#FFFFFF', letterSpacing: -1, textAlign: 'center' },
+  praiseSub: {
+    marginTop: 6,
+    fontSize: 14,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.92)',
+    textAlign: 'center',
+    paddingHorizontal: 8,
+  },
+  subtitle: { marginTop: 6, fontSize: 12, fontWeight: '700', color: 'rgba(255,255,255,0.75)' },
   body: { padding: 24, alignItems: 'center', gap: 16 },
   statsRow: {
     flexDirection: 'row',

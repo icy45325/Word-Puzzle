@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import levelsJson from '../data/levels.json';
 import { isInDictionary, lookup, normalize } from '../utils/wordValidation';
 import { Cell, LevelDef, LevelLayout, layoutLevel } from '../utils/gridLayout';
@@ -126,23 +127,31 @@ export function useGameState() {
     loaded: false,
   }));
 
-  // Hydrate from persisted progress on first mount with a known user.
-  useEffect(() => {
-    let cancelled = false;
-    if (!user || state.loaded) return;
-    (async () => {
-      const progress = await services.progress.load(user.userId);
-      if (cancelled) return;
-      const idx = Math.min(
-        Math.max(progress.currentLevelIndex, 0),
-        LEVELS.length - 1
-      );
-      dispatch({ type: 'HYDRATE', levelIndex: idx });
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [user, state.loaded, services.progress]);
+  // Hydrate from persisted progress every time the screen gains focus.
+  // This way picking a different level on the Map and popping back here
+  // (without replace()) still re-loads to the picked level — the existing
+  // GameScreen instance gets re-hydrated rather than showing stale state.
+  useFocusEffect(
+    useCallback(() => {
+      let cancelled = false;
+      if (!user) return;
+      (async () => {
+        const progress = await services.progress.load(user.userId);
+        if (cancelled) return;
+        const idx = Math.min(
+          Math.max(progress.currentLevelIndex, 0),
+          LEVELS.length - 1
+        );
+        if (!state.loaded || idx !== state.levelIndex) {
+          dispatch({ type: 'HYDRATE', levelIndex: idx });
+          submittingComplete.current = false;
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
+    }, [user, services.progress, state.loaded, state.levelIndex])
+  );
 
   const level = LEVELS[state.levelIndex];
   const layout: LevelLayout = useMemo(() => layoutLevel(level), [level]);

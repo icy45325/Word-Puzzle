@@ -60,12 +60,15 @@ interface AnimatedCellProps {
 }
 
 function AnimatedCell({ cell, revealed, fromFound }: AnimatedCellProps) {
-  const scale = useRef(new Animated.Value(revealed ? 1 : 0.85)).current;
+  // Always render at scale 1 — empty placeholders and hidden cells must
+  // visually take the same 44×44 footprint. We only animate the spring
+  // pop on the false→true transition.
+  const scale = useRef(new Animated.Value(1)).current;
   const wasRevealed = useRef(revealed);
 
   useEffect(() => {
     if (!wasRevealed.current && revealed) {
-      // pop: 0.5 → overshoot 1.15 → settle at 1
+      // pop: 0.5 → overshoot ~1.15 → settle at 1
       scale.setValue(0.5);
       Animated.spring(scale, {
         toValue: 1,

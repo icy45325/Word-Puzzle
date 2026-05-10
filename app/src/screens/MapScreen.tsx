@@ -1,10 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useFocusEffect } from '@react-navigation/native';
 import { useCurrentUser, useServices } from '../services';
 import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
+import { t } from '../i18n';
 import levelsJson from '../data/levels.json';
 import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -17,6 +26,28 @@ const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).l
 // Vertical pitch between consecutive nodes (node height + gap from styles).
 const NODE_PITCH = 84 + 28;
 
+// First level number of each chapter (1-based). Used to anchor the chapter
+// header band so we don't repeat "第N章" on every node.
+const CHAPTER_STARTS = (() => {
+  const seen = new Set<number>();
+  const starts: { chapter: number; oneBased: number }[] = [];
+  LEVELS.forEach((lvl, i) => {
+    if (lvl.chapter && !seen.has(lvl.chapter)) {
+      seen.add(lvl.chapter);
+      starts.push({ chapter: lvl.chapter, oneBased: i + 1 });
+    }
+  });
+  return starts;
+})();
+
+function chapterAt(oneBased: number): number {
+  let cur = 1;
+  for (const s of CHAPTER_STARTS) {
+    if (oneBased >= s.oneBased) cur = s.chapter;
+  }
+  return cur;
+}
+
 export function MapScreen({ navigation }: Props) {
   const services = useServices();
   const user = useCurrentUser();
@@ -24,8 +55,16 @@ export function MapScreen({ navigation }: Props) {
   const furthest = unlocks.furthestLevel;
   const scrollRef = useRef<ScrollView>(null);
 
-  // Auto-scroll so the current level sits roughly 1/3 down the viewport
-  // once we know `furthest` (i.e. once unlocks have hydrated).
+  // Re-pull unlock state when this screen comes back into focus, so the
+  // map reflects the latest furthestLevel after the user just finished
+  // a level and popped back to here.
+  useFocusEffect(
+    React.useCallback(() => {
+      unlocks.refresh();
+    }, [unlocks])
+  );
+
+  // Auto-scroll so the current level sits roughly 1/3 down the viewport.
   useEffect(() => {
     if (!unlocks.loaded) return;
     const screenH = Dimensions.get('window').height;
@@ -33,7 +72,6 @@ export function MapScreen({ navigation }: Props) {
       0,
       (furthest - 1) * NODE_PITCH - screenH * 0.33
     );
-    // Defer one frame so the ScrollView has measured.
     const timer = setTimeout(() => {
       scrollRef.current?.scrollTo({ y: targetY, animated: false });
     }, 50);
@@ -45,6 +83,9 @@ export function MapScreen({ navigation }: Props) {
     const idx = Math.max(0, Math.min(LEVELS.length - 1, oneBased - 1));
     const prev = await services.progress.load(user.userId);
     await services.progress.save({ ...prev, currentLevelIndex: idx });
+    // navigate() pops back to the existing Game screen if one is on the
+    // stack; useGameState now re-hydrates on focus so the picked level
+    // takes effect even when reusing the old instance.
     navigation.navigate('Game');
   };
 
@@ -59,7 +100,7 @@ export function MapScreen({ navigation }: Props) {
           >
             <Text style={styles.backIcon}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>冒险地图</Text>
+          <Text style={styles.title}>{t('map.title')}</Text>
         </View>
 
         <ScrollView
@@ -74,40 +115,53 @@ export function MapScreen({ navigation }: Props) {
               const isCurrent = oneBased === furthest;
               const isPassed = oneBased < furthest;
               const isLocked = oneBased > furthest;
+              const startsChapter = CHAPTER_STARTS.some(
+                (s) => s.oneBased === oneBased
+              );
+              const chapter = chapterAt(oneBased);
               return (
-                <Pressable
-                  key={lvl.id}
-                  style={[
-                    styles.node,
-                    isCurrent && styles.nodeCurrent,
-                    isPassed && styles.nodePassed,
-                    isLocked && styles.nodeLocked,
-                  ]}
-                  onPress={() => handlePick(oneBased)}
-                  disabled={isLocked}
-                >
-                  <Text
+                <React.Fragment key={lvl.id}>
+                  {startsChapter ? (
+                    <View style={styles.chapterHeader}>
+                      <View style={styles.chapterRule} />
+                      <Text style={styles.chapterHeaderText}>
+                        {t('map.chapterHeader', { chapter })}
+                      </Text>
+                      <View style={styles.chapterRule} />
+                    </View>
+                  ) : null}
+                  <Pressable
                     style={[
-                      styles.nodeLabel,
-                      isCurrent && { color: '#0F172A' },
+                      styles.node,
+                      isCurrent && styles.nodeCurrent,
+                      isPassed && styles.nodePassed,
+                      isLocked && styles.nodeLocked,
                     ]}
+                    onPress={() => handlePick(oneBased)}
+                    disabled={isLocked}
                   >
-                    {oneBased}
-                  </Text>
-                  {isPassed ? (
-                    <View style={styles.checkBadge}>
-                      <Text style={styles.checkIcon}>✓</Text>
-                    </View>
-                  ) : null}
-                  {isCurrent ? (
-                    <View style={styles.currentBadge}>
-                      <Text style={styles.currentBadgeText}>挑战中</Text>
-                    </View>
-                  ) : null}
-                  {lvl.chapter ? (
-                    <Text style={styles.chapterTag}>第{lvl.chapter}章</Text>
-                  ) : null}
-                </Pressable>
+                    <Text
+                      style={[
+                        styles.nodeLabel,
+                        isCurrent && { color: '#0F172A' },
+                      ]}
+                    >
+                      {oneBased}
+                    </Text>
+                    {isPassed ? (
+                      <View style={styles.checkBadge}>
+                        <Text style={styles.checkIcon}>✓</Text>
+                      </View>
+                    ) : null}
+                    {isCurrent ? (
+                      <View style={styles.currentBadge}>
+                        <Text style={styles.currentBadgeText}>
+                          {t('map.currentBadge')}
+                        </Text>
+                      </View>
+                    ) : null}
+                  </Pressable>
+                </React.Fragment>
               );
             })}
           </View>
@@ -155,6 +209,25 @@ const styles = StyleSheet.create({
     width: 2,
     backgroundColor: 'rgba(255,255,255,0.10)',
     zIndex: -1,
+  },
+  chapterHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    marginVertical: 8,
+    width: 260,
+    alignSelf: 'center',
+  },
+  chapterRule: {
+    flex: 1,
+    height: 1,
+    backgroundColor: 'rgba(255,255,255,0.20)',
+  },
+  chapterHeaderText: {
+    color: '#FACC15',
+    fontWeight: '900',
+    fontSize: 12,
+    letterSpacing: 2,
   },
   node: {
     width: 84,
@@ -205,13 +278,5 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: '#1E3A8A',
     letterSpacing: 1.5,
-  },
-  chapterTag: {
-    position: 'absolute',
-    right: -78,
-    fontSize: 10,
-    color: 'rgba(255,255,255,0.5)',
-    fontWeight: '700',
-    letterSpacing: 1,
   },
 });

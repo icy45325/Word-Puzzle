@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChapterRewardModal } from '../components/ChapterRewardModal';
@@ -15,6 +15,8 @@ import { useEconomy } from '../hooks/useEconomy';
 import { useGameState } from '../hooks/useGameState';
 import { useCurrentUser, useServices } from '../services';
 import { t } from '../i18n';
+import { pickPraise, type PraiseKeys } from '../utils/praise';
+import { levelNumberOf } from '../utils/levelNumber';
 import levelsJson from '../data/levels.json';
 import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -46,6 +48,33 @@ export function GameScreen({ navigation }: Props) {
     claimChapterReward,
   } = useGameState();
   const [chapterWords, setChapterWords] = useState<string[]>([]);
+  const [praise, setPraise] = useState<PraiseKeys | null>(null);
+  const startedAtRef = useRef<number>(Date.now());
+  const wrongAttemptsRef = useRef<number>(0);
+  const hintsUsedRef = useRef<number>(0);
+
+  // Reset perf counters whenever a new level is hydrated.
+  useEffect(() => {
+    startedAtRef.current = Date.now();
+    wrongAttemptsRef.current = 0;
+    hintsUsedRef.current = 0;
+    setPraise(null);
+  }, [level.id]);
+
+  // When the level just completed, compute the praise tier once.
+  useEffect(() => {
+    if (!levelCompleted) {
+      setPraise(null);
+      return;
+    }
+    setPraise(
+      pickPraise({
+        timeMs: Date.now() - startedAtRef.current,
+        hintsUsed: hintsUsedRef.current,
+        wrongAttempts: wrongAttemptsRef.current,
+      })
+    );
+  }, [levelCompleted]);
 
   // When the chapter just ended, gather every word the player learned in
   // this chapter across all 10 levels (target + bonus) so we can show
@@ -62,7 +91,6 @@ export function GameScreen({ navigation }: Props) {
       for (const id of chapterLevelIds) {
         for (const w of progress.foundWordsByLevel[id] ?? []) words.add(w);
       }
-      // Include the just-completed level since save may not have flushed yet
       for (const w of foundAnswers) words.add(w);
       for (const w of bonusWords) words.add(w);
       if (!cancelled) setChapterWords([...words].sort());
@@ -85,7 +113,7 @@ export function GameScreen({ navigation }: Props) {
   const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
   const chapterHintsGranted = services.remoteConfig.getNumber('chapter.hintsGranted', 3);
   const chapterCoinsReward = services.remoteConfig.getNumber('chapter.rewardCoins', 100);
-  const levelNumber = Number(level.id.replace(/^L0?/, '')) || 1;
+  const levelNumber = levelNumberOf(level.id);
   const hintsForThisChapter =
     levelNumber <= hintCapLevel ? chapterHintsGranted : 0;
   const hintCapped = chapterHintsGranted > 0 && hintsForThisChapter === 0;
@@ -98,29 +126,39 @@ export function GameScreen({ navigation }: Props) {
   const handleSubmit = useCallback(
     (raw: string) => {
       const outcome = submitWord(raw);
+      const coinsForWord = (len: number) =>
+        services.remoteConfig.getNumber('reward.wordBase', 5) +
+        services.remoteConfig.getNumber('reward.wordPerLetter', 2) * len;
       if (outcome.kind === 'answer') {
         if (outcome.failedCountForThisWord >= failsBeforeAutoOpen) {
           setDetail({ word: outcome.word, isBonus: false });
         } else {
-          const coins =
-            services.remoteConfig.getNumber('reward.wordBase', 5) +
-            services.remoteConfig.getNumber('reward.wordPerLetter', 2) *
-              outcome.word.length;
-          showToast(t('game.toast.coinReward', { coins }));
+          showToast(t('game.toast.coinReward', { coins: coinsForWord(outcome.word.length) }));
         }
       } else if (outcome.kind === 'bonus') {
-        const coins =
-          services.remoteConfig.getNumber('reward.wordBase', 5) +
-          services.remoteConfig.getNumber('reward.wordPerLetter', 2) *
-            outcome.word.length;
-        showToast(t('game.toast.coinReward', { coins }));
+        // #9: bonus words are no longer surfaced as "额外". Just show the
+        // same coin reward toast as a target-word find. Internally still
+        // tracked for learnedWords purposes.
+        showToast(t('game.toast.coinReward', { coins: coinsForWord(outcome.word.length) }));
       } else if (outcome.kind === 'already_in_level' || outcome.kind === 'duplicate') {
         showToast(t('game.toast.duplicate'), 800);
       } else if (outcome.kind === 'not_a_word' && raw.length >= 2) {
+        wrongAttemptsRef.current += 1;
         showToast(t('game.toast.notWord'), 800);
       }
     },
     [submitWord, failsBeforeAutoOpen, services.remoteConfig, showToast]
+  );
+
+  const handleReveal = useCallback(async () => {
+    const result = await revealLetter();
+    if (result.ok) hintsUsedRef.current += 1;
+    return result;
+  }, [revealLetter]);
+
+  const headerTitle = useMemo(
+    () => t('game.headerLevel', { level: levelNumber }),
+    [levelNumber]
   );
 
   return (
@@ -136,10 +174,10 @@ export function GameScreen({ navigation }: Props) {
             <Text style={styles.backIcon}>‹</Text>
           </Pressable>
           <View style={styles.headerCenter}>
-            <Text style={styles.headerLabel}>当前目标</Text>
-            <Text style={styles.headerTitle}>{level.id}</Text>
+            <Text style={styles.headerLabel}>{t('game.headerLabel')}</Text>
+            <Text style={styles.headerTitle}>{headerTitle}</Text>
           </View>
-          <HintButton onReveal={revealLetter} />
+          <HintButton onReveal={handleReveal} />
         </View>
 
         <View style={styles.gridWrap}>
@@ -153,9 +191,6 @@ export function GameScreen({ navigation }: Props) {
         <View style={styles.progressRow}>
           <Text style={styles.progressText}>
             {t('game.foundLabel')} {foundAnswers.length}/{totalAnswers}
-            {bonusWords.length > 0
-              ? `   ·   ${t('game.bonusLabel')} ${bonusWords.length}`
-              : ''}
           </Text>
           <Pressable
             style={styles.foundBtn}
@@ -169,7 +204,10 @@ export function GameScreen({ navigation }: Props) {
           </Pressable>
         </View>
 
-        <WordPreview word={preview || t('game.preview.placeholder')} />
+        <WordPreview
+          word={preview || t('game.preview.placeholder')}
+          active={preview.length > 0}
+        />
 
         {toast ? (
           <View style={styles.toast}>
@@ -204,10 +242,10 @@ export function GameScreen({ navigation }: Props) {
 
         <LevelCompleteModal
           visible={levelCompleted && !isChapterEnd && !detail && !panelOpen}
-          levelId={level.id}
+          levelLabel={headerTitle}
+          praise={praise}
           wordsFound={foundAnswers.length}
           totalWords={totalAnswers}
-          bonusCount={bonusWords.length}
           totalCoins={economyState?.coins}
           onNext={isLastLevel ? () => undefined : nextLevel}
           nextDisabled={isLastLevel}

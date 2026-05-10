@@ -16,6 +16,7 @@ import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
 import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
@@ -27,6 +28,7 @@ export function ProfileScreen({ navigation }: Props) {
   const { state } = useEconomy();
   const unlocks = useUnlocks();
   const { theme } = useTheme();
+  const { locale, setLocale } = useLocale();
   const [learnedCount, setLearnedCount] = useState(0);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState('');
@@ -91,6 +93,44 @@ export function ProfileScreen({ navigation }: Props) {
             </View>
           </View>
 
+          <View style={styles.langCard}>
+            <Text style={styles.langLabel}>{t('profile.language')}</Text>
+            <View style={styles.langRow}>
+              <Pressable
+                style={[
+                  styles.langBtn,
+                  locale === 'zh-CN' && { backgroundColor: theme.primary },
+                ]}
+                onPress={() => setLocale('zh-CN')}
+              >
+                <Text
+                  style={[
+                    styles.langBtnText,
+                    locale === 'zh-CN' && { color: theme.primaryText },
+                  ]}
+                >
+                  {t('profile.languageChinese')}
+                </Text>
+              </Pressable>
+              <Pressable
+                style={[
+                  styles.langBtn,
+                  locale === 'en-US' && { backgroundColor: theme.primary },
+                ]}
+                onPress={() => setLocale('en-US')}
+              >
+                <Text
+                  style={[
+                    styles.langBtnText,
+                    locale === 'en-US' && { color: theme.primaryText },
+                  ]}
+                >
+                  {t('profile.languageEnglish')}
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+
           <Pressable
             style={[styles.linkBtn, { backgroundColor: theme.primary }]}
             onPress={async () => {
@@ -120,14 +160,16 @@ export function ProfileScreen({ navigation }: Props) {
           />
           <View style={styles.editCardWrap}>
             <View style={styles.editCard}>
-              <Text style={styles.editTitle}>修改昵称</Text>
+              <Text style={styles.editTitle}>
+                {t('profile.editName', undefined, '修改昵称')}
+              </Text>
               <TextInput
                 style={styles.editInput}
                 value={draft}
                 onChangeText={setDraft}
                 autoFocus
                 maxLength={24}
-                placeholder="输入新昵称"
+                placeholder={t('profile.editNamePlaceholder', undefined, '输入新昵称')}
                 placeholderTextColor="#94A3B8"
               />
               <View style={styles.editButtons}>
@@ -135,14 +177,16 @@ export function ProfileScreen({ navigation }: Props) {
                   style={[styles.editBtn, styles.editBtnGhost]}
                   onPress={() => setEditing(false)}
                 >
-                  <Text style={styles.editBtnGhostText}>取消</Text>
+                  <Text style={styles.editBtnGhostText}>
+                    {t('profile.editCancel', undefined, '取消')}
+                  </Text>
                 </Pressable>
                 <Pressable
                   style={[styles.editBtn, { backgroundColor: theme.primary }]}
                   onPress={saveEdit}
                 >
                   <Text style={[styles.editBtnText, { color: theme.primaryText }]}>
-                    保存
+                    {t('profile.editSave', undefined, '保存')}
                   </Text>
                 </Pressable>
               </View>
@@ -204,6 +248,29 @@ const styles = StyleSheet.create({
   stat: { minWidth: 100 },
   statValue: { fontSize: 24, fontWeight: '900', color: '#FACC15' },
   statLabel: { fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 2, fontWeight: '700', letterSpacing: 1 },
+  langCard: {
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderRadius: 20,
+    padding: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.06)',
+    gap: 12,
+  },
+  langLabel: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: 'rgba(255,255,255,0.55)',
+    letterSpacing: 2,
+  },
+  langRow: { flexDirection: 'row', gap: 10 },
+  langBtn: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.10)',
+  },
+  langBtnText: { color: '#F8FAFC', fontWeight: '900', fontSize: 14 },
   linkBtn: {
     paddingVertical: 16,
     paddingHorizontal: 18,

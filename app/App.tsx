@@ -18,6 +18,12 @@ import { FriendsScreen } from './src/screens/FriendsScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { MapScreen } from './src/screens/MapScreen';
 import { ReviewQuizScreen } from './src/screens/ReviewQuizScreen';
+import { loadPersistedLocale } from './src/i18n';
+
+// Kick off the locale load before the first render returns. The function
+// is fire-and-forget; once the persisted value is read, listeners
+// (via useLocale) re-render with the new language.
+loadPersistedLocale();
 
 export type RootStackParamList = {
   Home: undefined;

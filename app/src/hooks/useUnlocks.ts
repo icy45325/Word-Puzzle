@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useCurrentUser, useServices } from '../services';
 
 export interface Unlocks {
@@ -10,6 +10,10 @@ export interface Unlocks {
   vocabularyAtLevel: number;
   globalLeaderboardAtLevel: number;
   friendsLeaderboardAtLevel: number;
+  /** Re-pull progress from storage. Call from useFocusEffect when a
+   *  screen needs the freshest unlock state after returning from a
+   *  level / quiz / etc. */
+  refresh: () => void;
 }
 
 export function useUnlocks(): Unlocks {
@@ -18,31 +22,26 @@ export function useUnlocks(): Unlocks {
   const [furthest, setFurthest] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
+  const refresh = useCallback(() => {
     if (!user) return;
-    let cancelled = false;
-    (async () => {
-      const p = await services.progress.load(user.userId);
-      if (cancelled) return;
-      // furthest is "next playable" index; for unlock thresholds we want
-      // the highest level the player has actually completed, which is
-      // furthestLevelIndex (since furthestLevelIndex bumps to completedIdx+1).
+    services.progress.load(user.userId).then((p) => {
+      // furthest is the 0-based "next playable" index.
       setFurthest(p.furthestLevelIndex);
       setLoaded(true);
-    })();
-    return () => {
-      cancelled = true;
-    };
+    });
   }, [services, user]);
+
+  useEffect(() => {
+    refresh();
+  }, [refresh]);
 
   const vocabularyAtLevel = services.remoteConfig.getNumber('feature.vocabulary.minLevel', 1);
   const globalLeaderboardAtLevel = services.remoteConfig.getNumber('leaderboard.global.minLevel', 30);
   const friendsLeaderboardAtLevel = services.remoteConfig.getNumber('friends.minLevel', 50);
 
-  // furthest is 0-based "next playable"; unlock when (furthest >= threshold).
-  // i.e. completed level >= threshold means furthestLevelIndex == threshold.
   return {
     loaded,
+    // furthestLevel = 1-based "next level to play".
     furthestLevel: furthest + 1,
     vocabulary: furthest + 1 >= vocabularyAtLevel,
     globalLeaderboard: furthest >= globalLeaderboardAtLevel,
@@ -50,5 +49,6 @@ export function useUnlocks(): Unlocks {
     vocabularyAtLevel,
     globalLeaderboardAtLevel,
     friendsLeaderboardAtLevel,
+    refresh,
   };
 }

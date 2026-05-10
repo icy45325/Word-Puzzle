@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { t } from '../i18n';
@@ -35,28 +35,26 @@ export function HomeScreen({ navigation }: Props) {
     refreshDue();
   }, [refreshDue]);
 
-  // Re-pull on focus so finishing a quiz / round drops the badge.
+  // Re-pull on focus so finishing a quiz / round drops the badge AND
+  // the unlocks/continue level reflects the just-completed round.
   useFocusEffect(React.useCallback(() => {
     refreshDue();
-  }, [refreshDue]));
+    unlocks.refresh();
+  }, [refreshDue, unlocks]));
 
   const continueLevel = unlocks.loaded ? unlocks.furthestLevel : 1;
   const continueLabel = unlocks.loaded
     ? t('home.continue', { level: continueLevel })
     : t('home.start');
 
-  // Three-avatar level preview (current ± 1)
-  const previewLevels = [
-    Math.max(1, continueLevel - 1),
-    continueLevel,
-    continueLevel + 1,
-  ];
-
   return (
     <GradientBackground>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
         <TopBar />
-        <View style={styles.body}>
+        <ScrollView
+          contentContainerStyle={styles.body}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Logo + title */}
           <View style={styles.heroWrap}>
             <View style={styles.logoTilt}>
@@ -66,41 +64,20 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.subtitle}>VOCABULARY · QUEST</Text>
           </View>
 
-          {/* Level path preview → tap to Map */}
+          {/* Map entry — single button, no avatar preview to avoid
+              ambiguous "current ± 1" highlighting at low levels */}
           <Pressable
             style={styles.pathCard}
             onPress={() => navigation.navigate('Map')}
           >
-            <View style={styles.avatarRow}>
-              {previewLevels.map((lvl, i) => {
-                const isCurrent = lvl === continueLevel;
-                return (
-                  <View
-                    key={lvl}
-                    style={[
-                      styles.avatar,
-                      i > 0 && styles.avatarOverlap,
-                      isCurrent
-                        ? { backgroundColor: '#FACC15', zIndex: 2 }
-                        : styles.avatarMuted,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.avatarLabel,
-                        isCurrent && { color: '#0F172A' },
-                      ]}
-                    >
-                      {lvl}
-                    </Text>
-                  </View>
-                );
-              })}
+            <Text style={styles.pathIcon}>🗺</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.pathTitle}>{t('home.mapTitle')}</Text>
+              <Text style={styles.pathHint}>
+                {t('home.mapHint', { level: continueLevel })}
+              </Text>
             </View>
-            <View style={styles.pathRight}>
-              <Text style={styles.pathHint}>下一关</Text>
-              <Text style={styles.pathTitle}>地图 ›</Text>
-            </View>
+            <Text style={styles.pathArrow}>›</Text>
           </Pressable>
 
           {/* Daily review nudge — only when there are due words */}
@@ -173,9 +150,9 @@ export function HomeScreen({ navigation }: Props) {
             onPress={() => setPickerOpen(true)}
           >
             <Text style={styles.themeRowLabel}>✨  {theme.name}</Text>
-            <Text style={styles.themeRowAction}>切换风格 ›</Text>
+            <Text style={styles.themeRowAction}>{t('home.changeStyle')} ›</Text>
           </Pressable>
-        </View>
+        </ScrollView>
       </SafeAreaView>
       <ThemePickerModal
         visible={pickerOpen}
@@ -211,10 +188,9 @@ function MenuTile({ icon, label, unlocked, unlockText, onPress }: TileProps) {
 const styles = StyleSheet.create({
   safe: { flex: 1 },
   body: {
-    flex: 1,
     paddingHorizontal: 24,
     paddingTop: 16,
-    paddingBottom: 24,
+    paddingBottom: 36,
   },
   heroWrap: {
     alignItems: 'center',
@@ -241,43 +217,33 @@ const styles = StyleSheet.create({
   pathCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     backgroundColor: 'rgba(255,255,255,0.06)',
     borderColor: 'rgba(255,255,255,0.10)',
     borderWidth: 1,
     paddingHorizontal: 18,
     paddingVertical: 14,
     borderRadius: 24,
-    marginBottom: 16,
+    marginBottom: 12,
+    gap: 14,
   },
-  avatarRow: { flexDirection: 'row' },
-  avatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    borderWidth: 4,
-    borderColor: 'rgba(0,0,0,0.25)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatarOverlap: { marginLeft: -10 },
-  avatarMuted: {
-    backgroundColor: 'rgba(255,255,255,0.10)',
-    opacity: 0.6,
-  },
-  avatarLabel: { fontWeight: '900', color: '#F8FAFC', fontSize: 13 },
-  pathRight: { alignItems: 'flex-end' },
-  pathHint: {
-    fontSize: 10,
-    fontWeight: '900',
-    color: 'rgba(255,255,255,0.4)',
-    letterSpacing: 2,
-  },
+  pathIcon: { fontSize: 26 },
   pathTitle: {
-    marginTop: 2,
     fontSize: 15,
     fontWeight: '900',
     color: '#FFFFFF',
+  },
+  pathHint: {
+    marginTop: 2,
+    fontSize: 11,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.55)',
+    letterSpacing: 1,
+  },
+  pathArrow: {
+    fontSize: 24,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    opacity: 0.5,
   },
   reviewCta: {
     flexDirection: 'row',
