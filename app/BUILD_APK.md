@@ -222,3 +222,91 @@ progress / economy / scores / friends / learnedWords into the new
 If you change the keystore SHA-1 (e.g. switching from EAS-managed to local
 keystore), re-add the new SHA-1 to the Android OAuth client in GCP — the old
 one stops working immediately.
+
+---
+
+## 6. (Optional) Provisioning AdMob (rewarded video / interstitial)
+
+The `MobileAdsService` is wired into `ServicesProvider` and is preferred over
+`NoopAds` whenever the native module is linked (i.e. in any EAS build, dev
+build, or production APK — **not** in Expo Go). Out of the box it ships with
+`ads.enabled: false` and uses Google's **test** ad unit IDs, so installing /
+running the app costs nothing and never serves a real ad until you flip the
+switch.
+
+### 6a. Make a test build
+
+The native module ships with `react-native-google-mobile-ads` and is bundled
+during the prebuild step of `eas build` / `gradlew assembleRelease`. You don't
+need to do anything beyond `npm install` and a fresh build — Expo's config
+plugin reads `app.json → plugins → react-native-google-mobile-ads` and writes
+the AdMob app IDs into `AndroidManifest.xml` / `Info.plist`.
+
+The default `androidAppId` / `iosAppId` in `app.json` are Google's
+**sample/test** app IDs. Real ads will not show until you:
+
+1. Replace those two values with your own AdMob app IDs (created in step 6b).
+2. Set `ads.enabled = true` in
+   `src/data/remoteConfigDefaults.json` (or via the future remote config
+   service).
+
+### 6b. Get your AdMob app IDs and ad unit IDs
+
+1. Sign in at https://apps.admob.com.
+2. **Apps → Add app** twice (Android + iOS) — pick "No, the app is not yet
+   listed on a supported store" if you haven't published yet. AdMob prints
+   each app's ID in the format `ca-app-pub-XXXX~YYYY`.
+3. Inside each app, **Ad units → Add ad unit**. Create at minimum:
+   - One **Rewarded** unit (for `rewarded_extra_coins`,
+     `rewarded_free_hint`, `rewarded_reveal_letter`).
+   - One **Interstitial** unit (for `level_complete_interstitial`).
+4. Each unit produces an ID in the form `ca-app-pub-XXXX/ZZZZ`.
+
+### 6c. Wire the IDs into the app
+
+```jsonc
+// app/app.json
+"plugins": [
+  ["react-native-google-mobile-ads", {
+    "androidAppId": "ca-app-pub-XXXX~YYYY",   // from 6b
+    "iosAppId":     "ca-app-pub-XXXX~YYYY"
+  }]
+]
+```
+
+```jsonc
+// app/src/data/remoteConfigDefaults.json
+{
+  "ads.enabled": true,
+  "ads.useTestIds": false,
+  "ads.unitId.android.rewarded":     "ca-app-pub-XXXX/ZZZZ",
+  "ads.unitId.android.interstitial": "ca-app-pub-XXXX/ZZZZ",
+  "ads.unitId.ios.rewarded":         "ca-app-pub-XXXX/ZZZZ",
+  "ads.unitId.ios.interstitial":     "ca-app-pub-XXXX/ZZZZ"
+}
+```
+
+Leave `ads.useTestIds: true` and the unit ID fields empty during development;
+the service falls back to Google's official test unit IDs which always serve
+fake "Test Ad" creatives. Set both `ads.enabled = true` and
+`ads.useTestIds = false` (and provide real unit IDs) to serve real
+revenue-eligible ads.
+
+### 6d. Verify
+
+1. Build once: `eas build -p android --profile preview` (or local Gradle).
+2. Install the APK. In-game, force a rewarded path (e.g. burn all hints,
+   tap 💡 → "看广告 +1 提示" in the insufficient-hint sheet).
+3. With test IDs you should see Google's "Test Ad" overlay; the
+   `EARNED_REWARD` callback fires automatically when the test video
+   completes, and `economy.grant({ type: 'ad_rewarded' })` adds a hint.
+4. With real IDs and `ads.enabled = true`, AdMob's matching engine takes a
+   few hours after the first request to start serving — newly-created units
+   often show "no fill" for a short period, that's normal.
+
+### 6e. App-ads.txt (publisher integrity, recommended)
+
+Once your app is live in stores, add an `app-ads.txt` to your developer
+website (URL listed in your AdMob → Settings → App-ads.txt) — it pairs your
+domain with your AdMob publisher ID and prevents inventory spoofing. AdMob's
+console gives you the exact line to paste.

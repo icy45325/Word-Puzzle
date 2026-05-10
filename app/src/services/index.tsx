@@ -6,6 +6,7 @@ import { LocalLearnedWordsRepo } from './learnedWords/LocalLearnedWordsRepo';
 import { LocalLeaderboard } from './leaderboard/LocalLeaderboard';
 import { LocalEconomy } from './economy/LocalEconomy';
 import { NoopAds } from './ads/NoopAds';
+import { MobileAdsService, isAdMobLoaded } from './ads/MobileAdsService';
 import { NoopIap } from './iap/NoopIap';
 import { ConsoleAnalytics } from './analytics/ConsoleAnalytics';
 import { StaticRemoteConfig } from './remoteConfig/StaticRemoteConfig';
@@ -21,7 +22,13 @@ export function createDefaultServices(): Services {
   const learnedWords = new LocalLearnedWordsRepo();
   const leaderboard = new LocalLeaderboard();
   const economy = new LocalEconomy(remoteConfig);
-  const ads = new NoopAds(remoteConfig, analytics);
+  // Prefer the real AdMob bridge in dev/preview/production builds (where
+  // the native module is linked). Fall back to NoopAds in Expo Go and
+  // any environment where the native module didn't load — the rest of
+  // the app still treats `showRewarded` as resolving to {completed:true}.
+  const ads = isAdMobLoaded()
+    ? new MobileAdsService(remoteConfig, analytics)
+    : new NoopAds(remoteConfig, analytics);
   const iap = new NoopIap(remoteConfig, analytics);
   return {
     auth,
