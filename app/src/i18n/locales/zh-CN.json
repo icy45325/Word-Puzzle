@@ -156,5 +156,11 @@
   "dailyCheckIn.claim": "领取并继续",
   "dailyCheckIn.alreadyClaimed": "今日已领取",
   "dailyCheckIn.streakChip": "{days} 天连胜",
-  "dailyCheckIn.claimedToday": "今日已签到"
+  "dailyCheckIn.claimedToday": "今日已签到",
+  "profile.feedbackLabel": "声音与震动",
+  "profile.soundLabel": "音效",
+  "profile.hapticsLabel": "触觉反馈",
+  "onboarding.title": "滑动字母拼出单词",
+  "onboarding.subtitle": "按住一个字母，依次滑过其他字母，松手提交",
+  "onboarding.tapToDismiss": "轻点任意处开始游戏"
 }

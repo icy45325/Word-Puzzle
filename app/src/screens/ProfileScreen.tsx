@@ -17,6 +17,8 @@ import { TopBar } from '../components/TopBar';
 import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
+import { useSettings } from '../hooks/useSettings';
+import { feedback } from '../utils/feedback';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
@@ -29,6 +31,7 @@ export function ProfileScreen({ navigation }: Props) {
   const unlocks = useUnlocks();
   const { theme } = useTheme();
   const { locale, setLocale } = useLocale();
+  const { settings, setSetting } = useSettings();
   const [learnedCount, setLearnedCount] = useState(0);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState('');
@@ -91,6 +94,32 @@ export function ProfileScreen({ navigation }: Props) {
               />
               <Stat label={t('profile.learnedCount')} value={`${learnedCount}`} />
             </View>
+          </View>
+
+          <View style={styles.langCard}>
+            <Text style={styles.langLabel}>
+              {t('profile.feedbackLabel', undefined, '声音与震动')}
+            </Text>
+            <ToggleRow
+              icon="🔊"
+              label={t('profile.soundLabel', undefined, '音效')}
+              value={settings.sound}
+              onChange={(v) => {
+                setSetting('sound', v);
+                if (v) feedback('coin');
+              }}
+              theme={theme}
+            />
+            <ToggleRow
+              icon="📳"
+              label={t('profile.hapticsLabel', undefined, '触觉反馈')}
+              value={settings.haptics}
+              onChange={(v) => {
+                setSetting('haptics', v);
+                if (v) feedback('tick');
+              }}
+              theme={theme}
+            />
           </View>
 
           <View style={styles.langCard}>
@@ -207,6 +236,36 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
+interface ToggleRowProps {
+  icon: string;
+  label: string;
+  value: boolean;
+  onChange: (v: boolean) => void;
+  theme: { primary: string };
+}
+
+function ToggleRow({ icon, label, value, onChange, theme }: ToggleRowProps) {
+  return (
+    <Pressable style={styles.toggleRow} onPress={() => onChange(!value)}>
+      <Text style={styles.toggleIcon}>{icon}</Text>
+      <Text style={styles.toggleLabel}>{label}</Text>
+      <View
+        style={[
+          styles.toggleTrack,
+          value && { backgroundColor: theme.primary },
+        ]}
+      >
+        <View
+          style={[
+            styles.toggleThumb,
+            value ? styles.toggleThumbOn : styles.toggleThumbOff,
+          ]}
+        />
+      </View>
+    </Pressable>
+  );
+}
+
 const styles = StyleSheet.create({
   safe: { flex: 1 },
   headerRow: {
@@ -271,6 +330,30 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.10)',
   },
   langBtnText: { color: '#F8FAFC', fontWeight: '900', fontSize: 14 },
+  toggleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 6,
+    gap: 12,
+  },
+  toggleIcon: { fontSize: 18 },
+  toggleLabel: { flex: 1, color: '#F8FAFC', fontWeight: '700', fontSize: 14 },
+  toggleTrack: {
+    width: 46,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    padding: 3,
+    justifyContent: 'center',
+  },
+  toggleThumb: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: '#FFFFFF',
+  },
+  toggleThumbOn: { alignSelf: 'flex-end' },
+  toggleThumbOff: { alignSelf: 'flex-start' },
   linkBtn: {
     paddingVertical: 16,
     paddingHorizontal: 18,

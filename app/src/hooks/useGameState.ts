@@ -6,6 +6,7 @@ import { Cell, LevelDef, LevelLayout, layoutLevel } from '../utils/gridLayout';
 import { computeScore, isPerfect } from '../utils/scoring';
 import { useCurrentUser, useServices } from '../services';
 import { uuidv4 } from '../utils/uuid';
+import { feedback } from '../utils/feedback';
 
 const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).levels;
 
@@ -204,6 +205,7 @@ export function useGameState() {
         }
         const failedCount = state.failedAttempts[word] ?? 0;
         dispatch({ type: 'ANSWER_FOUND', word, failedCount });
+        feedback('correct');
         services.analytics.track({
           name: 'word_found',
           props: { word, levelId: level.id, bonus: false },
@@ -236,6 +238,7 @@ export function useGameState() {
         }
         const outcome: SubmitOutcome = { kind: 'bonus', word, isBonus: true };
         dispatch({ type: 'BONUS_FOUND', word });
+        feedback('bonus');
         services.analytics.track({
           name: 'word_found',
           props: { word, levelId: level.id, bonus: true },
@@ -260,6 +263,7 @@ export function useGameState() {
         (w) => !state.foundAnswers.includes(w)
       );
       dispatch({ type: 'FAIL', outcome, undiscoveredTargets: undiscovered });
+      if (word.length >= 2) feedback('wrong');
       return outcome;
     },
     [layout, level.id, services, state.bonusWords, state.foundAnswers, state.failedAttempts, user]
@@ -289,6 +293,7 @@ export function useGameState() {
     const result = await services.economy.spend(user.userId, 'hint', 1);
     if (!result.ok) return { ok: false, reason: 'no_hints' };
     dispatch({ type: 'REVEAL_CELL', cellKey: pickedKey });
+    feedback('sparkle');
     services.analytics.track({
       name: 'hint_used',
       props: { levelId: level.id, kind: 'reveal_letter' },
@@ -315,6 +320,7 @@ export function useGameState() {
       name: 'level_complete',
       props: { levelId: level.id, score, timeMs },
     });
+    feedback('celebrate');
     if (user) {
       const completedIdx = state.levelIndex;
       services.economy.grant(user.userId, {

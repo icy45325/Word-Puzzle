@@ -12,6 +12,8 @@ export const keys = {
   learnedWords: (userId: string) => `${NAMESPACE}:${userId}:learnedWords`,
   friends: (userId: string) => `${NAMESPACE}:${userId}:friends`,
   locale: () => `${NAMESPACE}:locale`,
+  settings: () => `${NAMESPACE}:settings`,
+  onboarding: (key: string) => `${NAMESPACE}:onboarding:${key}`,
 };
 
 export async function readJson<T>(key: string): Promise<T | null> {

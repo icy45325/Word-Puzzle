@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Svg, { Polyline, Circle } from 'react-native-svg';
 import { runOnJS } from 'react-native-reanimated';
+import { feedback } from '../utils/feedback';
 
 const WHEEL_SIZE = 300;
 const TILE_RADIUS = 32;
@@ -64,6 +65,7 @@ export function LetterWheel({ letters, onSubmit, onPreview }: Props) {
           selectedRef.current = next;
           setSelectedIndexes(next);
           onPreview?.(next.map((i) => letters[i]).join(''));
+          feedback('tick');
           return;
         }
       }

@@ -156,5 +156,11 @@
   "dailyCheckIn.claim": "Claim & continue",
   "dailyCheckIn.alreadyClaimed": "Claimed today",
   "dailyCheckIn.streakChip": "{days}-day streak",
-  "dailyCheckIn.claimedToday": "claimed today"
+  "dailyCheckIn.claimedToday": "claimed today",
+  "profile.feedbackLabel": "Sound & haptics",
+  "profile.soundLabel": "Sound effects",
+  "profile.hapticsLabel": "Haptic feedback",
+  "onboarding.title": "Swipe letters to spell words",
+  "onboarding.subtitle": "Press a letter, drag across the others, release to submit",
+  "onboarding.tapToDismiss": "Tap anywhere to start"
 }

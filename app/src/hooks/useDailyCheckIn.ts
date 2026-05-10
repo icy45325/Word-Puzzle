@@ -7,6 +7,7 @@ import {
   type CheckInStatus,
   type DailyCheckInReward,
 } from '../utils/dailyCheckIn';
+import { feedback } from '../utils/feedback';
 
 export interface DailyCheckInState {
   loaded: boolean;
@@ -77,6 +78,7 @@ export function useDailyCheckIn(): DailyCheckInState {
       name: 'daily_checkin',
       props: { streakDays: fresh.nextStreak, isMilestone: fresh.isMilestone },
     });
+    feedback(fresh.isMilestone ? 'celebrate' : 'coin');
     return computeReward(fresh.nextStreak, {
       baseCoins,
       perStreakCoins,

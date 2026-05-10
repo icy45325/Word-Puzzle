@@ -19,11 +19,17 @@ import { LoginScreen } from './src/screens/LoginScreen';
 import { MapScreen } from './src/screens/MapScreen';
 import { ReviewQuizScreen } from './src/screens/ReviewQuizScreen';
 import { loadPersistedLocale } from './src/i18n';
+import { loadSettings } from './src/hooks/useSettings';
+import { soundService } from './src/services/sound/SoundService';
 
 // Kick off the locale load before the first render returns. The function
 // is fire-and-forget; once the persisted value is read, listeners
 // (via useLocale) re-render with the new language.
 loadPersistedLocale();
+// Hydrate the settings cache + warm the audio session so the first
+// feedback() call doesn't pay a cold-start cost.
+loadSettings();
+soundService.preload();
 
 export type RootStackParamList = {
   Home: undefined;

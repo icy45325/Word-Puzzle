@@ -7,6 +7,7 @@ import { GradientBackground } from '../components/GradientBackground';
 import { HintButton } from '../components/HintButton';
 import { LetterWheel } from '../components/LetterWheel';
 import { LevelCompleteModal } from '../components/LevelCompleteModal';
+import { OnboardingOverlay } from '../components/OnboardingOverlay';
 import { TopBar } from '../components/TopBar';
 import { WordDetailModal } from '../components/WordDetailModal';
 import { WordPreview } from '../components/WordPreview';
@@ -18,6 +19,8 @@ import { t } from '../i18n';
 import { pickPraise, type PraiseKeys } from '../utils/praise';
 import { levelNumberOf } from '../utils/levelNumber';
 import levelsJson from '../data/levels.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { keys as storageKeys } from '../store/storage';
 import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
@@ -109,6 +112,26 @@ export function GameScreen({ navigation }: Props) {
   const [detail, setDetail] = useState<{ word: string; isBonus: boolean } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  // First-launch tutorial overlay. We persist a one-shot flag so the
+  // overlay only shows on the very first time this user opens the Game
+  // screen; tapping anywhere on the overlay dismisses + writes the flag.
+  useEffect(() => {
+    let cancelled = false;
+    AsyncStorage.getItem(storageKeys.onboarding('swipe')).then((seen) => {
+      if (cancelled) return;
+      if (!seen) setShowOnboarding(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const dismissOnboarding = useCallback(() => {
+    setShowOnboarding(false);
+    AsyncStorage.setItem(storageKeys.onboarding('swipe'), '1').catch(() => undefined);
+  }, []);
 
   const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
   const chapterHintsGranted = services.remoteConfig.getNumber('chapter.hintsGranted', 3);
@@ -263,6 +286,11 @@ export function GameScreen({ navigation }: Props) {
             await claimChapterReward();
             if (!isLastLevel) nextLevel();
           }}
+        />
+
+        <OnboardingOverlay
+          visible={showOnboarding}
+          onDismiss={dismissOnboarding}
         />
       </SafeAreaView>
     </GradientBackground>
