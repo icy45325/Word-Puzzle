@@ -147,5 +147,14 @@
   "praise.t1.persistent": "百折不挠！",
   "praise.t1.subPersistent": "拼出来就是胜利。",
   "praise.t1.gritty": "毅力满分！",
-  "praise.t1.subGritty": "慢慢来，单词都记住才是赚到。"
+  "praise.t1.subGritty": "慢慢来，单词都记住才是赚到。",
+  "dailyCheckIn.title": "🔥 {days} 天连胜",
+  "dailyCheckIn.subtitle": "Day {day} · 领取今日奖励",
+  "dailyCheckIn.brokeSubtitle": "连胜断了，今天重新开始～",
+  "dailyCheckIn.coinsReward": "+{coins} 金币",
+  "dailyCheckIn.hintsReward": "🎁 +{hints} 提示（周里程碑）",
+  "dailyCheckIn.claim": "领取并继续",
+  "dailyCheckIn.alreadyClaimed": "今日已领取",
+  "dailyCheckIn.streakChip": "{days} 天连胜",
+  "dailyCheckIn.claimedToday": "今日已签到"
 }

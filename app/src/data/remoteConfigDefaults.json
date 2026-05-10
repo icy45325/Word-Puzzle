@@ -27,6 +27,8 @@
   "reward.dailyCheckIn": 20,
   "reward.streakPerDay": 5,
   "reward.adRewarded": 30,
+  "streak.cycleSize": 7,
+  "streak.weeklyMilestoneHints": 1,
   "review.batchSize": 5,
   "review.coinPerCorrect": 5
 }

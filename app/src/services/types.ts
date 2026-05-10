@@ -186,7 +186,8 @@ export type AnalyticsEvent =
   | { name: 'ad_rewarded'; props: { placement: string } }
   | { name: 'iap_checkout_start'; props: { sku: string } }
   | { name: 'iap_purchased'; props: { sku: string } }
-  | { name: 'iap_failed'; props: { sku: string; reason: string } };
+  | { name: 'iap_failed'; props: { sku: string; reason: string } }
+  | { name: 'daily_checkin'; props: { streakDays: number; isMilestone: boolean } };
 
 export interface AnalyticsService {
   track(event: AnalyticsEvent): void;

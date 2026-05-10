@@ -147,5 +147,14 @@
   "praise.t1.persistent": "Persistent!",
   "praise.t1.subPersistent": "Spelling it out is a win.",
   "praise.t1.gritty": "Pure grit!",
-  "praise.t1.subGritty": "Take your time — remembering the words is the real reward."
+  "praise.t1.subGritty": "Take your time — remembering the words is the real reward.",
+  "dailyCheckIn.title": "🔥 {days}-day streak",
+  "dailyCheckIn.subtitle": "Day {day} · claim today's reward",
+  "dailyCheckIn.brokeSubtitle": "Streak broken — let's start a new one today!",
+  "dailyCheckIn.coinsReward": "+{coins} coins",
+  "dailyCheckIn.hintsReward": "🎁 +{hints} hint (weekly milestone)",
+  "dailyCheckIn.claim": "Claim & continue",
+  "dailyCheckIn.alreadyClaimed": "Claimed today",
+  "dailyCheckIn.streakChip": "{days}-day streak",
+  "dailyCheckIn.claimedToday": "claimed today"
 }
