@@ -20,6 +20,7 @@ import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
 import { pickPraise, type PraiseKeys } from '../utils/praise';
 import { levelNumberOf } from '../utils/levelNumber';
+import { cefrColor } from '../utils/cefr';
 import levelsJson from '../data/levels.json';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { keys as storageKeys } from '../store/storage';
@@ -221,7 +222,19 @@ export function GameScreen({ navigation }: Props) {
           </Pressable>
           <View style={styles.headerCenter}>
             <Text style={styles.headerLabel}>{t('game.headerLabel')}</Text>
-            <Text style={styles.headerTitle}>{headerTitle}</Text>
+            <View style={styles.headerTitleRow}>
+              <Text style={styles.headerTitle}>{headerTitle}</Text>
+              {level.cefr ? (
+                <View
+                  style={[
+                    styles.cefrBadge,
+                    { backgroundColor: cefrColor(level.cefr) },
+                  ]}
+                >
+                  <Text style={styles.cefrBadgeText}>{level.cefr}</Text>
+                </View>
+              ) : null}
+            </View>
           </View>
           <HintButton onReveal={handleReveal} />
         </View>
@@ -352,12 +365,28 @@ const styles = StyleSheet.create({
     color: 'rgba(255,255,255,0.4)',
     letterSpacing: 2,
   },
-  headerTitle: {
+  headerTitleRow: {
     marginTop: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  headerTitle: {
     fontSize: 22,
     fontWeight: '900',
     color: '#F8FAFC',
     letterSpacing: -0.5,
+  },
+  cefrBadge: {
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
+  cefrBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1,
   },
   gridWrap: {
     marginTop: 16,

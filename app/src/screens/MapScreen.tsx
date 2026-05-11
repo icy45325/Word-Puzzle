@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Dimensions,
   Pressable,
@@ -17,6 +17,12 @@ import { TopBar } from '../components/TopBar';
 import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
+import {
+  CEFR_LEVELS,
+  cefrColor,
+  milestoneOf,
+  type CefrLevel,
+} from '../utils/cefr';
 import levelsJson from '../data/levels.json';
 import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -24,9 +30,23 @@ import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Map'>;
 
-const LEVELS = (levelsJson as {
-  levels: (LevelDef & { chapter?: number; difficulty?: number })[];
-}).levels;
+interface ChapterMeta {
+  index: number;
+  cefr: CefrLevel;
+  milestone: string;
+}
+
+const LEVELS_DATA = levelsJson as {
+  levels: (LevelDef & {
+    chapter?: number;
+    difficulty?: number;
+    cefr?: CefrLevel;
+    milestone?: string;
+  })[];
+  chapters?: ChapterMeta[];
+};
+const LEVELS = LEVELS_DATA.levels;
+const CHAPTERS: ChapterMeta[] = LEVELS_DATA.chapters ?? [];
 
 // ── Layout constants ─────────────────────────────────────────────────────
 const NODE_SIZE = 60;
@@ -71,6 +91,7 @@ export function MapScreen({ navigation }: Props) {
   const { theme } = useTheme();
   const furthest = unlocks.furthestLevel;
   const scrollRef = useRef<ScrollView>(null);
+  const [legendVisible, setLegendVisible] = useState(false);
 
   // Refresh unlock state on focus so finishing a level and popping back
   // here shows the updated current level.
@@ -113,7 +134,7 @@ export function MapScreen({ navigation }: Props) {
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
         <TopBar />
 
-        {/* Compact header row: back arrow + progress pill */}
+        {/* Compact header row: back arrow + progress pill + CEFR ⓘ */}
         <View style={styles.headerRow}>
           <Pressable
             style={styles.backBtn}
@@ -139,7 +160,33 @@ export function MapScreen({ navigation }: Props) {
               <Text style={styles.progressValue}>Lv. {furthest}</Text>
             </View>
           </View>
+          <Pressable
+            style={[
+              styles.infoBtn,
+              legendVisible && {
+                backgroundColor: 'rgba(255,255,255,0.22)',
+              },
+            ]}
+            onPress={() => setLegendVisible((v) => !v)}
+          >
+            <Text style={styles.infoBtnText}>ⓘ</Text>
+          </Pressable>
         </View>
+
+        {/* Collapsible CEFR legend — hidden by default, ⓘ in header toggles. */}
+        {legendVisible ? (
+          <View style={styles.legendRow}>
+            {CEFR_LEVELS.map((c) => (
+              <View key={c} style={styles.legendChip}>
+                <View
+                  style={[styles.legendDot, { backgroundColor: cefrColor(c) }]}
+                />
+                <Text style={styles.legendCefr}>{c}</Text>
+                <Text style={styles.legendMilestone}>{milestoneOf(c)}</Text>
+              </View>
+            ))}
+          </View>
+        ) : null}
 
         {/* Scrollable wavy map */}
         <ScrollView
@@ -178,6 +225,37 @@ export function MapScreen({ navigation }: Props) {
               />
             </Svg>
 
+            {/* Chapter banners — sit at the boundary between chapters
+                in the bottom-up flow. Chapter 1's banner is at the very
+                bottom; subsequent chapters' banners sit below their
+                first level (visually = above the previous chapter's
+                top level). */}
+            {CHAPTERS.map((ch) => {
+              const firstLevelInChapter = (ch.index - 1) * 10 + 1;
+              // place the banner just below the first level of the
+              // chapter (in screen terms = a bit further up)
+              const bannerY =
+                yForLevel(firstLevelInChapter) + NODE_PITCH / 2 - 14;
+              const color = cefrColor(ch.cefr);
+              return (
+                <View
+                  key={`chapter-${ch.index}`}
+                  style={[
+                    styles.chapterBanner,
+                    { top: bannerY, borderColor: color },
+                  ]}
+                  pointerEvents="none"
+                >
+                  <View
+                    style={[styles.chapterTierDot, { backgroundColor: color }]}
+                  />
+                  <Text style={styles.chapterBannerText}>
+                    {t('map.chapterHeader', { chapter: ch.index })} · {ch.cefr} · {ch.milestone}
+                  </Text>
+                </View>
+              );
+            })}
+
             {LEVELS.map((lvl, i) => {
               const num = i + 1;
               const isCurrent = num === furthest;
@@ -186,6 +264,7 @@ export function MapScreen({ navigation }: Props) {
               const x = xForLevel(num);
               const y = yForLevel(num);
               const stars = lvl.difficulty ?? 0;
+              const tierColor = lvl.cefr ? cefrColor(lvl.cefr) : theme.primary;
               return (
                 <View
                   key={lvl.id}
@@ -197,13 +276,13 @@ export function MapScreen({ navigation }: Props) {
                     },
                   ]}
                 >
-                  {/* Active-node halo */}
+                  {/* Active-node halo (CEFR-tinted) */}
                   {isCurrent ? (
                     <View
                       style={[
                         styles.halo,
                         {
-                          backgroundColor: `${theme.primary}33`,
+                          backgroundColor: `${tierColor}33`,
                         },
                       ]}
                     />
@@ -219,7 +298,7 @@ export function MapScreen({ navigation }: Props) {
                         styles.nodeCurrent,
                         {
                           backgroundColor: '#0F172A',
-                          borderColor: theme.primary,
+                          borderColor: tierColor,
                         },
                       ],
                       isLocked && styles.nodeLocked,
@@ -236,26 +315,21 @@ export function MapScreen({ navigation }: Props) {
                     </Text>
                   </Pressable>
 
-                  {/* Current-level bubble */}
+                  {/* Current-level bubble (CEFR-tinted) */}
                   {isCurrent ? (
                     <View
                       style={[
                         styles.currentBubble,
-                        { backgroundColor: theme.primary },
+                        { backgroundColor: tierColor },
                       ]}
                     >
-                      <Text
-                        style={[
-                          styles.currentBubbleText,
-                          { color: theme.primaryText },
-                        ]}
-                      >
+                      <Text style={styles.currentBubbleText}>
                         {t('map.currentBadge')}
                       </Text>
                     </View>
                   ) : null}
 
-                  {/* Star rating for completed levels */}
+                  {/* Star rating for completed levels (CEFR-colored) */}
                   {isPassed && stars > 0 ? (
                     <View style={styles.stars}>
                       {Array.from({ length: 3 }).map((_, s) => (
@@ -263,7 +337,7 @@ export function MapScreen({ navigation }: Props) {
                           key={s}
                           style={[
                             styles.star,
-                            s < stars && { color: theme.primary },
+                            s < stars && { color: tierColor },
                           ]}
                         >
                           ★
@@ -344,6 +418,66 @@ const styles = StyleSheet.create({
     color: '#F8FAFC',
     marginTop: -1,
   },
+  infoBtn: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 'auto',
+  },
+  infoBtnText: { fontSize: 18, color: '#F8FAFC', fontWeight: '700' },
+  legendRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    justifyContent: 'center',
+  },
+  legendChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 999,
+    gap: 6,
+  },
+  legendDot: { width: 10, height: 10, borderRadius: 5 },
+  legendCefr: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    letterSpacing: 1,
+  },
+  legendMilestone: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.65)',
+  },
+  chapterBanner: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 4,
+    paddingHorizontal: 14,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.18)',
+  },
+  chapterTierDot: { width: 10, height: 10, borderRadius: 5 },
+  chapterBannerText: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    letterSpacing: 1.5,
+  },
   scrollContent: {
     alignItems: 'center',
     paddingBottom: 120,
@@ -413,6 +547,7 @@ const styles = StyleSheet.create({
     fontSize: 9,
     fontWeight: '900',
     letterSpacing: 2,
+    color: '#FFFFFF',
   },
   stars: {
     position: 'absolute',

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCurrentUser, useServices } from '../services';
@@ -10,13 +10,22 @@ import { useTheme } from '../theme/ThemeProvider';
 import { MAX_MASTERY } from '../utils/spacedRepetition';
 import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
+import { CEFR_LEVELS, cefrColor, milestoneOf, type CefrLevel } from '../utils/cefr';
+import dictionary from '../data/dictionary.json';
 import type { LearnedWord } from '../services/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Vocabulary'>;
 
-type Bucket = 'due' | 'learning' | 'mastered';
+type Bucket = 'due' | 'learning' | 'mastered' | 'byCefr';
+
+const DICT = dictionary as Record<string, { cefr?: CefrLevel }>;
+
+function cefrFor(word: string): CefrLevel | null {
+  const entry = DICT[word.toUpperCase()];
+  return (entry?.cefr as CefrLevel) ?? null;
+}
 
 export function VocabularyScreen({ navigation }: Props) {
   useLocale();
@@ -45,7 +54,9 @@ export function VocabularyScreen({ navigation }: Props) {
   }, [refresh]));
 
   const buckets = useMemo(() => splitByMastery(items), [items]);
-  const visible = buckets[tab];
+  // For the by-CEFR tab we group differently — into sections by tier.
+  const cefrSections = useMemo(() => groupByCefr(items), [items]);
+  const visible = tab === 'byCefr' ? items : buckets[tab];
   const dueCount = buckets.due.length;
 
   return (
@@ -86,6 +97,11 @@ export function VocabularyScreen({ navigation }: Props) {
           <TabBtn label={t('vocabulary.tabs.due', { count: buckets.due.length })} active={tab === 'due'} onPress={() => setTab('due')} />
           <TabBtn label={t('vocabulary.tabs.learning', { count: buckets.learning.length })} active={tab === 'learning'} onPress={() => setTab('learning')} />
           <TabBtn label={t('vocabulary.tabs.mastered', { count: buckets.mastered.length })} active={tab === 'mastered'} onPress={() => setTab('mastered')} />
+          <TabBtn
+            label={t('vocabulary.tabs.byCefr', undefined, '按等级')}
+            active={tab === 'byCefr'}
+            onPress={() => setTab('byCefr')}
+          />
         </View>
 
         {visible.length === 0 ? (
@@ -98,26 +114,43 @@ export function VocabularyScreen({ navigation }: Props) {
                 : t('vocabulary.empty')}
             </Text>
           </View>
+        ) : tab === 'byCefr' ? (
+          <SectionList
+            sections={cefrSections}
+            keyExtractor={(it) => it.word}
+            contentContainerStyle={styles.list}
+            stickySectionHeadersEnabled={false}
+            renderSectionHeader={({ section }) => (
+              <View style={styles.sectionHeader}>
+                <View
+                  style={[
+                    styles.sectionDot,
+                    { backgroundColor: cefrColor(section.title as CefrLevel) },
+                  ]}
+                />
+                <Text style={styles.sectionTitle}>
+                  {section.title} · {milestoneOf(section.title as CefrLevel)}
+                </Text>
+                <Text style={styles.sectionCount}>{section.data.length}</Text>
+              </View>
+            )}
+            renderItem={({ item }) => (
+              <WordRow
+                item={item}
+                onPress={() => setDetail({ word: item.word, isBonus: item.isBonus })}
+              />
+            )}
+          />
         ) : (
           <FlatList
             data={visible}
             keyExtractor={(it) => it.word}
             contentContainerStyle={styles.list}
             renderItem={({ item }) => (
-              <Pressable
-                style={styles.row}
+              <WordRow
+                item={item}
                 onPress={() => setDetail({ word: item.word, isBonus: item.isBonus })}
-              >
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.word}>{item.word}</Text>
-                  <MasteryBar level={item.masteryLevel ?? 0} />
-                </View>
-                {item.isBonus ? (
-                  <Text style={styles.bonusTag}>{t('vocabulary.bonusTag')}</Text>
-                ) : null}
-                <Text style={styles.levelTag}>{item.levelId}</Text>
-                <Text style={styles.chevron}>›</Text>
-              </Pressable>
+              />
             )}
           />
         )}
@@ -139,6 +172,43 @@ interface TabProps {
   label: string;
   active: boolean;
   onPress: () => void;
+}
+
+interface WordRowProps {
+  item: LearnedWord;
+  onPress: () => void;
+}
+
+function WordRow({ item, onPress }: WordRowProps) {
+  const cefr = cefrFor(item.word);
+  return (
+    <Pressable style={styles.row} onPress={onPress}>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.word}>{item.word}</Text>
+        <MasteryBar level={item.masteryLevel ?? 0} />
+      </View>
+      {cefr ? (
+        <View style={[styles.cefrChip, { backgroundColor: cefrColor(cefr) }]}>
+          <Text style={styles.cefrChipText}>{cefr}</Text>
+        </View>
+      ) : null}
+      <Text style={styles.levelTag}>{item.levelId}</Text>
+      <Text style={styles.chevron}>›</Text>
+    </Pressable>
+  );
+}
+
+function groupByCefr(items: LearnedWord[]): { title: CefrLevel; data: LearnedWord[] }[] {
+  const map: Record<CefrLevel, LearnedWord[]> = {
+    A1: [], A2: [], B1: [], B2: [], C1: [],
+  };
+  for (const w of items) {
+    const c = cefrFor(w.word);
+    if (c) map[c].push(w);
+  }
+  return CEFR_LEVELS.map((c) => ({ title: c, data: map[c] })).filter(
+    (s) => s.data.length > 0
+  );
 }
 
 function TabBtn({ label, active, onPress }: TabProps) {
@@ -290,6 +360,38 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderRadius: 8,
     letterSpacing: 1,
+  },
+  cefrChip: {
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
+  cefrChipText: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+    paddingVertical: 10,
+    marginTop: 12,
+    gap: 8,
+  },
+  sectionDot: { width: 12, height: 12, borderRadius: 6 },
+  sectionTitle: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    letterSpacing: 1,
+  },
+  sectionCount: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.5)',
   },
   levelTag: {
     fontSize: 11,

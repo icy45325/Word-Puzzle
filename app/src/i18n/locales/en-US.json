@@ -75,6 +75,7 @@
   "vocabulary.tabs.due": "Due · {count}",
   "vocabulary.tabs.learning": "Learning · {count}",
   "vocabulary.tabs.mastered": "Mastered · {count}",
+  "vocabulary.tabs.byCefr": "By level",
   "leaderboard.title": "Leaderboard",
   "leaderboard.tabs.self": "My scores",
   "leaderboard.tabs.friends": "Friends",

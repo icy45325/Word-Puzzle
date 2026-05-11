@@ -1,7 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const NAMESPACE = 'ws';
-export const CURRENT_SCHEMA_VERSION = 2;
+// Bumped to 3 when levels.json was regenerated under CEFR (v6): old
+// levelIds like "L01"..."L200" reference completely different content
+// now, so foundWordsByLevel / completedLevelIds from v2 saves point at
+// the wrong content. The migration clears those two fields but keeps
+// furthestLevelIndex (numeric, content-independent).
+export const CURRENT_SCHEMA_VERSION = 3;
 
 export const keys = {
   user: () => `${NAMESPACE}:user`,

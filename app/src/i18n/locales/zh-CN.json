@@ -75,6 +75,7 @@
   "vocabulary.tabs.due": "待复习 · {count}",
   "vocabulary.tabs.learning": "学习中 · {count}",
   "vocabulary.tabs.mastered": "已掌握 · {count}",
+  "vocabulary.tabs.byCefr": "按等级",
   "leaderboard.title": "排行榜",
   "leaderboard.tabs.self": "我的成绩",
   "leaderboard.tabs.friends": "好友",

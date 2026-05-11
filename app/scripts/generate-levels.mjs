@@ -645,17 +645,39 @@ const SEED = [
 // Filter out the placeholder duplicate entries
 const dictRaw = SEED.filter((row) => row[1] !== null);
 
-// Build dictionary object, dedupe by uppercase
+// Load CEFR map (built by build-cefr-map.mjs)
+const cefrMap = JSON.parse(
+  fs.readFileSync(path.join(__dirname, 'seed', 'cefr-map.json'), 'utf8')
+);
+
+// CEFR helpers (inline, not importing src/utils/cefr.ts since this is
+// a build-time Node script not a runtime React module).
+const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];
+const MILESTONES = {
+  A1: '小学',
+  A2: '中考',
+  B1: '高考',
+  B2: '四级 · 雅思',
+  C1: '六级 · 托福',
+};
+function cefrRank(c) {
+  return CEFR_LEVELS.indexOf(c) + 1;
+}
+
+// Build dictionary object, dedupe by uppercase, attach cefr + milestone
 const dictionary = {};
 for (const [word, phonetic, pos, meaning, example, exampleCn, extra] of dictRaw) {
   const key = word.toUpperCase();
   if (dictionary[key]) continue;
+  const cefr = cefrMap[key] ?? 'B1'; // default if missing
   const entry = {
     phonetic,
     pos,
     meaning,
     example,
     exampleCn,
+    cefr,
+    milestone: MILESTONES[cefr],
   };
   if (extra) entry.extra = extra;
   dictionary[key] = entry;
@@ -663,6 +685,9 @@ for (const [word, phonetic, pos, meaning, example, exampleCn, extra] of dictRaw)
 
 const allWords = Object.keys(dictionary);
 console.log(`Dictionary: ${allWords.length} unique words.`);
+const cefrCounts = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0 };
+for (const w of allWords) cefrCounts[dictionary[w].cefr]++;
+console.log('Dictionary by CEFR:', cefrCounts);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Level generation algorithm.
@@ -687,8 +712,9 @@ function canFormFromLetters(word, motherLetters) {
   return true;
 }
 
-function findSecondaries(motherWord, dict) {
+function findSecondaries(motherWord, dict, maxTier) {
   const motherLetters = motherWord.split('');
+  const maxRank = maxTier ? cefrRank(maxTier) : 99;
   const candidates = [];
   for (const word of Object.keys(dict)) {
     if (word === motherWord) continue;
@@ -697,13 +723,16 @@ function findSecondaries(motherWord, dict) {
     const firstChar = word[0];
     const col = motherLetters.indexOf(firstChar);
     if (col === -1) continue;
+    // CEFR gate: secondaries must be at-or-below the chapter's tier so
+    // we don't surface a B2 word inside an A1 chapter.
+    if (cefrRank(dict[word].cefr) > maxRank) continue;
     candidates.push({ word, col });
   }
   return candidates;
 }
 
-function pickLevelAnswers(motherWord, dict, rng) {
-  const candidates = findSecondaries(motherWord, dict);
+function pickLevelAnswers(motherWord, dict, rng, maxTier) {
+  const candidates = findSecondaries(motherWord, dict, maxTier);
   if (candidates.length < 2) return null;
 
   // Group by column, randomize within group, then shuffle group order
@@ -801,54 +830,75 @@ const SEED_LEVELS = [
   ]},
 ];
 
+// CEFR-aware chapter profiles. Each chapter pins a target CEFR tier;
+// mothers must match the tier exactly, secondaries can be ≤ tier so
+// already-learned A1 words can recur inside a B1 chapter.
+//   L1-30 = A1 (小学 / 3-30)
+//   L31-70 = A2 (中考)
+//   L71-120 = B1 (高考)
+//   L121-170 = B2 (四级 · 雅思)
+//   L171-200 = C1 (六级 · 托福)
 const CHAPTER_PROFILES = [
-  { chapter: 1, lengths: [4, 4, 5] }, // first 8 hand-seeded; only 2 generated here
-  { chapter: 2, lengths: [4, 4, 5] },
-  { chapter: 3, lengths: [4, 5, 5] },
-  { chapter: 4, lengths: [5, 5, 6] },
-  { chapter: 5, lengths: [5, 6, 6] },
-  { chapter: 6, lengths: [6, 6, 7] },
-  { chapter: 7, lengths: [5, 6, 6] },
-  { chapter: 8, lengths: [6, 6, 7] },
-  { chapter: 9, lengths: [6, 7, 7] },
-  { chapter: 10, lengths: [6, 7, 7] },
-  { chapter: 11, lengths: [5, 6, 6] },
-  { chapter: 12, lengths: [6, 6, 7] },
-  { chapter: 13, lengths: [6, 7, 7] },
-  { chapter: 14, lengths: [6, 7, 7] },
-  { chapter: 15, lengths: [5, 6, 7] },
-  { chapter: 16, lengths: [6, 6, 7] },
-  { chapter: 17, lengths: [6, 7, 7] },
-  { chapter: 18, lengths: [6, 7, 7] },
-  { chapter: 19, lengths: [6, 7, 7] },
-  { chapter: 20, lengths: [6, 7, 7] },
+  { chapter: 1, cefr: 'A1', lengths: [3, 3, 4] },
+  { chapter: 2, cefr: 'A1', lengths: [3, 4, 4] },
+  { chapter: 3, cefr: 'A1', lengths: [4, 4, 5] },
+  { chapter: 4, cefr: 'A2', lengths: [4, 4, 5] },
+  { chapter: 5, cefr: 'A2', lengths: [4, 5, 5] },
+  { chapter: 6, cefr: 'A2', lengths: [5, 5, 5] },
+  { chapter: 7, cefr: 'A2', lengths: [5, 5, 6] },
+  { chapter: 8, cefr: 'B1', lengths: [5, 5, 6] },
+  { chapter: 9, cefr: 'B1', lengths: [5, 6, 6] },
+  { chapter: 10, cefr: 'B1', lengths: [5, 6, 6] },
+  { chapter: 11, cefr: 'B1', lengths: [6, 6, 7] },
+  { chapter: 12, cefr: 'B1', lengths: [6, 6, 7] },
+  { chapter: 13, cefr: 'B2', lengths: [5, 6, 6] },
+  { chapter: 14, cefr: 'B2', lengths: [6, 6, 6] },
+  { chapter: 15, cefr: 'B2', lengths: [6, 6, 7] },
+  { chapter: 16, cefr: 'B2', lengths: [6, 7, 7] },
+  { chapter: 17, cefr: 'B2', lengths: [6, 7, 7] },
+  // C1 chapters: dict is currently light on long C1 words (most are
+  // 4-5 letter archaic/obscure words like ECLAT/STEIN/PYRE/INTRO).
+  // Targeting shorter lengths keeps the chapter on-tier; future dict
+  // expansion will let us bump these back up to 6-7 letters.
+  { chapter: 18, cefr: 'C1', lengths: [4, 5, 5] },
+  { chapter: 19, cefr: 'C1', lengths: [5, 5, 5] },
+  { chapter: 20, cefr: 'C1', lengths: [4, 5, 5] },
 ];
 
-// Difficulty rating per level, derived from mother-word length:
-//   1 star ★    — chapters of 3-4 letter mothers (warm-up)
-//   2 stars ★★  — 5-letter mothers
-//   3 stars ★★★ — 6-7 letter mothers
-function ratingForLength(len) {
-  if (len <= 4) return 1;
-  if (len === 5) return 2;
+// Star rating combines CEFR + length so two A1 levels with different
+// mother sizes still feel distinct on the Map. A1/A2 = 1★, B1 = 2★,
+// B2/C1 = 3★.
+function ratingForCefr(cefr) {
+  if (cefr === 'A1' || cefr === 'A2') return 1;
+  if (cefr === 'B1') return 2;
   return 3;
 }
 
-const motherPool = {};
+// Bucket the dictionary by CEFR tier AND by length so we can quickly
+// fetch "give me A2 5-letter mothers" during generation.
+const motherPool = {}; // motherPool[cefr][length] = [words]
+for (const tier of CEFR_LEVELS) motherPool[tier] = {};
 for (const word of allWords) {
   const len = word.length;
-  if (!motherPool[len]) motherPool[len] = [];
-  motherPool[len].push(word);
+  const tier = dictionary[word].cefr;
+  if (!motherPool[tier][len]) motherPool[tier][len] = [];
+  motherPool[tier][len].push(word);
 }
 
 const rng = mulberry32(42);
-for (const len of Object.keys(motherPool)) shuffle(motherPool[len], rng);
+for (const tier of CEFR_LEVELS) {
+  for (const len of Object.keys(motherPool[tier])) {
+    shuffle(motherPool[tier][len], rng);
+  }
+}
 
 const levels = [];
 const usedMothers = new Set();
 const wantPerChapter = 10;
 
-// Pre-seed first 8 levels (chapter 1)
+// Pre-seed first 8 levels (chapter 1). They're all A1 by construction
+// (CAT/DOG/STAR/LOVE/RAIN/PLAY/SMILE/HOUSE all A1) so they fit the
+// chapter 1 profile cleanly.
 for (const seed of SEED_LEVELS) {
   const motherWord = seed.answers.find((a) => a.dir === 'H')?.word ?? seed.letters.join('');
   usedMothers.add(motherWord);
@@ -862,19 +912,20 @@ for (const seed of SEED_LEVELS) {
 
 for (let chapterIdx = 0; chapterIdx < CHAPTER_PROFILES.length; chapterIdx++) {
   const profile = CHAPTER_PROFILES[chapterIdx];
+  const tier = profile.cefr;
   const alreadyInChapter = levels.filter((l) => l.chapter === profile.chapter).length;
   const need = wantPerChapter - alreadyInChapter;
   const chapterLevels = [];
   let safetyCounter = 0;
   while (chapterLevels.length < need && safetyCounter++ < 5000) {
     const len = profile.lengths[Math.floor(rng() * profile.lengths.length)];
-    const pool = motherPool[len] ?? [];
+    const pool = motherPool[tier][len] ?? [];
     if (pool.length === 0) continue;
     const candidate = pool[Math.floor(rng() * pool.length)];
     if (usedMothers.has(candidate)) continue;
-    const answers = pickLevelAnswers(candidate, dictionary, rng);
+    const answers = pickLevelAnswers(candidate, dictionary, rng, tier);
     if (!answers) {
-      usedMothers.add(candidate); // mark as failed so we skip it
+      usedMothers.add(candidate);
       continue;
     }
     usedMothers.add(candidate);
@@ -886,37 +937,29 @@ for (let chapterIdx = 0; chapterIdx < CHAPTER_PROFILES.length; chapterIdx++) {
     });
   }
   if (chapterLevels.length < need) {
-    console.warn(`Chapter ${profile.chapter}: generated ${chapterLevels.length}/${need} via profile. Padding from broader pool.`);
-    // Padding order matters for difficulty curve: try long unused mothers
-    // first, then re-use already-used long mothers (so chapter 18 stays
-    // 6-7 letter even when fresh mothers are exhausted), then short
-    // fallbacks only as a last resort.
-    const profileLens = new Set(profile.lengths);
-    const longestInProfile = Math.max(...profile.lengths);
+    console.warn(
+      `Chapter ${profile.chapter} (${tier}): generated ${chapterLevels.length}/${need} via profile. Padding…`
+    );
+    // CEFR-respecting fallback: prefer reusing same-tier mothers over
+    // dropping to lower tiers. Difficulty must not collapse.
+    const sameTierWords = allWords.filter(
+      (w) => dictionary[w].cefr === tier
+    );
     const passes = [
-      // Pass 1: any unused word in this chapter's length range
-      (w) => !usedMothers.has(w) && profileLens.has(w.length),
-      // Pass 2: any unused word from 5 letters up to chapter's max
-      (w) => !usedMothers.has(w) && w.length >= 5 && w.length <= longestInProfile,
-      // Pass 3: REUSE — long mothers already used, but they still
-      // generate a different level (random secondary picks) and keep
-      // difficulty. Mark with `reused: true` so we can dedupe later if
-      // needed.
-      (w) => w.length >= 5 && w.length <= longestInProfile,
-      // Pass 4: anything left as absolute last resort
-      (w) => !usedMothers.has(w) && w.length >= 3 && w.length <= 7,
+      // Pass 1: unused same-tier mothers (any length)
+      (w) => !usedMothers.has(w) && dictionary[w].cefr === tier,
+      // Pass 2: reuse same-tier mothers (different secondaries each run)
+      (w) => dictionary[w].cefr === tier,
+      // Pass 3: one tier below (last resort to avoid generation failure)
+      (w) => !usedMothers.has(w) && cefrRank(dictionary[w].cefr) === cefrRank(tier) - 1,
     ];
     outer: for (const matcher of passes) {
       const pool = allWords.filter(matcher);
       shuffle(pool, rng);
       for (const candidate of pool) {
         if (chapterLevels.length >= need) break outer;
-        const answers = pickLevelAnswers(candidate, dictionary, rng);
+        const answers = pickLevelAnswers(candidate, dictionary, rng, tier);
         if (!answers) continue;
-        // Don't add to usedMothers if reused — this lets later passes
-        // see it as available too. The 'reused' chapters will end up
-        // with deterministic but slightly different secondary picks
-        // because the rng has advanced.
         if (!usedMothers.has(candidate)) usedMothers.add(candidate);
         chapterLevels.push({
           id: '',
@@ -939,16 +982,21 @@ if (levels.length < TARGET_LEVELS / 2) {
   process.exit(1);
 }
 
-// Renumber sequentially with zero-padded ids + compute difficulty from
-// mother-word length (chapter 1 seeds use the H answer as canonical).
-// Keep ids zero-padded to 2 digits for L01..L99 (preserves existing
-// progress keys); levels L100+ naturally take 3 digits — levelNumberOf()
-// parses the number regardless of width.
+// Renumber sequentially with zero-padded ids + emit CEFR metadata per
+// level. CEFR comes from the chapter profile (so a level's tier reflects
+// the chapter it's in even if the mother slipped tier via fallback).
+// `motherCefr` records the actual mother's tier so verification can
+// catch drift.
 levels.forEach((lvl, idx) => {
   const n = idx + 1;
   lvl.id = `L${n < 100 ? String(n).padStart(2, '0') : String(n)}`;
   const motherWord = lvl.answers.find((a) => a.dir === 'H')?.word ?? '';
-  lvl.difficulty = ratingForLength(motherWord.length);
+  const profile = CHAPTER_PROFILES[lvl.chapter - 1];
+  const chapterCefr = profile?.cefr ?? 'A1';
+  lvl.cefr = chapterCefr;
+  lvl.milestone = MILESTONES[chapterCefr];
+  lvl.motherCefr = dictionary[motherWord]?.cefr ?? chapterCefr;
+  lvl.difficulty = ratingForCefr(chapterCefr);
 });
 
 // Validate every answer word has a dictionary entry
@@ -963,6 +1011,63 @@ if (missing.size > 0) {
   process.exit(1);
 }
 
+// Build chapters metadata (sibling array on the levels output).
+const chapters = CHAPTER_PROFILES.map((p) => ({
+  index: p.chapter,
+  cefr: p.cefr,
+  milestone: MILESTONES[p.cefr],
+}));
+
+// Optional --validate: stricter checks that fail the build on drift.
+if (process.argv.includes('--validate')) {
+  const errors = [];
+  // 1. Tier match: every answer word's CEFR ≤ chapter CEFR
+  for (const lvl of levels) {
+    const chapterRank = cefrRank(lvl.cefr);
+    for (const ans of lvl.answers) {
+      const wordRank = cefrRank(dictionary[ans.word].cefr);
+      if (wordRank > chapterRank) {
+        errors.push(
+          `${lvl.id} (ch${lvl.chapter} ${lvl.cefr}): answer ${ans.word} is ${dictionary[ans.word].cefr}`
+        );
+      }
+    }
+  }
+  // 2. No untagged dict entries
+  for (const [w, e] of Object.entries(dictionary)) {
+    if (!CEFR_LEVELS.includes(e.cefr)) errors.push(`dict ${w}: missing cefr`);
+  }
+  // 3. Monotonic difficulty: avg mother length non-decreasing across CEFR
+  const avgByTier = {};
+  for (const t of CEFR_LEVELS) {
+    const motherLens = levels
+      .filter((l) => l.cefr === t)
+      .map((l) => (l.answers.find((a) => a.dir === 'H')?.word ?? '').length);
+    if (motherLens.length === 0) continue;
+    avgByTier[t] = motherLens.reduce((a, b) => a + b, 0) / motherLens.length;
+  }
+  // Monotonic length check is a WARNING not an error — the current
+  // 500-word dict has very few long C1 words so a small dip there is
+  // expected until Phase 2 dict expansion fills it in.
+  let prev = 0;
+  for (const t of CEFR_LEVELS) {
+    if (avgByTier[t] != null && avgByTier[t] < prev - 0.5) {
+      console.warn(
+        `⚠ monotonic-warn: ${t} avg mother length ${avgByTier[t].toFixed(1)} < prev ${prev.toFixed(1)} (dict needs more long ${t} words)`
+      );
+    }
+    if (avgByTier[t] != null) prev = avgByTier[t];
+  }
+  if (errors.length) {
+    console.error(`✗ Validation failed (${errors.length} issues):`);
+    for (const e of errors.slice(0, 20)) console.error('  ' + e);
+    if (errors.length > 20) console.error(`  …and ${errors.length - 20} more`);
+    process.exit(1);
+  }
+  console.log('✓ Validation passed');
+  console.log('Avg mother length by CEFR:', avgByTier);
+}
+
 // Sort dictionary by key for stable diff
 const sortedDict = {};
 for (const k of Object.keys(dictionary).sort()) sortedDict[k] = dictionary[k];
@@ -971,7 +1076,7 @@ for (const k of Object.keys(dictionary).sort()) sortedDict[k] = dictionary[k];
 const dictPath = path.join(DATA_DIR, 'dictionary.json');
 const levelsPath = path.join(DATA_DIR, 'levels.json');
 fs.writeFileSync(dictPath, JSON.stringify(sortedDict, null, 2) + '\n');
-fs.writeFileSync(levelsPath, JSON.stringify({ levels }, null, 2) + '\n');
+fs.writeFileSync(levelsPath, JSON.stringify({ levels, chapters }, null, 2) + '\n');
 
 console.log(`Wrote ${Object.keys(sortedDict).length} dictionary entries to ${dictPath}`);
 console.log(`Wrote ${levels.length} levels to ${levelsPath}`);

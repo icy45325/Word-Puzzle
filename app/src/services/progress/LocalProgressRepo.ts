@@ -32,6 +32,11 @@ type LegacyV1 = Partial<ProgressState> & {
 function migrateSchema(raw: LegacyV1, userId: Uuid): ProgressState {
   const base = empty(userId);
   const currentLevelIndex = raw.currentLevelIndex ?? 0;
+  const fromVersion = raw.schemaVersion ?? 1;
+  // v2 → v3 (CEFR regen): old levelIds map to different content, so clear
+  // foundWordsByLevel and completedLevelIds. Keep furthestLevelIndex —
+  // it's a content-independent numeric pointer.
+  const clearLevelKeyedData = fromVersion < 3;
   return {
     ...base,
     ...raw,
@@ -40,8 +45,8 @@ function migrateSchema(raw: LegacyV1, userId: Uuid): ProgressState {
     furthestLevelIndex:
       raw.furthestLevelIndex ?? Math.max(currentLevelIndex, 0),
     chapterRewardsClaimed: raw.chapterRewardsClaimed ?? [],
-    completedLevelIds: raw.completedLevelIds ?? [],
-    foundWordsByLevel: raw.foundWordsByLevel ?? {},
+    completedLevelIds: clearLevelKeyedData ? [] : raw.completedLevelIds ?? [],
+    foundWordsByLevel: clearLevelKeyedData ? {} : raw.foundWordsByLevel ?? {},
     schemaVersion: CURRENT_SCHEMA_VERSION,
   };
 }

@@ -14,6 +14,14 @@ export interface LevelDef {
   id: string;
   letters: string[];
   answers: Answer[];
+  /** CEFR tier of this level (A1-C1). Populated by the generator since
+   *  v6. Older saves on disk may lack it; consumers treat it as optional. */
+  cefr?: 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
+  /** Chinese milestone label (e.g. "高考"). Derived from cefr by the
+   *  generator. */
+  milestone?: string;
+  /** 1-3★ rating, derived from CEFR (A1/A2=1, B1=2, B2/C1=3). */
+  difficulty?: number;
 }
 
 export interface Cell {

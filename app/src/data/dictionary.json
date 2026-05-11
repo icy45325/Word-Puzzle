@@ -5,6 +5,8 @@
     "meaning": "腹肌（口语）",
     "example": "He works out for abs.",
     "exampleCn": "他锻炼练腹肌。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "short for abdominal muscles"
   },
   "ACT": {
@@ -13,6 +15,8 @@
     "meaning": "行动；表演；法案",
     "example": "We must act now.",
     "exampleCn": "我们必须立即行动。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "action / actor 同根"
   },
   "AGED": {
@@ -21,6 +25,8 @@
     "meaning": "上了年纪的",
     "example": "An aged man.",
     "exampleCn": "一位年长的男士。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "age + ed"
   },
   "AIR": {
@@ -29,6 +35,8 @@
     "meaning": "空气；播出",
     "example": "Fresh air is healthy.",
     "exampleCn": "新鲜空气有益健康。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "on air / airy"
   },
   "ALE": {
@@ -37,6 +45,8 @@
     "meaning": "麦芽啤酒",
     "example": "A pint of ale.",
     "exampleCn": "一品脱麦啤。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pale ale 常见"
   },
   "ALERT": {
@@ -45,6 +55,8 @@
     "meaning": "警觉的",
     "example": "Stay alert.",
     "exampleCn": "保持警觉。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "red alert = 红色警报"
   },
   "ALES": {
@@ -53,6 +65,8 @@
     "meaning": "麦芽啤酒",
     "example": "Different ales on tap.",
     "exampleCn": "多种麦芽啤酒供选。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ale = 麦啤"
   },
   "ALL": {
@@ -61,6 +75,8 @@
     "meaning": "所有的",
     "example": "All students are here.",
     "exampleCn": "所有学生都在这。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "all in all"
   },
   "ALP": {
@@ -69,6 +85,8 @@
     "meaning": "高山牧场",
     "example": "A green alp.",
     "exampleCn": "青翠的高山牧场。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "阿尔卑斯 Alps 衍生"
   },
   "ALTER": {
@@ -77,6 +95,8 @@
     "meaning": "改变",
     "example": "Alter the design.",
     "exampleCn": "改变设计。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "alteration 同根"
   },
   "AMP": {
@@ -85,6 +105,8 @@
     "meaning": "安培；放大器",
     "example": "A 10-amp fuse.",
     "exampleCn": "10 安培保险丝。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "电流单位"
   },
   "ANEW": {
@@ -93,6 +115,8 @@
     "meaning": "重新；再一次",
     "example": "Start anew.",
     "exampleCn": "重新开始。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "a + new"
   },
   "ANGER": {
@@ -101,6 +125,8 @@
     "meaning": "愤怒",
     "example": "In great anger.",
     "exampleCn": "极度愤怒。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "angry 同根"
   },
   "ANSWER": {
@@ -109,6 +135,8 @@
     "meaning": "回答；答案",
     "example": "Give an answer.",
     "exampleCn": "给出答案。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "answered 同根"
   },
   "ANT": {
@@ -117,6 +145,8 @@
     "meaning": "蚂蚁",
     "example": "Ants work together.",
     "exampleCn": "蚂蚁齐心协作。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数 ants"
   },
   "APE": {
@@ -125,6 +155,8 @@
     "meaning": "猿",
     "example": "An ape in the zoo.",
     "exampleCn": "动物园的猿。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ape = 类人猿"
   },
   "APT": {
@@ -133,6 +165,8 @@
     "meaning": "恰当的；倾向的",
     "example": "An apt remark.",
     "exampleCn": "恰当的话。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "apt to forget = 易忘的"
   },
   "ARC": {
@@ -141,6 +175,8 @@
     "meaning": "弧；弧形",
     "example": "Draw an arc on paper.",
     "exampleCn": "在纸上画一个弧。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "arch（拱）相关"
   },
   "ARE": {
@@ -149,6 +185,8 @@
     "meaning": "be 的复数现在时",
     "example": "They are my friends.",
     "exampleCn": "他们是我的朋友。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "I am / you are / they are"
   },
   "ARES": {
@@ -157,6 +195,8 @@
     "meaning": "战神阿瑞斯",
     "example": "Ares, the war god.",
     "exampleCn": "战神阿瑞斯。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "希腊神话"
   },
   "ARM": {
@@ -165,6 +205,8 @@
     "meaning": "手臂",
     "example": "Strong arms.",
     "exampleCn": "强壮的手臂。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "arms = 武器"
   },
   "ARMED": {
@@ -173,6 +215,8 @@
     "meaning": "武装的",
     "example": "Armed forces.",
     "exampleCn": "武装部队。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "arm 动词的过去分词"
   },
   "ARMS": {
@@ -181,6 +225,8 @@
     "meaning": "手臂；武器",
     "example": "Open arms.",
     "exampleCn": "张开双臂。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "亦指武器"
   },
   "ARSE": {
@@ -189,6 +235,8 @@
     "meaning": "屁股（英俚）",
     "example": "British slang term.",
     "exampleCn": "英式俚语。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "不正式用法"
   },
   "ART": {
@@ -197,6 +245,8 @@
     "meaning": "艺术；技艺",
     "example": "She studies modern art.",
     "exampleCn": "她研究现代艺术。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "artist / artistic 同根"
   },
   "ARTS": {
@@ -205,6 +255,8 @@
     "meaning": "艺术；文科",
     "example": "Liberal arts education.",
     "exampleCn": "人文学科教育。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "arts and crafts"
   },
   "ASP": {
@@ -213,6 +265,8 @@
     "meaning": "小毒蛇",
     "example": "Beware of the asp.",
     "exampleCn": "小心毒蛇。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "asp 是种类"
   },
   "ASTER": {
@@ -221,6 +275,8 @@
     "meaning": "紫菀",
     "example": "Purple aster.",
     "exampleCn": "紫色紫菀。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "花卉名"
   },
   "ATE": {
@@ -229,6 +285,8 @@
     "meaning": "eat 的过去式",
     "example": "I ate breakfast at seven.",
     "exampleCn": "我七点吃早饭。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "past tense of eat"
   },
   "BAKE": {
@@ -237,6 +295,8 @@
     "meaning": "烘烤",
     "example": "Bake a cake.",
     "exampleCn": "烤蛋糕。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "baker / bakery"
   },
   "BAKER": {
@@ -245,6 +305,8 @@
     "meaning": "面包师",
     "example": "The baker bakes.",
     "exampleCn": "面包师烘焙。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "baker's dozen = 13"
   },
   "BAR": {
@@ -253,6 +315,8 @@
     "meaning": "酒吧；横杆",
     "example": "They met at the bar.",
     "exampleCn": "他们在酒吧见面。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "chocolate bar / bar exam"
   },
   "BARD": {
@@ -261,6 +325,8 @@
     "meaning": "吟游诗人",
     "example": "The Bard of Avon.",
     "exampleCn": "艾芬河畔吟游诗人（莎士比亚）。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "诗人代称"
   },
   "BARE": {
@@ -269,6 +335,8 @@
     "meaning": "裸露的",
     "example": "Bare feet.",
     "exampleCn": "光脚。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "barefoot"
   },
   "BARED": {
@@ -277,6 +345,8 @@
     "meaning": "bare 过去式",
     "example": "He bared his soul.",
     "exampleCn": "他坦露心声。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "bare = 暴露"
   },
   "BASTE": {
@@ -285,6 +355,8 @@
     "meaning": "浇汁",
     "example": "Baste the turkey.",
     "exampleCn": "给火鸡浇汁。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "basted 同根"
   },
   "BAT": {
@@ -293,6 +365,8 @@
     "meaning": "蝙蝠；球棒",
     "example": "The bat flew at night.",
     "exampleCn": "蝙蝠夜里飞行。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "baseball bat"
   },
   "BEAK": {
@@ -301,6 +375,8 @@
     "meaning": "鸟嘴",
     "example": "Sharp beak.",
     "exampleCn": "尖喙。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "鸟类专用"
   },
   "BEAR": {
@@ -309,6 +385,8 @@
     "meaning": "熊",
     "example": "A brown bear.",
     "exampleCn": "一只棕熊。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "动词意为忍受"
   },
   "BEARD": {
@@ -317,6 +395,8 @@
     "meaning": "胡须",
     "example": "A long beard.",
     "exampleCn": "长胡子。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "bearded 同根"
   },
   "BEAST": {
@@ -325,6 +405,8 @@
     "meaning": "野兽",
     "example": "A wild beast.",
     "exampleCn": "野兽。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "beasts 复数"
   },
   "BEATS": {
@@ -333,6 +415,8 @@
     "meaning": "打（三单）",
     "example": "He beats drums.",
     "exampleCn": "他打鼓。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "beat 三单"
   },
   "BLASTER": {
@@ -341,6 +425,8 @@
     "meaning": "喷砂机；爆破工",
     "example": "A sand blaster.",
     "exampleCn": "喷砂机。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "blast + er"
   },
   "BRACKET": {
@@ -349,6 +435,8 @@
     "meaning": "括号；支架",
     "example": "In brackets.",
     "exampleCn": "在括号内。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "brackets 复数"
   },
   "BRAD": {
@@ -357,6 +445,8 @@
     "meaning": "小钉子",
     "example": "A tiny brad.",
     "exampleCn": "一颗小钉。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "木工术语"
   },
   "BRAE": {
@@ -365,6 +455,8 @@
     "meaning": "山坡（苏格兰）",
     "example": "A grassy brae.",
     "exampleCn": "草坡。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "苏格兰英语"
   },
   "BRAKE": {
@@ -373,6 +465,8 @@
     "meaning": "刹车",
     "example": "Step on the brake.",
     "exampleCn": "踩刹车。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "brake vs break"
   },
   "BREAD": {
@@ -381,6 +475,8 @@
     "meaning": "面包",
     "example": "Fresh bread.",
     "exampleCn": "新鲜面包。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "breadwinner = 养家者"
   },
   "BREAK": {
@@ -389,6 +485,8 @@
     "meaning": "打破；休息",
     "example": "Take a break.",
     "exampleCn": "休息一下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "break / broke / broken"
   },
   "BREAST": {
@@ -397,6 +495,8 @@
     "meaning": "胸；胸脯",
     "example": "Chicken breast.",
     "exampleCn": "鸡胸肉。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "breasts 复数"
   },
   "BRED": {
@@ -405,6 +505,8 @@
     "meaning": "breed 过去式",
     "example": "Pure-bred dogs.",
     "exampleCn": "纯种犬。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "breed / bred / bred"
   },
   "BREED": {
@@ -413,6 +515,8 @@
     "meaning": "繁殖",
     "example": "Dogs breed easily.",
     "exampleCn": "狗易繁殖。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "breed / bred / bred"
   },
   "CAKE": {
@@ -421,6 +525,8 @@
     "meaning": "蛋糕",
     "example": "A birthday cake.",
     "exampleCn": "生日蛋糕。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "piece of cake = 容易"
   },
   "CAR": {
@@ -429,6 +535,8 @@
     "meaning": "汽车",
     "example": "He drives a red car.",
     "exampleCn": "他开一辆红色汽车。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sports car / car park"
   },
   "CARET": {
@@ -437,6 +545,8 @@
     "meaning": "插入符号",
     "example": "A caret mark.",
     "exampleCn": "插入符号。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "编辑标记"
   },
   "CAST": {
@@ -445,6 +555,8 @@
     "meaning": "抛掷；演员阵容",
     "example": "Cast a vote.",
     "exampleCn": "投票。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "casting 同根"
   },
   "CASTLE": {
@@ -453,6 +565,8 @@
     "meaning": "城堡",
     "example": "A stone castle.",
     "exampleCn": "一座石头城堡。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "castles 复数"
   },
   "CAT": {
@@ -461,6 +575,8 @@
     "meaning": "猫；猫科动物",
     "example": "The cat is sleeping on the sofa.",
     "exampleCn": "那只猫正睡在沙发上。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "black cat / cat nap"
   },
   "CATER": {
@@ -469,6 +585,8 @@
     "meaning": "迎合；提供饮食",
     "example": "Cater to needs.",
     "exampleCn": "迎合需求。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "catered 同根"
   },
   "CATS": {
@@ -477,6 +595,8 @@
     "meaning": "猫（复数）",
     "example": "Three cats.",
     "exampleCn": "三只猫。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cat 复数"
   },
   "CHIN": {
@@ -485,6 +605,8 @@
     "meaning": "下巴",
     "example": "Lift your chin.",
     "exampleCn": "抬起下巴。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "chin up"
   },
   "CIRCLE": {
@@ -493,6 +615,8 @@
     "meaning": "圆圈",
     "example": "A drawn circle.",
     "exampleCn": "画的圆圈。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "circular 同根"
   },
   "CITE": {
@@ -501,6 +625,8 @@
     "meaning": "引用",
     "example": "Cite the source.",
     "exampleCn": "注明出处。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "cited 同根"
   },
   "CITY": {
@@ -509,6 +635,8 @@
     "meaning": "城市",
     "example": "In the city.",
     "exampleCn": "在城市里。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "cities 复数"
   },
   "CLEAN": {
@@ -517,6 +645,8 @@
     "meaning": "干净的；清洁",
     "example": "Clean the room.",
     "exampleCn": "打扫房间。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cleaner / cleaning"
   },
   "CLEAR": {
@@ -525,6 +655,8 @@
     "meaning": "清楚的",
     "example": "A clear sky.",
     "exampleCn": "晴朗的天空。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "clearly 同根"
   },
   "CLEAT": {
@@ -533,6 +665,8 @@
     "meaning": "楔子；钉鞋",
     "example": "Football cleats.",
     "exampleCn": "足球钉鞋。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "运动术语"
   },
   "CLEATS": {
@@ -541,6 +675,8 @@
     "meaning": "钉鞋（复数）",
     "example": "Soccer cleats.",
     "exampleCn": "足球钉鞋。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "cleat 复数"
   },
   "COUNTRY": {
@@ -549,6 +685,8 @@
     "meaning": "国家",
     "example": "A vast country.",
     "exampleCn": "广阔的国家。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "countries 复数"
   },
   "COY": {
@@ -557,6 +695,8 @@
     "meaning": "羞怯的",
     "example": "A coy smile.",
     "exampleCn": "羞怯的微笑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "coyly 同根"
   },
   "CRATE": {
@@ -565,6 +705,8 @@
     "meaning": "板条箱",
     "example": "A wood crate.",
     "exampleCn": "一个木板条箱。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "crates 复数"
   },
   "CRUET": {
@@ -573,6 +715,8 @@
     "meaning": "调味瓶",
     "example": "Salt cruet.",
     "exampleCn": "盐瓶。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "餐具"
   },
   "CRY": {
@@ -581,6 +725,8 @@
     "meaning": "哭",
     "example": "Don't cry.",
     "exampleCn": "别哭。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cried 过去式"
   },
   "CUE": {
@@ -589,6 +735,8 @@
     "meaning": "提示；台球杆",
     "example": "Take the cue.",
     "exampleCn": "接到提示。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cued 同根"
   },
   "CUP": {
@@ -597,6 +745,8 @@
     "meaning": "杯子",
     "example": "A cup of tea.",
     "exampleCn": "一杯茶。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cups 复数"
   },
   "CURE": {
@@ -605,6 +755,8 @@
     "meaning": "治愈",
     "example": "Find a cure.",
     "exampleCn": "找到治愈方法。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cured 同根"
   },
   "CUTE": {
@@ -613,6 +765,8 @@
     "meaning": "可爱的",
     "example": "A cute baby.",
     "exampleCn": "一个可爱的宝宝。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cuter 同根"
   },
   "DAILY": {
@@ -621,6 +775,8 @@
     "meaning": "每日的",
     "example": "Daily news.",
     "exampleCn": "每日新闻。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "days 同根"
   },
   "DAM": {
@@ -629,6 +785,8 @@
     "meaning": "水坝",
     "example": "Hoover Dam.",
     "exampleCn": "胡佛水坝。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "dam vs damn 注意拼写"
   },
   "DANGER": {
@@ -637,6 +795,8 @@
     "meaning": "危险",
     "example": "In danger.",
     "exampleCn": "处于危险中。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "dangerous 同根"
   },
   "DARE": {
@@ -645,6 +805,8 @@
     "meaning": "敢；挑战",
     "example": "I dare you.",
     "exampleCn": "我看你敢。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "I dare say = 我敢说"
   },
   "DARN": {
@@ -653,6 +815,8 @@
     "meaning": "缝补；该死",
     "example": "Darn it!",
     "exampleCn": "该死！",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "与 damn 同"
   },
   "DEAD": {
@@ -661,6 +825,8 @@
     "meaning": "死的",
     "example": "The plant is dead.",
     "exampleCn": "植物死了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "dead end = 死路"
   },
   "DEAR": {
@@ -669,6 +835,8 @@
     "meaning": "亲爱的",
     "example": "My dear friend.",
     "exampleCn": "我亲爱的朋友。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "Dear Sir / Dear Madam"
   },
   "DEBAR": {
@@ -677,6 +845,8 @@
     "meaning": "禁止；排除",
     "example": "Debar from entry.",
     "exampleCn": "禁止入内。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "正式法律用词"
   },
   "DERMA": {
@@ -685,6 +855,8 @@
     "meaning": "真皮",
     "example": "Skin's derma layer.",
     "exampleCn": "皮肤的真皮层。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "dermatology 同根"
   },
   "DETAIL": {
@@ -693,6 +865,8 @@
     "meaning": "细节",
     "example": "Tiny detail.",
     "exampleCn": "微小细节。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "detailed 同根"
   },
   "DIET": {
@@ -701,6 +875,8 @@
     "meaning": "饮食",
     "example": "A healthy diet.",
     "exampleCn": "健康饮食。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "dieted 同根"
   },
   "DINE": {
@@ -709,6 +885,8 @@
     "meaning": "用餐",
     "example": "Dine out.",
     "exampleCn": "外出就餐。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "dined 同根"
   },
   "DOG": {
@@ -717,6 +895,8 @@
     "meaning": "狗",
     "example": "My dog loves the ball.",
     "exampleCn": "我的狗喜欢球。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lucky dog（幸运儿）"
   },
   "DRAB": {
@@ -725,6 +905,8 @@
     "meaning": "单调的",
     "example": "Drab clothing.",
     "exampleCn": "单调的衣着。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "drab color"
   },
   "DRAM": {
@@ -733,6 +915,8 @@
     "meaning": "少量（液体单位）",
     "example": "A dram of whisky.",
     "exampleCn": "一点威士忌。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "苏格兰常用"
   },
   "DREAM": {
@@ -741,6 +925,8 @@
     "meaning": "梦；梦想",
     "example": "Follow your dream.",
     "exampleCn": "追逐梦想。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "dreamer / dreamy"
   },
   "DREAMS": {
@@ -749,6 +935,8 @@
     "meaning": "梦（复数）",
     "example": "Sweet dreams.",
     "exampleCn": "美梦。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "dream 复数"
   },
   "DREAR": {
@@ -757,6 +945,8 @@
     "meaning": "阴郁的（诗用）",
     "example": "A drear winter.",
     "exampleCn": "阴郁的冬天。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "dreary 的诗用变体"
   },
   "EAR": {
@@ -765,6 +955,8 @@
     "meaning": "耳朵",
     "example": "The dog has long ears.",
     "exampleCn": "这只狗有长耳朵。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "play it by ear（随机应变）"
   },
   "EARN": {
@@ -773,6 +965,8 @@
     "meaning": "赚得",
     "example": "Earn money.",
     "exampleCn": "赚钱。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "earning 同根"
   },
   "EARNS": {
@@ -781,6 +975,8 @@
     "meaning": "赚（三单）",
     "example": "She earns well.",
     "exampleCn": "她赚得多。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "earn 三单"
   },
   "EARS": {
@@ -789,6 +985,8 @@
     "meaning": "耳朵（复数）",
     "example": "Cover your ears.",
     "exampleCn": "捂住耳朵。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ear 的复数"
   },
   "EARTH": {
@@ -797,6 +995,8 @@
     "meaning": "地球；土壤",
     "example": "Earth is round.",
     "exampleCn": "地球是圆的。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "down to earth = 务实的"
   },
   "EAT": {
@@ -805,6 +1005,8 @@
     "meaning": "吃",
     "example": "Let's eat dinner together.",
     "exampleCn": "我们一起吃晚饭吧。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "过去式 ate / 过去分词 eaten"
   },
   "EATER": {
@@ -813,6 +1015,8 @@
     "meaning": "食客；食用者",
     "example": "Big eater.",
     "exampleCn": "大胃王。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "eater 派生"
   },
   "ECLAT": {
@@ -821,6 +1025,8 @@
     "meaning": "辉煌；显赫",
     "example": "With great eclat.",
     "exampleCn": "盛大辉煌地。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "法语借词"
   },
   "EDIT": {
@@ -829,6 +1035,8 @@
     "meaning": "编辑",
     "example": "Edit the file.",
     "exampleCn": "编辑文件。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "edited 同根"
   },
   "EELS": {
@@ -837,6 +1045,8 @@
     "meaning": "鳗鱼（复数）",
     "example": "Eels are slippery.",
     "exampleCn": "鳗鱼很滑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "eel 的复数"
   },
   "ELAN": {
@@ -845,6 +1055,8 @@
     "meaning": "热情；活力",
     "example": "With great elan.",
     "exampleCn": "充满活力。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "法语借词"
   },
   "ELMS": {
@@ -853,6 +1065,8 @@
     "meaning": "榆树（复数）",
     "example": "Tall elms line the road.",
     "exampleCn": "高大榆树排列道路。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "elm 树"
   },
   "EMIT": {
@@ -861,6 +1075,8 @@
     "meaning": "发出；散发",
     "example": "Emit light.",
     "exampleCn": "发光。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "emission 同根"
   },
   "END": {
@@ -869,6 +1085,8 @@
     "meaning": "结束",
     "example": "The end.",
     "exampleCn": "结束了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ended 同根"
   },
   "ENLIST": {
@@ -877,6 +1095,8 @@
     "meaning": "入伍；招募",
     "example": "He enlisted in the army.",
     "exampleCn": "他参军了。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "同根：list / listed"
   },
   "EONS": {
@@ -885,6 +1105,8 @@
     "meaning": "亿万年",
     "example": "It took eons.",
     "exampleCn": "花了亿万年。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "eon = 极长时间"
   },
   "EPIC": {
@@ -893,6 +1115,8 @@
     "meaning": "史诗的",
     "example": "An epic story.",
     "exampleCn": "史诗般的故事。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "epics 复数"
   },
   "ERA": {
@@ -901,6 +1125,8 @@
     "meaning": "时代；纪元",
     "example": "A new era of technology.",
     "exampleCn": "新的科技时代。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "同：epoch / age"
   },
   "ERAS": {
@@ -909,6 +1135,8 @@
     "meaning": "时代（复数）",
     "example": "Different eras.",
     "exampleCn": "不同时代。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "era 的复数"
   },
   "EROS": {
@@ -917,6 +1145,8 @@
     "meaning": "爱神厄洛斯",
     "example": "Eros, the Greek god.",
     "exampleCn": "希腊爱神厄洛斯。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "希腊神话人物"
   },
   "ERUPT": {
@@ -925,6 +1155,8 @@
     "meaning": "爆发",
     "example": "The volcano erupted.",
     "exampleCn": "火山爆发。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "erupted 同根"
   },
   "ETCH": {
@@ -933,6 +1165,8 @@
     "meaning": "蚀刻",
     "example": "Etch glass.",
     "exampleCn": "蚀刻玻璃。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "etching 同根"
   },
   "EWE": {
@@ -941,6 +1175,8 @@
     "meaning": "母羊",
     "example": "A young ewe.",
     "exampleCn": "一只小母羊。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数 ewes"
   },
   "EWES": {
@@ -949,6 +1185,8 @@
     "meaning": "母羊（复数）",
     "example": "Two ewes.",
     "exampleCn": "两只母羊。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ewe 复数"
   },
   "FAKE": {
@@ -957,6 +1195,8 @@
     "meaning": "假的",
     "example": "A fake smile.",
     "exampleCn": "假笑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fake news"
   },
   "FAN": {
@@ -965,6 +1205,8 @@
     "meaning": "粉丝；风扇",
     "example": "I am a big fan.",
     "exampleCn": "我是大粉丝。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "electric fan / fan club"
   },
   "FAR": {
@@ -973,6 +1215,8 @@
     "meaning": "远",
     "example": "It's far from here.",
     "exampleCn": "离这里很远。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "further / farther"
   },
   "FARE": {
@@ -981,6 +1225,8 @@
     "meaning": "票价",
     "example": "Train fare.",
     "exampleCn": "火车票价。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fares 复数"
   },
   "FARES": {
@@ -989,6 +1235,8 @@
     "meaning": "票价（复数）",
     "example": "Bus fares.",
     "exampleCn": "公交票价。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "fare 复数"
   },
   "FAT": {
@@ -997,6 +1245,8 @@
     "meaning": "胖的；脂肪",
     "example": "The cat is fat.",
     "exampleCn": "这只猫很胖。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "low-fat 食品"
   },
   "FATE": {
@@ -1005,6 +1255,8 @@
     "meaning": "命运",
     "example": "A cruel fate.",
     "exampleCn": "残酷的命运。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fated 同根"
   },
   "FATES": {
@@ -1013,6 +1265,8 @@
     "meaning": "命运（复数）",
     "example": "Cruel fates.",
     "exampleCn": "残酷命运。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "fate 复数"
   },
   "FATHERS": {
@@ -1021,6 +1275,8 @@
     "meaning": "父亲（复数）",
     "example": "Founding fathers.",
     "exampleCn": "建国元勋。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "father 复数"
   },
   "FEARS": {
@@ -1029,6 +1285,8 @@
     "meaning": "恐惧（复数）",
     "example": "Childhood fears.",
     "exampleCn": "童年恐惧。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "fear 复数"
   },
   "FIND": {
@@ -1037,6 +1295,8 @@
     "meaning": "找到",
     "example": "Find a way.",
     "exampleCn": "找方法。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "found 过去式"
   },
   "FINE": {
@@ -1045,6 +1305,8 @@
     "meaning": "好的；细的",
     "example": "A fine day.",
     "exampleCn": "美好的一天。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "finely 同根"
   },
   "FIRE": {
@@ -1053,6 +1315,8 @@
     "meaning": "火；解雇",
     "example": "Make a fire.",
     "exampleCn": "生火。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fired 同根"
   },
   "FOE": {
@@ -1061,6 +1325,8 @@
     "meaning": "敌人",
     "example": "Friend or foe.",
     "exampleCn": "朋友还是敌人。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "foe 复数 foes"
   },
   "FOES": {
@@ -1069,6 +1335,8 @@
     "meaning": "敌人（复数）",
     "example": "Old foes.",
     "exampleCn": "老对手。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "foe 复数"
   },
   "FORE": {
@@ -1077,6 +1345,8 @@
     "meaning": "前部",
     "example": "To the fore.",
     "exampleCn": "到前面。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "forecast 同根"
   },
   "FOREST": {
@@ -1085,6 +1355,8 @@
     "meaning": "森林",
     "example": "A pine forest.",
     "exampleCn": "松林。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "forestry 同根"
   },
   "FORT": {
@@ -1093,6 +1365,8 @@
     "meaning": "堡垒",
     "example": "An old fort.",
     "exampleCn": "一个旧堡垒。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fortify 同根"
   },
   "FOSTER": {
@@ -1101,6 +1375,8 @@
     "meaning": "寄养；培养",
     "example": "Foster a kitten.",
     "exampleCn": "寄养小猫。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "foster home"
   },
   "FRETS": {
@@ -1109,6 +1385,8 @@
     "meaning": "烦恼（三单）",
     "example": "She frets.",
     "exampleCn": "她在烦恼。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "fret 三单"
   },
   "FRIEND": {
@@ -1117,6 +1395,8 @@
     "meaning": "朋友",
     "example": "A close friend.",
     "exampleCn": "亲密的朋友。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "friendly 同根"
   },
   "FRO": {
@@ -1125,6 +1405,8 @@
     "meaning": "向后",
     "example": "To and fro.",
     "exampleCn": "来来回回。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "与 to 搭配"
   },
   "GARDEN": {
@@ -1133,6 +1415,8 @@
     "meaning": "花园",
     "example": "A flower garden.",
     "exampleCn": "花园。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "gardener 同根"
   },
   "GOD": {
@@ -1141,6 +1425,8 @@
     "meaning": "神；上帝",
     "example": "Many cultures worship gods.",
     "exampleCn": "许多文化崇拜神。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "oh my god"
   },
   "GRADE": {
@@ -1149,6 +1435,8 @@
     "meaning": "等级；年级",
     "example": "Top grade.",
     "exampleCn": "最高等级。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "graded 同根"
   },
   "GRAND": {
@@ -1157,6 +1445,8 @@
     "meaning": "宏伟的",
     "example": "A grand hall.",
     "exampleCn": "一个宏伟的大厅。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "grandeur 同根"
   },
   "HADER": {
@@ -1165,6 +1455,8 @@
     "meaning": "冰雹云（罕见）",
     "example": "A hader cloud.",
     "exampleCn": "冰雹云。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "罕用气象词"
   },
   "HARE": {
@@ -1173,6 +1465,8 @@
     "meaning": "野兔",
     "example": "A swift hare.",
     "exampleCn": "敏捷的野兔。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tortoise and the hare"
   },
   "HARED": {
@@ -1181,6 +1475,8 @@
     "meaning": "飞奔（hare 过去式）",
     "example": "She hared off.",
     "exampleCn": "她飞奔而去。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "英式俚语"
   },
   "HATE": {
@@ -1189,6 +1485,8 @@
     "meaning": "讨厌；恨",
     "example": "I hate cold weather.",
     "exampleCn": "我讨厌冷天气。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "love-hate relationship"
   },
   "HATER": {
@@ -1197,6 +1495,8 @@
     "meaning": "憎恨者（俚语）",
     "example": "Don't be a hater.",
     "exampleCn": "别当黑粉。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "网络流行词"
   },
   "HATES": {
@@ -1205,6 +1505,8 @@
     "meaning": "讨厌（三单）",
     "example": "He hates lies.",
     "exampleCn": "他讨厌谎言。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "hate 三单"
   },
   "HEAR": {
@@ -1213,6 +1515,8 @@
     "meaning": "听见",
     "example": "Can you hear me?",
     "exampleCn": "能听到我吗？",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hear / heard / heard"
   },
   "HEARD": {
@@ -1221,6 +1525,8 @@
     "meaning": "hear 过去式",
     "example": "I heard the news.",
     "exampleCn": "我听说了。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "hear / heard / heard"
   },
   "HEARS": {
@@ -1229,6 +1535,8 @@
     "meaning": "听（三单）",
     "example": "She hears it.",
     "exampleCn": "她听见了。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "hear 三单"
   },
   "HEART": {
@@ -1237,6 +1545,8 @@
     "meaning": "心；心脏；中心",
     "example": "My heart races.",
     "exampleCn": "我的心狂跳。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "heart of the city"
   },
   "HEAT": {
@@ -1245,6 +1555,8 @@
     "meaning": "热；高温",
     "example": "Summer heat is strong.",
     "exampleCn": "夏天热气强烈。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "heat wave = 热浪"
   },
   "HEN": {
@@ -1253,6 +1565,8 @@
     "meaning": "母鸡",
     "example": "A black hen.",
     "exampleCn": "一只黑母鸡。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hens 复数"
   },
   "HER": {
@@ -1261,6 +1575,8 @@
     "meaning": "她（宾格）",
     "example": "I gave her a book.",
     "exampleCn": "我给了她一本书。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "she / her / hers"
   },
   "HERO": {
@@ -1269,6 +1585,8 @@
     "meaning": "英雄",
     "example": "Every kid loves a hero.",
     "exampleCn": "每个孩子都爱英雄。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "heroine = 女英雄"
   },
   "HIKE": {
@@ -1277,6 +1595,8 @@
     "meaning": "徒步",
     "example": "A long hike.",
     "exampleCn": "长途徒步。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hiking 同根"
   },
   "HIS": {
@@ -1285,6 +1605,8 @@
     "meaning": "他的",
     "example": "His book.",
     "exampleCn": "他的书。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "与 her 对应"
   },
   "HISTORY": {
@@ -1293,6 +1615,8 @@
     "meaning": "历史",
     "example": "World history.",
     "exampleCn": "世界历史。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "historical 同根"
   },
   "HIT": {
@@ -1301,6 +1625,8 @@
     "meaning": "击中",
     "example": "Hit the ball.",
     "exampleCn": "击球。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hitting 同根"
   },
   "HOES": {
@@ -1309,6 +1635,8 @@
     "meaning": "hoe（锄头）的复数",
     "example": "Farmers use hoes.",
     "exampleCn": "农民用锄头。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hoe = 锄头"
   },
   "HOIST": {
@@ -1317,6 +1645,8 @@
     "meaning": "吊起",
     "example": "Hoist the flag.",
     "exampleCn": "升起旗帜。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "hoisted 同根"
   },
   "HOOT": {
@@ -1325,6 +1655,8 @@
     "meaning": "猫头鹰叫；嘲笑",
     "example": "The owl hoots.",
     "exampleCn": "猫头鹰叫。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "俚语 a hoot = 很有趣"
   },
   "HORSE": {
@@ -1333,6 +1665,8 @@
     "meaning": "马",
     "example": "The horse runs fast.",
     "exampleCn": "马跑得快。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "horseback riding"
   },
   "HOSE": {
@@ -1341,6 +1675,8 @@
     "meaning": "软管",
     "example": "A garden hose.",
     "exampleCn": "花园水管。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fire hose = 消防水带"
   },
   "HOST": {
@@ -1349,6 +1685,8 @@
     "meaning": "主持人；主办",
     "example": "He is the host.",
     "exampleCn": "他是主持人。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "host a party"
   },
   "HOSTS": {
@@ -1357,6 +1695,8 @@
     "meaning": "主人（复数）",
     "example": "Two hosts.",
     "exampleCn": "两位主人。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "host 复数"
   },
   "HOT": {
@@ -1365,6 +1705,8 @@
     "meaning": "热的",
     "example": "Very hot.",
     "exampleCn": "很热。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "hotter 同根"
   },
   "HOTS": {
@@ -1373,6 +1715,8 @@
     "meaning": "强烈兴趣（口语）",
     "example": "She has the hots for him.",
     "exampleCn": "她对他很心动。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "常见短语 hots for"
   },
   "HOUSE": {
@@ -1381,6 +1725,8 @@
     "meaning": "房子；住宅",
     "example": "A new house.",
     "exampleCn": "新房子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "动词读 /haʊz/"
   },
   "ICE": {
@@ -1389,6 +1735,8 @@
     "meaning": "冰",
     "example": "Add ice.",
     "exampleCn": "加冰。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "icy 同根"
   },
   "IDLE": {
@@ -1397,6 +1745,8 @@
     "meaning": "闲置的",
     "example": "An idle hour.",
     "exampleCn": "空闲时间。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "idly 同根"
   },
   "ILL": {
@@ -1405,6 +1755,8 @@
     "meaning": "生病的",
     "example": "He fell ill yesterday.",
     "exampleCn": "他昨天生病了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "illness 同根"
   },
   "INCH": {
@@ -1413,6 +1765,8 @@
     "meaning": "英寸",
     "example": "One inch tall.",
     "exampleCn": "一英寸高。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "inches 复数"
   },
   "INERT": {
@@ -1421,6 +1775,8 @@
     "meaning": "惰性的",
     "example": "Inert gas.",
     "exampleCn": "惰性气体。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "inertia 同根"
   },
   "INLETS": {
@@ -1429,6 +1785,8 @@
     "meaning": "小湾的复数",
     "example": "Quiet inlets.",
     "exampleCn": "宁静的小湾。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "inlet = 入口/小湾"
   },
   "INN": {
@@ -1437,6 +1795,8 @@
     "meaning": "小旅馆",
     "example": "They stayed at the inn.",
     "exampleCn": "他们住在小旅馆。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "innkeeper = 旅馆主人"
   },
   "INSET": {
@@ -1445,6 +1805,8 @@
     "meaning": "插页；嵌入物",
     "example": "Map inset.",
     "exampleCn": "地图嵌图。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "in + set"
   },
   "INTO": {
@@ -1453,6 +1815,8 @@
     "meaning": "进入",
     "example": "Walk into the room.",
     "exampleCn": "走进房间。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "in + to"
   },
   "INTRO": {
@@ -1461,6 +1825,8 @@
     "meaning": "介绍（口语）",
     "example": "Quick intro.",
     "exampleCn": "简短介绍。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "intro = introduction"
   },
   "ION": {
@@ -1469,6 +1835,8 @@
     "meaning": "离子",
     "example": "A positive ion.",
     "exampleCn": "阳离子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ions 复数"
   },
   "IONS": {
@@ -1477,6 +1845,8 @@
     "meaning": "离子（复数）",
     "example": "Charged ions.",
     "exampleCn": "带电离子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ion 复数"
   },
   "IRON": {
@@ -1485,6 +1855,8 @@
     "meaning": "铁；熨斗",
     "example": "Cast iron.",
     "exampleCn": "铸铁。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "irons 复数"
   },
   "ITCH": {
@@ -1493,6 +1865,8 @@
     "meaning": "痒",
     "example": "An itch on my arm.",
     "exampleCn": "手臂痒。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "itchy 同根"
   },
   "ITEM": {
@@ -1501,6 +1875,8 @@
     "meaning": "项目；物品",
     "example": "On the agenda item.",
     "exampleCn": "议程项目。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "itemize 同根"
   },
   "ITS": {
@@ -1509,6 +1885,8 @@
     "meaning": "它的",
     "example": "Its tail wags.",
     "exampleCn": "它的尾巴摇。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "it's vs its 区分"
   },
   "IVORY": {
@@ -1517,6 +1895,8 @@
     "meaning": "象牙；象牙色",
     "example": "Ivory tower.",
     "exampleCn": "象牙塔。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "ivories 复数"
   },
   "IVY": {
@@ -1525,6 +1905,8 @@
     "meaning": "常春藤",
     "example": "Ivy on the wall.",
     "exampleCn": "墙上的常春藤。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ivies 复数"
   },
   "JAKE": {
@@ -1533,6 +1915,8 @@
     "meaning": "没问题（俚）",
     "example": "It's all jake.",
     "exampleCn": "一切都好。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "口语用法少见"
   },
   "KIN": {
@@ -1541,6 +1925,8 @@
     "meaning": "亲属",
     "example": "Next of kin.",
     "exampleCn": "近亲。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "kindred 同根"
   },
   "KITCHEN": {
@@ -1549,6 +1935,8 @@
     "meaning": "厨房",
     "example": "In the kitchen.",
     "exampleCn": "在厨房里。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "kitchens 复数"
   },
   "KNIT": {
@@ -1557,6 +1945,8 @@
     "meaning": "编织",
     "example": "Knit a scarf.",
     "exampleCn": "织围巾。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "knitting 同根"
   },
   "LACE": {
@@ -1565,6 +1955,8 @@
     "meaning": "蕾丝；系带",
     "example": "A lace dress.",
     "exampleCn": "蕾丝裙。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "laced 同根"
   },
   "LACER": {
@@ -1573,6 +1965,8 @@
     "meaning": "系带的人/物",
     "example": "A shoe lacer.",
     "exampleCn": "系鞋带工具。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "lace 派生"
   },
   "LACES": {
@@ -1581,6 +1975,8 @@
     "meaning": "鞋带（复数）",
     "example": "Tie laces.",
     "exampleCn": "系鞋带。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "lace 复数"
   },
   "LADIES": {
@@ -1589,6 +1985,8 @@
     "meaning": "女士（复数）",
     "example": "Ladies first.",
     "exampleCn": "女士优先。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "lady 复数"
   },
   "LADY": {
@@ -1597,6 +1995,8 @@
     "meaning": "女士",
     "example": "Old lady.",
     "exampleCn": "老太太。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ladies 复数"
   },
   "LAKE": {
@@ -1605,6 +2005,8 @@
     "meaning": "湖泊",
     "example": "A blue lake.",
     "exampleCn": "蓝色湖泊。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "Great Lakes 美加边境"
   },
   "LANCE": {
@@ -1613,6 +2015,8 @@
     "meaning": "长矛",
     "example": "A knight's lance.",
     "exampleCn": "骑士的长矛。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "lancer = 骑兵"
   },
   "LANE": {
@@ -1621,6 +2025,8 @@
     "meaning": "小路；车道",
     "example": "A bike lane.",
     "exampleCn": "自行车道。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "fast lane / slow lane"
   },
   "LAP": {
@@ -1629,6 +2035,8 @@
     "meaning": "大腿；一圈",
     "example": "The cat sat on his lap.",
     "exampleCn": "猫坐在他腿上。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "跑道一圈也叫 lap"
   },
   "LAPS": {
@@ -1637,6 +2045,8 @@
     "meaning": "一圈（复数）",
     "example": "Three laps.",
     "exampleCn": "三圈。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lap 复数"
   },
   "LATE": {
@@ -1645,6 +2055,8 @@
     "meaning": "晚的；已故的",
     "example": "Late at night.",
     "exampleCn": "深夜。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lately 同根"
   },
   "LATER": {
@@ -1653,6 +2065,8 @@
     "meaning": "稍后",
     "example": "See you later.",
     "exampleCn": "回头见。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "late 的比较级"
   },
   "LATTE": {
@@ -1661,6 +2075,8 @@
     "meaning": "拿铁",
     "example": "A vanilla latte.",
     "exampleCn": "香草拿铁。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "咖啡饮品"
   },
   "LAY": {
@@ -1669,6 +2085,8 @@
     "meaning": "放置；铺设",
     "example": "Lay the book here.",
     "exampleCn": "把书放这。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "及物动词；lie 不及物"
   },
   "LAYER": {
@@ -1677,6 +2095,8 @@
     "meaning": "层",
     "example": "A layer of snow.",
     "exampleCn": "一层雪。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "lay + er"
   },
   "LEAN": {
@@ -1685,6 +2105,8 @@
     "meaning": "倾斜；瘦的",
     "example": "Lean on me.",
     "exampleCn": "靠在我身上。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lean meat = 瘦肉"
   },
   "LEAP": {
@@ -1693,6 +2115,8 @@
     "meaning": "跳跃",
     "example": "Leap over the fence.",
     "exampleCn": "跳过栅栏。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "leap year = 闰年"
   },
   "LEAPS": {
@@ -1701,6 +2125,8 @@
     "meaning": "leap 的第三人称单数",
     "example": "She leaps high.",
     "exampleCn": "她跳得高。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "by leaps and bounds"
   },
   "LEAS": {
@@ -1709,6 +2135,8 @@
     "meaning": "草地的复数",
     "example": "Green leas of grass.",
     "exampleCn": "绿色草地。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lea = 草地"
   },
   "LENT": {
@@ -1717,6 +2145,8 @@
     "meaning": "lend 过去式",
     "example": "She lent me a pen.",
     "exampleCn": "她借我一支笔。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lend / lent / lent"
   },
   "LIED": {
@@ -1725,6 +2155,8 @@
     "meaning": "撒谎（过去式）",
     "example": "He lied.",
     "exampleCn": "他撒了谎。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lie 过去式"
   },
   "LIENS": {
@@ -1733,6 +2165,8 @@
     "meaning": "留置权（复数）",
     "example": "Tax liens.",
     "exampleCn": "税务留置权。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "lien 复数"
   },
   "LIME": {
@@ -1741,6 +2175,8 @@
     "meaning": "青柠",
     "example": "A slice of lime.",
     "exampleCn": "一片青柠。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "lime green = 青柠色"
   },
   "LIMES": {
@@ -1749,6 +2185,8 @@
     "meaning": "lime 的复数",
     "example": "Buy two limes.",
     "exampleCn": "买两个青柠。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "复数形式"
   },
   "LIMIT": {
@@ -1757,6 +2195,8 @@
     "meaning": "限制",
     "example": "Speed limit.",
     "exampleCn": "限速。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "limited 同根"
   },
   "LISTEN": {
@@ -1765,6 +2205,8 @@
     "meaning": "听",
     "example": "Listen carefully.",
     "exampleCn": "仔细听。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "silent 是字母重排"
   },
   "LIT": {
@@ -1773,6 +2215,8 @@
     "meaning": "点亮的；light 的过去式",
     "example": "The room is lit.",
     "exampleCn": "房间被点亮。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "俚语：lit = 兴奋的"
   },
   "LITE": {
@@ -1781,6 +2225,8 @@
     "meaning": "低卡的；轻质的（口语）",
     "example": "Lite beer.",
     "exampleCn": "低度啤酒。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "light 简写"
   },
   "LITES": {
@@ -1789,6 +2235,8 @@
     "meaning": "lite（轻质版）的复数",
     "example": "Various lites available.",
     "exampleCn": "多种轻量版可选。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "产品命名常见"
   },
   "LOVE": {
@@ -1797,6 +2245,8 @@
     "meaning": "爱",
     "example": "I love reading.",
     "exampleCn": "我喜欢阅读。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "网球中 love = 0 分"
   },
   "MAD": {
@@ -1805,6 +2255,8 @@
     "meaning": "疯的；生气的",
     "example": "Don't get mad.",
     "exampleCn": "别生气。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "mad about = 痴迷"
   },
   "MADRE": {
@@ -1813,6 +2265,8 @@
     "meaning": "母亲（西班牙语借词）",
     "example": "Mi madre is great.",
     "exampleCn": "我妈妈很棒。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "常见外来词"
   },
   "MAKE": {
@@ -1821,6 +2275,8 @@
     "meaning": "做；制造",
     "example": "Make a wish.",
     "exampleCn": "许愿。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "make / made / made"
   },
   "MAP": {
@@ -1829,6 +2285,8 @@
     "meaning": "地图",
     "example": "Read the map.",
     "exampleCn": "看地图。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "map out = 规划"
   },
   "MAR": {
@@ -1837,6 +2295,8 @@
     "meaning": "损坏；破坏",
     "example": "Don't mar the surface.",
     "exampleCn": "别损坏表面。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "mar 的过去式 marred"
   },
   "MARE": {
@@ -1845,6 +2305,8 @@
     "meaning": "母马",
     "example": "A brown mare.",
     "exampleCn": "一匹棕色母马。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "反义：stallion"
   },
   "MARES": {
@@ -1853,6 +2315,8 @@
     "meaning": "母马（复数）",
     "example": "Two mares grazed.",
     "exampleCn": "两匹母马吃草。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "mare 复数"
   },
   "MARKED": {
@@ -1861,6 +2325,8 @@
     "meaning": "标记（过去式）",
     "example": "He marked it.",
     "exampleCn": "他做了标记。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "mark 过去式"
   },
   "MARKET": {
@@ -1869,6 +2335,8 @@
     "meaning": "市场",
     "example": "A flea market.",
     "exampleCn": "跳蚤市场。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "markets 复数"
   },
   "MARS": {
@@ -1877,6 +2345,8 @@
     "meaning": "火星；mar 的第三人称单数",
     "example": "Mars is red.",
     "exampleCn": "火星是红色的。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "行星名"
   },
   "MARTS": {
@@ -1885,6 +2355,8 @@
     "meaning": "集市的复数",
     "example": "Local marts.",
     "exampleCn": "当地市场。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "mart = 商场"
   },
   "MAST": {
@@ -1893,6 +2365,8 @@
     "meaning": "桅杆",
     "example": "A tall mast.",
     "exampleCn": "高大的桅杆。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "帆船术语"
   },
   "MASTER": {
@@ -1901,6 +2375,8 @@
     "meaning": "大师；掌握",
     "example": "Master the skill.",
     "exampleCn": "掌握技能。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "mastery / mastered"
   },
   "MASTERY": {
@@ -1909,6 +2385,8 @@
     "meaning": "掌握；精通",
     "example": "Self-mastery.",
     "exampleCn": "自我掌握。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "master + y"
   },
   "MATE": {
@@ -1917,6 +2395,8 @@
     "meaning": "伙伴",
     "example": "My best mate.",
     "exampleCn": "我最好的伙伴。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "英式 mate"
   },
   "MATES": {
@@ -1925,6 +2405,8 @@
     "meaning": "伙伴（复数）",
     "example": "Best mates.",
     "exampleCn": "最好的伙伴。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "mate 复数"
   },
   "MATS": {
@@ -1933,6 +2415,8 @@
     "meaning": "垫子（复数）",
     "example": "Yoga mats.",
     "exampleCn": "瑜伽垫。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "mat 的复数"
   },
   "MEAD": {
@@ -1941,6 +2425,8 @@
     "meaning": "蜂蜜酒",
     "example": "Mead is ancient.",
     "exampleCn": "蜂蜜酒历史悠久。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "中世纪饮品"
   },
   "MEAR": {
@@ -1949,6 +2435,8 @@
     "meaning": "边界（古英语）",
     "example": "An old mear.",
     "exampleCn": "古老边界。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "罕用"
   },
   "MEAT": {
@@ -1957,6 +2445,8 @@
     "meaning": "肉",
     "example": "Eat less meat.",
     "exampleCn": "少吃肉。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "meatball = 肉丸"
   },
   "MEDALS": {
@@ -1965,6 +2455,8 @@
     "meaning": "奖牌（复数）",
     "example": "Gold medals.",
     "exampleCn": "金牌。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "medal 复数"
   },
   "MEET": {
@@ -1973,6 +2465,8 @@
     "meaning": "遇见",
     "example": "Nice to meet you.",
     "exampleCn": "很高兴见到你。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "meet / met / met"
   },
   "META": {
@@ -1981,6 +2475,8 @@
     "meaning": "元；超越",
     "example": "Meta data.",
     "exampleCn": "元数据。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "常见前缀"
   },
   "MILE": {
@@ -1989,6 +2485,8 @@
     "meaning": "英里",
     "example": "Two miles away.",
     "exampleCn": "两英里外。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "1 mile ≈ 1.609 km"
   },
   "MILES": {
@@ -1997,6 +2495,8 @@
     "meaning": "mile 的复数",
     "example": "Many miles to go.",
     "exampleCn": "还有很多英里要走。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "复数形式"
   },
   "MILS": {
@@ -2005,6 +2505,8 @@
     "meaning": "mil（千分之一英寸）的复数",
     "example": "Measured in mils.",
     "exampleCn": "以 mil 为单位测量。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "mil = 1/1000 英寸"
   },
   "MILTS": {
@@ -2013,6 +2515,8 @@
     "meaning": "鱼精囊（复数）",
     "example": "Fish milts.",
     "exampleCn": "鱼精囊。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "milt = 鱼精囊"
   },
   "MIME": {
@@ -2021,6 +2525,8 @@
     "meaning": "哑剧",
     "example": "A mime artist.",
     "exampleCn": "哑剧演员。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "mimic 同根"
   },
   "MIST": {
@@ -2029,6 +2535,8 @@
     "meaning": "雾气",
     "example": "Morning mist.",
     "exampleCn": "晨雾。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "misty 同根"
   },
   "MITE": {
@@ -2037,6 +2545,8 @@
     "meaning": "螨虫；少许",
     "example": "A dust mite.",
     "exampleCn": "尘螨。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "mighty 类似拼写"
   },
   "MITS": {
@@ -2045,6 +2555,8 @@
     "meaning": "连指手套（复数 mitt 简写）",
     "example": "Wear mits.",
     "exampleCn": "戴手套。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "mitt 简写"
   },
   "MORTS": {
@@ -2053,6 +2565,8 @@
     "meaning": "mort（号角声）的复数",
     "example": "Hunting morts.",
     "exampleCn": "狩猎号角声。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "罕用"
   },
   "MOST": {
@@ -2061,6 +2575,8 @@
     "meaning": "最多的",
     "example": "Most people agree.",
     "exampleCn": "大多数人同意。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "most of all"
   },
   "MOTS": {
@@ -2069,6 +2585,8 @@
     "meaning": "mot（妙语）复数",
     "example": "Witty mots.",
     "exampleCn": "机智妙语。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "法语借词"
   },
   "NAP": {
@@ -2077,6 +2595,8 @@
     "meaning": "小睡",
     "example": "Take a short nap.",
     "exampleCn": "小睡一下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "cat nap"
   },
   "NAPLES": {
@@ -2085,6 +2605,8 @@
     "meaning": "那不勒斯（地名）",
     "example": "I visited Naples.",
     "exampleCn": "我去了那不勒斯。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "意大利城市"
   },
   "NEAP": {
@@ -2093,6 +2615,8 @@
     "meaning": "小潮的",
     "example": "Neap tide is weak.",
     "exampleCn": "小潮潮位低。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "neap tide = 小潮"
   },
   "NEAR": {
@@ -2101,6 +2625,8 @@
     "meaning": "近的",
     "example": "Near home.",
     "exampleCn": "靠近家。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nearer 同根"
   },
   "NEARS": {
@@ -2109,6 +2635,8 @@
     "meaning": "接近（三单）",
     "example": "It nears.",
     "exampleCn": "它在接近。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "near 三单"
   },
   "NERD": {
@@ -2117,6 +2645,8 @@
     "meaning": "书呆子",
     "example": "A computer nerd.",
     "exampleCn": "电脑书呆子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nerdy 同根"
   },
   "NEST": {
@@ -2125,6 +2655,8 @@
     "meaning": "鸟巢",
     "example": "A bird's nest.",
     "exampleCn": "一个鸟巢。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "empty nest = 空巢"
   },
   "NETS": {
@@ -2133,6 +2665,8 @@
     "meaning": "网（复数）",
     "example": "Fishing nets.",
     "exampleCn": "渔网。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "net 的复数"
   },
   "NICHE": {
@@ -2141,6 +2675,8 @@
     "meaning": "小生境；利基",
     "example": "Niche market.",
     "exampleCn": "利基市场。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "niche product"
   },
   "NICK": {
@@ -2149,6 +2685,8 @@
     "meaning": "划痕；偷",
     "example": "Nick the wood.",
     "exampleCn": "划伤木头。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nicked 同根"
   },
   "NIL": {
@@ -2157,6 +2695,8 @@
     "meaning": "零；无",
     "example": "The score was nil.",
     "exampleCn": "比分为零。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "体育中比 zero 更常用（英式）"
   },
   "NIP": {
@@ -2165,6 +2705,8 @@
     "meaning": "夹；轻咬",
     "example": "Nip in the bud.",
     "exampleCn": "防患未然。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nipped 同根"
   },
   "NIPS": {
@@ -2173,6 +2715,8 @@
     "meaning": "夹（三单）",
     "example": "It nips at heels.",
     "exampleCn": "它夹住脚跟。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nip 三单"
   },
   "NOR": {
@@ -2181,6 +2725,8 @@
     "meaning": "也不",
     "example": "Neither he nor she.",
     "exampleCn": "他和她都不。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "neither...nor"
   },
   "NOSE": {
@@ -2189,6 +2735,8 @@
     "meaning": "鼻子",
     "example": "Her nose is small.",
     "exampleCn": "她鼻子小。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "nose dive = 俯冲"
   },
   "NOT": {
@@ -2197,6 +2745,8 @@
     "meaning": "不；非",
     "example": "I do not agree.",
     "exampleCn": "我不同意。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "not at all"
   },
   "NOTE": {
@@ -2205,6 +2755,8 @@
     "meaning": "笔记；注意",
     "example": "Note the time.",
     "exampleCn": "记下时间。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "noteworthy = 值得注意"
   },
   "NOTES": {
@@ -2213,6 +2765,8 @@
     "meaning": "笔记（复数）",
     "example": "Take notes in class.",
     "exampleCn": "课堂记笔记。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "note 的复数"
   },
   "NUT": {
@@ -2221,6 +2775,8 @@
     "meaning": "坚果；螺母",
     "example": "He cracked the nut.",
     "exampleCn": "他敲开坚果。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "in a nutshell（简言之）"
   },
   "ONE": {
@@ -2229,6 +2785,8 @@
     "meaning": "一",
     "example": "I want one apple.",
     "exampleCn": "我想要一个苹果。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "first / once 同根"
   },
   "ONES": {
@@ -2237,6 +2795,8 @@
     "meaning": "一（们）；个位",
     "example": "The little ones.",
     "exampleCn": "小家伙们。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数代词用法"
   },
   "ONSET": {
@@ -2245,6 +2805,8 @@
     "meaning": "开始；发作",
     "example": "The onset of winter.",
     "exampleCn": "冬季的开始。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "sudden onset"
   },
   "OPTS": {
@@ -2253,6 +2815,8 @@
     "meaning": "opt 第三人称单数",
     "example": "She opts for tea.",
     "exampleCn": "她选择茶。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "opt = 选择"
   },
   "ORES": {
@@ -2261,6 +2825,8 @@
     "meaning": "矿石的复数",
     "example": "Iron ores are mined.",
     "exampleCn": "开采铁矿石。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ore = 矿石"
   },
   "OUTER": {
@@ -2269,6 +2835,8 @@
     "meaning": "外面的",
     "example": "Outer space.",
     "exampleCn": "外太空。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "inner 反义"
   },
   "PAL": {
@@ -2277,6 +2845,8 @@
     "meaning": "好朋友（口语）",
     "example": "He's my pal.",
     "exampleCn": "他是我朋友。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pen pal = 笔友"
   },
   "PALE": {
@@ -2285,6 +2855,8 @@
     "meaning": "苍白的",
     "example": "Her face was pale.",
     "exampleCn": "她脸色苍白。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pale skin"
   },
   "PALES": {
@@ -2293,6 +2865,8 @@
     "meaning": "pale 复数/相形见绌",
     "example": "It pales next to gold.",
     "exampleCn": "与金相比黯然失色。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "动词用法少见"
   },
   "PAN": {
@@ -2301,6 +2875,8 @@
     "meaning": "平底锅",
     "example": "Heat oil in the pan.",
     "exampleCn": "在锅里热油。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "frying pan"
   },
   "PANEL": {
@@ -2309,6 +2885,8 @@
     "meaning": "面板；专家小组",
     "example": "A solar panel.",
     "exampleCn": "太阳能板。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "control panel"
   },
   "PARE": {
@@ -2317,6 +2895,8 @@
     "meaning": "削皮；削减",
     "example": "Pare expenses.",
     "exampleCn": "削减开支。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pare down"
   },
   "PARES": {
@@ -2325,6 +2905,8 @@
     "meaning": "pare 第三人称单数",
     "example": "She pares the apple.",
     "exampleCn": "她削苹果皮。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "pare = 削皮"
   },
   "PARLEY": {
@@ -2333,6 +2915,8 @@
     "meaning": "会谈；谈判",
     "example": "Hold a parley.",
     "exampleCn": "举行会谈。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "历史词"
   },
   "PARSE": {
@@ -2341,6 +2925,8 @@
     "meaning": "分析；解析",
     "example": "Parse the sentence.",
     "exampleCn": "分析这句话。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "编程也用 parse"
   },
   "PAS": {
@@ -2349,6 +2935,8 @@
     "meaning": "舞步（法语借词）",
     "example": "A pas de deux.",
     "exampleCn": "双人舞。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "芭蕾术语"
   },
   "PASTE": {
@@ -2357,6 +2945,8 @@
     "meaning": "面糊；粘贴",
     "example": "Cut and paste.",
     "exampleCn": "剪切和粘贴。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "pasting 同根"
   },
   "PAT": {
@@ -2365,6 +2955,8 @@
     "meaning": "轻拍",
     "example": "She patted the puppy.",
     "exampleCn": "她轻拍小狗。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pat on the back（鼓励）"
   },
   "PATS": {
@@ -2373,6 +2965,8 @@
     "meaning": "轻拍（复数）",
     "example": "Pats on the back.",
     "exampleCn": "轻拍背部。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pat 复数"
   },
   "PEAL": {
@@ -2381,6 +2975,8 @@
     "meaning": "钟声；雷鸣",
     "example": "A peal of bells.",
     "exampleCn": "一阵钟声。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "peal of laughter"
   },
   "PEALS": {
@@ -2389,6 +2985,8 @@
     "meaning": "阵阵",
     "example": "Peals of laughter.",
     "exampleCn": "阵阵笑声。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "复数形式"
   },
   "PEAR": {
@@ -2397,6 +2995,8 @@
     "meaning": "梨",
     "example": "A juicy pear.",
     "exampleCn": "一个多汁的梨。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "苹果 apple 同类"
   },
   "PEARL": {
@@ -2405,6 +3005,8 @@
     "meaning": "珍珠",
     "example": "A pearl ring.",
     "exampleCn": "珍珠戒指。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "pearly 同根"
   },
   "PEARS": {
@@ -2413,6 +3015,8 @@
     "meaning": "梨",
     "example": "I love pears.",
     "exampleCn": "我爱梨。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "pear 的复数"
   },
   "PEAS": {
@@ -2421,6 +3025,8 @@
     "meaning": "豌豆",
     "example": "Green peas.",
     "exampleCn": "青豆。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pea 的复数"
   },
   "PENAL": {
@@ -2429,6 +3035,8 @@
     "meaning": "刑罚的",
     "example": "Penal code.",
     "exampleCn": "刑法典。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "penalty 同根"
   },
   "PETAL": {
@@ -2437,6 +3045,8 @@
     "meaning": "花瓣",
     "example": "Rose petal.",
     "exampleCn": "玫瑰花瓣。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "复数 petals"
   },
   "PICTURE": {
@@ -2445,6 +3055,8 @@
     "meaning": "图片",
     "example": "Take a picture.",
     "exampleCn": "拍张照片。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "pictures 复数"
   },
   "PIE": {
@@ -2453,6 +3065,8 @@
     "meaning": "派；馅饼",
     "example": "Apple pie.",
     "exampleCn": "苹果派。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pies 复数"
   },
   "PINT": {
@@ -2461,6 +3075,8 @@
     "meaning": "品脱",
     "example": "A pint of milk.",
     "exampleCn": "一品脱牛奶。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pints 复数"
   },
   "PION": {
@@ -2469,6 +3085,8 @@
     "meaning": "π 介子（物理）",
     "example": "A pion decay.",
     "exampleCn": "π 介子衰变。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "物理粒子"
   },
   "PLANE": {
@@ -2477,6 +3095,8 @@
     "meaning": "飞机；平面",
     "example": "A jet plane.",
     "exampleCn": "喷气式飞机。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "airplane 缩写"
   },
   "PLANETS": {
@@ -2485,6 +3105,8 @@
     "meaning": "行星（复数）",
     "example": "Inner planets.",
     "exampleCn": "内行星。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "planet 复数"
   },
   "PLANTER": {
@@ -2493,6 +3115,8 @@
     "meaning": "种植者；花盆",
     "example": "A wooden planter.",
     "exampleCn": "木花盆。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "plant + er"
   },
   "PLATE": {
@@ -2501,6 +3125,8 @@
     "meaning": "盘子",
     "example": "A dinner plate.",
     "exampleCn": "一个餐盘。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "plated 同根"
   },
   "PLATES": {
@@ -2509,6 +3135,8 @@
     "meaning": "盘子（复数）",
     "example": "Stack of plates.",
     "exampleCn": "一摞盘子。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "plate 复数"
   },
   "PLAY": {
@@ -2517,6 +3145,8 @@
     "meaning": "玩；演奏；戏剧",
     "example": "Children play here.",
     "exampleCn": "孩子们在这玩。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "player / playful"
   },
   "PLAYER": {
@@ -2525,6 +3155,8 @@
     "meaning": "玩家；运动员",
     "example": "Best player.",
     "exampleCn": "最佳球员。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "play + er"
   },
   "PLEA": {
@@ -2533,6 +3165,8 @@
     "meaning": "恳求",
     "example": "A plea for help.",
     "exampleCn": "求救。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "plead 同根"
   },
   "PLEAT": {
@@ -2541,6 +3175,8 @@
     "meaning": "褶；裙褶",
     "example": "Skirt pleat.",
     "exampleCn": "裙褶。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "pleated 同根"
   },
   "POET": {
@@ -2549,6 +3185,8 @@
     "meaning": "诗人",
     "example": "A famous poet.",
     "exampleCn": "著名诗人。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "poets 复数"
   },
   "POETRY": {
@@ -2557,6 +3195,8 @@
     "meaning": "诗歌",
     "example": "Modern poetry.",
     "exampleCn": "现代诗歌。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "poet + ry"
   },
   "POINTS": {
@@ -2565,6 +3205,8 @@
     "meaning": "要点（复数）",
     "example": "Key points.",
     "exampleCn": "要点。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "point 复数"
   },
   "PORE": {
@@ -2573,6 +3215,8 @@
     "meaning": "毛孔",
     "example": "Skin pore.",
     "exampleCn": "皮肤毛孔。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pores 复数"
   },
   "PORT": {
@@ -2581,6 +3225,8 @@
     "meaning": "港口",
     "example": "Sea port.",
     "exampleCn": "海港。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ports 复数"
   },
   "POST": {
@@ -2589,6 +3235,8 @@
     "meaning": "邮件；张贴",
     "example": "Post the letter.",
     "exampleCn": "寄信。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "postcard = 明信片"
   },
   "POTS": {
@@ -2597,6 +3245,8 @@
     "meaning": "锅；罐（复数）",
     "example": "Pots and pans.",
     "exampleCn": "锅碗瓢盆。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pot 的复数"
   },
   "PRAY": {
@@ -2605,6 +3255,8 @@
     "meaning": "祈祷",
     "example": "Pray for peace.",
     "exampleCn": "祈祷和平。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "prayer 同根"
   },
   "PREY": {
@@ -2613,6 +3265,8 @@
     "meaning": "猎物",
     "example": "Bird of prey.",
     "exampleCn": "猛禽。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "predator 同根"
   },
   "PRY": {
@@ -2621,6 +3275,8 @@
     "meaning": "撬开；窥探",
     "example": "Don't pry.",
     "exampleCn": "别窥探。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "pried 过去式"
   },
   "PUT": {
@@ -2629,6 +3285,8 @@
     "meaning": "放",
     "example": "Put it down.",
     "exampleCn": "把它放下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "put / put / put"
   },
   "PYRE": {
@@ -2637,6 +3295,8 @@
     "meaning": "柴堆；火葬堆",
     "example": "A funeral pyre.",
     "exampleCn": "葬礼柴堆。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "pyres 复数"
   },
   "RAGED": {
@@ -2645,6 +3305,8 @@
     "meaning": "愤怒（过去式）",
     "example": "He raged at me.",
     "exampleCn": "他对我大发雷霆。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "rage 过去式"
   },
   "RAIN": {
@@ -2653,6 +3315,8 @@
     "meaning": "雨；下雨",
     "example": "It rains in summer.",
     "exampleCn": "夏天下雨。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rain cats and dogs"
   },
   "RAKE": {
@@ -2661,6 +3325,8 @@
     "meaning": "耙子；用耙子耙",
     "example": "Rake the leaves.",
     "exampleCn": "耙落叶。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "gardening tool"
   },
   "RAM": {
@@ -2669,6 +3335,8 @@
     "meaning": "公羊；撞",
     "example": "A ram with horns.",
     "exampleCn": "有角的公羊。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ram into = 撞入"
   },
   "RAMP": {
@@ -2677,6 +3345,8 @@
     "meaning": "坡道；斜面",
     "example": "Wheelchair ramp.",
     "exampleCn": "轮椅坡道。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "on-ramp = 入匝道"
   },
   "RAMS": {
@@ -2685,6 +3355,8 @@
     "meaning": "公羊（复数）",
     "example": "Two rams collide.",
     "exampleCn": "两只公羊相撞。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ram 的复数"
   },
   "RAN": {
@@ -2693,6 +3365,8 @@
     "meaning": "run 的过去式",
     "example": "He ran fast yesterday.",
     "exampleCn": "他昨天跑得很快。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "run / ran / run"
   },
   "RANGED": {
@@ -2701,6 +3375,8 @@
     "meaning": "排列（过去式）",
     "example": "They ranged the books.",
     "exampleCn": "他们排列书本。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "range 过去式"
   },
   "RAPE": {
@@ -2709,6 +3385,8 @@
     "meaning": "油菜（也作动词指强奸）",
     "example": "Rape oil.",
     "exampleCn": "菜籽油。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "注意词义敏感，多指植物"
   },
   "RASE": {
@@ -2717,6 +3395,8 @@
     "meaning": "夷为平地（古拼写）",
     "example": "Rase the building.",
     "exampleCn": "夷平建筑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "常作 raze"
   },
   "RAT": {
@@ -2725,6 +3405,8 @@
     "meaning": "老鼠",
     "example": "A rat ran across the floor.",
     "exampleCn": "一只老鼠跑过地板。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数 rats"
   },
   "RATE": {
@@ -2733,6 +3415,8 @@
     "meaning": "比率；评分",
     "example": "A high rate of success.",
     "exampleCn": "高成功率。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rating 同根"
   },
   "RATES": {
@@ -2741,6 +3425,8 @@
     "meaning": "比率（复数）",
     "example": "Interest rates.",
     "exampleCn": "利率。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "rate 的复数"
   },
   "RATS": {
@@ -2749,6 +3435,8 @@
     "meaning": "老鼠；糟了！",
     "example": "Rats! I missed it.",
     "exampleCn": "糟了！我错过了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rat 的复数"
   },
   "RAW": {
@@ -2757,6 +3445,8 @@
     "meaning": "生的；未加工的",
     "example": "Eat raw vegetables.",
     "exampleCn": "吃生蔬菜。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "raw material = 原料"
   },
   "REACT": {
@@ -2765,6 +3455,8 @@
     "meaning": "反应",
     "example": "React quickly.",
     "exampleCn": "迅速反应。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "reaction 同根"
   },
   "READ": {
@@ -2773,6 +3465,8 @@
     "meaning": "阅读",
     "example": "I read books.",
     "exampleCn": "我读书。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "read / read / read（拼写不变发音变）"
   },
   "READING": {
@@ -2781,6 +3475,8 @@
     "meaning": "阅读",
     "example": "I love reading.",
     "exampleCn": "我爱阅读。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "read + ing"
   },
   "REAM": {
@@ -2789,6 +3485,8 @@
     "meaning": "令（纸量单位）",
     "example": "A ream of paper.",
     "exampleCn": "一令纸。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "500 张"
   },
   "REAP": {
@@ -2797,6 +3495,8 @@
     "meaning": "收割；获得",
     "example": "Reap the harvest.",
     "exampleCn": "收获庄稼。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "reaper = 收割者"
   },
   "REAPS": {
@@ -2805,6 +3505,8 @@
     "meaning": "reap 第三人称单数",
     "example": "Reap what you sow.",
     "exampleCn": "种瓜得瓜。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "reap = 收获"
   },
   "REAR": {
@@ -2813,6 +3515,8 @@
     "meaning": "后部；养育",
     "example": "At the rear.",
     "exampleCn": "在后面。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rear-view mirror"
   },
   "REBAR": {
@@ -2821,6 +3525,8 @@
     "meaning": "钢筋",
     "example": "Rebar in concrete.",
     "exampleCn": "混凝土中的钢筋。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "建筑术语"
   },
   "RELAY": {
@@ -2829,6 +3535,8 @@
     "meaning": "接力",
     "example": "Relay race.",
     "exampleCn": "接力赛。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "re + lay"
   },
   "REND": {
@@ -2837,6 +3545,8 @@
     "meaning": "撕裂",
     "example": "Rend the cloth.",
     "exampleCn": "撕开布。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "rent 过去式"
   },
   "REPLAY": {
@@ -2845,6 +3555,8 @@
     "meaning": "重播",
     "example": "Match replay.",
     "exampleCn": "比赛重播。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "re + play"
   },
   "REPLY": {
@@ -2853,6 +3565,8 @@
     "meaning": "回复",
     "example": "Send a reply.",
     "exampleCn": "发送回复。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "replied 同根"
   },
   "REST": {
@@ -2861,6 +3575,8 @@
     "meaning": "休息；剩余",
     "example": "Take a rest.",
     "exampleCn": "休息一下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "restful 同根"
   },
   "RICE": {
@@ -2869,6 +3585,8 @@
     "meaning": "米饭",
     "example": "Cooked rice.",
     "exampleCn": "熟米饭。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rices 罕见"
   },
   "RIDE": {
@@ -2877,6 +3595,8 @@
     "meaning": "骑；乘",
     "example": "Ride a bike.",
     "exampleCn": "骑自行车。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ridden 同根"
   },
   "RIND": {
@@ -2885,6 +3605,8 @@
     "meaning": "果皮",
     "example": "Lemon rind.",
     "exampleCn": "柠檬皮。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rinds 复数"
   },
   "RIOT": {
@@ -2893,6 +3615,8 @@
     "meaning": "骚乱",
     "example": "A street riot.",
     "exampleCn": "街头骚乱。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rioting 同根"
   },
   "RIOTS": {
@@ -2901,6 +3625,8 @@
     "meaning": "骚乱（复数）",
     "example": "Street riots.",
     "exampleCn": "街头骚乱。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "riot 复数"
   },
   "RIP": {
@@ -2909,6 +3635,8 @@
     "meaning": "撕开",
     "example": "Rip the paper.",
     "exampleCn": "撕开纸张。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ripped 同根"
   },
   "RITE": {
@@ -2917,6 +3645,8 @@
     "meaning": "仪式",
     "example": "Sacred rite.",
     "exampleCn": "神圣仪式。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rites 复数"
   },
   "ROES": {
@@ -2925,6 +3655,8 @@
     "meaning": "鱼卵（复数）",
     "example": "Fish roes.",
     "exampleCn": "鱼卵。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "roe 复数"
   },
   "ROPE": {
@@ -2933,6 +3665,8 @@
     "meaning": "绳子",
     "example": "Tie the rope.",
     "exampleCn": "系绳子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "roped 同根"
   },
   "ROSE": {
@@ -2941,6 +3675,8 @@
     "meaning": "玫瑰；rise 过去式",
     "example": "A red rose.",
     "exampleCn": "一朵红玫瑰。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rose / rose / risen"
   },
   "ROT": {
@@ -2949,6 +3685,8 @@
     "meaning": "腐烂",
     "example": "Don't rot.",
     "exampleCn": "别腐烂。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rotten 同根"
   },
   "ROTS": {
@@ -2957,6 +3695,8 @@
     "meaning": "rot 第三人称单数",
     "example": "The fruit rots.",
     "exampleCn": "水果腐烂。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rot = 腐烂"
   },
   "ROUTE": {
@@ -2965,6 +3705,8 @@
     "meaning": "路线",
     "example": "Best route.",
     "exampleCn": "最佳路线。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "routes 复数"
   },
   "ROUTINE": {
@@ -2973,6 +3715,8 @@
     "meaning": "日常；惯例",
     "example": "Daily routine.",
     "exampleCn": "日常生活。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "routines 复数"
   },
   "RUIN": {
@@ -2981,6 +3725,8 @@
     "meaning": "毁掉",
     "example": "Don't ruin it.",
     "exampleCn": "别毁了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "ruined 同根"
   },
   "RYE": {
@@ -2989,6 +3735,8 @@
     "meaning": "黑麦",
     "example": "Rye bread.",
     "exampleCn": "黑麦面包。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "rye whiskey"
   },
   "SABER": {
@@ -2997,6 +3745,8 @@
     "meaning": "军刀",
     "example": "A cavalry saber.",
     "exampleCn": "骑兵军刀。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "sabers 复数"
   },
   "SAILED": {
@@ -3005,6 +3755,8 @@
     "meaning": "航行（过去式）",
     "example": "They sailed home.",
     "exampleCn": "他们航行回家。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "sail 过去式"
   },
   "SAILOR": {
@@ -3013,6 +3765,8 @@
     "meaning": "水手",
     "example": "A young sailor.",
     "exampleCn": "年轻水手。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "sail + or"
   },
   "SAKE": {
@@ -3021,6 +3775,8 @@
     "meaning": "缘故；目的",
     "example": "For your sake.",
     "exampleCn": "为了你。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "for the sake of"
   },
   "SALE": {
@@ -3029,6 +3785,8 @@
     "meaning": "出售；销售",
     "example": "On sale today.",
     "exampleCn": "今日特价。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "for sale"
   },
   "SALT": {
@@ -3037,6 +3795,8 @@
     "meaning": "盐",
     "example": "Add salt.",
     "exampleCn": "加盐。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "salty 同根"
   },
   "SANER": {
@@ -3045,6 +3805,8 @@
     "meaning": "更理智的",
     "example": "A saner choice.",
     "exampleCn": "更理智的选择。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "sane + er"
   },
   "SAP": {
@@ -3053,6 +3815,8 @@
     "meaning": "树液",
     "example": "Maple sap.",
     "exampleCn": "枫树树液。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "俚语 sap = 笨蛋"
   },
   "SAW": {
@@ -3061,6 +3825,8 @@
     "meaning": "see 的过去式",
     "example": "I saw a movie.",
     "exampleCn": "我看了一部电影。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "see / saw / seen"
   },
   "SCALE": {
@@ -3069,6 +3835,8 @@
     "meaning": "比例；秤",
     "example": "Large scale.",
     "exampleCn": "大规模。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "scaled 同根"
   },
   "SEAL": {
@@ -3077,6 +3845,8 @@
     "meaning": "海豹；封条",
     "example": "A seal swims fast.",
     "exampleCn": "海豹游得快。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sealed = 密封的"
   },
   "SEAR": {
@@ -3085,6 +3855,8 @@
     "meaning": "烧灼；煎",
     "example": "Sear the steak.",
     "exampleCn": "煎牛排。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "searing pain"
   },
   "SEAT": {
@@ -3093,6 +3865,8 @@
     "meaning": "座位",
     "example": "Take a seat.",
     "exampleCn": "请坐。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "seated 同根"
   },
   "SENT": {
@@ -3101,6 +3875,8 @@
     "meaning": "send 过去式",
     "example": "I sent the letter.",
     "exampleCn": "我寄了信。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "send / sent / sent"
   },
   "SERA": {
@@ -3109,6 +3885,8 @@
     "meaning": "serum（血清）的复数",
     "example": "Different sera tested.",
     "exampleCn": "测试不同血清。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "医学复数"
   },
   "SEW": {
@@ -3117,6 +3895,8 @@
     "meaning": "缝纫",
     "example": "Sew a button.",
     "exampleCn": "缝扣子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sewing 同根"
   },
   "SHARE": {
@@ -3125,6 +3905,8 @@
     "meaning": "分享；股份",
     "example": "Share the cake.",
     "exampleCn": "分享蛋糕。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "sharing 同根"
   },
   "SHARES": {
@@ -3133,6 +3915,8 @@
     "meaning": "股份（复数）",
     "example": "Buy shares.",
     "exampleCn": "购买股份。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "share 的复数"
   },
   "SHARP": {
@@ -3141,6 +3925,8 @@
     "meaning": "锋利的",
     "example": "A sharp knife.",
     "exampleCn": "锋利的刀。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "sharpen 同根"
   },
   "SHIRT": {
@@ -3149,6 +3935,8 @@
     "meaning": "衬衫",
     "example": "A blue shirt.",
     "exampleCn": "一件蓝衬衫。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "shirts 复数"
   },
   "SHORE": {
@@ -3157,6 +3945,8 @@
     "meaning": "岸；海岸",
     "example": "Walk along the shore.",
     "exampleCn": "沿岸散步。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "shoreline = 海岸线"
   },
   "SHORT": {
@@ -3165,6 +3955,8 @@
     "meaning": "短的",
     "example": "A short walk.",
     "exampleCn": "短途散步。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "shorter 同根"
   },
   "SHOT": {
@@ -3173,6 +3965,8 @@
     "meaning": "射击；尝试",
     "example": "A great shot.",
     "exampleCn": "精彩的一击。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "give it a shot"
   },
   "SILENT": {
@@ -3181,6 +3975,8 @@
     "meaning": "安静的",
     "example": "Be silent please.",
     "exampleCn": "请保持安静。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "listen 是字母重排"
   },
   "SIT": {
@@ -3189,6 +3985,8 @@
     "meaning": "坐",
     "example": "Please sit down.",
     "exampleCn": "请坐下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sit / sat / sat"
   },
   "SLATE": {
@@ -3197,6 +3995,8 @@
     "meaning": "板岩；候选名单",
     "example": "Slate roof.",
     "exampleCn": "板岩屋顶。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "slate gray"
   },
   "SLIM": {
@@ -3205,6 +4005,8 @@
     "meaning": "苗条的",
     "example": "A slim build.",
     "exampleCn": "苗条的身材。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "slim down = 减肥"
   },
   "SLIME": {
@@ -3213,6 +4015,8 @@
     "meaning": "黏液；史莱姆",
     "example": "Kids love slime.",
     "exampleCn": "孩子们爱玩史莱姆。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "slimy 同根"
   },
   "SMART": {
@@ -3221,6 +4025,8 @@
     "meaning": "聪明的",
     "example": "A smart kid.",
     "exampleCn": "聪明的孩子。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "smart phone / smart watch"
   },
   "SMILE": {
@@ -3229,6 +4035,8 @@
     "meaning": "微笑",
     "example": "A bright smile.",
     "exampleCn": "灿烂的微笑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "smile from ear to ear"
   },
   "SNARE": {
@@ -3237,6 +4045,8 @@
     "meaning": "陷阱；圈套",
     "example": "Set a snare.",
     "exampleCn": "设陷阱。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "snared 同根"
   },
   "SNIP": {
@@ -3245,6 +4055,8 @@
     "meaning": "剪",
     "example": "Snip the thread.",
     "exampleCn": "剪线。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "snipped 同根"
   },
   "SOFTER": {
@@ -3253,6 +4065,8 @@
     "meaning": "更柔软的",
     "example": "A softer pillow.",
     "exampleCn": "更柔软的枕头。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "soft + er"
   },
   "SON": {
@@ -3261,6 +4075,8 @@
     "meaning": "儿子",
     "example": "They have one son.",
     "exampleCn": "他们有一个儿子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "反义：daughter"
   },
   "SONE": {
@@ -3269,6 +4085,8 @@
     "meaning": "宋（响度单位）",
     "example": "Measured in sones.",
     "exampleCn": "以宋为单位测量。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "声学单位"
   },
   "SORE": {
@@ -3277,6 +4095,8 @@
     "meaning": "疼痛的",
     "example": "My arm is sore.",
     "exampleCn": "我胳膊疼。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "常用：sore throat"
   },
   "SORT": {
@@ -3285,6 +4105,8 @@
     "meaning": "分类；种类",
     "example": "Sort by date.",
     "exampleCn": "按日期分类。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sort of = 有点"
   },
   "SPA": {
@@ -3293,6 +4115,8 @@
     "meaning": "水疗；温泉",
     "example": "Day at the spa.",
     "exampleCn": "在水疗中心。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "spa day"
   },
   "SPARE": {
@@ -3301,6 +4125,8 @@
     "meaning": "备用的；抽出",
     "example": "Spare time for me.",
     "exampleCn": "为我抽出时间。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "spare key = 备用钥匙"
   },
   "SPEAR": {
@@ -3309,6 +4135,8 @@
     "meaning": "矛；长枪",
     "example": "Throw the spear.",
     "exampleCn": "掷出长矛。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "spearhead = 先锋"
   },
   "SPOT": {
@@ -3317,6 +4145,8 @@
     "meaning": "斑点；地点",
     "example": "A nice spot.",
     "exampleCn": "好地方。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "on the spot = 当场"
   },
   "SQUARE": {
@@ -3325,6 +4155,8 @@
     "meaning": "正方形；广场",
     "example": "A town square.",
     "exampleCn": "城镇广场。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "squared 同根"
   },
   "STABLE": {
@@ -3333,6 +4165,8 @@
     "meaning": "稳定的；马厩",
     "example": "A stable job.",
     "exampleCn": "稳定的工作。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "stables 复数"
   },
   "STALE": {
@@ -3341,6 +4175,8 @@
     "meaning": "不新鲜的；陈旧的",
     "example": "Stale bread.",
     "exampleCn": "不新鲜的面包。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "stale joke"
   },
   "STAR": {
@@ -3349,6 +4185,8 @@
     "meaning": "星星；明星；主演",
     "example": "She became a star.",
     "exampleCn": "她成为明星。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "shooting star / star-studded"
   },
   "STARE": {
@@ -3357,6 +4195,8 @@
     "meaning": "凝视",
     "example": "Don't stare.",
     "exampleCn": "别盯着看。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "staring 同根"
   },
   "STEAL": {
@@ -3365,6 +4205,8 @@
     "meaning": "偷",
     "example": "Don't steal.",
     "exampleCn": "别偷东西。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "steal / stole / stolen"
   },
   "STEIN": {
@@ -3373,6 +4215,8 @@
     "meaning": "啤酒杯",
     "example": "Lift the stein.",
     "exampleCn": "举起啤酒杯。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "德语借词"
   },
   "STEN": {
@@ -3381,6 +4225,8 @@
     "meaning": "司登冲锋枪",
     "example": "A Sten gun.",
     "exampleCn": "司登冲锋枪。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "二战英国武器"
   },
   "STIR": {
@@ -3389,6 +4235,8 @@
     "meaning": "搅拌",
     "example": "Stir the soup.",
     "exampleCn": "搅拌汤。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "stirring 同根"
   },
   "STOMP": {
@@ -3397,6 +4245,8 @@
     "meaning": "跺脚",
     "example": "Stomp on the ground.",
     "exampleCn": "在地上跺脚。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "stomp 的动作感"
   },
   "STONE": {
@@ -3405,6 +4255,8 @@
     "meaning": "石头",
     "example": "A stone wall.",
     "exampleCn": "石墙。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "stone-cold = 冰冷"
   },
   "STOP": {
@@ -3413,6 +4265,8 @@
     "meaning": "停止",
     "example": "Please stop.",
     "exampleCn": "请停下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "stop sign"
   },
   "STORE": {
@@ -3421,6 +4275,8 @@
     "meaning": "商店；储存",
     "example": "A toy store.",
     "exampleCn": "一家玩具店。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "storage 同根"
   },
   "STORM": {
@@ -3429,6 +4285,8 @@
     "meaning": "暴风雨",
     "example": "A heavy storm.",
     "exampleCn": "强暴风雨。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "thunderstorm = 雷暴"
   },
   "STORY": {
@@ -3437,6 +4295,8 @@
     "meaning": "故事",
     "example": "Tell a story.",
     "exampleCn": "讲个故事。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "stories 复数"
   },
   "STREAM": {
@@ -3445,6 +4305,8 @@
     "meaning": "溪流；流",
     "example": "A clear stream.",
     "exampleCn": "清澈的溪流。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "streaming 同根"
   },
   "STREAMS": {
@@ -3453,6 +4315,8 @@
     "meaning": "溪流（复数）",
     "example": "Mountain streams.",
     "exampleCn": "山间溪流。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "stream 复数"
   },
   "SUN": {
@@ -3461,6 +4325,8 @@
     "meaning": "太阳",
     "example": "The sun is bright.",
     "exampleCn": "太阳很亮。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sunny / sunshine"
   },
   "SWEAR": {
@@ -3469,6 +4335,8 @@
     "meaning": "发誓；咒骂",
     "example": "Swear an oath.",
     "exampleCn": "发誓。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "swore / sworn"
   },
   "TAB": {
@@ -3477,6 +4345,8 @@
     "meaning": "标签；账单",
     "example": "Click on the new tab.",
     "exampleCn": "点击新标签。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "browser tab"
   },
   "TABLES": {
@@ -3485,6 +4355,8 @@
     "meaning": "桌子（复数）",
     "example": "Two tables.",
     "exampleCn": "两张桌子。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "table 复数"
   },
   "TAKE": {
@@ -3493,6 +4365,8 @@
     "meaning": "拿；带",
     "example": "Take the book.",
     "exampleCn": "拿这本书。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "take / took / taken"
   },
   "TALE": {
@@ -3501,6 +4375,8 @@
     "meaning": "故事",
     "example": "A fairy tale.",
     "exampleCn": "童话故事。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tales 复数"
   },
   "TAME": {
@@ -3509,6 +4385,8 @@
     "meaning": "驯服的",
     "example": "A tame lion.",
     "exampleCn": "驯服的狮子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tamer 同根"
   },
   "TAN": {
@@ -3517,6 +4395,8 @@
     "meaning": "晒黑；棕褐色",
     "example": "He got a deep tan.",
     "exampleCn": "他晒得很黑。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "sunbathing → tan"
   },
   "TAP": {
@@ -3525,6 +4405,8 @@
     "meaning": "轻敲；水龙头",
     "example": "Tap the screen lightly.",
     "exampleCn": "轻触屏幕。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tap water = 自来水"
   },
   "TAPES": {
@@ -3533,6 +4415,8 @@
     "meaning": "磁带（复数）",
     "example": "Old tapes.",
     "exampleCn": "旧磁带。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "tape 复数"
   },
   "TAPS": {
@@ -3541,6 +4425,8 @@
     "meaning": "水龙头（复数）",
     "example": "Two taps.",
     "exampleCn": "两个水龙头。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tap 复数"
   },
   "TAR": {
@@ -3549,6 +4435,8 @@
     "meaning": "焦油；沥青",
     "example": "Workers poured hot tar.",
     "exampleCn": "工人浇热沥青。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tarmac 由此衍生"
   },
   "TARES": {
@@ -3557,6 +4445,8 @@
     "meaning": "杂草",
     "example": "Tares in the wheat.",
     "exampleCn": "麦中杂草。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "圣经常见词"
   },
   "TARS": {
@@ -3565,6 +4455,8 @@
     "meaning": "tar 的复数",
     "example": "Different tars are used.",
     "exampleCn": "使用不同的沥青。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tar 的复数"
   },
   "TEA": {
@@ -3573,6 +4465,8 @@
     "meaning": "茶；茶水",
     "example": "Would you like some tea?",
     "exampleCn": "你想喝点茶吗？",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "green tea / tea time"
   },
   "TEAL": {
@@ -3581,6 +4475,8 @@
     "meaning": "水鸭；蓝绿色",
     "example": "Teal blue.",
     "exampleCn": "蓝绿色。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数 teals"
   },
   "TEAM": {
@@ -3589,6 +4485,8 @@
     "meaning": "团队",
     "example": "A great team.",
     "exampleCn": "一个好团队。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "teammate / teamwork"
   },
   "TEAMS": {
@@ -3597,6 +4495,8 @@
     "meaning": "队伍（复数）",
     "example": "Two teams played.",
     "exampleCn": "两队比赛。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "team 复数"
   },
   "TEAR": {
@@ -3605,6 +4505,8 @@
     "meaning": "眼泪",
     "example": "A tear rolled down.",
     "exampleCn": "一滴眼泪落下。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "动词读 /teər/，意撕裂"
   },
   "TEARS": {
@@ -3613,6 +4515,8 @@
     "meaning": "眼泪（复数）",
     "example": "Tears of joy.",
     "exampleCn": "喜悦的泪水。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "tear 的复数"
   },
   "TENS": {
@@ -3621,6 +4525,8 @@
     "meaning": "十的倍数",
     "example": "Tens of people.",
     "exampleCn": "数十人。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "in tens"
   },
   "THEN": {
@@ -3629,6 +4535,8 @@
     "meaning": "然后",
     "example": "And then.",
     "exampleCn": "然后。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "thenceforth 同根"
   },
   "THICK": {
@@ -3637,6 +4545,8 @@
     "meaning": "厚的",
     "example": "A thick book.",
     "exampleCn": "一本厚书。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "thicker 同根"
   },
   "TIC": {
@@ -3645,6 +4555,8 @@
     "meaning": "抽搐",
     "example": "A nervous tic.",
     "exampleCn": "神经性抽搐。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "twitch 同义"
   },
   "TIDE": {
@@ -3653,6 +4565,8 @@
     "meaning": "潮汐",
     "example": "High tide.",
     "exampleCn": "涨潮。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tides 复数"
   },
   "TIED": {
@@ -3661,6 +4575,8 @@
     "meaning": "系（过去式）",
     "example": "He tied his shoes.",
     "exampleCn": "他系鞋带。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tie 过去式"
   },
   "TILE": {
@@ -3669,6 +4585,8 @@
     "meaning": "瓷砖",
     "example": "Floor tile.",
     "exampleCn": "地砖。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tiled 同根"
   },
   "TILES": {
@@ -3677,6 +4595,8 @@
     "meaning": "瓷砖（复数）",
     "example": "Pretty tiles.",
     "exampleCn": "漂亮的瓷砖。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "tile 复数"
   },
   "TIME": {
@@ -3685,6 +4605,8 @@
     "meaning": "时间",
     "example": "What time is it?",
     "exampleCn": "几点了？",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "timely 同根"
   },
   "TIN": {
@@ -3693,6 +4615,8 @@
     "meaning": "锡；罐头",
     "example": "A tin of beans.",
     "exampleCn": "一罐豆子。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tin = 英式罐头；can = 美式"
   },
   "TINSEL": {
@@ -3701,6 +4625,8 @@
     "meaning": "金属箔丝（圣诞装饰）",
     "example": "Tinsel on the tree.",
     "exampleCn": "树上的金属箔丝。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "圣诞树常见装饰"
   },
   "TIP": {
@@ -3709,6 +4635,8 @@
     "meaning": "小费；尖端",
     "example": "Leave a tip.",
     "exampleCn": "留小费。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tipped 同根"
   },
   "TIPS": {
@@ -3717,6 +4645,8 @@
     "meaning": "小费（复数）",
     "example": "Good tips.",
     "exampleCn": "不错的小费。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tip 复数"
   },
   "TIS": {
@@ -3725,6 +4655,8 @@
     "meaning": "it is 的缩写（古）",
     "example": "Tis the season.",
     "exampleCn": "这正是时候。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "诗用古语"
   },
   "TOE": {
@@ -3733,6 +4665,8 @@
     "meaning": "脚趾",
     "example": "I stubbed my toe.",
     "exampleCn": "我撞到脚趾。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "big toe = 大拇指"
   },
   "TOES": {
@@ -3741,6 +4675,8 @@
     "meaning": "脚趾（复数）",
     "example": "Cold toes.",
     "exampleCn": "冰冷的脚趾。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "toe 复数"
   },
   "TON": {
@@ -3749,6 +4685,8 @@
     "meaning": "吨",
     "example": "A ton of coal.",
     "exampleCn": "一吨煤。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "1 ton ≈ 1000 kg"
   },
   "TONE": {
@@ -3757,6 +4695,8 @@
     "meaning": "音调；语调",
     "example": "In a serious tone.",
     "exampleCn": "严肃的语调。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tone of voice"
   },
   "TONER": {
@@ -3765,6 +4705,8 @@
     "meaning": "爽肤水；调色剂",
     "example": "Apply toner.",
     "exampleCn": "涂爽肤水。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "toners 复数"
   },
   "TONES": {
@@ -3773,6 +4715,8 @@
     "meaning": "音调（复数）",
     "example": "Soft tones of voice.",
     "exampleCn": "柔和的语调。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "tone 的复数"
   },
   "TOPS": {
@@ -3781,6 +4725,8 @@
     "meaning": "上衣（复数）",
     "example": "Wear cool tops.",
     "exampleCn": "穿酷上衣。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "top 的复数"
   },
   "TORE": {
@@ -3789,6 +4735,8 @@
     "meaning": "撕（过去式）",
     "example": "He tore it.",
     "exampleCn": "他撕了它。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tear 过去式"
   },
   "TORY": {
@@ -3797,6 +4745,8 @@
     "meaning": "保守党人",
     "example": "British Tory.",
     "exampleCn": "英国保守党人。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "历史词"
   },
   "TOTE": {
@@ -3805,6 +4755,8 @@
     "meaning": "手提；手提包",
     "example": "A canvas tote bag.",
     "exampleCn": "帆布手提包。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tote bag 常见"
   },
   "TOY": {
@@ -3813,6 +4765,8 @@
     "meaning": "玩具",
     "example": "A wooden toy.",
     "exampleCn": "木玩具。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "toys 复数"
   },
   "TRACE": {
@@ -3821,6 +4775,8 @@
     "meaning": "追踪；痕迹",
     "example": "No trace left.",
     "exampleCn": "没留下痕迹。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "traced 同根"
   },
   "TRAMS": {
@@ -3829,6 +4785,8 @@
     "meaning": "电车的复数",
     "example": "European trams.",
     "exampleCn": "欧洲电车。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "tram = 有轨电车"
   },
   "TRIO": {
@@ -3837,6 +4795,8 @@
     "meaning": "三人组",
     "example": "A jazz trio.",
     "exampleCn": "爵士三重奏。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "复数 trios"
   },
   "TRIOS": {
@@ -3845,6 +4805,8 @@
     "meaning": "三人组（复数）",
     "example": "Two trios.",
     "exampleCn": "两个三重奏。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "trio 复数"
   },
   "TRIPE": {
@@ -3853,6 +4815,8 @@
     "meaning": "牛肚；废话",
     "example": "Beef tripe.",
     "exampleCn": "牛肚。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "tripe 是俚语废话"
   },
   "TRY": {
@@ -3861,6 +4825,8 @@
     "meaning": "尝试",
     "example": "Try harder.",
     "exampleCn": "更努力。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tried 过去式"
   },
   "TUNE": {
@@ -3869,6 +4835,8 @@
     "meaning": "曲调",
     "example": "A catchy tune.",
     "exampleCn": "朗朗上口的曲调。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "tuning 同根"
   },
   "TURN": {
@@ -3877,6 +4845,8 @@
     "meaning": "转动",
     "example": "Turn left.",
     "exampleCn": "左转。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "turned 同根"
   },
   "TYPE": {
@@ -3885,6 +4855,8 @@
     "meaning": "类型；打字",
     "example": "Type fast.",
     "exampleCn": "快速打字。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "typed 同根"
   },
   "UNIT": {
@@ -3893,6 +4865,8 @@
     "meaning": "单位",
     "example": "One unit.",
     "exampleCn": "一个单位。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "units 复数"
   },
   "UNS": {
@@ -3901,6 +4875,8 @@
     "meaning": "one 的口语复数（俚语）",
     "example": "Pick the little uns.",
     "exampleCn": "挑小的。",
+    "cefr": "C1",
+    "milestone": "六级 · 托福",
     "extra": "罕见，常仅出现拼词游戏"
   },
   "USE": {
@@ -3909,6 +4885,8 @@
     "meaning": "使用；用途",
     "example": "Can I use this?",
     "exampleCn": "我能用这个吗？",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "名词 /juːs/，动词 /juːz/"
   },
   "VICTORY": {
@@ -3917,6 +4895,8 @@
     "meaning": "胜利",
     "example": "A clear victory.",
     "exampleCn": "明显的胜利。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "victorious 同根"
   },
   "VOLE": {
@@ -3925,6 +4905,8 @@
     "meaning": "田鼠",
     "example": "A vole in the field.",
     "exampleCn": "田里的田鼠。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "猫头鹰常见猎物"
   },
   "WAKE": {
@@ -3933,6 +4915,8 @@
     "meaning": "醒来",
     "example": "Wake up early.",
     "exampleCn": "早起。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "wake / woke / woken"
   },
   "WANES": {
@@ -3941,6 +4925,8 @@
     "meaning": "减弱（三单）",
     "example": "Power wanes.",
     "exampleCn": "力量减弱。",
+    "cefr": "B1",
+    "milestone": "高考",
     "extra": "wane 三单"
   },
   "WARE": {
@@ -3949,6 +4935,8 @@
     "meaning": "商品；器物",
     "example": "Glass ware.",
     "exampleCn": "玻璃器皿。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "aware 同根"
   },
   "WARES": {
@@ -3957,6 +4945,8 @@
     "meaning": "商品（复数）",
     "example": "Show your wares.",
     "exampleCn": "展示商品。",
+    "cefr": "A2",
+    "milestone": "中考",
     "extra": "ware 复数"
   },
   "WARN": {
@@ -3965,6 +4955,8 @@
     "meaning": "警告",
     "example": "I warn you.",
     "exampleCn": "我警告你。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "warning 同根"
   },
   "WARS": {
@@ -3973,6 +4965,8 @@
     "meaning": "战争（复数）",
     "example": "The wars ended.",
     "exampleCn": "战争结束了。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "war 复数"
   },
   "WAS": {
@@ -3981,6 +4975,8 @@
     "meaning": "is/am 的过去式",
     "example": "He was here.",
     "exampleCn": "他刚才在这。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "past tense of be"
   },
   "WONDERS": {
@@ -3989,6 +4985,8 @@
     "meaning": "奇迹（复数）",
     "example": "Seven wonders.",
     "exampleCn": "七大奇迹。",
+    "cefr": "B2",
+    "milestone": "四级 · 雅思",
     "extra": "wonder 复数"
   },
   "YEAR": {
@@ -3997,6 +4995,8 @@
     "meaning": "年",
     "example": "Last year.",
     "exampleCn": "去年。",
+    "cefr": "A1",
+    "milestone": "小学",
     "extra": "yearly 同根"
   }
 }
