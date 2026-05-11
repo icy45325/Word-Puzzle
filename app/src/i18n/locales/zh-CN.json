@@ -162,5 +162,19 @@
   "profile.hapticsLabel": "触觉反馈",
   "onboarding.title": "滑动字母拼出单词",
   "onboarding.subtitle": "按住一个字母，依次滑过其他字母，松手提交",
-  "onboarding.tapToDismiss": "轻点任意处开始游戏"
+  "onboarding.tapToDismiss": "轻点任意处开始游戏",
+  "theme.title": "视觉风格",
+  "theme.aurora.name": "极光之森",
+  "theme.sunset.name": "落日余晖",
+  "theme.midnight.name": "深海之梦",
+  "theme.mint.name": "薄荷清晨",
+  "profile.notificationsLabel": "推送提醒",
+  "notif.dailyCheckIn.title": "别错过签到 🔥",
+  "notif.dailyCheckIn.body": "继续连胜可以领更多金币，每天 10 秒搞定。",
+  "notif.review.title": "复习单词 📚",
+  "notif.review.body": "{count} 个词到期了，答对得金币。",
+  "tutorial.hint.title": "提示功能",
+  "tutorial.hint.body": "卡住时点右上角 💡 揭示一个未填字母。每章结束送 3 个提示。",
+  "tutorial.streak.title": "连胜越长，奖励越多",
+  "tutorial.streak.body": "每天来签到金币和提示都翻倍涨。连续 7 天送大礼包，断了重新开始～"
 }

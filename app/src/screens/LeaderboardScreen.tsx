@@ -6,6 +6,7 @@ import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { LeaderboardScope, ScoreRecord } from '../services/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
@@ -13,6 +14,7 @@ import type { RootStackParamList } from '../../App';
 type Props = NativeStackScreenProps<RootStackParamList, 'Leaderboard'>;
 
 export function LeaderboardScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();

@@ -3,6 +3,7 @@ import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ALL_THEMES, Theme, ThemeId } from '../theme/themes';
 import { useTheme } from '../theme/ThemeProvider';
+import { t } from '../i18n';
 
 interface Props {
   visible: boolean;
@@ -16,17 +17,17 @@ export function ThemePickerModal({ visible, onClose }: Props) {
       <Pressable style={styles.backdrop} onPress={onClose} />
       <View style={styles.sheet}>
         <View style={styles.header}>
-          <Text style={styles.title}>视觉风格</Text>
+          <Text style={styles.title}>{t('theme.title', undefined, '视觉风格')}</Text>
           <Pressable onPress={onClose} hitSlop={12}>
             <Text style={styles.close}>×</Text>
           </Pressable>
         </View>
         <View style={styles.grid}>
-          {ALL_THEMES.map((t) => (
+          {ALL_THEMES.map((th) => (
             <ThemeOption
-              key={t.id}
-              theme={t}
-              active={themeId === t.id}
+              key={th.id}
+              theme={th}
+              active={themeId === th.id}
               onPick={(id) => {
                 setTheme(id);
                 onClose();
@@ -57,7 +58,9 @@ function ThemeOption({ theme, active, onPick }: OptionProps) {
         end={{ x: 1, y: 1 }}
         style={styles.swatch}
       />
-      <Text style={styles.optionLabel}>{theme.name}</Text>
+      <Text style={styles.optionLabel}>
+        {t(`theme.${theme.id}.name`, undefined, theme.name)}
+      </Text>
     </Pressable>
   );
 }

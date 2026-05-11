@@ -9,6 +9,7 @@ import { WordDetailModal } from '../components/WordDetailModal';
 import { useTheme } from '../theme/ThemeProvider';
 import { MAX_MASTERY } from '../utils/spacedRepetition';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { LearnedWord } from '../services/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
@@ -18,6 +19,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Vocabulary'>;
 type Bucket = 'due' | 'learning' | 'mastered';
 
 export function VocabularyScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const user = useCurrentUser();
   const { theme } = useTheme();

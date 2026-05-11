@@ -47,6 +47,13 @@ export function DailyCheckInModal({
             end={{ x: 1, y: 1 }}
             style={styles.header}
           >
+            <Pressable
+              style={styles.closeBtn}
+              onPress={onClose}
+              hitSlop={12}
+            >
+              <Text style={styles.closeText}>×</Text>
+            </Pressable>
             <Text style={styles.flame}>🔥</Text>
             <Text style={styles.title}>
               {t('dailyCheckIn.title', { days: status.nextStreak })}
@@ -161,6 +168,25 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     paddingHorizontal: 24,
     alignItems: 'center',
+    position: 'relative',
+  },
+  closeBtn: {
+    position: 'absolute',
+    top: 10,
+    right: 14,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(0,0,0,0.18)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  closeText: {
+    fontSize: 22,
+    color: '#FFFFFF',
+    fontWeight: '900',
+    lineHeight: 22,
+    marginTop: -2,
   },
   flame: { fontSize: 48, marginBottom: 6 },
   title: {

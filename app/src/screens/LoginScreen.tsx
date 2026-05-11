@@ -8,12 +8,14 @@ import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
 import { AppLogo } from '../components/AppLogo';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 export function LoginScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const { promptSignIn, ready } = useGoogleSignIn();
   const [busy, setBusy] = useState(false);

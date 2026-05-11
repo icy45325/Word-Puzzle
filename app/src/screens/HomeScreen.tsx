@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 import { useUnlocks } from '../hooks/useUnlocks';
@@ -12,40 +13,16 @@ import { GradientBackground } from '../components/GradientBackground';
 import { AppLogo } from '../components/AppLogo';
 import { ShimmerOverlay } from '../components/ShimmerOverlay';
 import { TopBar } from '../components/TopBar';
-import { ThemePickerModal } from '../components/ThemePickerModal';
-import { DailyCheckInModal } from '../components/DailyCheckInModal';
-import { StreakChip } from '../components/StreakChip';
-import { useDailyCheckIn } from '../hooks/useDailyCheckIn';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function HomeScreen({ navigation }: Props) {
+  useLocale();
   const { theme } = useTheme();
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();
-  const [pickerOpen, setPickerOpen] = useState(false);
   const [dueCount, setDueCount] = useState(0);
-  const dailyCheckIn = useDailyCheckIn();
-  const [checkInOpen, setCheckInOpen] = useState(false);
-  const autoOpenedRef = React.useRef(false);
-
-  // Auto-open the check-in modal once per app session, the first time
-  // the economy state has loaded and we know the player hasn't claimed
-  // today. The autoOpenedRef guards against re-opening after they close it.
-  useEffect(() => {
-    if (!dailyCheckIn.loaded) return;
-    if (autoOpenedRef.current) return;
-    if (!dailyCheckIn.status.alreadyClaimed) {
-      setCheckInOpen(true);
-    }
-    autoOpenedRef.current = true;
-  }, [dailyCheckIn.loaded, dailyCheckIn.status.alreadyClaimed]);
-
-  const handleClaimCheckIn = React.useCallback(async () => {
-    await dailyCheckIn.claim();
-    setCheckInOpen(false);
-  }, [dailyCheckIn]);
 
   const refreshDue = React.useCallback(() => {
     if (!user) return;
@@ -102,17 +79,6 @@ export function HomeScreen({ navigation }: Props) {
             </View>
             <Text style={styles.pathArrow}>›</Text>
           </Pressable>
-
-          {/* Streak chip — always shown once economy is loaded; tapping
-              re-opens the check-in modal (even when already claimed today
-              so the player can review their progress). */}
-          {dailyCheckIn.loaded ? (
-            <StreakChip
-              streakDays={dailyCheckIn.currentStreak}
-              alreadyClaimed={dailyCheckIn.status.alreadyClaimed}
-              onPress={() => setCheckInOpen(true)}
-            />
-          ) : null}
 
           {/* Daily review nudge — only when there are due words */}
           {dueCount > 0 ? (
@@ -178,29 +144,8 @@ export function HomeScreen({ navigation }: Props) {
               onPress={() => navigation.navigate('Profile')}
             />
           </View>
-
-          <Pressable
-            style={styles.themeRow}
-            onPress={() => setPickerOpen(true)}
-          >
-            <Text style={styles.themeRowLabel}>✨  {theme.name}</Text>
-            <Text style={styles.themeRowAction}>{t('home.changeStyle')} ›</Text>
-          </Pressable>
         </ScrollView>
       </SafeAreaView>
-      <ThemePickerModal
-        visible={pickerOpen}
-        onClose={() => setPickerOpen(false)}
-      />
-      <DailyCheckInModal
-        visible={checkInOpen && dailyCheckIn.loaded}
-        status={dailyCheckIn.status}
-        reward={dailyCheckIn.reward}
-        cycleSize={dailyCheckIn.cycleSize}
-        currentStreak={dailyCheckIn.currentStreak}
-        onClaim={handleClaimCheckIn}
-        onClose={() => setCheckInOpen(false)}
-      />
     </GradientBackground>
   );
 }
@@ -360,18 +305,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tileLock: { fontSize: 10, color: 'rgba(255,255,255,0.55)' },
-  themeRow: {
-    marginTop: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: 'rgba(255,255,255,0.06)',
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.06)',
-  },
-  themeRowLabel: { color: '#F8FAFC', fontWeight: '800', fontSize: 14 },
-  themeRowAction: { color: 'rgba(255,255,255,0.65)', fontSize: 13 },
 });

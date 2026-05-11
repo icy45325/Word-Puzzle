@@ -12,6 +12,7 @@ import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
 import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import type { Friend } from '../services/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
@@ -19,6 +20,7 @@ import type { RootStackParamList } from '../../App';
 type Props = NativeStackScreenProps<RootStackParamList, 'Friends'>;
 
 export function FriendsScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const user = useCurrentUser();
   const { theme } = useTheme();

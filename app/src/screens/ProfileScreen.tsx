@@ -19,6 +19,7 @@ import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
 import { useSettings } from '../hooks/useSettings';
 import { feedback } from '../utils/feedback';
+import { notificationsService } from '../services/notifications/NotificationsService';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
@@ -35,6 +36,38 @@ export function ProfileScreen({ navigation }: Props) {
   const [learnedCount, setLearnedCount] = useState(0);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState('');
+  const [notifOptedIn, setNotifOptedIn] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    notificationsService.isOptedIn().then((v) => {
+      if (!cancelled) setNotifOptedIn(v);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const toggleNotif = async (value: boolean) => {
+    if (value) {
+      const ok = await notificationsService.requestPermission();
+      if (!ok) {
+        setNotifOptedIn(false);
+        return;
+      }
+      await notificationsService.setOptedIn(true);
+      setNotifOptedIn(true);
+      // Immediately arm tomorrow's reminders so opt-in feels real.
+      notificationsService.scheduleDailyCheckIn();
+      if (user) {
+        const due = await services.learnedWords.getDue(user.userId);
+        notificationsService.scheduleReviewDue(due.length);
+      }
+    } else {
+      await notificationsService.setOptedIn(false);
+      setNotifOptedIn(false);
+    }
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -118,6 +151,13 @@ export function ProfileScreen({ navigation }: Props) {
                 setSetting('haptics', v);
                 if (v) feedback('tick');
               }}
+              theme={theme}
+            />
+            <ToggleRow
+              icon="🔔"
+              label={t('profile.notificationsLabel', undefined, '推送提醒')}
+              value={notifOptedIn}
+              onChange={toggleNotif}
               theme={theme}
             />
           </View>

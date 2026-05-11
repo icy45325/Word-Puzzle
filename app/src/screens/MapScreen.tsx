@@ -14,6 +14,7 @@ import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import levelsJson from '../data/levels.json';
 import type { LevelDef } from '../utils/gridLayout';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -21,7 +22,9 @@ import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Map'>;
 
-const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).levels;
+const LEVELS = (levelsJson as {
+  levels: (LevelDef & { chapter?: number; difficulty?: number })[];
+}).levels;
 
 // Vertical pitch between consecutive nodes (node height + gap from styles).
 const NODE_PITCH = 84 + 28;
@@ -49,6 +52,7 @@ function chapterAt(oneBased: number): number {
 }
 
 export function MapScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();
@@ -148,6 +152,16 @@ export function MapScreen({ navigation }: Props) {
                     >
                       {oneBased}
                     </Text>
+                    {lvl.difficulty ? (
+                      <Text
+                        style={[
+                          styles.stars,
+                          isCurrent && styles.starsOnCurrent,
+                        ]}
+                      >
+                        {'★'.repeat(lvl.difficulty)}
+                      </Text>
+                    ) : null}
                     {isPassed ? (
                       <View style={styles.checkBadge}>
                         <Text style={styles.checkIcon}>✓</Text>
@@ -251,6 +265,14 @@ const styles = StyleSheet.create({
   },
   nodeLocked: { opacity: 0.45 },
   nodeLabel: { fontSize: 22, fontWeight: '900', color: '#F8FAFC' },
+  stars: {
+    fontSize: 8,
+    fontWeight: '900',
+    color: '#FACC15',
+    letterSpacing: 1,
+    marginTop: 2,
+  },
+  starsOnCurrent: { color: '#F59E0B' },
   checkBadge: {
     position: 'absolute',
     top: -8,

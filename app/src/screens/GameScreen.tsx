@@ -8,6 +8,7 @@ import { HintButton } from '../components/HintButton';
 import { LetterWheel } from '../components/LetterWheel';
 import { LevelCompleteModal } from '../components/LevelCompleteModal';
 import { OnboardingOverlay } from '../components/OnboardingOverlay';
+import { TutorialOverlay } from '../components/TutorialOverlay';
 import { TopBar } from '../components/TopBar';
 import { WordDetailModal } from '../components/WordDetailModal';
 import { WordPreview } from '../components/WordPreview';
@@ -16,6 +17,7 @@ import { useEconomy } from '../hooks/useEconomy';
 import { useGameState } from '../hooks/useGameState';
 import { useCurrentUser, useServices } from '../services';
 import { t } from '../i18n';
+import { useLocale } from '../i18n/useLocale';
 import { pickPraise, type PraiseKeys } from '../utils/praise';
 import { levelNumberOf } from '../utils/levelNumber';
 import levelsJson from '../data/levels.json';
@@ -31,6 +33,7 @@ const ALL_LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] 
   .levels;
 
 export function GameScreen({ navigation }: Props) {
+  useLocale();
   const services = useServices();
   const user = useCurrentUser();
   const { state: economyState } = useEconomy();
@@ -112,6 +115,7 @@ export function GameScreen({ navigation }: Props) {
   const [toast, setToast] = useState<string | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showHintTutorial, setShowHintTutorial] = useState(false);
 
   // First-launch tutorial overlay. We persist a one-shot flag so the
   // overlay only shows on the very first time this user opens the Game
@@ -127,9 +131,31 @@ export function GameScreen({ navigation }: Props) {
     };
   }, []);
 
+  // Hint-button tutorial fires the first time a level is completed AND
+  // the player hasn't seen this tutorial yet. We delay slightly so the
+  // level-complete modal pops first.
+  useEffect(() => {
+    if (!levelCompleted) return;
+    let cancelled = false;
+    AsyncStorage.getItem(storageKeys.onboarding('hint')).then((seen) => {
+      if (cancelled || seen) return;
+      setTimeout(() => {
+        if (!cancelled) setShowHintTutorial(true);
+      }, 1800);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [levelCompleted]);
+
   const dismissOnboarding = useCallback(() => {
     setShowOnboarding(false);
     AsyncStorage.setItem(storageKeys.onboarding('swipe'), '1').catch(() => undefined);
+  }, []);
+
+  const dismissHintTutorial = useCallback(() => {
+    setShowHintTutorial(false);
+    AsyncStorage.setItem(storageKeys.onboarding('hint'), '1').catch(() => undefined);
   }, []);
 
   const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
@@ -285,6 +311,15 @@ export function GameScreen({ navigation }: Props) {
         <OnboardingOverlay
           visible={showOnboarding}
           onDismiss={dismissOnboarding}
+        />
+        <TutorialOverlay
+          visible={showHintTutorial && !levelCompleted}
+          icon="💡"
+          titleKey="tutorial.hint.title"
+          bodyKey="tutorial.hint.body"
+          titleFallback="提示功能"
+          bodyFallback="卡住时点右上角 💡 揭示一个未填字母。每章结束送 3 个提示。"
+          onDismiss={dismissHintTutorial}
         />
       </SafeAreaView>
     </GradientBackground>

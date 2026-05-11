@@ -812,7 +812,27 @@ const CHAPTER_PROFILES = [
   { chapter: 8, lengths: [6, 6, 7] },
   { chapter: 9, lengths: [6, 7, 7] },
   { chapter: 10, lengths: [6, 7, 7] },
+  { chapter: 11, lengths: [5, 6, 6] },
+  { chapter: 12, lengths: [6, 6, 7] },
+  { chapter: 13, lengths: [6, 7, 7] },
+  { chapter: 14, lengths: [6, 7, 7] },
+  { chapter: 15, lengths: [5, 6, 7] },
+  { chapter: 16, lengths: [6, 6, 7] },
+  { chapter: 17, lengths: [6, 7, 7] },
+  { chapter: 18, lengths: [6, 7, 7] },
+  { chapter: 19, lengths: [6, 7, 7] },
+  { chapter: 20, lengths: [6, 7, 7] },
 ];
+
+// Difficulty rating per level, derived from mother-word length:
+//   1 star ★    — chapters of 3-4 letter mothers (warm-up)
+//   2 stars ★★  — 5-letter mothers
+//   3 stars ★★★ — 6-7 letter mothers
+function ratingForLength(len) {
+  if (len <= 4) return 1;
+  if (len === 5) return 2;
+  return 3;
+}
 
 const motherPool = {};
 for (const word of allWords) {
@@ -866,33 +886,69 @@ for (let chapterIdx = 0; chapterIdx < CHAPTER_PROFILES.length; chapterIdx++) {
     });
   }
   if (chapterLevels.length < need) {
-    console.warn(`Chapter ${profile.chapter}: generated ${chapterLevels.length}/${need} via profile. Padding from unused mothers.`);
-    const fallback = allWords.filter((w) => !usedMothers.has(w) && w.length >= 3 && w.length <= 7);
-    shuffle(fallback, rng);
-    for (const candidate of fallback) {
+    console.warn(`Chapter ${profile.chapter}: generated ${chapterLevels.length}/${need} via profile. Padding from broader pool.`);
+    // Padding order matters for difficulty curve: try long unused mothers
+    // first, then re-use already-used long mothers (so chapter 18 stays
+    // 6-7 letter even when fresh mothers are exhausted), then short
+    // fallbacks only as a last resort.
+    const profileLens = new Set(profile.lengths);
+    const longestInProfile = Math.max(...profile.lengths);
+    const passes = [
+      // Pass 1: any unused word in this chapter's length range
+      (w) => !usedMothers.has(w) && profileLens.has(w.length),
+      // Pass 2: any unused word from 5 letters up to chapter's max
+      (w) => !usedMothers.has(w) && w.length >= 5 && w.length <= longestInProfile,
+      // Pass 3: REUSE — long mothers already used, but they still
+      // generate a different level (random secondary picks) and keep
+      // difficulty. Mark with `reused: true` so we can dedupe later if
+      // needed.
+      (w) => w.length >= 5 && w.length <= longestInProfile,
+      // Pass 4: anything left as absolute last resort
+      (w) => !usedMothers.has(w) && w.length >= 3 && w.length <= 7,
+    ];
+    outer: for (const matcher of passes) {
+      const pool = allWords.filter(matcher);
+      shuffle(pool, rng);
+      for (const candidate of pool) {
+        if (chapterLevels.length >= need) break outer;
+        const answers = pickLevelAnswers(candidate, dictionary, rng);
+        if (!answers) continue;
+        // Don't add to usedMothers if reused — this lets later passes
+        // see it as available too. The 'reused' chapters will end up
+        // with deterministic but slightly different secondary picks
+        // because the rng has advanced.
+        if (!usedMothers.has(candidate)) usedMothers.add(candidate);
+        chapterLevels.push({
+          id: '',
+          letters: candidate.split(''),
+          answers,
+          chapter: profile.chapter,
+        });
+      }
       if (chapterLevels.length >= need) break;
-      const answers = pickLevelAnswers(candidate, dictionary, rng);
-      if (!answers) continue;
-      usedMothers.add(candidate);
-      chapterLevels.push({
-        id: '',
-        letters: candidate.split(''),
-        answers,
-        chapter: profile.chapter,
-      });
     }
   }
   levels.push(...chapterLevels);
 }
 
-if (levels.length < 60) {
-  console.error(`Only generated ${levels.length} levels. Need to expand dictionary.`);
+const TARGET_LEVELS = CHAPTER_PROFILES.length * wantPerChapter;
+if (levels.length < TARGET_LEVELS / 2) {
+  console.error(
+    `Only generated ${levels.length} of ${TARGET_LEVELS} target levels. Expand the dictionary.`
+  );
   process.exit(1);
 }
 
-// Renumber sequentially with zero-padded ids
+// Renumber sequentially with zero-padded ids + compute difficulty from
+// mother-word length (chapter 1 seeds use the H answer as canonical).
+// Keep ids zero-padded to 2 digits for L01..L99 (preserves existing
+// progress keys); levels L100+ naturally take 3 digits — levelNumberOf()
+// parses the number regardless of width.
 levels.forEach((lvl, idx) => {
-  lvl.id = `L${String(idx + 1).padStart(2, '0')}`;
+  const n = idx + 1;
+  lvl.id = `L${n < 100 ? String(n).padStart(2, '0') : String(n)}`;
+  const motherWord = lvl.answers.find((a) => a.dir === 'H')?.word ?? '';
+  lvl.difficulty = ratingForLength(motherWord.length);
 });
 
 // Validate every answer word has a dictionary entry

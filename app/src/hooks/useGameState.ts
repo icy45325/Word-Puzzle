@@ -14,6 +14,7 @@ import { computeScore, isPerfect } from '../utils/scoring';
 import { useCurrentUser, useServices } from '../services';
 import { uuidv4 } from '../utils/uuid';
 import { feedback } from '../utils/feedback';
+import { notificationsService } from '../services/notifications/NotificationsService';
 
 const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).levels;
 
@@ -349,6 +350,12 @@ export function useGameState() {
             [level.id]: Object.values(state.filledSlots),
           },
         });
+        // Re-arm tomorrow's review reminder based on how many SR-due
+        // words the player will have when they wake up. We schedule
+        // based on current due count; the reminder fires only if
+        // dueCount > 0, otherwise it's silently skipped.
+        const due = await services.learnedWords.getDue(user.userId);
+        notificationsService.scheduleReviewDue(due.length);
       })();
     }
     dispatch({ type: 'MARK_COMPLETE' });

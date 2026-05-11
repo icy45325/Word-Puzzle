@@ -8,6 +8,7 @@ import {
   type DailyCheckInReward,
 } from '../utils/dailyCheckIn';
 import { feedback } from '../utils/feedback';
+import { notificationsService } from '../services/notifications/NotificationsService';
 
 export interface DailyCheckInState {
   loaded: boolean;
@@ -79,6 +80,10 @@ export function useDailyCheckIn(): DailyCheckInState {
       props: { streakDays: fresh.nextStreak, isMilestone: fresh.isMilestone },
     });
     feedback(fresh.isMilestone ? 'celebrate' : 'coin');
+    // Re-schedule tomorrow's reminder so the streak nudge stays one day
+    // ahead of the user's last claim. Fire-and-forget; if perms aren't
+    // granted or the channel isn't there, the service no-ops.
+    notificationsService.scheduleDailyCheckIn();
     return computeReward(fresh.nextStreak, {
       baseCoins,
       perStreakCoins,

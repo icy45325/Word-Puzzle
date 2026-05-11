@@ -19,6 +19,7 @@ import { LoginScreen } from './src/screens/LoginScreen';
 import { MapScreen } from './src/screens/MapScreen';
 import { ReviewQuizScreen } from './src/screens/ReviewQuizScreen';
 import { loadPersistedLocale } from './src/i18n';
+import { useLocale } from './src/i18n/useLocale';
 import { loadSettings } from './src/hooks/useSettings';
 import { soundService } from './src/services/sound/SoundService';
 
@@ -51,6 +52,13 @@ const screenOptions: NativeStackNavigationOptions = {
 };
 
 export default function App() {
+  // Subscribe to locale changes at the root. When ProfileScreen toggles
+  // language, the version bump forces App to re-render, which propagates
+  // a new render down through every screen — without this, screens that
+  // only call t() (not useLocale()) would keep showing stale strings
+  // until they were navigated away from and back.
+  useLocale();
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>

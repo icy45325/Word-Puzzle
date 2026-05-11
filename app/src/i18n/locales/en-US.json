@@ -162,5 +162,19 @@
   "profile.hapticsLabel": "Haptic feedback",
   "onboarding.title": "Swipe letters to spell words",
   "onboarding.subtitle": "Press a letter, drag across the others, release to submit",
-  "onboarding.tapToDismiss": "Tap anywhere to start"
+  "onboarding.tapToDismiss": "Tap anywhere to start",
+  "theme.title": "Visual theme",
+  "theme.aurora.name": "Aurora Forest",
+  "theme.sunset.name": "Sunset Glow",
+  "theme.midnight.name": "Deep Sea Dream",
+  "theme.mint.name": "Mint Morning",
+  "profile.notificationsLabel": "Notifications",
+  "notif.dailyCheckIn.title": "Keep the streak going 🔥",
+  "notif.dailyCheckIn.body": "10 seconds to claim today's coins and grow your streak.",
+  "notif.review.title": "Words to review 📚",
+  "notif.review.body": "{count} word(s) are due. Quiz time = coin time.",
+  "tutorial.hint.title": "Hint feature",
+  "tutorial.hint.body": "Stuck? Tap 💡 in the top right to reveal one missing letter. Each chapter end grants 3 hints.",
+  "tutorial.streak.title": "Longer streak = bigger reward",
+  "tutorial.streak.body": "Coins and hints scale up with every day you return. Hit day 7 for a bonus chest — break the streak and it restarts."
 }
