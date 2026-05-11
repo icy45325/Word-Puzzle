@@ -227,6 +227,41 @@ one stops working immediately.
 
 ## 6. (Optional) Provisioning AdMob (rewarded video / interstitial)
 
+> ⚠️ **Current state (May 2026):** the `react-native-google-mobile-ads`
+> package is **not installed** in `package.json` and not declared as an
+> Expo plugin in `app.json`. The `MobileAdsService` source still ships,
+> but `isAdMobLoaded()` returns false at runtime, so `ServicesProvider`
+> picks `NoopAds` and the app just no-ops the ad calls. This keeps EAS
+> builds clean on Expo SDK 51 (where `react-native-google-mobile-ads@14+`
+> needs RN 0.75 / Kotlin 2.x that the SDK doesn't ship, and the older
+> v13 line dropped the Expo config plugin). Re-install when you're ready
+> to actually monetize — steps below.
+
+### Re-enabling AdMob
+
+1. **Bump Expo SDK first.** AdMob v14+ requires Expo SDK 52 (RN 0.76). On
+   SDK 51 you'd have to pin v13.x and write a manual native config — not
+   worth it. Run `npx expo upgrade` and resolve any peer warnings.
+2. Install the package: `npm i react-native-google-mobile-ads expo-build-properties`.
+3. Add the plugin back to `app.json`:
+
+```jsonc
+"plugins": [
+  ["expo-build-properties", {
+    "android": { "kotlinVersion": "2.0.21" },
+    "ios": { "useFrameworks": "static" }
+  }],
+  ["react-native-google-mobile-ads", {
+    "androidAppId": "ca-app-pub-XXXX~YYYY",
+    "iosAppId":     "ca-app-pub-XXXX~YYYY"
+  }]
+]
+```
+
+Once that's in, the service layer requires no changes — `isAdMobLoaded()`
+will start returning true on the next build and the existing
+HintInsufficientSheet "看广告 +1 提示" path lights up automatically.
+
 The `MobileAdsService` is wired into `ServicesProvider` and is preferred over
 `NoopAds` whenever the native module is linked (i.e. in any EAS build, dev
 build, or production APK — **not** in Expo Go). Out of the box it ships with
