@@ -7,15 +7,33 @@ const GAP = 6;
 
 interface Props {
   layout: LevelLayout;
-  foundWords: string[];
+  /** slotIndex → word the player filled in (may differ from the preset). */
+  filledSlots: Record<number, string>;
   revealedCells?: Record<string, true>;
 }
 
-export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
-  const foundSet = useMemo(
-    () => new Set(foundWords.map((w) => w.toUpperCase())),
-    [foundWords]
-  );
+export function CrosswordGrid({ layout, filledSlots, revealedCells }: Props) {
+  // For each cell, the letter to show comes from the first filled slot that
+  // covers it. For hint-revealed cells that no filled slot covers, we fall
+  // back to the canonical preset letter. Cells in only-unfilled slots stay
+  // blank.
+  const cellLetter = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const cell of layout.cells) {
+      const key = `${cell.row},${cell.col}`;
+      let resolved: string | null = null;
+      for (let i = 0; i < cell.slotIndexes.length; i++) {
+        const sIdx = cell.slotIndexes[i];
+        const filled = filledSlots[sIdx];
+        if (filled) {
+          resolved = filled[cell.posInSlot[i]] ?? null;
+          break;
+        }
+      }
+      map.set(key, resolved ?? cell.letter);
+    }
+    return map;
+  }, [layout, filledSlots]);
 
   const grid: (Cell | null)[][] = useMemo(() => {
     const rows: (Cell | null)[][] = Array.from({ length: layout.rows }, () =>
@@ -35,13 +53,15 @@ export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
             if (!cell) {
               return <View key={`c${r}-${c}`} style={styles.empty} />;
             }
-            const fromFound = cell.answerWords.some((w) => foundSet.has(w));
-            const fromHint = !!revealedCells?.[`${cell.row},${cell.col}`];
+            const key = `${cell.row},${cell.col}`;
+            const fromFound = cell.slotIndexes.some((sIdx) => filledSlots[sIdx]);
+            const fromHint = !!revealedCells?.[key];
             const revealed = fromFound || fromHint;
+            const letter = cellLetter.get(key) ?? cell.letter;
             return (
               <AnimatedCell
                 key={`c${r}-${c}`}
-                cell={cell}
+                letter={letter}
                 revealed={revealed}
                 fromFound={fromFound}
               />
@@ -54,21 +74,17 @@ export function CrosswordGrid({ layout, foundWords, revealedCells }: Props) {
 }
 
 interface AnimatedCellProps {
-  cell: Cell;
+  letter: string;
   revealed: boolean;
   fromFound: boolean;
 }
 
-function AnimatedCell({ cell, revealed, fromFound }: AnimatedCellProps) {
-  // Always render at scale 1 — empty placeholders and hidden cells must
-  // visually take the same 44×44 footprint. We only animate the spring
-  // pop on the false→true transition.
+function AnimatedCell({ letter, revealed, fromFound }: AnimatedCellProps) {
   const scale = useRef(new Animated.Value(1)).current;
   const wasRevealed = useRef(revealed);
 
   useEffect(() => {
     if (!wasRevealed.current && revealed) {
-      // pop: 0.5 → overshoot ~1.15 → settle at 1
       scale.setValue(0.5);
       Animated.spring(scale, {
         toValue: 1,
@@ -99,7 +115,7 @@ function AnimatedCell({ cell, revealed, fromFound }: AnimatedCellProps) {
             fromFound ? styles.letterFound : styles.letterHinted,
           ]}
         >
-          {cell.letter}
+          {letter}
         </Text>
       ) : null}
     </Animated.View>

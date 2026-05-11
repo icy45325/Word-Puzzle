@@ -1,8 +1,15 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import levelsJson from '../data/levels.json';
-import { isInDictionary, lookup, normalize } from '../utils/wordValidation';
-import { Cell, LevelDef, LevelLayout, layoutLevel } from '../utils/gridLayout';
+import { lookup, normalize } from '../utils/wordValidation';
+import {
+  Cell,
+  LevelDef,
+  LevelLayout,
+  layoutLevel,
+  findSlotForWord,
+  isWordAlreadyFilled,
+} from '../utils/gridLayout';
 import { computeScore, isPerfect } from '../utils/scoring';
 import { useCurrentUser, useServices } from '../services';
 import { uuidv4 } from '../utils/uuid';
@@ -11,8 +18,13 @@ import { feedback } from '../utils/feedback';
 const LEVELS = (levelsJson as { levels: (LevelDef & { chapter?: number })[] }).levels;
 
 export type SubmitOutcome =
-  | { kind: 'answer'; word: string; isBonus: false; failedCountForThisWord: number }
-  | { kind: 'bonus'; word: string; isBonus: true }
+  | {
+      kind: 'answer';
+      word: string;
+      isBonus: false;
+      slotIndex: number;
+      failedCountForThisWord: number;
+    }
   | { kind: 'duplicate'; word: string }
   | { kind: 'not_a_word'; word: string }
   | { kind: 'already_in_level'; word: string };
@@ -20,10 +32,12 @@ export type SubmitOutcome =
 interface State {
   levelIndex: number;
   loaded: boolean;
-  foundAnswers: string[];
-  bonusWords: string[];
+  /** slot index → the word the player spelled to fill it */
+  filledSlots: Record<number, string>;
   startedAt: number;
   hintsUsed: number;
+  /** Per-slot count of failed attempts before that slot was filled. Keyed
+   *  by the canonical preset word for that slot (stable across replays). */
   failedAttempts: Record<string, number>;
   revealedCells: Record<string, true>;
   lastOutcome: SubmitOutcome | null;
@@ -32,9 +46,8 @@ interface State {
 
 type Action =
   | { type: 'HYDRATE'; levelIndex: number }
-  | { type: 'ANSWER_FOUND'; word: string; failedCount: number }
-  | { type: 'BONUS_FOUND'; word: string }
-  | { type: 'FAIL'; outcome: SubmitOutcome; undiscoveredTargets: string[] }
+  | { type: 'SLOT_FILLED'; slotIndex: number; word: string; failedCount: number }
+  | { type: 'FAIL'; outcome: SubmitOutcome; bumpSlots: string[] }
   | { type: 'NEUTRAL'; outcome: SubmitOutcome }
   | { type: 'REVEAL_CELL'; cellKey: string }
   | { type: 'NEXT_LEVEL'; levelIndex: number }
@@ -43,8 +56,7 @@ type Action =
 
 const freshLevelState = (levelIndex: number): Omit<State, 'loaded'> => ({
   levelIndex,
-  foundAnswers: [],
-  bonusWords: [],
+  filledSlots: {},
   startedAt: Date.now(),
   hintsUsed: 0,
   failedAttempts: {},
@@ -57,34 +69,23 @@ function reducer(state: State, action: Action): State {
   switch (action.type) {
     case 'HYDRATE':
       return { ...freshLevelState(action.levelIndex), loaded: true };
-    case 'ANSWER_FOUND': {
+    case 'SLOT_FILLED': {
       const outcome: SubmitOutcome = {
         kind: 'answer',
         word: action.word,
         isBonus: false,
+        slotIndex: action.slotIndex,
         failedCountForThisWord: action.failedCount,
       };
       return {
         ...state,
-        foundAnswers: [...state.foundAnswers, action.word],
-        lastOutcome: outcome,
-      };
-    }
-    case 'BONUS_FOUND': {
-      const outcome: SubmitOutcome = {
-        kind: 'bonus',
-        word: action.word,
-        isBonus: true,
-      };
-      return {
-        ...state,
-        bonusWords: [...state.bonusWords, action.word],
+        filledSlots: { ...state.filledSlots, [action.slotIndex]: action.word },
         lastOutcome: outcome,
       };
     }
     case 'FAIL': {
       const next = { ...state.failedAttempts };
-      for (const w of action.undiscoveredTargets) {
+      for (const w of action.bumpSlots) {
         next[w] = (next[w] ?? 0) + 1;
       }
       return {
@@ -128,10 +129,6 @@ export function useGameState() {
     loaded: false,
   }));
 
-  // Hydrate from persisted progress every time the screen gains focus.
-  // This way picking a different level on the Map and popping back here
-  // (without replace()) still re-loads to the picked level — the existing
-  // GameScreen instance gets re-hydrated rather than showing stale state.
   useFocusEffect(
     useCallback(() => {
       let cancelled = false;
@@ -156,25 +153,32 @@ export function useGameState() {
 
   const level = LEVELS[state.levelIndex];
   const layout: LevelLayout = useMemo(() => layoutLevel(level), [level]);
-  const totalAnswers = layout.answerWords.length;
+  const totalAnswers = layout.slots.length;
 
-  // Build word→cells (ordered) lookup so revealLetter can pick the next
-  // unrevealed cell deterministically.
-  const wordCells = useMemo(() => {
-    const map = new Map<string, Cell[]>();
-    for (const ans of level.answers) {
-      const w = ans.word.toUpperCase();
+  // foundAnswers in the legacy shape (list of filled words) for screens that
+  // still iterate by word rather than by slot — chapter end, WordsFoundPanel.
+  const foundAnswers = useMemo(
+    () => Object.values(state.filledSlots),
+    [state.filledSlots]
+  );
+
+  // Map from slot index → ordered cells, for the hint-reveal picker so it
+  // can find the next-unrevealed cell of any unfilled slot.
+  const slotCells = useMemo(() => {
+    const map = new Map<number, Cell[]>();
+    for (let i = 0; i < layout.slots.length; i++) {
+      const slot = layout.slots[i];
       const cells: Cell[] = [];
-      for (let i = 0; i < w.length; i++) {
-        const r = ans.dir === 'H' ? ans.row : ans.row + i;
-        const c = ans.dir === 'H' ? ans.col + i : ans.col;
+      for (let p = 0; p < slot.length; p++) {
+        const r = slot.dir === 'H' ? slot.row : slot.row + p;
+        const c = slot.dir === 'H' ? slot.col + p : slot.col;
         const cell = layout.cells.find((cc) => cc.row === r && cc.col === c);
         if (cell) cells.push(cell);
       }
-      map.set(w, cells);
+      map.set(i, cells);
     }
     return map;
-  }, [layout, level]);
+  }, [layout]);
 
   useEffect(() => {
     if (!user || !state.loaded) return;
@@ -185,104 +189,90 @@ export function useGameState() {
   const submitWord = useCallback(
     (raw: string): SubmitOutcome => {
       const word = normalize(raw);
-      if (word.length < 2) {
+      // Treat short / non-word submissions as misses.
+      if (word.length < 2 || !lookup(word)) {
         const outcome: SubmitOutcome = { kind: 'not_a_word', word };
-        const undiscovered = layout.answerWords.filter(
-          (w) => !state.foundAnswers.includes(w)
-        );
-        dispatch({ type: 'FAIL', outcome, undiscoveredTargets: undiscovered });
+        // Bump the failed-attempt counter for every still-unfilled slot's
+        // canonical word — the 3-fail-then-auto-open detail behavior keys
+        // off this map.
+        const unfilledCanonicals = layout.slots
+          .map((s, i) => (state.filledSlots[i] ? null : s.word))
+          .filter((w): w is string => w != null);
+        dispatch({
+          type: 'FAIL',
+          outcome,
+          bumpSlots: unfilledCanonicals,
+        });
         return outcome;
       }
-      const isAnswer = layout.answerWords.includes(word);
-      if (isAnswer) {
-        if (state.foundAnswers.includes(word)) {
-          const outcome: SubmitOutcome = { kind: 'already_in_level', word };
-          const undiscovered = layout.answerWords.filter(
-            (w) => !state.foundAnswers.includes(w)
-          );
-          dispatch({ type: 'FAIL', outcome, undiscoveredTargets: undiscovered });
-          return outcome;
-        }
-        const failedCount = state.failedAttempts[word] ?? 0;
-        dispatch({ type: 'ANSWER_FOUND', word, failedCount });
-        feedback('correct');
-        services.analytics.track({
-          name: 'word_found',
-          props: { word, levelId: level.id, bonus: false },
-        });
-        if (user) {
-          services.economy.grant(user.userId, {
-            type: 'word_found',
-            word,
-            length: word.length,
-          });
-          services.learnedWords.add(user.userId, {
-            word,
-            levelId: level.id,
-            firstFoundAt: Date.now(),
-            isBonus: false,
-          });
-        }
-        return {
-          kind: 'answer',
+      // Already-filled check: if this exact word already fills a slot, no-op.
+      if (isWordAlreadyFilled(state.filledSlots, word)) {
+        const outcome: SubmitOutcome = { kind: 'already_in_level', word };
+        dispatch({ type: 'NEUTRAL', outcome });
+        return outcome;
+      }
+      // Find a slot that accepts this word.
+      const slotIdx = findSlotForWord(layout, state.filledSlots, word);
+      if (slotIdx == null) {
+        // Word is in dictionary but doesn't fit any unfilled slot. Per the
+        // updated rules we just silently skip — no bonus tracking, no
+        // wrong feedback (so the player doesn't get punished for legit
+        // anagrams that just happen not to fit).
+        const outcome: SubmitOutcome = { kind: 'duplicate', word };
+        dispatch({ type: 'NEUTRAL', outcome });
+        return outcome;
+      }
+      const canonical = layout.slots[slotIdx].word;
+      const failedCount = state.failedAttempts[canonical] ?? 0;
+      dispatch({
+        type: 'SLOT_FILLED',
+        slotIndex: slotIdx,
+        word,
+        failedCount,
+      });
+      feedback('correct');
+      services.analytics.track({
+        name: 'word_found',
+        props: { word, levelId: level.id, bonus: false },
+      });
+      if (user) {
+        services.economy.grant(user.userId, {
+          type: 'word_found',
           word,
-          isBonus: false,
-          failedCountForThisWord: failedCount,
-        };
-      }
-      if (isInDictionary(word)) {
-        if (state.bonusWords.includes(word)) {
-          const outcome: SubmitOutcome = { kind: 'duplicate', word };
-          dispatch({ type: 'NEUTRAL', outcome });
-          return outcome;
-        }
-        const outcome: SubmitOutcome = { kind: 'bonus', word, isBonus: true };
-        dispatch({ type: 'BONUS_FOUND', word });
-        feedback('bonus');
-        services.analytics.track({
-          name: 'word_found',
-          props: { word, levelId: level.id, bonus: true },
+          length: word.length,
         });
-        if (user) {
-          services.economy.grant(user.userId, {
-            type: 'word_found',
-            word,
-            length: word.length,
-          });
-          services.learnedWords.add(user.userId, {
-            word,
-            levelId: level.id,
-            firstFoundAt: Date.now(),
-            isBonus: true,
-          });
-        }
-        return outcome;
+        services.learnedWords.add(user.userId, {
+          word,
+          levelId: level.id,
+          firstFoundAt: Date.now(),
+          isBonus: false,
+        });
       }
-      const outcome: SubmitOutcome = { kind: 'not_a_word', word };
-      const undiscovered = layout.answerWords.filter(
-        (w) => !state.foundAnswers.includes(w)
-      );
-      dispatch({ type: 'FAIL', outcome, undiscoveredTargets: undiscovered });
-      if (word.length >= 2) feedback('wrong');
-      return outcome;
+      return {
+        kind: 'answer',
+        word,
+        isBonus: false,
+        slotIndex: slotIdx,
+        failedCountForThisWord: failedCount,
+      };
     },
-    [layout, level.id, services, state.bonusWords, state.foundAnswers, state.failedAttempts, user]
+    [layout, level.id, services, state.failedAttempts, state.filledSlots, user]
   );
 
   const revealLetter = useCallback(async (): Promise<RevealResult> => {
     if (!user) return { ok: false, reason: 'no_hints' };
-    const undiscovered = layout.answerWords.filter(
-      (w) => !state.foundAnswers.includes(w)
-    );
     let pickedKey: string | null = null;
-    for (const word of undiscovered) {
-      const cells = wordCells.get(word) ?? [];
+    for (let i = 0; i < layout.slots.length; i++) {
+      if (state.filledSlots[i]) continue;
+      const cells = slotCells.get(i) ?? [];
       for (const cell of cells) {
         const key = `${cell.row},${cell.col}`;
-        const alreadyRevealedByFound = cell.answerWords.some((w) =>
-          state.foundAnswers.includes(w)
+        // If this cell is already revealed (by hint or by another filled
+        // slot's letters being visible), skip.
+        const alreadyByOtherSlot = cell.slotIndexes.some(
+          (sIdx) => state.filledSlots[sIdx]
         );
-        if (alreadyRevealedByFound) continue;
+        if (alreadyByOtherSlot) continue;
         if (state.revealedCells[key]) continue;
         pickedKey = key;
         break;
@@ -299,17 +289,17 @@ export function useGameState() {
       props: { levelId: level.id, kind: 'reveal_letter' },
     });
     return { ok: true };
-  }, [layout, level.id, services, state.foundAnswers, state.revealedCells, user, wordCells]);
+  }, [layout, level.id, services, slotCells, state.filledSlots, state.revealedCells, user]);
 
   // Persist progress + run side effects on level complete.
   useEffect(() => {
     if (submittingComplete.current) return;
     if (!state.loaded) return;
-    if (state.foundAnswers.length !== totalAnswers) return;
+    if (Object.keys(state.filledSlots).length !== totalAnswers) return;
     submittingComplete.current = true;
     const timeMs = Date.now() - state.startedAt;
     const scoreInput = {
-      wordsFound: state.foundAnswers.length,
+      wordsFound: totalAnswers,
       totalWords: totalAnswers,
       timeMs,
       hintsUsed: state.hintsUsed,
@@ -333,14 +323,13 @@ export function useGameState() {
         userId: user.userId,
         levelId: level.id,
         score,
-        wordsFound: scoreInput.wordsFound,
+        wordsFound: totalAnswers,
         totalWords: totalAnswers,
         timeMs,
         hintsUsed: state.hintsUsed,
         clientTs: Date.now(),
         schemaVersion: 1,
       });
-      // Persist progress: bump furthestLevelIndex past the level just cleared.
       (async () => {
         const prev = await services.progress.load(user.userId);
         const newFurthest = Math.max(
@@ -357,7 +346,7 @@ export function useGameState() {
           completedLevelIds: completedIds,
           foundWordsByLevel: {
             ...prev.foundWordsByLevel,
-            [level.id]: [...state.foundAnswers, ...state.bonusWords],
+            [level.id]: Object.values(state.filledSlots),
           },
         });
       })();
@@ -366,8 +355,7 @@ export function useGameState() {
   }, [
     level.id,
     services,
-    state.bonusWords,
-    state.foundAnswers,
+    state.filledSlots,
     state.hintsUsed,
     state.levelIndex,
     state.loaded,
@@ -423,8 +411,11 @@ export function useGameState() {
   return {
     level,
     layout,
-    foundAnswers: state.foundAnswers,
-    bonusWords: state.bonusWords,
+    filledSlots: state.filledSlots,
+    foundAnswers,
+    // Kept as empty array for backward compat with screens that still
+    // destructure `bonusWords`; the new rules drop bonus tracking.
+    bonusWords: [] as string[],
     lastOutcome: state.lastOutcome,
     levelCompleted: state.levelCompleted,
     isChapterEnd,

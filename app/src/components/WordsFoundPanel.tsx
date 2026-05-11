@@ -4,27 +4,28 @@ import { t } from '../i18n';
 
 interface Props {
   visible: boolean;
+  /** The words the player spelled in to fill the level's slots. With the
+   *  multi-acceptable-words rules in place we don't track "bonus" anymore;
+   *  this panel just lists what was filled. */
   foundAnswers: string[];
-  bonusWords: string[];
   onClose: () => void;
-  onTapWord: (word: string, isBonus: boolean) => void;
+  onTapWord: (word: string) => void;
 }
 
 export function WordsFoundPanel({
   visible,
   foundAnswers,
-  bonusWords,
   onClose,
   onTapWord,
 }: Props) {
-  const isEmpty = foundAnswers.length === 0 && bonusWords.length === 0;
+  const isEmpty = foundAnswers.length === 0;
   return (
     <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose} />
       <View style={styles.sheet}>
         <View style={styles.header}>
           <Text style={styles.title}>
-            {t('wordsFound.title')} ({foundAnswers.length + bonusWords.length})
+            {t('wordsFound.title')} ({foundAnswers.length})
           </Text>
           <Pressable onPress={onClose} hitSlop={12}>
             <Text style={styles.close}>×</Text>
@@ -38,19 +39,9 @@ export function WordsFoundPanel({
               <Pressable
                 key={`a-${w}`}
                 style={styles.row}
-                onPress={() => onTapWord(w, false)}
+                onPress={() => onTapWord(w)}
               >
                 <Text style={styles.word}>{w}</Text>
-              </Pressable>
-            ))}
-            {bonusWords.map((w) => (
-              <Pressable
-                key={`b-${w}`}
-                style={[styles.row, styles.bonusRow]}
-                onPress={() => onTapWord(w, true)}
-              >
-                <Text style={styles.word}>{w}</Text>
-                <Text style={styles.bonusTag}>{t('wordsFound.bonus')}</Text>
               </Pressable>
             ))}
           </ScrollView>
@@ -108,19 +99,10 @@ const styles = StyleSheet.create({
     borderBottomColor: '#1C3D57',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  bonusRow: {},
   word: {
     fontSize: 18,
     color: '#F7F9FC',
     fontWeight: '600',
     letterSpacing: 1.5,
-  },
-  bonusTag: {
-    fontSize: 11,
-    color: '#F7C948',
-    backgroundColor: 'rgba(247, 201, 72, 0.15)',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 8,
   },
 });

@@ -38,7 +38,7 @@ export function GameScreen({ navigation }: Props) {
     level,
     layout,
     foundAnswers,
-    bonusWords,
+    filledSlots,
     totalAnswers,
     levelCompleted,
     isChapterEnd,
@@ -95,13 +95,12 @@ export function GameScreen({ navigation }: Props) {
         for (const w of progress.foundWordsByLevel[id] ?? []) words.add(w);
       }
       for (const w of foundAnswers) words.add(w);
-      for (const w of bonusWords) words.add(w);
       if (!cancelled) setChapterWords([...words].sort());
     })();
     return () => {
       cancelled = true;
     };
-  }, [isChapterEnd, chapterIndex, services, user, foundAnswers, bonusWords]);
+  }, [isChapterEnd, chapterIndex, services, user, foundAnswers]);
 
   const failsBeforeAutoOpen = services.remoteConfig.getNumber(
     'wordDetail.failsBeforeAutoOpen',
@@ -158,12 +157,10 @@ export function GameScreen({ navigation }: Props) {
         } else {
           showToast(t('game.toast.coinReward', { coins: coinsForWord(outcome.word.length) }));
         }
-      } else if (outcome.kind === 'bonus') {
-        // #9: bonus words are no longer surfaced as "额外". Just show the
-        // same coin reward toast as a target-word find. Internally still
-        // tracked for learnedWords purposes.
-        showToast(t('game.toast.coinReward', { coins: coinsForWord(outcome.word.length) }));
       } else if (outcome.kind === 'already_in_level' || outcome.kind === 'duplicate') {
+        // 'duplicate' is now emitted when a valid dictionary word doesn't
+        // fit any unfilled slot — we just silently toast and move on (no
+        // wrong-feedback, no bonus tracking).
         showToast(t('game.toast.duplicate'), 800);
       } else if (outcome.kind === 'not_a_word' && raw.length >= 2) {
         wrongAttemptsRef.current += 1;
@@ -206,7 +203,7 @@ export function GameScreen({ navigation }: Props) {
         <View style={styles.gridWrap}>
           <CrosswordGrid
             layout={layout}
-            foundWords={foundAnswers}
+            filledSlots={filledSlots}
             revealedCells={revealedCells}
           />
         </View>
@@ -220,9 +217,7 @@ export function GameScreen({ navigation }: Props) {
             onPress={() => setPanelOpen(true)}
           >
             <Text style={styles.foundBtnText}>
-              {t('game.wordsFound', {
-                count: foundAnswers.length + bonusWords.length,
-              })}
+              {t('game.wordsFound', { count: foundAnswers.length })}
             </Text>
           </Pressable>
         </View>
@@ -249,11 +244,10 @@ export function GameScreen({ navigation }: Props) {
         <WordsFoundPanel
           visible={panelOpen}
           foundAnswers={foundAnswers}
-          bonusWords={bonusWords}
           onClose={() => setPanelOpen(false)}
-          onTapWord={(word, isBonus) => {
+          onTapWord={(word) => {
             setPanelOpen(false);
-            setDetail({ word, isBonus });
+            setDetail({ word, isBonus: false });
           }}
         />
 
