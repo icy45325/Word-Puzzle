@@ -9,7 +9,9 @@ import { LetterWheel } from '../components/LetterWheel';
 import { LevelCompleteModal } from '../components/LevelCompleteModal';
 import { OnboardingOverlay } from '../components/OnboardingOverlay';
 import { TutorialOverlay } from '../components/TutorialOverlay';
+import { NotificationOptInPrompt } from '../components/NotificationOptInPrompt';
 import { TopBar } from '../components/TopBar';
+import { notificationsService } from '../services/notifications/NotificationsService';
 import { WordDetailModal } from '../components/WordDetailModal';
 import { WordPreview } from '../components/WordPreview';
 import { WordsFoundPanel } from '../components/WordsFoundPanel';
@@ -117,6 +119,7 @@ export function GameScreen({ navigation }: Props) {
   const [panelOpen, setPanelOpen] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showHintTutorial, setShowHintTutorial] = useState(false);
+  const [showNotifPrompt, setShowNotifPrompt] = useState(false);
 
   // First-launch tutorial overlay. We persist a one-shot flag so the
   // overlay only shows on the very first time this user opens the Game
@@ -149,6 +152,28 @@ export function GameScreen({ navigation }: Props) {
     };
   }, [levelCompleted]);
 
+  // Notification opt-in prompt: ask after the first level complete, only
+  // if the user hasn't already decided. Uses the same one-shot
+  // AsyncStorage flag pattern as the other tutorials so we never bug a
+  // user who said "稍后再说".
+  useEffect(() => {
+    if (!levelCompleted) return;
+    let cancelled = false;
+    (async () => {
+      const seen = await AsyncStorage.getItem(storageKeys.onboarding('notif'));
+      if (seen || cancelled) return;
+      const optedIn = await notificationsService.isOptedIn();
+      if (optedIn || cancelled) return;
+      // Stagger after the hint tutorial so we don't double-pop overlays.
+      setTimeout(() => {
+        if (!cancelled) setShowNotifPrompt(true);
+      }, 3200);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [levelCompleted]);
+
   const dismissOnboarding = useCallback(() => {
     setShowOnboarding(false);
     AsyncStorage.setItem(storageKeys.onboarding('swipe'), '1').catch(() => undefined);
@@ -158,6 +183,27 @@ export function GameScreen({ navigation }: Props) {
     setShowHintTutorial(false);
     AsyncStorage.setItem(storageKeys.onboarding('hint'), '1').catch(() => undefined);
   }, []);
+
+  const dismissNotifPrompt = useCallback(() => {
+    setShowNotifPrompt(false);
+    AsyncStorage.setItem(storageKeys.onboarding('notif'), '1').catch(() => undefined);
+  }, []);
+
+  const allowNotifPrompt = useCallback(async () => {
+    setShowNotifPrompt(false);
+    AsyncStorage.setItem(storageKeys.onboarding('notif'), '1').catch(() => undefined);
+    const ok = await notificationsService.requestPermission();
+    if (!ok) return;
+    await notificationsService.setOptedIn(true);
+    notificationsService.scheduleWelcome();
+    notificationsService.scheduleDailyCheckIn();
+    if (user) {
+      const due = await services.learnedWords.getDue(user.userId);
+      notificationsService.scheduleReviewDue(due.length);
+      const econ = await services.economy.getState(user.userId);
+      notificationsService.scheduleStreakWarning(econ.streakDays);
+    }
+  }, [services, user]);
 
   const hintCapLevel = services.remoteConfig.getNumber('chapter.hintCapLevel', 50);
   const chapterHintsGranted = services.remoteConfig.getNumber('chapter.hintsGranted', 3);
@@ -333,6 +379,11 @@ export function GameScreen({ navigation }: Props) {
           titleFallback="提示功能"
           bodyFallback="卡住时点右上角 💡 揭示一个未填字母。每章结束送 3 个提示。"
           onDismiss={dismissHintTutorial}
+        />
+        <NotificationOptInPrompt
+          visible={showNotifPrompt && !levelCompleted}
+          onAllow={allowNotifPrompt}
+          onDismiss={dismissNotifPrompt}
         />
       </SafeAreaView>
     </GradientBackground>

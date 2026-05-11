@@ -80,10 +80,11 @@ export function useDailyCheckIn(): DailyCheckInState {
       props: { streakDays: fresh.nextStreak, isMilestone: fresh.isMilestone },
     });
     feedback(fresh.isMilestone ? 'celebrate' : 'coin');
-    // Re-schedule tomorrow's reminder so the streak nudge stays one day
-    // ahead of the user's last claim. Fire-and-forget; if perms aren't
-    // granted or the channel isn't there, the service no-ops.
+    // Re-schedule tomorrow's daily reminder + evening streak warning.
+    // Both fire-and-forget; if perms aren't granted or service isn't
+    // linked, they no-op silently.
     notificationsService.scheduleDailyCheckIn();
+    notificationsService.scheduleStreakWarning(fresh.nextStreak);
     return computeReward(fresh.nextStreak, {
       baseCoins,
       perStreakCoins,

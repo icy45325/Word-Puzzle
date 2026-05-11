@@ -57,11 +57,18 @@ export function ProfileScreen({ navigation }: Props) {
       }
       await notificationsService.setOptedIn(true);
       setNotifOptedIn(true);
+      // Fire a welcome ping (~5s later) so the user sees what reminders
+      // look like + confirms perms actually work.
+      notificationsService.scheduleWelcome();
       // Immediately arm tomorrow's reminders so opt-in feels real.
       notificationsService.scheduleDailyCheckIn();
       if (user) {
         const due = await services.learnedWords.getDue(user.userId);
         notificationsService.scheduleReviewDue(due.length);
+        // Also arm the evening streak warning if the user already has
+        // a running streak.
+        const econ = await services.economy.getState(user.userId);
+        notificationsService.scheduleStreakWarning(econ.streakDays);
       }
     } else {
       await notificationsService.setOptedIn(false);
