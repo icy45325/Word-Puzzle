@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Dimensions,
   Pressable,
@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
+import Svg, { Path } from 'react-native-svg';
 import { useCurrentUser, useServices } from '../services';
 import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
+import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
 import levelsJson from '../data/levels.json';
@@ -26,29 +28,39 @@ const LEVELS = (levelsJson as {
   levels: (LevelDef & { chapter?: number; difficulty?: number })[];
 }).levels;
 
-// Vertical pitch between consecutive nodes (node height + gap from styles).
-const NODE_PITCH = 84 + 28;
+// ── Layout constants ─────────────────────────────────────────────────────
+const NODE_SIZE = 60;
+const NODE_PITCH = 110; // vertical distance between consecutive level centers
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const MAP_WIDTH = Math.min(SCREEN_WIDTH - 40, 320);
+const CENTER_X = MAP_WIDTH / 2;
+const WAVE_AMPLITUDE = MAP_WIDTH * 0.28; // how far nodes swing left/right
+const WAVE_FREQ = 0.8;
+const TOP_PADDING = 60;
+const BOTTOM_PADDING = 80;
+const TOTAL_HEIGHT =
+  LEVELS.length * NODE_PITCH + TOP_PADDING + BOTTOM_PADDING;
 
-// First level number of each chapter (1-based). Used to anchor the chapter
-// header band so we don't repeat "第N章" on every node.
-const CHAPTER_STARTS = (() => {
-  const seen = new Set<number>();
-  const starts: { chapter: number; oneBased: number }[] = [];
-  LEVELS.forEach((lvl, i) => {
-    if (lvl.chapter && !seen.has(lvl.chapter)) {
-      seen.add(lvl.chapter);
-      starts.push({ chapter: lvl.chapter, oneBased: i + 1 });
-    }
-  });
-  return starts;
-})();
+/** y-coordinate (in content space, 0 = top of scrollable content) for the
+ *  given 1-based level. Levels grow upward: level 1 sits at the bottom,
+ *  level N at the top. */
+function yForLevel(oneBased: number): number {
+  return TOTAL_HEIGHT - BOTTOM_PADDING - (oneBased - 1) * NODE_PITCH;
+}
 
-function chapterAt(oneBased: number): number {
-  let cur = 1;
-  for (const s of CHAPTER_STARTS) {
-    if (oneBased >= s.oneBased) cur = s.chapter;
+/** x-coordinate for a level, swinging left/right via sin(). */
+function xForLevel(oneBased: number): number {
+  return CENTER_X + Math.sin(oneBased * WAVE_FREQ) * WAVE_AMPLITUDE;
+}
+
+/** SVG path "M ... L ..." between [fromLevel, toLevel] inclusive. */
+function pathBetween(fromLevel: number, toLevel: number): string {
+  if (toLevel < fromLevel) return '';
+  let d = `M ${xForLevel(fromLevel).toFixed(1)} ${yForLevel(fromLevel).toFixed(1)}`;
+  for (let i = fromLevel + 1; i <= toLevel; i++) {
+    d += ` L ${xForLevel(i).toFixed(1)} ${yForLevel(i).toFixed(1)}`;
   }
-  return cur;
+  return d;
 }
 
 export function MapScreen({ navigation }: Props) {
@@ -56,28 +68,25 @@ export function MapScreen({ navigation }: Props) {
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();
+  const { theme } = useTheme();
   const furthest = unlocks.furthestLevel;
   const scrollRef = useRef<ScrollView>(null);
 
-  // Re-pull unlock state when this screen comes back into focus, so the
-  // map reflects the latest furthestLevel after the user just finished
-  // a level and popped back to here.
+  // Refresh unlock state on focus so finishing a level and popping back
+  // here shows the updated current level.
   useFocusEffect(
     React.useCallback(() => {
       unlocks.refresh();
     }, [unlocks])
   );
 
-  // Auto-scroll so the current level sits roughly 1/3 down the viewport.
+  // Auto-scroll so the current level sits roughly mid-viewport.
   useEffect(() => {
     if (!unlocks.loaded) return;
-    const screenH = Dimensions.get('window').height;
-    const targetY = Math.max(
-      0,
-      (furthest - 1) * NODE_PITCH - screenH * 0.33
-    );
+    const viewportH = Dimensions.get('window').height;
+    const y = yForLevel(furthest) - viewportH * 0.5;
     const timer = setTimeout(() => {
-      scrollRef.current?.scrollTo({ y: targetY, animated: false });
+      scrollRef.current?.scrollTo({ y: Math.max(0, y), animated: false });
     }, 50);
     return () => clearTimeout(timer);
   }, [unlocks.loaded, furthest]);
@@ -87,16 +96,24 @@ export function MapScreen({ navigation }: Props) {
     const idx = Math.max(0, Math.min(LEVELS.length - 1, oneBased - 1));
     const prev = await services.progress.load(user.userId);
     await services.progress.save({ ...prev, currentLevelIndex: idx });
-    // navigate() pops back to the existing Game screen if one is on the
-    // stack; useGameState now re-hydrates on focus so the picked level
-    // takes effect even when reusing the old instance.
     navigation.navigate('Game');
   };
+
+  const playCurrent = () => handlePick(furthest);
+
+  // Build the two paths: the full dashed track and the lit-up progress.
+  const fullPathD = useMemo(() => pathBetween(1, LEVELS.length), []);
+  const progressPathD = useMemo(
+    () => pathBetween(1, furthest),
+    [furthest]
+  );
 
   return (
     <GradientBackground>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
         <TopBar />
+
+        {/* Compact header row: back arrow + progress pill */}
         <View style={styles.headerRow}>
           <Pressable
             style={styles.backBtn}
@@ -104,82 +121,173 @@ export function MapScreen({ navigation }: Props) {
           >
             <Text style={styles.backIcon}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>{t('map.title')}</Text>
+          <View style={styles.progressPill}>
+            <View
+              style={[
+                styles.progressBadge,
+                { backgroundColor: theme.primary },
+              ]}
+            >
+              <Text style={[styles.progressBadgeIcon, { color: theme.primaryText }]}>
+                🏆
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.progressLabel}>
+                {t('map.progressLabel', undefined, 'PROGRESS')}
+              </Text>
+              <Text style={styles.progressValue}>Lv. {furthest}</Text>
+            </View>
+          </View>
         </View>
 
+        {/* Scrollable wavy map */}
         <ScrollView
           ref={scrollRef}
-          contentContainerStyle={styles.scroll}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContent}
         >
-          <View style={styles.path}>
-            <View style={styles.pathLine} />
+          <View
+            style={[
+              styles.mapInner,
+              { width: MAP_WIDTH, height: TOTAL_HEIGHT },
+            ]}
+          >
+            {/* Background dashed track + progress overlay */}
+            <Svg
+              width={MAP_WIDTH}
+              height={TOTAL_HEIGHT}
+              style={StyleSheet.absoluteFill}
+              pointerEvents="none"
+            >
+              <Path
+                d={fullPathD}
+                stroke="rgba(255,255,255,0.18)"
+                strokeWidth={4}
+                strokeLinecap="round"
+                strokeDasharray="10 10"
+                fill="none"
+              />
+              <Path
+                d={progressPathD}
+                stroke={theme.primary}
+                strokeWidth={6}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </Svg>
+
             {LEVELS.map((lvl, i) => {
-              const oneBased = i + 1;
-              const isCurrent = oneBased === furthest;
-              const isPassed = oneBased < furthest;
-              const isLocked = oneBased > furthest;
-              const startsChapter = CHAPTER_STARTS.some(
-                (s) => s.oneBased === oneBased
-              );
-              const chapter = chapterAt(oneBased);
+              const num = i + 1;
+              const isCurrent = num === furthest;
+              const isPassed = num < furthest;
+              const isLocked = num > furthest;
+              const x = xForLevel(num);
+              const y = yForLevel(num);
+              const stars = lvl.difficulty ?? 0;
               return (
-                <React.Fragment key={lvl.id}>
-                  {startsChapter ? (
-                    <View style={styles.chapterHeader}>
-                      <View style={styles.chapterRule} />
-                      <Text style={styles.chapterHeaderText}>
-                        {t('map.chapterHeader', { chapter })}
-                      </Text>
-                      <View style={styles.chapterRule} />
-                    </View>
+                <View
+                  key={lvl.id}
+                  style={[
+                    styles.nodeWrap,
+                    {
+                      left: x - NODE_SIZE / 2,
+                      top: y - NODE_SIZE / 2,
+                    },
+                  ]}
+                >
+                  {/* Active-node halo */}
+                  {isCurrent ? (
+                    <View
+                      style={[
+                        styles.halo,
+                        {
+                          backgroundColor: `${theme.primary}33`,
+                        },
+                      ]}
+                    />
                   ) : null}
+
                   <Pressable
+                    onPress={() => handlePick(num)}
+                    disabled={isLocked}
                     style={[
                       styles.node,
-                      isCurrent && styles.nodeCurrent,
                       isPassed && styles.nodePassed,
+                      isCurrent && [
+                        styles.nodeCurrent,
+                        {
+                          backgroundColor: '#0F172A',
+                          borderColor: theme.primary,
+                        },
+                      ],
                       isLocked && styles.nodeLocked,
                     ]}
-                    onPress={() => handlePick(oneBased)}
-                    disabled={isLocked}
                   >
                     <Text
                       style={[
                         styles.nodeLabel,
-                        isCurrent && { color: '#0F172A' },
+                        isCurrent && styles.nodeLabelCurrent,
+                        isLocked && styles.nodeLabelLocked,
                       ]}
                     >
-                      {oneBased}
+                      {isLocked ? '🔒' : num}
                     </Text>
-                    {lvl.difficulty ? (
+                  </Pressable>
+
+                  {/* Current-level bubble */}
+                  {isCurrent ? (
+                    <View
+                      style={[
+                        styles.currentBubble,
+                        { backgroundColor: theme.primary },
+                      ]}
+                    >
                       <Text
                         style={[
-                          styles.stars,
-                          isCurrent && styles.starsOnCurrent,
+                          styles.currentBubbleText,
+                          { color: theme.primaryText },
                         ]}
                       >
-                        {'★'.repeat(lvl.difficulty)}
+                        {t('map.currentBadge')}
                       </Text>
-                    ) : null}
-                    {isPassed ? (
-                      <View style={styles.checkBadge}>
-                        <Text style={styles.checkIcon}>✓</Text>
-                      </View>
-                    ) : null}
-                    {isCurrent ? (
-                      <View style={styles.currentBadge}>
-                        <Text style={styles.currentBadgeText}>
-                          {t('map.currentBadge')}
+                    </View>
+                  ) : null}
+
+                  {/* Star rating for completed levels */}
+                  {isPassed && stars > 0 ? (
+                    <View style={styles.stars}>
+                      {Array.from({ length: 3 }).map((_, s) => (
+                        <Text
+                          key={s}
+                          style={[
+                            styles.star,
+                            s < stars && { color: theme.primary },
+                          ]}
+                        >
+                          ★
                         </Text>
-                      </View>
-                    ) : null}
-                  </Pressable>
-                </React.Fragment>
+                      ))}
+                    </View>
+                  ) : null}
+                </View>
               );
             })}
           </View>
         </ScrollView>
+
+        {/* Floating PLAY NOW button */}
+        <View style={styles.bottomFade} pointerEvents="box-none">
+          <Pressable
+            style={[styles.playBtn, { backgroundColor: theme.primary }]}
+            onPress={playCurrent}
+          >
+            <Text style={[styles.playText, { color: theme.primaryText }]}>
+              ▶  {t('map.playNow', undefined, '继续闯关')} · Lv. {furthest}
+            </Text>
+          </Pressable>
+        </View>
       </SafeAreaView>
     </GradientBackground>
   );
@@ -191,8 +299,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 8,
-    paddingBottom: 12,
+    paddingTop: 4,
+    paddingBottom: 10,
     gap: 12,
   },
   backBtn: {
@@ -204,101 +312,144 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backIcon: { fontSize: 26, color: '#F8FAFC', marginTop: -3 },
-  title: { fontSize: 24, fontWeight: '900', color: '#F8FAFC', letterSpacing: -0.5 },
-  scroll: {
-    paddingVertical: 32,
-    paddingHorizontal: 24,
-    alignItems: 'center',
-  },
-  path: {
-    width: 220,
-    alignItems: 'center',
-    gap: 28,
-    position: 'relative',
-  },
-  pathLine: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    width: 2,
-    backgroundColor: 'rgba(255,255,255,0.10)',
-    zIndex: -1,
-  },
-  chapterHeader: {
+  progressPill: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderColor: 'rgba(255,255,255,0.12)',
+    borderWidth: 1,
+    paddingLeft: 6,
+    paddingRight: 16,
+    paddingVertical: 6,
+    borderRadius: 999,
     gap: 10,
-    marginVertical: 8,
-    width: 260,
-    alignSelf: 'center',
   },
-  chapterRule: {
-    flex: 1,
-    height: 1,
-    backgroundColor: 'rgba(255,255,255,0.20)',
-  },
-  chapterHeaderText: {
-    color: '#FACC15',
-    fontWeight: '900',
-    fontSize: 12,
-    letterSpacing: 2,
-  },
-  node: {
-    width: 84,
-    height: 84,
-    borderRadius: 42,
-    borderWidth: 6,
-    backgroundColor: 'rgba(255,255,255,0.14)',
-    borderColor: 'rgba(255,255,255,0.10)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-  },
-  nodeCurrent: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#FACC15',
-    transform: [{ scale: 1.1 }],
-  },
-  nodePassed: {
-    backgroundColor: 'rgba(255,255,255,0.18)',
-    borderColor: 'rgba(255,255,255,0.30)',
-  },
-  nodeLocked: { opacity: 0.45 },
-  nodeLabel: { fontSize: 22, fontWeight: '900', color: '#F8FAFC' },
-  stars: {
-    fontSize: 8,
-    fontWeight: '900',
-    color: '#FACC15',
-    letterSpacing: 1,
-    marginTop: 2,
-  },
-  starsOnCurrent: { color: '#F59E0B' },
-  checkBadge: {
-    position: 'absolute',
-    top: -8,
-    right: -8,
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: '#34D399',
-    borderWidth: 4,
-    borderColor: '#0F172A',
+  progressBadge: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  checkIcon: { color: '#FFFFFF', fontWeight: '900', fontSize: 12 },
-  currentBadge: {
-    position: 'absolute',
-    bottom: -22,
-    backgroundColor: '#FACC15',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 6,
-  },
-  currentBadgeText: {
+  progressBadgeIcon: { fontSize: 16 },
+  progressLabel: {
     fontSize: 9,
     fontWeight: '900',
-    color: '#1E3A8A',
-    letterSpacing: 1.5,
+    letterSpacing: 2,
+    color: 'rgba(255,255,255,0.55)',
+  },
+  progressValue: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#F8FAFC',
+    marginTop: -1,
+  },
+  scrollContent: {
+    alignItems: 'center',
+    paddingBottom: 120,
+  },
+  mapInner: {
+    position: 'relative',
+    alignSelf: 'center',
+  },
+  nodeWrap: {
+    position: 'absolute',
+    width: NODE_SIZE,
+    height: NODE_SIZE,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  halo: {
+    position: 'absolute',
+    width: NODE_SIZE + 28,
+    height: NODE_SIZE + 28,
+    borderRadius: (NODE_SIZE + 28) / 2,
+  },
+  node: {
+    width: NODE_SIZE,
+    height: NODE_SIZE,
+    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    borderColor: 'rgba(255,255,255,0.95)',
+    borderWidth: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
+  },
+  nodePassed: {
+    backgroundColor: 'rgba(255,255,255,0.92)',
+  },
+  nodeCurrent: {
+    transform: [{ scale: 1.18 }, { translateY: -4 }],
+    shadowOpacity: 0.45,
+    shadowRadius: 14,
+    elevation: 10,
+  },
+  nodeLocked: {
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderColor: 'rgba(255,255,255,0.10)',
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  nodeLabel: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#0F172A',
+  },
+  nodeLabelCurrent: { color: '#FFFFFF' },
+  nodeLabelLocked: { fontSize: 18, color: 'rgba(255,255,255,0.45)' },
+  currentBubble: {
+    position: 'absolute',
+    bottom: -28,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 999,
+  },
+  currentBubbleText: {
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 2,
+  },
+  stars: {
+    position: 'absolute',
+    bottom: -16,
+    flexDirection: 'row',
+    gap: 1,
+  },
+  star: {
+    fontSize: 9,
+    color: 'rgba(255,255,255,0.25)',
+    fontWeight: '900',
+  },
+  bottomFade: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 20,
+    paddingBottom: 22,
+    paddingTop: 12,
+    backgroundColor: 'rgba(15, 23, 42, 0.55)',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.06)',
+  },
+  playBtn: {
+    paddingVertical: 18,
+    borderRadius: 22,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.35,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 10,
+  },
+  playText: {
+    fontSize: 17,
+    fontWeight: '900',
+    letterSpacing: -0.3,
   },
 });

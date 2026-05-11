@@ -111,6 +111,8 @@
   "map.title": "闯关地图",
   "map.chapterHeader": "第 {chapter} 章",
   "map.currentBadge": "当前",
+  "map.progressLabel": "进度",
+  "map.playNow": "继续闯关",
   "levelComplete.titleFallback": "卓越！",
   "levelComplete.cleared": "关卡完成",
   "levelComplete.statAnswers": "答案",

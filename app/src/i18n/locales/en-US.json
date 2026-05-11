@@ -111,6 +111,8 @@
   "map.title": "Adventure map",
   "map.chapterHeader": "Chapter {chapter}",
   "map.currentBadge": "NOW",
+  "map.progressLabel": "PROGRESS",
+  "map.playNow": "Play now",
   "levelComplete.titleFallback": "Excellent!",
   "levelComplete.cleared": "Level cleared",
   "levelComplete.statAnswers": "Answers",
