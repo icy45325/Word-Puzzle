@@ -223,7 +223,7 @@ export function GameScreen({ navigation }: Props) {
         </View>
 
         <WordPreview
-          word={preview || t('game.preview.placeholder')}
+          word={preview}
           active={preview.length > 0}
         />
 

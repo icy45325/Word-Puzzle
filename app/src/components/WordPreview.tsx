@@ -3,19 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 
 interface Props {
   word: string;
-  /** True when the user is actively forming a word — render the bold
-   *  letters pill. False renders a small hint pill that doesn't crowd
-   *  the wheel below. */
+  /** True when the user is actively forming a word. While idle the
+   *  component takes up zero visual space — no placeholder text — to
+   *  avoid crowding the wheel. */
   active?: boolean;
 }
 
 export function WordPreview({ word, active }: Props) {
   if (!active) {
-    return (
-      <View style={styles.hintWrap}>
-        <Text style={styles.hintText}>{word}</Text>
-      </View>
-    );
+    // Reserve a small fixed-height slot so the wheel doesn't jump up
+    // when the user starts swiping. Nothing visible.
+    return <View style={styles.idleSpacer} />;
   }
   return (
     <View style={styles.container}>
@@ -47,15 +45,9 @@ const styles = StyleSheet.create({
     color: '#0F172A',
     textAlign: 'center',
   },
-  // Idle hint — small italic text, doesn't crowd anything
-  hintWrap: {
+  // Same total height as the active pill so the layout stays stable.
+  idleSpacer: {
     alignSelf: 'center',
-    paddingVertical: 6,
-  },
-  hintText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: 'rgba(255,255,255,0.45)',
-    textAlign: 'center',
+    height: 56,
   },
 });
