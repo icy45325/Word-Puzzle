@@ -91,12 +91,40 @@ export interface ScoreRecord {
   schemaVersion: number;
 }
 
+/** Aggregated leaderboard row — one per user. Computed at read time
+ *  from either real ScoreRecord arrays (own + future friends) or seeded
+ *  bot data. */
+export interface LeaderboardEntry {
+  userId: Uuid;
+  displayName: string;
+  /** 1-based rank within the requested scope. */
+  rank: number;
+  totalScore: number;
+  /** Highest level (1-based) the user has cleared. */
+  furthestLevel: number;
+  /** True for seed bots; renderer can dim or tag them. */
+  isBot?: boolean;
+  /** True when this row represents the current user. */
+  isSelf?: boolean;
+}
+
 export type LeaderboardScope = 'self' | 'friends' | 'global';
 
 export interface LeaderboardService {
   submit(record: ScoreRecord): Promise<void>;
-  getTop(scope: LeaderboardScope, n: number): Promise<ScoreRecord[]>;
-  getPersonalBest(levelId: string): Promise<ScoreRecord | null>;
+  /** Aggregated ranked list for the given scope. */
+  getTop(
+    scope: LeaderboardScope,
+    n: number,
+    currentUserId?: Uuid
+  ): Promise<LeaderboardEntry[]>;
+  /** Per-level personal-best raw record for the current user. */
+  getPersonalBest(
+    userId: Uuid,
+    levelId: string
+  ): Promise<ScoreRecord | null>;
+  /** All personal-best records for the user — one row per cleared level. */
+  listPersonalBests(userId: Uuid): Promise<ScoreRecord[]>;
   myFriendCode(userId: Uuid): string;
   listFriends(userId: Uuid): Promise<Friend[]>;
   addFriend(userId: Uuid, code: string): Promise<{ ok: boolean; reason?: string }>;

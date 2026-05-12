@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
 import { useUnlocks } from '../hooks/useUnlocks';
 import { GradientBackground } from '../components/GradientBackground';
 import { TopBar } from '../components/TopBar';
+import { useTheme } from '../theme/ThemeProvider';
 import { t } from '../i18n';
 import { useLocale } from '../i18n/useLocale';
-import type { LeaderboardScope, ScoreRecord } from '../services/types';
+import { levelNumberOf } from '../utils/levelNumber';
+import type {
+  LeaderboardEntry,
+  LeaderboardScope,
+  ScoreRecord,
+} from '../services/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
 
@@ -18,16 +24,30 @@ export function LeaderboardScreen({ navigation }: Props) {
   const services = useServices();
   const user = useCurrentUser();
   const unlocks = useUnlocks();
-  const [scope, setScope] = useState<LeaderboardScope>('self');
-  const [rows, setRows] = useState<ScoreRecord[]>([]);
+  const { theme } = useTheme();
+  const [scope, setScope] = useState<LeaderboardScope>('global');
+  // Global / friends tabs use aggregated rows; self uses raw PB records.
+  const [globalRows, setGlobalRows] = useState<LeaderboardEntry[]>([]);
+  const [selfPbs, setSelfPbs] = useState<ScoreRecord[]>([]);
+  const [selfSummary, setSelfSummary] = useState<LeaderboardEntry | null>(null);
 
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
-    services.leaderboard.getTop(scope, 50).then((r) => {
-      if (cancelled) return;
-      setRows(r);
-    });
+    if (scope === 'self') {
+      Promise.all([
+        services.leaderboard.listPersonalBests(user.userId),
+        services.leaderboard.getTop('self', 1, user.userId),
+      ]).then(([pbs, summary]) => {
+        if (cancelled) return;
+        setSelfPbs(pbs);
+        setSelfSummary(summary[0] ?? null);
+      });
+    } else if (scope === 'global') {
+      services.leaderboard.getTop('global', 100, user.userId).then((r) => {
+        if (!cancelled) setGlobalRows(r);
+      });
+    }
     return () => {
       cancelled = true;
     };
@@ -47,8 +67,6 @@ export function LeaderboardScreen({ navigation }: Props) {
     },
   ];
 
-  const showComingSoon = scope !== 'self';
-
   return (
     <GradientBackground>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
@@ -60,7 +78,7 @@ export function LeaderboardScreen({ navigation }: Props) {
           >
             <Text style={styles.backIcon}>‹</Text>
           </Pressable>
-          <Text style={styles.title}>排行榜</Text>
+          <Text style={styles.title}>{t('leaderboard.title')}</Text>
         </View>
 
         <View style={styles.tabs}>
@@ -69,13 +87,22 @@ export function LeaderboardScreen({ navigation }: Props) {
               key={tab.key}
               style={[
                 styles.tab,
-                scope === tab.key && styles.tabActive,
+                scope === tab.key && [
+                  styles.tabActive,
+                  { backgroundColor: theme.primary, borderColor: theme.primary },
+                ],
                 tab.locked && styles.tabLocked,
               ]}
               onPress={() => setScope(tab.key)}
             >
               <Text
-                style={[styles.tabLabel, scope === tab.key && styles.tabLabelActive]}
+                style={[
+                  styles.tabLabel,
+                  scope === tab.key && [
+                    styles.tabLabelActive,
+                    { color: theme.primaryText },
+                  ],
+                ]}
               >
                 {tab.locked ? '🔒 ' : ''}
                 {tab.label}
@@ -84,27 +111,154 @@ export function LeaderboardScreen({ navigation }: Props) {
           ))}
         </View>
 
-        {showComingSoon ? (
-          <View style={styles.emptyWrap}>
-            <Text style={styles.empty}>{t('leaderboard.comingSoon')}</Text>
-          </View>
-        ) : rows.length === 0 ? (
-          <View style={styles.emptyWrap}>
-            <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
-          </View>
+        {scope === 'friends' ? (
+          <FriendsPlaceholder />
+        ) : scope === 'global' ? (
+          <GlobalList rows={globalRows} themePrimary={theme.primary} />
         ) : (
-          <View style={styles.list}>
-            {rows.map((r, idx) => (
-              <View key={r.scoreId} style={styles.row}>
-                <Text style={styles.rank}>{idx + 1}</Text>
-                <Text style={styles.level}>{r.levelId}</Text>
-                <Text style={styles.score}>{r.score}</Text>
-              </View>
-            ))}
-          </View>
+          <SelfList
+            summary={selfSummary}
+            pbs={selfPbs}
+            themePrimary={theme.primary}
+          />
         )}
       </SafeAreaView>
     </GradientBackground>
+  );
+}
+
+function FriendsPlaceholder() {
+  return (
+    <View style={styles.emptyWrap}>
+      <Text style={styles.empty}>{t('leaderboard.comingSoon')}</Text>
+    </View>
+  );
+}
+
+function GlobalList({
+  rows,
+  themePrimary,
+}: {
+  rows: LeaderboardEntry[];
+  themePrimary: string;
+}) {
+  if (rows.length === 0) {
+    return (
+      <View style={styles.emptyWrap}>
+        <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
+      </View>
+    );
+  }
+  return (
+    <FlatList
+      data={rows}
+      keyExtractor={(r) => r.userId}
+      contentContainerStyle={styles.list}
+      renderItem={({ item }) => (
+        <GlobalRow item={item} themePrimary={themePrimary} />
+      )}
+    />
+  );
+}
+
+function GlobalRow({
+  item,
+  themePrimary,
+}: {
+  item: LeaderboardEntry;
+  themePrimary: string;
+}) {
+  const medal =
+    item.rank === 1 ? '🥇' : item.rank === 2 ? '🥈' : item.rank === 3 ? '🥉' : null;
+  return (
+    <View
+      style={[
+        styles.row,
+        item.isSelf && {
+          backgroundColor: `${themePrimary}26`,
+          borderColor: themePrimary,
+        },
+      ]}
+    >
+      <Text style={styles.rank}>
+        {medal ? medal : `#${item.rank}`}
+      </Text>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.name}>
+          {item.isSelf ? t('leaderboard.global.you', undefined, '你') : item.displayName}
+        </Text>
+        <Text style={styles.subText}>
+          {t('leaderboard.furthestLevel', { level: item.furthestLevel }, `L${item.furthestLevel}`)}
+        </Text>
+      </View>
+      <Text style={styles.score}>{item.totalScore.toLocaleString()}</Text>
+    </View>
+  );
+}
+
+function SelfList({
+  summary,
+  pbs,
+  themePrimary,
+}: {
+  summary: LeaderboardEntry | null;
+  pbs: ScoreRecord[];
+  themePrimary: string;
+}) {
+  if (pbs.length === 0 || !summary) {
+    return (
+      <View style={styles.emptyWrap}>
+        <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
+      </View>
+    );
+  }
+  return (
+    <FlatList
+      data={pbs}
+      keyExtractor={(r) => r.levelId}
+      contentContainerStyle={styles.list}
+      ListHeaderComponent={
+        <View
+          style={[
+            styles.summaryCard,
+            { borderColor: themePrimary },
+          ]}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={styles.summaryLabel}>
+              {t('leaderboard.totalScoreLabel', undefined, '总分')}
+            </Text>
+            <Text style={[styles.summaryValue, { color: themePrimary }]}>
+              {summary.totalScore.toLocaleString()}
+            </Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={styles.summaryLabel}>
+              {t('leaderboard.clearedLabel', undefined, '已通关')}
+            </Text>
+            <Text style={styles.summaryValue}>{pbs.length}</Text>
+          </View>
+        </View>
+      }
+      renderItem={({ item }) => {
+        const n = levelNumberOf(item.levelId);
+        return (
+          <View style={styles.row}>
+            <Text style={styles.rank}>L{n}</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.subText}>
+                {t('leaderboard.selfRowSub', {
+                  words: item.wordsFound,
+                  totalWords: item.totalWords,
+                  seconds: Math.round(item.timeMs / 1000),
+                }, `${item.wordsFound}/${item.totalWords} 词 · ${Math.round(item.timeMs / 1000)}秒`)}
+              </Text>
+            </View>
+            <Text style={styles.score}>{item.score.toLocaleString()}</Text>
+          </View>
+        );
+      }}
+    />
   );
 }
 
@@ -144,30 +298,70 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.06)',
   },
-  tabActive: { backgroundColor: '#FACC15', borderColor: '#FACC15' },
+  tabActive: {},
   tabLocked: { opacity: 0.55 },
   tabLabel: { fontSize: 13, fontWeight: '800', color: '#F8FAFC' },
-  tabLabelActive: { color: '#0F172A' },
+  tabLabelActive: { fontWeight: '900' },
   emptyWrap: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
   },
-  empty: { fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', fontStyle: 'italic' },
-  list: { paddingHorizontal: 20, paddingTop: 8, gap: 8 },
+  empty: {
+    fontSize: 14,
+    color: 'rgba(255,255,255,0.5)',
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+  list: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 32, gap: 8 },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'rgba(255,255,255,0.10)',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 18,
+    gap: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.06)',
+    marginBottom: 8,
+  },
+  rank: {
+    width: 40,
+    fontSize: 15,
+    fontWeight: '900',
+    color: '#FACC15',
+    textAlign: 'left',
+  },
+  name: { fontSize: 14, fontWeight: '900', color: '#F8FAFC' },
+  subText: {
+    marginTop: 2,
+    fontSize: 11,
+    color: 'rgba(255,255,255,0.55)',
+    fontWeight: '700',
+  },
+  score: { fontSize: 16, fontWeight: '900', color: '#FACC15' },
+  summaryCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.06)',
     paddingHorizontal: 18,
     paddingVertical: 14,
     borderRadius: 18,
-    gap: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.06)',
+    marginBottom: 12,
   },
-  rank: { width: 28, fontSize: 16, fontWeight: '900', color: '#FACC15' },
-  level: { flex: 1, fontSize: 14, color: '#F8FAFC', fontWeight: '700' },
-  score: { fontSize: 18, fontWeight: '900', color: '#FACC15' },
+  summaryLabel: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: 'rgba(255,255,255,0.55)',
+    letterSpacing: 1.5,
+  },
+  summaryValue: {
+    marginTop: 2,
+    fontSize: 22,
+    fontWeight: '900',
+    color: '#F8FAFC',
+  },
 });
