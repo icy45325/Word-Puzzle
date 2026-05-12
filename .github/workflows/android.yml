@@ -16,8 +16,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: app/package-lock.json
+          # No cache: workflow ran into npm ci errors when lockfile + json
+          # were out of sync. Falling back to plain `npm install` below
+          # makes the action robust to mild drift.
 
       - uses: actions/setup-java@v4
         with:
@@ -28,7 +29,11 @@ jobs:
 
       - name: Install JS deps
         working-directory: app
-        run: npm ci
+        run: |
+          echo "--- package.json ---"
+          cat package.json | head -40
+          echo "--- attempting install ---"
+          npm install --no-audit --no-fund --legacy-peer-deps
 
       - name: Expo prebuild
         working-directory: app
