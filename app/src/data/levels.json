@@ -1,0 +1,8180 @@
+{
+  "levels": [
+    {
+      "id": "L01",
+      "letters": [
+        "C",
+        "A",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "CAT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ACT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L02",
+      "letters": [
+        "D",
+        "O",
+        "G"
+      ],
+      "answers": [
+        {
+          "word": "DOG",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "GOD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L03",
+      "letters": [
+        "S",
+        "T",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "STAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RATS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L04",
+      "letters": [
+        "L",
+        "O",
+        "V",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "LOVE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "VOLE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L05",
+      "letters": [
+        "R",
+        "A",
+        "I",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "RAIN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "AIR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L06",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "PLAY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PAL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LAY",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L07",
+      "letters": [
+        "S",
+        "M",
+        "I",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SMILE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "MILE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LIME",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L08",
+      "letters": [
+        "H",
+        "O",
+        "U",
+        "S",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "HOUSE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HOSE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "USE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L09",
+      "letters": [
+        "P",
+        "E",
+        "A",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PEAS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ASP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "PAS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SPA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L10",
+      "letters": [
+        "P",
+        "E",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "PEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PAL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 1,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L11",
+      "letters": [
+        "S",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L12",
+      "letters": [
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L13",
+      "letters": [
+        "P",
+        "A",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PALE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "PEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L14",
+      "letters": [
+        "P",
+        "I",
+        "N",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "PINT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "NIP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L15",
+      "letters": [
+        "B",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "BEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "BARE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L16",
+      "letters": [
+        "S",
+        "P",
+        "O",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "SPOT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "OPTS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "STOP",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L17",
+      "letters": [
+        "S",
+        "E",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "SEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LEAS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L18",
+      "letters": [
+        "A",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L19",
+      "letters": [
+        "P",
+        "A",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "PAT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "APT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L20",
+      "letters": [
+        "P",
+        "I",
+        "O",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "PION",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NIP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ION",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 2,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L21",
+      "letters": [
+        "F",
+        "O",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "FORT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "FRO",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L22",
+      "letters": [
+        "N",
+        "O",
+        "S",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "NOSE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SONE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ONE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L23",
+      "letters": [
+        "E",
+        "A",
+        "R",
+        "T",
+        "H"
+      ],
+      "answers": [
+        {
+          "word": "EARTH",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L24",
+      "letters": [
+        "C",
+        "L",
+        "E",
+        "A",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "CLEAN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LEAN",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L25",
+      "letters": [
+        "N",
+        "E",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "NEST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TENS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L26",
+      "letters": [
+        "M",
+        "E",
+        "A",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "MEAD",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DAM",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MAD",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L27",
+      "letters": [
+        "B",
+        "R",
+        "E",
+        "A",
+        "K"
+      ],
+      "answers": [
+        {
+          "word": "BREAK",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RAKE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BAKE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L28",
+      "letters": [
+        "L",
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L29",
+      "letters": [
+        "S",
+        "E",
+        "A",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L30",
+      "letters": [
+        "N",
+        "O",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "NOTE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NOT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ONE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 3,
+      "cefr": "A1",
+      "milestone": "小学",
+      "motherCefr": "A1",
+      "difficulty": 1
+    },
+    {
+      "id": "L31",
+      "letters": [
+        "S",
+        "A",
+        "N",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SANER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L32",
+      "letters": [
+        "E",
+        "A",
+        "R",
+        "N",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EARNS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EARN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SNARE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L33",
+      "letters": [
+        "N",
+        "E",
+        "A",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "NEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ARSE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "NEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L34",
+      "letters": [
+        "L",
+        "I",
+        "M",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "LIMES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SMILE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "LIME",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ELMS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MILE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L35",
+      "letters": [
+        "L",
+        "A",
+        "C",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "LACES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SCALE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "LEAS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L36",
+      "letters": [
+        "T",
+        "A",
+        "P",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TAPES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAPS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L37",
+      "letters": [
+        "H",
+        "A",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "HATES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L38",
+      "letters": [
+        "C",
+        "L",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "CLEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LACE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L39",
+      "letters": [
+        "P",
+        "E",
+        "T",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "PETAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "LEAP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "PEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L40",
+      "letters": [
+        "A",
+        "R",
+        "M",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "ARMED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DRAM",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MEAD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 4,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L41",
+      "letters": [
+        "N",
+        "O",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "NOTES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SONE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TONES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L42",
+      "letters": [
+        "R",
+        "A",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "RATES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RATS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L43",
+      "letters": [
+        "B",
+        "A",
+        "R",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "BARED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L44",
+      "letters": [
+        "F",
+        "A",
+        "R",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "FARES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "FAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L45",
+      "letters": [
+        "H",
+        "E",
+        "A",
+        "R",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "HEARD",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "DARE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L46",
+      "letters": [
+        "H",
+        "A",
+        "R",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "HARED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HER",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L47",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PLATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TALE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "APT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L48",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PARES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SAP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ASP",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "PEAS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "REAPS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L49",
+      "letters": [
+        "G",
+        "R",
+        "A",
+        "N",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "GRAND",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DARN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RAN",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L50",
+      "letters": [
+        "S",
+        "H",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SHARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "HEAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 5,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L51",
+      "letters": [
+        "T",
+        "R",
+        "I",
+        "O",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TRIOS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SORT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L52",
+      "letters": [
+        "H",
+        "E",
+        "A",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "HEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SHARE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L53",
+      "letters": [
+        "S",
+        "L",
+        "I",
+        "M",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SLIME",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ELMS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SMILE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LIME",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "MILE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L54",
+      "letters": [
+        "R",
+        "I",
+        "O",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "RIOTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TRIOS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L55",
+      "letters": [
+        "L",
+        "A",
+        "C",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "LACER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LACE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "CAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L56",
+      "letters": [
+        "B",
+        "R",
+        "E",
+        "A",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "BREAD",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L57",
+      "letters": [
+        "M",
+        "A",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MATES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "MEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L58",
+      "letters": [
+        "G",
+        "R",
+        "A",
+        "D",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "GRADE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L59",
+      "letters": [
+        "T",
+        "H",
+        "I",
+        "C",
+        "K"
+      ],
+      "answers": [
+        {
+          "word": "THICK",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HIT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TIC",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ITCH",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L60",
+      "letters": [
+        "S",
+        "C",
+        "A",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SCALE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LACES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 6,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L61",
+      "letters": [
+        "S",
+        "T",
+        "O",
+        "N",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "STONE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SENT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TONES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ONES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L62",
+      "letters": [
+        "B",
+        "R",
+        "E",
+        "A",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "BREAST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "BAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L63",
+      "letters": [
+        "S",
+        "A",
+        "B",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SABER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ABS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BEAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L64",
+      "letters": [
+        "H",
+        "O",
+        "S",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "HOSTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HOST",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SHOT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L65",
+      "letters": [
+        "C",
+        "I",
+        "R",
+        "C",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CIRCLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RICE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L66",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PLANE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PAL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LEAP",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L67",
+      "letters": [
+        "S",
+        "Q",
+        "U",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SQUARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L68",
+      "letters": [
+        "S",
+        "N",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SNARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SANER",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L69",
+      "letters": [
+        "C",
+        "A",
+        "S",
+        "T",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CASTLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CLEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LACE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "STALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TALE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L70",
+      "letters": [
+        "T",
+        "I",
+        "L",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TILES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LITES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TILE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 7,
+      "cefr": "A2",
+      "milestone": "中考",
+      "motherCefr": "A2",
+      "difficulty": 1
+    },
+    {
+      "id": "L71",
+      "letters": [
+        "S",
+        "O",
+        "F",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SOFTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "FORE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "STORE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L72",
+      "letters": [
+        "S",
+        "P",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "SPEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SAP",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L73",
+      "letters": [
+        "A",
+        "N",
+        "S",
+        "W",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "ANSWER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "WARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EARN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L74",
+      "letters": [
+        "R",
+        "E",
+        "L",
+        "A",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "RELAY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LAYER",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L75",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "C",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "REACT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L76",
+      "letters": [
+        "S",
+        "M",
+        "A",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "SMART",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TARS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RAMS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L77",
+      "letters": [
+        "S",
+        "I",
+        "L",
+        "E",
+        "N",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "SILENT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TENS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "NEST",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L78",
+      "letters": [
+        "R",
+        "E",
+        "P",
+        "L",
+        "A",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "REPLAY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LAY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L79",
+      "letters": [
+        "T",
+        "A",
+        "R",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TARES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L80",
+      "letters": [
+        "T",
+        "E",
+        "A",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TEARS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RATES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ARTS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TARES",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 8,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L81",
+      "letters": [
+        "R",
+        "A",
+        "N",
+        "G",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "RANGED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAGED",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "EARN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "AGED",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L82",
+      "letters": [
+        "S",
+        "H",
+        "I",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "SHIRT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "STIR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "HIS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L83",
+      "letters": [
+        "D",
+        "R",
+        "E",
+        "A",
+        "M",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "DREAMS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DAM",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L84",
+      "letters": [
+        "M",
+        "A",
+        "R",
+        "K",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "MARKED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "MAD",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L85",
+      "letters": [
+        "L",
+        "A",
+        "D",
+        "I",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "LADIES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "IDLE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "LEAS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAL",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L86",
+      "letters": [
+        "P",
+        "O",
+        "I",
+        "N",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "POINTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PION",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TIP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L87",
+      "letters": [
+        "T",
+        "A",
+        "B",
+        "L",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TABLES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "BEATS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L88",
+      "letters": [
+        "F",
+        "O",
+        "R",
+        "E",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "FOREST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TOES",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L89",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "Y",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "PLAYER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PLAY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L90",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "T",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PLATES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SALT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "TALE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "PASTE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 9,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L91",
+      "letters": [
+        "A",
+        "N",
+        "G",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "ANGER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NEAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "EARN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L92",
+      "letters": [
+        "M",
+        "A",
+        "R",
+        "K",
+        "E",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "MARKET",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "MAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L93",
+      "letters": [
+        "F",
+        "O",
+        "S",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "FOSTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "REST",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "FRO",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L94",
+      "letters": [
+        "C",
+        "L",
+        "E",
+        "A",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "CLEATS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CLEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TALE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L95",
+      "letters": [
+        "M",
+        "E",
+        "D",
+        "A",
+        "L",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MEDALS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SEAL",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LEAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "DAM",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ELMS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "MAD",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L96",
+      "letters": [
+        "S",
+        "T",
+        "A",
+        "B",
+        "L",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "STABLE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "BEATS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TAB",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SALE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L97",
+      "letters": [
+        "A",
+        "L",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "ALTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "LATER",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L98",
+      "letters": [
+        "P",
+        "E",
+        "A",
+        "R",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "PEARL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "LEAP",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L99",
+      "letters": [
+        "S",
+        "L",
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "SLATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEAL",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L100",
+      "letters": [
+        "S",
+        "T",
+        "O",
+        "R",
+        "M"
+      ],
+      "answers": [
+        {
+          "word": "STORM",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "MOST",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ROTS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SORT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 10,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L101",
+      "letters": [
+        "M",
+        "A",
+        "S",
+        "T",
+        "E",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "MASTERY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "YEAR",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "TARS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L102",
+      "letters": [
+        "N",
+        "A",
+        "P",
+        "L",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "NAPLES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SEAL",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LANE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L103",
+      "letters": [
+        "D",
+        "E",
+        "T",
+        "A",
+        "I",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "DETAIL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "DIET",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "LITE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L104",
+      "letters": [
+        "L",
+        "I",
+        "S",
+        "T",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "LISTEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LITE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TILE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SILENT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L105",
+      "letters": [
+        "S",
+        "A",
+        "I",
+        "L",
+        "E",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "SAILED",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LIED",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "IDLE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L106",
+      "letters": [
+        "M",
+        "A",
+        "S",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "MASTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARM",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "TARES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "MAST",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L107",
+      "letters": [
+        "D",
+        "A",
+        "N",
+        "G",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "DANGER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ANGER",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RAGED",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "GARDEN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L108",
+      "letters": [
+        "I",
+        "N",
+        "L",
+        "E",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "INLETS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LISTEN",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SILENT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L109",
+      "letters": [
+        "A",
+        "L",
+        "E",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ALERT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TEAL",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L110",
+      "letters": [
+        "S",
+        "T",
+        "A",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "STARE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RATS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 11,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L111",
+      "letters": [
+        "T",
+        "R",
+        "A",
+        "C",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "TRACE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ART",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L112",
+      "letters": [
+        "S",
+        "T",
+        "O",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "STORE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TOES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SORT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L113",
+      "letters": [
+        "C",
+        "A",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "CATER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "CARET",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L114",
+      "letters": [
+        "S",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "STORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROTS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "SORT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TRY",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L115",
+      "letters": [
+        "W",
+        "A",
+        "N",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "WANES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "WAS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SAW",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ANEW",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L116",
+      "letters": [
+        "C",
+        "R",
+        "A",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CRATE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARC",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L117",
+      "letters": [
+        "L",
+        "A",
+        "Y",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "LAYER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "YEAR",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RELAY",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L118",
+      "letters": [
+        "R",
+        "E",
+        "P",
+        "L",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "REPLY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PRY",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L119",
+      "letters": [
+        "B",
+        "R",
+        "A",
+        "K",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "BRAKE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RAKE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "BEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L120",
+      "letters": [
+        "L",
+        "A",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "LATER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RATE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 12,
+      "cefr": "B1",
+      "milestone": "高考",
+      "motherCefr": "B1",
+      "difficulty": 2
+    },
+    {
+      "id": "L121",
+      "letters": [
+        "P",
+        "O",
+        "E",
+        "T",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "POETRY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "TORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "PREY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L122",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "S",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PARSE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SPEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "APE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L123",
+      "letters": [
+        "S",
+        "H",
+        "A",
+        "R",
+        "P"
+      ],
+      "answers": [
+        {
+          "word": "SHARP",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SPA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L124",
+      "letters": [
+        "E",
+        "N",
+        "L",
+        "I",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ENLIST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NIL",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "INLETS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TILE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L125",
+      "letters": [
+        "T",
+        "I",
+        "N",
+        "S",
+        "E",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "TINSEL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NIL",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "LITE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L126",
+      "letters": [
+        "S",
+        "T",
+        "E",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "STEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L127",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "L",
+        "E",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "PARLEY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "YEAR",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "PRY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L128",
+      "letters": [
+        "N",
+        "I",
+        "C",
+        "H",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "NICHE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "CHIN",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "HEN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L129",
+      "letters": [
+        "S",
+        "H",
+        "A",
+        "R",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "SHARES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "HARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L130",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "E",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PLANETS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PASTE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SEAL",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L131",
+      "letters": [
+        "E",
+        "O",
+        "N",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EONS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SONE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ONE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L132",
+      "letters": [
+        "E",
+        "D",
+        "I",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "EDIT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIDE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "DIET",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L133",
+      "letters": [
+        "C",
+        "I",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "CITE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIC",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L134",
+      "letters": [
+        "B",
+        "L",
+        "A",
+        "S",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "BLASTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "BAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SALT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RAT",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L135",
+      "letters": [
+        "V",
+        "I",
+        "C",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "VICTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "COY",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "IVY",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L136",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "D",
+        "I",
+        "N",
+        "G"
+      ],
+      "answers": [
+        {
+          "word": "READING",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RAGED",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "DINE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ANGER",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L137",
+      "letters": [
+        "E",
+        "R",
+        "O",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EROS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L138",
+      "letters": [
+        "R",
+        "E",
+        "N",
+        "D"
+      ],
+      "answers": [
+        {
+          "word": "REND",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "END",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L139",
+      "letters": [
+        "R",
+        "O",
+        "U",
+        "T",
+        "I",
+        "N",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "ROUTINE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "UNIT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "NOT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "ION",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L140",
+      "letters": [
+        "S",
+        "T",
+        "R",
+        "E",
+        "A",
+        "M",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "STREAMS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARM",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L141",
+      "letters": [
+        "W",
+        "O",
+        "N",
+        "D",
+        "E",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "WONDERS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ONE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "END",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L142",
+      "letters": [
+        "B",
+        "R",
+        "A",
+        "C",
+        "K",
+        "E",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "BRACKET",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CAKE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L143",
+      "letters": [
+        "K",
+        "I",
+        "T",
+        "C",
+        "H",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "KITCHEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ETCH",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "CITE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "KIN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NICHE",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "INCH",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L144",
+      "letters": [
+        "P",
+        "I",
+        "C",
+        "T",
+        "U",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PICTURE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PUT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TRIPE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "CUTE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L145",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "PLANTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "REAP",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "ATE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L146",
+      "letters": [
+        "C",
+        "O",
+        "U",
+        "N",
+        "T",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "COUNTRY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "CRY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L147",
+      "letters": [
+        "H",
+        "I",
+        "S",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "HISTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HOTS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TRY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "STORY",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RIOTS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L148",
+      "letters": [
+        "E",
+        "R",
+        "A",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L149",
+      "letters": [
+        "E",
+        "P",
+        "I",
+        "C"
+      ],
+      "answers": [
+        {
+          "word": "EPIC",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "PIE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L150",
+      "letters": [
+        "T",
+        "I",
+        "N",
+        "S",
+        "E",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "TINSEL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SILENT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ENLIST",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L151",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "L",
+        "E",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "PARLEY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "LAP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L152",
+      "letters": [
+        "C",
+        "O",
+        "U",
+        "N",
+        "T",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "COUNTRY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TORY",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NUT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L153",
+      "letters": [
+        "S",
+        "H",
+        "A",
+        "R",
+        "P"
+      ],
+      "answers": [
+        {
+          "word": "SHARP",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ASP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "PAS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L154",
+      "letters": [
+        "E",
+        "R",
+        "O",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EROS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L155",
+      "letters": [
+        "E",
+        "R",
+        "A",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "ERAS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L156",
+      "letters": [
+        "P",
+        "I",
+        "C",
+        "T",
+        "U",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PICTURE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CURE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ICE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "PIE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RICE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L157",
+      "letters": [
+        "E",
+        "D",
+        "I",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "EDIT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIDE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "DIET",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L158",
+      "letters": [
+        "K",
+        "I",
+        "T",
+        "C",
+        "H",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "KITCHEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ETCH",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "HIKE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NICK",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "CHIN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "THICK",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L159",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "D",
+        "I",
+        "N",
+        "G"
+      ],
+      "answers": [
+        {
+          "word": "READING",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "REND",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "GARDEN",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L160",
+      "letters": [
+        "S",
+        "T",
+        "E",
+        "A",
+        "L"
+      ],
+      "answers": [
+        {
+          "word": "STEAL",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L161",
+      "letters": [
+        "E",
+        "O",
+        "N",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EONS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SONE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ONES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "NOSE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L162",
+      "letters": [
+        "V",
+        "I",
+        "C",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "VICTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TOY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "IVY",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "COY",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L163",
+      "letters": [
+        "E",
+        "N",
+        "L",
+        "I",
+        "S",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ENLIST",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "INLETS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TILES",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "LITE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L164",
+      "letters": [
+        "K",
+        "I",
+        "T",
+        "C",
+        "H",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "KITCHEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HEN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "NICK",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        },
+        {
+          "word": "CITE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L165",
+      "letters": [
+        "P",
+        "A",
+        "R",
+        "S",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PARSE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "RAPE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "SAP",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L166",
+      "letters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "E",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "PLANETS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PANEL",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NAPLES",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ASP",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "TAPS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "SAP",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L167",
+      "letters": [
+        "E",
+        "R",
+        "O",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "EROS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SORE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L168",
+      "letters": [
+        "W",
+        "O",
+        "N",
+        "D",
+        "E",
+        "R",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "WONDERS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "NOSE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "END",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "SON",
+          "row": 0,
+          "col": 6,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L169",
+      "letters": [
+        "H",
+        "I",
+        "S",
+        "T",
+        "O",
+        "R",
+        "Y"
+      ],
+      "answers": [
+        {
+          "word": "HISTORY",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "HOT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TORY",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RIOTS",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "SHOT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L170",
+      "letters": [
+        "R",
+        "E",
+        "A",
+        "D",
+        "I",
+        "N",
+        "G"
+      ],
+      "answers": [
+        {
+          "word": "READING",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NERD",
+          "row": 0,
+          "col": 5,
+          "dir": "V"
+        },
+        {
+          "word": "RIDE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思",
+      "motherCefr": "B2",
+      "difficulty": 3
+    },
+    {
+      "id": "L171",
+      "letters": [
+        "H",
+        "A",
+        "D",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "HADER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "DARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L172",
+      "letters": [
+        "M",
+        "I",
+        "T",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "MITE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIME",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ITEM",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L173",
+      "letters": [
+        "I",
+        "N",
+        "E",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "INERT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "RITE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L174",
+      "letters": [
+        "A",
+        "S",
+        "T",
+        "E",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "ASTER",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "STARE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L175",
+      "letters": [
+        "E",
+        "C",
+        "L",
+        "A",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ECLAT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "CAT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TEA",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "LATE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L176",
+      "letters": [
+        "D",
+        "R",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "DREAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L177",
+      "letters": [
+        "M",
+        "I",
+        "L",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MILTS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "SLIM",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "MILS",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L178",
+      "letters": [
+        "S",
+        "E",
+        "R",
+        "A"
+      ],
+      "answers": [
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L179",
+      "letters": [
+        "I",
+        "N",
+        "T",
+        "R",
+        "O"
+      ],
+      "answers": [
+        {
+          "word": "INTRO",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NOR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ROT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L180",
+      "letters": [
+        "E",
+        "L",
+        "A",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "ELAN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ALE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "LANE",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L181",
+      "letters": [
+        "D",
+        "E",
+        "B",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "DEBAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "BREAD",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "DEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L182",
+      "letters": [
+        "S",
+        "T",
+        "E",
+        "I",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "STEIN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "STEN",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TENS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L183",
+      "letters": [
+        "T",
+        "I",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L184",
+      "letters": [
+        "P",
+        "Y",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PYRE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "PRY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L185",
+      "letters": [
+        "B",
+        "R",
+        "A",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "BRAE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ERA",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "BAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L186",
+      "letters": [
+        "M",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "MEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "REAM",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "MAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L187",
+      "letters": [
+        "M",
+        "I",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MITS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "MIST",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L188",
+      "letters": [
+        "R",
+        "O",
+        "E",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "ROES",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ORES",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "ROSE",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L189",
+      "letters": [
+        "N",
+        "E",
+        "A",
+        "P"
+      ],
+      "answers": [
+        {
+          "word": "NEAP",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NAP",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "PAN",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "APE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L190",
+      "letters": [
+        "S",
+        "T",
+        "E",
+        "N"
+      ],
+      "answers": [
+        {
+          "word": "STEN",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SENT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "NETS",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TENS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L191",
+      "letters": [
+        "I",
+        "N",
+        "E",
+        "R",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "INERT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "RITE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L192",
+      "letters": [
+        "E",
+        "C",
+        "L",
+        "A",
+        "T"
+      ],
+      "answers": [
+        {
+          "word": "ECLAT",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "EAT",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "TEAL",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L193",
+      "letters": [
+        "S",
+        "E",
+        "R",
+        "A"
+      ],
+      "answers": [
+        {
+          "word": "SERA",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "ARSE",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "RASE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EARS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L194",
+      "letters": [
+        "I",
+        "N",
+        "T",
+        "R",
+        "O"
+      ],
+      "answers": [
+        {
+          "word": "INTRO",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "NOT",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        },
+        {
+          "word": "TIN",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "RIOT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "INTO",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L195",
+      "letters": [
+        "P",
+        "Y",
+        "R",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "PYRE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "PRY",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "RYE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L196",
+      "letters": [
+        "M",
+        "I",
+        "T",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "MITS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "MIST",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L197",
+      "letters": [
+        "T",
+        "I",
+        "S"
+      ],
+      "answers": [
+        {
+          "word": "TIS",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "SIT",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "ITS",
+          "row": 0,
+          "col": 1,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L198",
+      "letters": [
+        "M",
+        "E",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "MEAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "REAM",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        },
+        {
+          "word": "MAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L199",
+      "letters": [
+        "D",
+        "E",
+        "B",
+        "A",
+        "R"
+      ],
+      "answers": [
+        {
+          "word": "DEBAR",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "READ",
+          "row": 0,
+          "col": 4,
+          "dir": "V"
+        },
+        {
+          "word": "BARED",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    },
+    {
+      "id": "L200",
+      "letters": [
+        "B",
+        "R",
+        "A",
+        "E"
+      ],
+      "answers": [
+        {
+          "word": "BRAE",
+          "row": 0,
+          "col": 0,
+          "dir": "H"
+        },
+        {
+          "word": "BAR",
+          "row": 0,
+          "col": 0,
+          "dir": "V"
+        },
+        {
+          "word": "ARE",
+          "row": 0,
+          "col": 2,
+          "dir": "V"
+        },
+        {
+          "word": "EAR",
+          "row": 0,
+          "col": 3,
+          "dir": "V"
+        }
+      ],
+      "chapter": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福",
+      "motherCefr": "C1",
+      "difficulty": 3
+    }
+  ],
+  "chapters": [
+    {
+      "index": 1,
+      "cefr": "A1",
+      "milestone": "小学"
+    },
+    {
+      "index": 2,
+      "cefr": "A1",
+      "milestone": "小学"
+    },
+    {
+      "index": 3,
+      "cefr": "A1",
+      "milestone": "小学"
+    },
+    {
+      "index": 4,
+      "cefr": "A2",
+      "milestone": "中考"
+    },
+    {
+      "index": 5,
+      "cefr": "A2",
+      "milestone": "中考"
+    },
+    {
+      "index": 6,
+      "cefr": "A2",
+      "milestone": "中考"
+    },
+    {
+      "index": 7,
+      "cefr": "A2",
+      "milestone": "中考"
+    },
+    {
+      "index": 8,
+      "cefr": "B1",
+      "milestone": "高考"
+    },
+    {
+      "index": 9,
+      "cefr": "B1",
+      "milestone": "高考"
+    },
+    {
+      "index": 10,
+      "cefr": "B1",
+      "milestone": "高考"
+    },
+    {
+      "index": 11,
+      "cefr": "B1",
+      "milestone": "高考"
+    },
+    {
+      "index": 12,
+      "cefr": "B1",
+      "milestone": "高考"
+    },
+    {
+      "index": 13,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思"
+    },
+    {
+      "index": 14,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思"
+    },
+    {
+      "index": 15,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思"
+    },
+    {
+      "index": 16,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思"
+    },
+    {
+      "index": 17,
+      "cefr": "B2",
+      "milestone": "四级 · 雅思"
+    },
+    {
+      "index": 18,
+      "cefr": "C1",
+      "milestone": "六级 · 托福"
+    },
+    {
+      "index": 19,
+      "cefr": "C1",
+      "milestone": "六级 · 托福"
+    },
+    {
+      "index": 20,
+      "cefr": "C1",
+      "milestone": "六级 · 托福"
+    }
+  ]
+}
