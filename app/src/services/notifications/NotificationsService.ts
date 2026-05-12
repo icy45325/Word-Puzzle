@@ -110,6 +110,23 @@ async function cancelAll(): Promise<void> {
   }
 }
 
+/** Clear the app icon badge + dismiss delivered notifications from the
+ *  shade. Call on app open + after a notification tap so the unread
+ *  count never lingers. */
+export async function clearBadgeAndDismissed(): Promise<void> {
+  if (!isAvailable()) return;
+  try {
+    if (typeof notif.setBadgeCountAsync === 'function') {
+      await notif.setBadgeCountAsync(0);
+    }
+    if (typeof notif.dismissAllNotificationsAsync === 'function') {
+      await notif.dismissAllNotificationsAsync();
+    }
+  } catch {
+    /* ignore */
+  }
+}
+
 function nextDayAt(hour: number, minute: number = 0): Date {
   const d = new Date();
   d.setDate(d.getDate() + 1);
@@ -291,4 +308,5 @@ export const notificationsService = {
   cancelAll,
   addResponseListener,
   getLaunchDeepLink,
+  clearBadgeAndDismissed,
 };

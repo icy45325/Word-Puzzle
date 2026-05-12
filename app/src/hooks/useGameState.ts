@@ -289,8 +289,48 @@ export function useGameState() {
       name: 'hint_used',
       props: { levelId: level.id, kind: 'reveal_letter' },
     });
+    // Auto-fill any slot whose cells are all now visible. After this
+    // reveal, a slot might be fully covered by (a) already-filled
+    // neighbor slots at its intersections, plus (b) revealed cells
+    // including the one we just dispatched. In that case the player has
+    // effectively "found" the word via hints — give them the slot
+    // without forcing a redundant swipe.
+    const nextRevealed = { ...state.revealedCells, [pickedKey]: true };
+    for (let i = 0; i < layout.slots.length; i++) {
+      if (state.filledSlots[i]) continue;
+      const cells = slotCells.get(i) ?? [];
+      const allVisible = cells.every((c) => {
+        const k = `${c.row},${c.col}`;
+        const fromOtherFilled = c.slotIndexes.some(
+          (sIdx) => sIdx !== i && state.filledSlots[sIdx]
+        );
+        return fromOtherFilled || !!nextRevealed[k];
+      });
+      if (allVisible) {
+        const canonical = layout.slots[i].word;
+        dispatch({
+          type: 'SLOT_FILLED',
+          slotIndex: i,
+          word: canonical,
+          failedCount: state.failedAttempts[canonical] ?? 0,
+        });
+        if (user) {
+          services.economy.grant(user.userId, {
+            type: 'word_found',
+            word: canonical,
+            length: canonical.length,
+          });
+          services.learnedWords.add(user.userId, {
+            word: canonical,
+            levelId: level.id,
+            firstFoundAt: Date.now(),
+            isBonus: false,
+          });
+        }
+      }
+    }
     return { ok: true };
-  }, [layout, level.id, services, slotCells, state.filledSlots, state.revealedCells, user]);
+  }, [layout, level.id, services, slotCells, state.failedAttempts, state.filledSlots, state.revealedCells, user]);
 
   // Persist progress + run side effects on level complete.
   useEffect(() => {

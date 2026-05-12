@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet, Text } from 'react-native';
 import { t } from '../i18n';
 
 interface Props {
@@ -46,23 +46,34 @@ export function TutorialOverlay({
     ]).start();
   }, [visible, opacity, scale]);
 
-  if (!visible) return null;
-
+  // Use a Modal so the backdrop always covers the WHOLE screen.
+  // Earlier this was a plain absolute-positioned View, which only
+  // covered its nearest positioned ancestor (e.g. TopBar's 56-px row)
+  // when rendered from inside TopBar — the streak tutorial ended up
+  // overlapping the top icons instead of going fullscreen-modal.
   return (
-    <Animated.View style={[styles.backdrop, { opacity }]} pointerEvents="auto">
-      <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} />
-      <Animated.View
-        style={[styles.center, { transform: [{ scale }] }]}
-        pointerEvents="none"
-      >
-        <Text style={styles.icon}>{icon}</Text>
-        <Text style={styles.title}>{t(titleKey, undefined, titleFallback)}</Text>
-        <Text style={styles.body}>{t(bodyKey, undefined, bodyFallback)}</Text>
-        <Text style={styles.hint}>
-          {t('onboarding.tapToDismiss', undefined, '轻点任意处继续')}
-        </Text>
+    <Modal
+      visible={visible}
+      transparent
+      animationType="none"
+      onRequestClose={onDismiss}
+      statusBarTranslucent
+    >
+      <Animated.View style={[styles.backdrop, { opacity }]}>
+        <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} />
+        <Animated.View
+          style={[styles.center, { transform: [{ scale }] }]}
+          pointerEvents="none"
+        >
+          <Text style={styles.icon}>{icon}</Text>
+          <Text style={styles.title}>{t(titleKey, undefined, titleFallback)}</Text>
+          <Text style={styles.body}>{t(bodyKey, undefined, bodyFallback)}</Text>
+          <Text style={styles.hint}>
+            {t('onboarding.tapToDismiss', undefined, '轻点任意处继续')}
+          </Text>
+        </Animated.View>
       </Animated.View>
-    </Animated.View>
+    </Modal>
   );
 }
 
