@@ -21,6 +21,7 @@ import { FriendsScreen } from './src/screens/FriendsScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { MapScreen } from './src/screens/MapScreen';
 import { ReviewQuizScreen } from './src/screens/ReviewQuizScreen';
+import { StoreScreen } from './src/screens/StoreScreen';
 import { loadPersistedLocale } from './src/i18n';
 import { useLocale } from './src/i18n/useLocale';
 import { loadSettings } from './src/hooks/useSettings';
@@ -44,6 +45,7 @@ export type RootStackParamList = {
   Friends: undefined;
   Login: undefined;
   ReviewQuiz: undefined;
+  Store: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -132,6 +134,7 @@ export default function App() {
                 <Stack.Screen name="Friends" component={FriendsScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="ReviewQuiz" component={ReviewQuizScreen} />
+                <Stack.Screen name="Store" component={StoreScreen} />
               </Stack.Navigator>
             </NavigationContainer>
             <StatusBar style="light" />

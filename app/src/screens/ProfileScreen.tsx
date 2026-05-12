@@ -208,6 +208,16 @@ export function ProfileScreen({ navigation }: Props) {
           </View>
 
           <Pressable
+            style={styles.storeBtn}
+            onPress={() => navigation.navigate('Store')}
+          >
+            <Text style={styles.storeText}>
+              🛍  {t('profile.store', undefined, '商店')}
+            </Text>
+            <Text style={styles.storeChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
             style={[styles.linkBtn, { backgroundColor: theme.primary }]}
             onPress={async () => {
               if (user?.isAnonymous) {
@@ -401,6 +411,23 @@ const styles = StyleSheet.create({
   },
   toggleThumbOn: { alignSelf: 'flex-end' },
   toggleThumbOff: { alignSelf: 'flex-start' },
+  storeBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderColor: 'rgba(255,255,255,0.10)',
+    borderWidth: 1,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    borderRadius: 16,
+    justifyContent: 'space-between',
+  },
+  storeText: { fontSize: 15, fontWeight: '900', color: '#F8FAFC' },
+  storeChevron: {
+    fontSize: 24,
+    fontWeight: '900',
+    color: 'rgba(255,255,255,0.45)',
+  },
   linkBtn: {
     paddingVertical: 16,
     paddingHorizontal: 18,

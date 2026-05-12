@@ -7,7 +7,8 @@ import { LocalLeaderboard } from './leaderboard/LocalLeaderboard';
 import { LocalEconomy } from './economy/LocalEconomy';
 import { NoopAds } from './ads/NoopAds';
 import { MobileAdsService, isAdMobLoaded } from './ads/MobileAdsService';
-import { NoopIap } from './iap/NoopIap';
+import { LocalIap } from './iap/LocalIap';
+import { RealIap, isIapLoaded } from './iap/RealIap';
 import { ConsoleAnalytics } from './analytics/ConsoleAnalytics';
 import { StaticRemoteConfig } from './remoteConfig/StaticRemoteConfig';
 
@@ -22,14 +23,17 @@ export function createDefaultServices(): Services {
   const learnedWords = new LocalLearnedWordsRepo();
   const leaderboard = new LocalLeaderboard();
   const economy = new LocalEconomy(remoteConfig);
-  // Prefer the real AdMob bridge in dev/preview/production builds (where
-  // the native module is linked). Fall back to NoopAds in Expo Go and
-  // any environment where the native module didn't load — the rest of
-  // the app still treats `showRewarded` as resolving to {completed:true}.
   const ads = isAdMobLoaded()
     ? new MobileAdsService(remoteConfig, analytics)
     : new NoopAds(remoteConfig, analytics);
-  const iap = new NoopIap(remoteConfig, analytics);
+  // LocalIap is always the canonical persistence layer for entitlements
+  // and coin grants. RealIap (if the native module is linked) delegates
+  // fulfillment through it so reads stay consistent regardless of which
+  // path produced the entitlement.
+  const localIap = new LocalIap(remoteConfig, analytics, economy);
+  const iap = isIapLoaded()
+    ? new RealIap(remoteConfig, analytics, localIap)
+    : localIap;
   return {
     auth,
     progress,
@@ -61,15 +65,25 @@ export function ServicesProvider({ services, children }: Props) {
 
   useEffect(() => {
     let cancelled = false;
+    const propagateUser = (uid: string | null) => {
+      // IAP needs to know the current user so entitlement reads/writes
+      // hit the right AsyncStorage row. LocalIap exposes setUser; RealIap
+      // forwards to its inner LocalIap. We detect either path via the
+      // setUser method presence.
+      const anyIap = resolved.iap as { setUser?: (uid: string | null) => void };
+      if (typeof anyIap.setUser === 'function') anyIap.setUser(uid);
+    };
     (async () => {
       await resolved.remoteConfig.refresh();
       const u = await resolved.auth.getCurrentUser();
       if (cancelled) return;
       resolved.analytics.identify(u.userId, { displayName: u.displayName });
       resolved.analytics.track({ name: 'app_open' });
+      propagateUser(u.userId);
       setUser(u);
     })();
     const unsub = resolved.auth.onChange((u) => {
+      propagateUser(u?.userId ?? null);
       setUser(u);
     });
     return () => {

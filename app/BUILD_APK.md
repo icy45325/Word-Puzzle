@@ -345,3 +345,83 @@ Once your app is live in stores, add an `app-ads.txt` to your developer
 website (URL listed in your AdMob → Settings → App-ads.txt) — it pairs your
 domain with your AdMob publisher ID and prevents inventory spoofing. AdMob's
 console gives you the exact line to paste.
+
+---
+
+## 7. (Optional) Provisioning In-App Purchases
+
+> ⚠️ **Current state:** the `react-native-iap` package is **not installed**.
+> `LocalIap` (persistent, mock-fulfillment) is the active implementation, so
+> the Store screen + Profile entry are visible and clickable, but tapping
+> "buy" runs a mock flow that just grants coins / sets entitlements
+> locally — no real billing happens. The `RealIap` source ships and
+> auto-activates the moment the native module is linked.
+
+### 7a. Install react-native-iap
+
+Use the v12.x line — it matches Expo SDK 51 / RN 0.74. v13+ requires RN 0.75
+(SDK 52+), which we're not on yet.
+
+```bash
+cd app
+npm i react-native-iap@^12
+```
+
+react-native-iap autolinks; no config plugin needed. Rebuild your APK:
+
+```bash
+npx eas build -p android --profile preview
+```
+
+`ServicesProvider`'s `isIapLoaded()` check will now return true and pick
+`RealIap` automatically.
+
+### 7b. Create products in the stores
+
+The SKU strings in `app/src/services/iap/skus.ts` are what we send to the
+store APIs. Register matching managed products in each store you ship to:
+
+**Google Play Console**
+1. Play Console → your app → **Monetize → Products → In-app products**
+2. Create one product per SKU with the exact same ID string
+   (`coin_pack_small`, `coin_pack_medium`, `coin_pack_large`, `remove_ads`,
+   `pro_dictionary`). Subscriptions go under **Subscriptions** with id
+   `subscription_monthly`.
+3. Set price, default language, description. Activate each.
+4. Upload at least one closed/internal-test build before Google will let
+   you fetch products at runtime — that's their gate, not ours.
+
+**App Store Connect** (when shipping iOS)
+1. App Store Connect → your app → **Features → In-App Purchases**
+2. Create the same SKU IDs with the same types (Consumable for coin packs,
+   Non-Consumable for remove_ads / pro_dictionary, Auto-Renewable Subscription
+   for subscription_monthly).
+3. Submit them with the app build for review.
+
+### 7c. Flip `iap.enabled` on
+
+Already true in `remoteConfigDefaults.json` so the catalog renders
+immediately. With `react-native-iap` installed:
+
+- `RealIap.listProducts()` will query the store for live prices + display
+  them in `priceDisplay` (overriding our placeholder strings).
+- `RealIap.purchase(sku)` triggers the system purchase sheet.
+- On success, fulfillment delegates through `LocalIap`, which writes
+  entitlements to `ws:{userId}:entitlements` and grants coin packs via
+  `economy.grant({type:'iap_grant', sku, coins})`.
+
+### 7d. Server-side receipt verification (production)
+
+The current `RealIap.purchase` resolves on the client-side `requestPurchase`
+promise; production should send the purchase receipt to a backend that
+verifies with Google Play / App Store, then grants entitlement. Until then,
+treat the IAP layer as launch-ready for managed sandbox testing only.
+
+### 7e. Sandbox testing
+
+- **Google Play**: add testers in Play Console → **License testing**, install
+  your app via the closed-test track, and purchases will use the sandbox
+  account without charging real money.
+- **App Store**: configure a Sandbox Apple ID in App Store Connect →
+  **Users and Access → Sandbox**, then sign in on the device under
+  Settings → App Store → Sandbox Account.

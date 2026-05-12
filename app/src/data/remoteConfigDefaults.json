@@ -9,7 +9,7 @@
   "ads.unitId.android.interstitial": "",
   "ads.unitId.ios.rewarded": "",
   "ads.unitId.ios.interstitial": "",
-  "iap.enabled": false,
+  "iap.enabled": true,
   "leaderboard.global.enabled": false,
   "leaderboard.friends.enabled": false,
   "dailyChallenge.enabled": false,
