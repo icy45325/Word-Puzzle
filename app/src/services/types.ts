@@ -92,14 +92,16 @@ export interface ScoreRecord {
 }
 
 /** Aggregated leaderboard row — one per user. Computed at read time
- *  from either real ScoreRecord arrays (own + future friends) or seeded
- *  bot data. */
+ *  from either real EconomyState (own coins) or seeded bot data. The
+ *  global board ranks users by coins balance since that's the
+ *  user-visible accumulation metric in the TopBar. */
 export interface LeaderboardEntry {
   userId: Uuid;
   displayName: string;
   /** 1-based rank within the requested scope. */
   rank: number;
-  totalScore: number;
+  /** Coin balance — the ranking metric for the global board. */
+  coins: number;
   /** Highest level (1-based) the user has cleared. */
   furthestLevel: number;
   /** True for seed bots; renderer can dim or tag them. */

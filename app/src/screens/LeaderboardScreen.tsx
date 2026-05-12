@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
 import { useUnlocks } from '../hooks/useUnlocks';
@@ -19,6 +25,10 @@ import type { RootStackParamList } from '../../App';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Leaderboard'>;
 
+// Row height needs to match the actual rendered row + gap so the sticky
+// detection logic can map scroll position to rank index.
+const ROW_HEIGHT = 70;
+
 export function LeaderboardScreen({ navigation }: Props) {
   useLocale();
   const services = useServices();
@@ -26,7 +36,6 @@ export function LeaderboardScreen({ navigation }: Props) {
   const unlocks = useUnlocks();
   const { theme } = useTheme();
   const [scope, setScope] = useState<LeaderboardScope>('global');
-  // Global / friends tabs use aggregated rows; self uses raw PB records.
   const [globalRows, setGlobalRows] = useState<LeaderboardEntry[]>([]);
   const [selfPbs, setSelfPbs] = useState<ScoreRecord[]>([]);
   const [selfSummary, setSelfSummary] = useState<LeaderboardEntry | null>(null);
@@ -54,18 +63,22 @@ export function LeaderboardScreen({ navigation }: Props) {
   }, [services, user, scope]);
 
   const tabs: { key: LeaderboardScope; label: string; locked?: boolean }[] = [
+    { key: 'global', label: t('leaderboard.tabs.global') },
     { key: 'self', label: t('leaderboard.tabs.self') },
     {
       key: 'friends',
       label: t('leaderboard.tabs.friends'),
       locked: !unlocks.friendsLeaderboard,
     },
-    {
-      key: 'global',
-      label: t('leaderboard.tabs.global'),
-      locked: !unlocks.globalLeaderboard,
-    },
   ];
+
+  // Compute the player's eligibility for the global rankings + a helpful
+  // pinned "you're at" row when they haven't qualified yet. The
+  // leaderboard service exposes its threshold so the UI stays in sync if
+  // it ever changes.
+  const eligibility = (services.leaderboard as any).getEligibilityInfo
+    ? (services.leaderboard as any).getEligibilityInfo()
+    : { thresholdLevel: 160, totalLevels: 200 };
 
   return (
     <GradientBackground>
@@ -114,7 +127,12 @@ export function LeaderboardScreen({ navigation }: Props) {
         {scope === 'friends' ? (
           <FriendsPlaceholder />
         ) : scope === 'global' ? (
-          <GlobalList rows={globalRows} themePrimary={theme.primary} />
+          <GlobalList
+            rows={globalRows}
+            themePrimary={theme.primary}
+            eligibility={eligibility}
+            ownFurthest={unlocks.furthestLevel}
+          />
         ) : (
           <SelfList
             summary={selfSummary}
@@ -135,29 +153,110 @@ function FriendsPlaceholder() {
   );
 }
 
+interface GlobalListProps {
+  rows: LeaderboardEntry[];
+  themePrimary: string;
+  eligibility: { thresholdLevel: number; totalLevels: number };
+  ownFurthest: number;
+}
+
 function GlobalList({
   rows,
   themePrimary,
-}: {
-  rows: LeaderboardEntry[];
-  themePrimary: string;
-}) {
-  if (rows.length === 0) {
+  eligibility,
+  ownFurthest,
+}: GlobalListProps) {
+  // Sticky self-row state. We track viewport scroll position and
+  // compare against where the user's row actually sits in the list.
+  // - self below viewport → render a sticky row pinned to the bottom
+  // - self above viewport → sticky pinned to the top
+  // - self inside viewport → no sticky (the actual row is already on screen)
+  const [scrollY, setScrollY] = useState(0);
+  const [viewportH, setViewportH] = useState(0);
+  const listRef = useRef<FlatList<LeaderboardEntry>>(null);
+
+  const selfIndex = useMemo(
+    () => rows.findIndex((r) => r.isSelf),
+    [rows]
+  );
+  const selfRow = selfIndex >= 0 ? rows[selfIndex] : null;
+
+  // Self's projected y in scroll content. Each row is approximately
+  // ROW_HEIGHT tall (matches styles.row); this is an estimate that's
+  // accurate enough for the show-sticky decision.
+  const selfY = selfIndex >= 0 ? selfIndex * ROW_HEIGHT : -1;
+  const inViewport =
+    selfY >= 0 &&
+    viewportH > 0 &&
+    selfY >= scrollY - ROW_HEIGHT &&
+    selfY <= scrollY + viewportH - ROW_HEIGHT;
+  const showStickyTop = selfRow != null && !inViewport && selfY < scrollY;
+  const showStickyBottom =
+    selfRow != null && !inViewport && selfY > scrollY + viewportH;
+
+  // Player hasn't cleared enough levels yet to appear in the rankings.
+  // Pin an info card to the bottom explaining the gate.
+  const showIneligibleHint =
+    selfRow == null && ownFurthest < eligibility.thresholdLevel;
+
+  if (rows.length === 0 && !showIneligibleHint) {
     return (
       <View style={styles.emptyWrap}>
         <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
       </View>
     );
   }
+
   return (
-    <FlatList
-      data={rows}
-      keyExtractor={(r) => r.userId}
-      contentContainerStyle={styles.list}
-      renderItem={({ item }) => (
-        <GlobalRow item={item} themePrimary={themePrimary} />
-      )}
-    />
+    <View style={{ flex: 1 }}>
+      <FlatList
+        ref={listRef}
+        data={rows}
+        keyExtractor={(r) => r.userId}
+        contentContainerStyle={styles.list}
+        onLayout={(e) => setViewportH(e.nativeEvent.layout.height)}
+        onScroll={(e) => setScrollY(e.nativeEvent.contentOffset.y)}
+        scrollEventThrottle={32}
+        renderItem={({ item }) => (
+          <GlobalRow item={item} themePrimary={themePrimary} />
+        )}
+      />
+
+      {showStickyTop && selfRow ? (
+        <View style={[styles.stickyWrap, styles.stickyTop]}>
+          <GlobalRow item={selfRow} themePrimary={themePrimary} />
+        </View>
+      ) : null}
+
+      {showStickyBottom && selfRow ? (
+        <View style={[styles.stickyWrap, styles.stickyBottom]}>
+          <GlobalRow item={selfRow} themePrimary={themePrimary} />
+        </View>
+      ) : null}
+
+      {showIneligibleHint ? (
+        <View style={[styles.stickyWrap, styles.stickyBottom]}>
+          <View
+            style={[styles.ineligibleCard, { borderColor: themePrimary }]}
+          >
+            <Text style={styles.ineligibleTitle}>
+              {t(
+                'leaderboard.eligibilityTitle',
+                undefined,
+                '通关 80% 解锁上榜资格'
+              )}
+            </Text>
+            <Text style={styles.ineligibleSub}>
+              {t(
+                'leaderboard.eligibilityHint',
+                { level: eligibility.thresholdLevel, current: ownFurthest },
+                `当前 L${ownFurthest} / 上榜需 L${eligibility.thresholdLevel}`
+              )}
+            </Text>
+          </View>
+        </View>
+      ) : null}
+    </View>
   );
 }
 
@@ -175,23 +274,27 @@ function GlobalRow({
       style={[
         styles.row,
         item.isSelf && {
-          backgroundColor: `${themePrimary}26`,
+          backgroundColor: `${themePrimary}33`,
           borderColor: themePrimary,
         },
       ]}
     >
-      <Text style={styles.rank}>
-        {medal ? medal : `#${item.rank}`}
-      </Text>
+      <Text style={styles.rank}>{medal ? medal : `#${item.rank}`}</Text>
       <View style={{ flex: 1 }}>
         <Text style={styles.name}>
-          {item.isSelf ? t('leaderboard.global.you', undefined, '你') : item.displayName}
+          {item.isSelf
+            ? t('leaderboard.global.you', undefined, '你')
+            : item.displayName}
         </Text>
         <Text style={styles.subText}>
-          {t('leaderboard.furthestLevel', { level: item.furthestLevel }, `L${item.furthestLevel}`)}
+          {t(
+            'leaderboard.furthestLevel',
+            { level: item.furthestLevel },
+            `L${item.furthestLevel}`
+          )}
         </Text>
       </View>
-      <Text style={styles.score}>{item.totalScore.toLocaleString()}</Text>
+      <Text style={styles.score}>💰 {item.coins.toLocaleString()}</Text>
     </View>
   );
 }
@@ -205,7 +308,7 @@ function SelfList({
   pbs: ScoreRecord[];
   themePrimary: string;
 }) {
-  if (pbs.length === 0 || !summary) {
+  if (!summary) {
     return (
       <View style={styles.emptyWrap}>
         <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
@@ -218,18 +321,13 @@ function SelfList({
       keyExtractor={(r) => r.levelId}
       contentContainerStyle={styles.list}
       ListHeaderComponent={
-        <View
-          style={[
-            styles.summaryCard,
-            { borderColor: themePrimary },
-          ]}
-        >
+        <View style={[styles.summaryCard, { borderColor: themePrimary }]}>
           <View style={{ flex: 1 }}>
             <Text style={styles.summaryLabel}>
-              {t('leaderboard.totalScoreLabel', undefined, '总分')}
+              {t('leaderboard.coinsLabel', undefined, '金币')}
             </Text>
             <Text style={[styles.summaryValue, { color: themePrimary }]}>
-              {summary.totalScore.toLocaleString()}
+              💰 {summary.coins.toLocaleString()}
             </Text>
           </View>
           <View style={{ alignItems: 'flex-end' }}>
@@ -240,6 +338,11 @@ function SelfList({
           </View>
         </View>
       }
+      ListEmptyComponent={
+        <Text style={styles.empty}>
+          {t('leaderboard.noPbsYet', undefined, '通关第一关后这里会列出每关战绩')}
+        </Text>
+      }
       renderItem={({ item }) => {
         const n = levelNumberOf(item.levelId);
         return (
@@ -247,11 +350,15 @@ function SelfList({
             <Text style={styles.rank}>L{n}</Text>
             <View style={{ flex: 1 }}>
               <Text style={styles.subText}>
-                {t('leaderboard.selfRowSub', {
-                  words: item.wordsFound,
-                  totalWords: item.totalWords,
-                  seconds: Math.round(item.timeMs / 1000),
-                }, `${item.wordsFound}/${item.totalWords} 词 · ${Math.round(item.timeMs / 1000)}秒`)}
+                {t(
+                  'leaderboard.selfRowSub',
+                  {
+                    words: item.wordsFound,
+                    totalWords: item.totalWords,
+                    seconds: Math.round(item.timeMs / 1000),
+                  },
+                  `${item.wordsFound}/${item.totalWords} 词 · ${Math.round(item.timeMs / 1000)}秒`
+                )}
               </Text>
             </View>
             <Text style={styles.score}>{item.score.toLocaleString()}</Text>
@@ -314,7 +421,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontStyle: 'italic',
   },
-  list: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 32, gap: 8 },
+  list: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 100, gap: 8 },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -363,5 +470,34 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '900',
     color: '#F8FAFC',
+  },
+  // Sticky overlay containers — absolutely positioned over the FlatList,
+  // anchored to top/bottom of the viewport.
+  stickyWrap: {
+    position: 'absolute',
+    left: 16,
+    right: 16,
+  },
+  stickyTop: { top: 8 },
+  stickyBottom: { bottom: 20 },
+  // "Not yet eligible" card pinned at the bottom when player is below
+  // the threshold.
+  ineligibleCard: {
+    backgroundColor: 'rgba(15, 23, 42, 0.92)',
+    borderWidth: 1,
+    borderRadius: 18,
+    paddingHorizontal: 18,
+    paddingVertical: 14,
+  },
+  ineligibleTitle: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#F8FAFC',
+  },
+  ineligibleSub: {
+    marginTop: 4,
+    fontSize: 12,
+    fontWeight: '700',
+    color: 'rgba(255,255,255,0.65)',
   },
 });

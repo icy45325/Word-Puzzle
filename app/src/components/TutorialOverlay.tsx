@@ -80,7 +80,10 @@ export function TutorialOverlay({
 const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(15, 23, 42, 0.85)',
+    // Solid dark backdrop — was rgba(...,0.85) before, which let the
+    // underlying screen leak through and made the card look mixed up
+    // with the wall of TopBar icons. Fully opaque dimmer reads cleaner.
+    backgroundColor: 'rgba(15, 23, 42, 0.97)',
     zIndex: 60,
     alignItems: 'center',
     justifyContent: 'center',
@@ -90,12 +93,18 @@ const styles = StyleSheet.create({
     paddingVertical: 28,
     alignItems: 'center',
     gap: 14,
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    // Solid card so it reads as a real popup, not a glass tile.
+    backgroundColor: '#1E293B',
     borderRadius: 28,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.10)',
+    borderColor: 'rgba(255,255,255,0.12)',
     marginHorizontal: 24,
     maxWidth: 360,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 12 },
+    elevation: 12,
   },
   icon: { fontSize: 56, marginBottom: 4 },
   title: {

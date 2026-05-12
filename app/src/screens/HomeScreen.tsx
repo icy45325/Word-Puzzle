@@ -138,10 +138,11 @@ export function HomeScreen({ navigation }: Props) {
               onPress={() => navigation.navigate('Friends')}
             />
             <MenuTile
-              icon="👤"
-              label={t('home.profile')}
+              icon="📚"
+              label={t('home.review', undefined, '复习单词')}
               unlocked
-              onPress={() => navigation.navigate('Profile')}
+              unlockText={undefined}
+              onPress={() => navigation.navigate('ReviewQuiz')}
             />
           </View>
         </ScrollView>

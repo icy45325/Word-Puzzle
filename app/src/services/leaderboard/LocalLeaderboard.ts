@@ -1,8 +1,10 @@
 import type {
+  EconomyService,
   Friend,
   LeaderboardEntry,
   LeaderboardScope,
   LeaderboardService,
+  ProgressRepo,
   ScoreRecord,
   Uuid,
 } from '../types';
@@ -15,31 +17,53 @@ const BOTS = (botsData as {
     userId: string;
     displayName: string;
     furthestLevel: number;
-    totalScore: number;
+    coins: number;
   }[];
 }).bots;
+
+const TOTAL_LEVELS = 200;
+/** Player must clear at least this many levels (80% of 200) before
+ *  they show up in the global rankings. Below this they can still
+ *  *view* the board (bots only). */
+const ELIGIBILITY_THRESHOLD = Math.floor(TOTAL_LEVELS * 0.8);
 
 /**
  * Local leaderboard with seeded bot global ranking.
  *
- * Submission model: per-level **personal best**. Re-playing a level only
- * keeps the higher score; the array stays at most LEVELS-long instead of
- * a 200-row ring buffer of every submission. Auto-migrates legacy ring-
- * buffer data on first read.
+ * Submission model: per-level **personal best** for self-tab history.
+ * Global ranking metric is **coins** (pulled live from EconomyService)
+ * since users see their coin balance in TopBar and elsewhere — keeps
+ * the leaderboard reading at-a-glance for what they recognize.
  *
- * Global tab: bots + self merged, sorted by aggregated total score.
- * Friends / friend-system stays a coming-soon stub (returns [] / fails
- * addFriend) until a real backend exists.
+ * Eligibility: own row only enters the global rankings once the player
+ * has cleared >= 80% of available levels. Before that, the board still
+ * renders (bots only) so the player has a goal in sight.
+ *
+ * Friends / friend-system stays a coming-soon stub until a real
+ * backend exists.
  */
 export class LocalLeaderboard implements LeaderboardService {
   /** Current user — set externally so getTop('global') can flag isSelf
    *  without forcing every caller to pass userId. */
   private currentUserId: Uuid | null = null;
   private currentDisplayName: string | null = null;
+  /** Optional injections — provider wires these in after construction so
+   *  the global tab can read live coins + furthest level without a
+   *  round-trip through every caller. */
+  private economy: EconomyService | null = null;
+  private progress: ProgressRepo | null = null;
 
   setUser(userId: Uuid | null, displayName?: string): void {
     this.currentUserId = userId;
     this.currentDisplayName = displayName ?? null;
+  }
+
+  setEconomy(economy: EconomyService): void {
+    this.economy = economy;
+  }
+
+  setProgress(progress: ProgressRepo): void {
+    this.progress = progress;
   }
 
   private async loadOwnScores(userId: Uuid): Promise<ScoreRecord[]> {
@@ -75,39 +99,62 @@ export class LocalLeaderboard implements LeaderboardService {
     n: number,
     currentUserId?: Uuid
   ): Promise<LeaderboardEntry[]> {
-    if (scope === 'friends') {
-      // No backend yet — the FriendsScreen renders a "coming soon"
-      // placeholder in this state.
-      return [];
-    }
+    if (scope === 'friends') return [];
     const uid = currentUserId ?? this.currentUserId ?? null;
-    const selfScores = uid ? await this.loadOwnScores(uid) : [];
-    if (scope === 'self') {
-      // self tab uses listPersonalBests; getTop('self') returns the
-      // aggregate single-row form so the screen can show a "你的总分"
-      // header consistently.
-      if (!uid || selfScores.length === 0) return [];
-      const total = buildGlobal(
-        {
-          selfScores,
-          currentUserId: uid,
-          currentDisplayName: this.currentDisplayName ?? '你',
-          bots: [],
-        },
-        1
-      );
-      return total;
+
+    // Resolve live coin balance + furthest level for the self row.
+    let selfCoins = 0;
+    let selfFurthest = 0;
+    if (uid) {
+      try {
+        if (this.economy) {
+          const eco = await this.economy.getState(uid);
+          selfCoins = eco.coins;
+        }
+        if (this.progress) {
+          const prog = await this.progress.load(uid);
+          // furthestLevelIndex is 0-based; +1 for 1-based level number
+          selfFurthest = prog.furthestLevelIndex + 1;
+        }
+      } catch {
+        /* if either read fails, fall through with 0s */
+      }
     }
-    // global
+
+    if (scope === 'self') {
+      // self tab returns the aggregate single-row form for the summary
+      // card; the screen reads per-level PBs separately via listPB.
+      if (!uid) return [];
+      return [
+        {
+          userId: uid,
+          displayName: this.currentDisplayName ?? '你',
+          rank: 1,
+          coins: selfCoins,
+          furthestLevel: selfFurthest,
+          isSelf: true,
+        },
+      ];
+    }
+
+    // global: bots + self (only if eligible)
     return buildGlobal(
       {
-        selfScores,
+        bots: BOTS,
         currentUserId: uid ?? undefined,
         currentDisplayName: this.currentDisplayName ?? '你',
-        bots: BOTS,
+        currentCoins: selfCoins,
+        currentFurthestLevel: selfFurthest,
+        selfEligibleForGlobal: selfFurthest >= ELIGIBILITY_THRESHOLD,
       },
       n
     );
+  }
+
+  /** Threshold + total levels exposed so the screen can show
+   *  "通关 80% 后上榜 (L160)" hint. */
+  getEligibilityInfo(): { thresholdLevel: number; totalLevels: number } {
+    return { thresholdLevel: ELIGIBILITY_THRESHOLD, totalLevels: TOTAL_LEVELS };
   }
 
   async getPersonalBest(
@@ -120,9 +167,6 @@ export class LocalLeaderboard implements LeaderboardService {
 
   async listPersonalBests(userId: Uuid): Promise<ScoreRecord[]> {
     const all = await this.loadOwnScores(userId);
-    // Sort by levelId for a stable, navigable list. levelNumberOf would
-    // be nicer but a string sort of "L01" "L02" "L100" still works since
-    // the storage layer's levelIds are zero-padded for L01-L99.
     return [...all].sort((a, b) => (a.levelId < b.levelId ? -1 : 1));
   }
 

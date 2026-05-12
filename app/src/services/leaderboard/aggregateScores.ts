@@ -1,47 +1,33 @@
-import type { LeaderboardEntry, ScoreRecord, Uuid } from '../types';
-import { levelNumberOf } from '../../utils/levelNumber';
+import type { LeaderboardEntry, Uuid } from '../types';
 
 interface BotSeed {
   userId: string;
   displayName: string;
   furthestLevel: number;
-  totalScore: number;
+  /** Aggregated coin balance — the metric we rank by. Users see their
+   *  coin count in the TopBar, so the leaderboard reads at-a-glance. */
+  coins: number;
 }
 
 interface BuildArgs {
-  /** Per-level PB records for the current user. May be empty. */
-  selfScores: ScoreRecord[];
-  /** Current user identity — drives isSelf flag + displayName lookup. */
+  /** Current user identity. May be null on first-ever launch. */
   currentUserId?: Uuid | null;
   currentDisplayName?: string;
-  /** Bot seed entries (already aggregated). */
+  /** Current user's coin balance, pulled from EconomyService. */
+  currentCoins?: number;
+  /** Current user's furthest unlocked level (1-based). Used by the
+   *  eligibility gate so a brand-new player doesn't crash the bottom
+   *  of the global board. */
+  currentFurthestLevel?: number;
+  /** True only when the user has cleared enough of the game to appear
+   *  in the global rankings (see leaderboard.global.eligibleAtLevel). */
+  selfEligibleForGlobal: boolean;
+  /** Bot seed entries. */
   bots: BotSeed[];
 }
 
-/** Aggregate a single user's PB records into a single LeaderboardEntry-
- *  shaped row (rank is filled in later by buildGlobal). */
-export function aggregateUser(
-  userId: Uuid,
-  displayName: string,
-  records: ScoreRecord[]
-): Omit<LeaderboardEntry, 'rank'> {
-  let totalScore = 0;
-  let furthestLevel = 0;
-  for (const r of records) {
-    totalScore += r.score;
-    const n = levelNumberOf(r.levelId);
-    if (n > furthestLevel) furthestLevel = n;
-  }
-  return {
-    userId,
-    displayName,
-    totalScore,
-    furthestLevel,
-  };
-}
-
-/** Build the global leaderboard: bots + self, sorted by totalScore desc,
- *  ranked, top N. */
+/** Build the global leaderboard: bots + self (if eligible), sorted by
+ *  coins desc, ranked, top N. */
 export function buildGlobal(
   args: BuildArgs,
   topN: number
@@ -49,18 +35,19 @@ export function buildGlobal(
   const rows: Omit<LeaderboardEntry, 'rank'>[] = args.bots.map((b) => ({
     userId: b.userId,
     displayName: b.displayName,
-    totalScore: b.totalScore,
+    coins: b.coins,
     furthestLevel: b.furthestLevel,
     isBot: true,
   }));
-  if (args.currentUserId && args.selfScores.length > 0) {
-    const selfRow = aggregateUser(
-      args.currentUserId,
-      args.currentDisplayName ?? '你',
-      args.selfScores
-    );
-    rows.push({ ...selfRow, isSelf: true });
+  if (args.currentUserId && args.selfEligibleForGlobal) {
+    rows.push({
+      userId: args.currentUserId,
+      displayName: args.currentDisplayName ?? '你',
+      coins: args.currentCoins ?? 0,
+      furthestLevel: args.currentFurthestLevel ?? 0,
+      isSelf: true,
+    });
   }
-  rows.sort((a, b) => b.totalScore - a.totalScore);
+  rows.sort((a, b) => b.coins - a.coins);
   return rows.slice(0, topN).map((r, i) => ({ ...r, rank: i + 1 }));
 }

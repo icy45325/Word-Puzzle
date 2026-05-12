@@ -23,6 +23,11 @@ export function createDefaultServices(): Services {
   const learnedWords = new LocalLearnedWordsRepo();
   const leaderboard = new LocalLeaderboard();
   const economy = new LocalEconomy(remoteConfig);
+  // The leaderboard's global tab ranks by live coin balance + furthest
+  // level, so we hand it references to economy + progress after both
+  // are constructed.
+  leaderboard.setEconomy(economy);
+  leaderboard.setProgress(progress);
   const ads = isAdMobLoaded()
     ? new MobileAdsService(remoteConfig, analytics)
     : new NoopAds(remoteConfig, analytics);
