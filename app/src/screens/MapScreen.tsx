@@ -151,7 +151,11 @@ export function MapScreen({ navigation }: Props) {
   }, [unlocks.loaded, furthest]);
 
   const handlePick = async (oneBased: number) => {
-    if (!user || oneBased > furthest) return;
+    // Only the current (next-to-play) level is tappable. Previously this
+    // allowed replaying any earlier level, but the design now treats the
+    // map as a strict forward-progression ladder — completed levels show
+    // a passed-style node but don't navigate.
+    if (!user || oneBased !== furthest) return;
     const idx = Math.max(0, Math.min(LEVELS.length - 1, oneBased - 1));
     const prev = await services.progress.load(user.userId);
     await services.progress.save({ ...prev, currentLevelIndex: idx });
@@ -227,6 +231,13 @@ export function MapScreen({ navigation }: Props) {
           ref={scrollRef}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
+          // Android-only: subviews scrolled off-screen are removed from
+          // the native view hierarchy. Big win for 200-node maps.
+          removeClippedSubviews
+          // Throttle to ~60fps but keep onScroll cheap — we don't use the
+          // event right now; setting this is a hint to RN that we don't
+          // need every frame.
+          scrollEventThrottle={32}
         >
           <View
             style={[
@@ -540,6 +551,10 @@ const styles = StyleSheet.create({
     height: NODE_SIZE + 28,
     borderRadius: (NODE_SIZE + 28) / 2,
   },
+  // NOTE: shadows are deliberately moved out of the base style. 200
+  // shadowed views = ~200 offscreen render passes per frame during
+  // scroll, which was the main culprit behind the lag. Only the
+  // current node gets shadow now; passed + locked are flat.
   node: {
     width: NODE_SIZE,
     height: NODE_SIZE,
@@ -549,26 +564,21 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
   },
   nodePassed: {
     backgroundColor: 'rgba(255,255,255,0.92)',
   },
   nodeCurrent: {
     transform: [{ scale: 1.18 }, { translateY: -4 }],
+    shadowColor: '#000',
     shadowOpacity: 0.45,
     shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
     elevation: 10,
   },
   nodeLocked: {
     backgroundColor: 'rgba(255,255,255,0.10)',
     borderColor: 'rgba(255,255,255,0.10)',
-    shadowOpacity: 0,
-    elevation: 0,
   },
   nodeLabel: {
     fontSize: 18,

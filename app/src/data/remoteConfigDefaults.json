@@ -24,7 +24,7 @@
   "chapter.hintCapLevel": 50,
   "wordDetail.failsBeforeAutoOpen": 3,
   "feature.vocabulary.minLevel": 1,
-  "leaderboard.global.minLevel": 30,
+  "leaderboard.global.minLevel": 15,
   "leaderboard.friends.minLevel": 50,
   "friends.minLevel": 50,
   "reward.wordBase": 5,
