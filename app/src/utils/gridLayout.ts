@@ -70,34 +70,85 @@ export interface LevelLayout {
 
 const dict = dictionary as Record<string, unknown>;
 
+/** Build a (slotIndex,positionInSlot)→requiredLetter map for one slot,
+ *  based on intersections with OTHER slots' canonical letters. This is
+ *  the key fix for the "anagram fill breaks neighbors" bug: a candidate
+ *  word for this slot must agree with each canonical letter at every
+ *  cell shared with another slot. Otherwise, filling this slot with the
+ *  anagram would lock the shared cell to the wrong letter and make the
+ *  neighbor slot impossible to complete. */
+function intersectionConstraints(
+  slotIndex: number,
+  slots: Array<{ word: string; row: number; col: number; dir: Direction; length: number }>
+): (string | null)[] {
+  const me = slots[slotIndex];
+  const out: (string | null)[] = new Array(me.length).fill(null);
+  for (let p = 0; p < me.length; p++) {
+    const r = me.dir === 'H' ? me.row : me.row + p;
+    const c = me.dir === 'H' ? me.col + p : me.col;
+    for (let j = 0; j < slots.length; j++) {
+      if (j === slotIndex) continue;
+      const o = slots[j];
+      const inO =
+        o.dir === 'H'
+          ? r === o.row && c >= o.col && c < o.col + o.length
+          : c === o.col && r >= o.row && r < o.row + o.length;
+      if (!inO) continue;
+      const pos = o.dir === 'H' ? c - o.col : r - o.row;
+      out[p] = o.word[pos];
+      break;
+    }
+  }
+  return out;
+}
+
 function findAcceptable(
   length: number,
   firstLetter: string,
-  letterPool: string[]
+  letterPool: string[],
+  intersectionReq: (string | null)[]
 ): string[] {
   const out: string[] = [];
   for (const w of Object.keys(dict)) {
     if (w.length !== length) continue;
     if (w[0] !== firstLetter) continue;
     if (!canFormFromLetters(w, letterPool)) continue;
+    // Reject words whose letters at shared cells contradict the
+    // canonical neighbor — these would create unresolvable conflicts
+    // once filled.
+    let ok = true;
+    for (let p = 0; p < length; p++) {
+      const req = intersectionReq[p];
+      if (req != null && w[p] !== req) { ok = false; break; }
+    }
+    if (!ok) continue;
     out.push(w);
   }
   return out;
 }
 
 export function layoutLevel(level: LevelDef): LevelLayout {
-  // Build slots first; each slot needs its firstLetter (the letter sitting
-  // at its origin cell, which is fixed by whichever answer covers it).
-  const slots: Slot[] = level.answers.map((ans) => {
-    const word = ans.word.toUpperCase();
+  // First pass: build raw slot info needed for intersection lookups
+  // (each slot needs to know its canonical word + position before we can
+  // ask "what's required at each cell because of OTHER slots").
+  const rawSlots = level.answers.map((ans) => ({
+    word: ans.word.toUpperCase(),
+    row: ans.row,
+    col: ans.col,
+    dir: ans.dir,
+    length: ans.word.length,
+  }));
+  const slots: Slot[] = rawSlots.map((raw, idx) => {
+    const word = raw.word;
+    const req = intersectionConstraints(idx, rawSlots);
     return {
       word,
-      row: ans.row,
-      col: ans.col,
-      dir: ans.dir,
+      row: raw.row,
+      col: raw.col,
+      dir: raw.dir,
       length: word.length,
       firstLetter: word[0],
-      acceptableWords: findAcceptable(word.length, word[0], level.letters),
+      acceptableWords: findAcceptable(word.length, word[0], level.letters, req),
     };
   });
 
