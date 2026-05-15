@@ -37,5 +37,11 @@
   "streak.cycleSize": 7,
   "streak.weeklyMilestoneHints": 1,
   "review.batchSize": 5,
-  "review.coinPerCorrect": 5
+  "review.coinPerCorrect": 5,
+  "reward.wordPoints": 1,
+  "reward.levelPoints": 20,
+  "reward.levelPerfectPoints": 10,
+  "reward.reviewPoints": 10,
+  "streak.insuranceCost": 2,
+  "store.streakInsurance.enabled": true
 }

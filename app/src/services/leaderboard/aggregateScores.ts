@@ -4,17 +4,17 @@ interface BotSeed {
   userId: string;
   displayName: string;
   furthestLevel: number;
-  /** Aggregated coin balance — the metric we rank by. Users see their
-   *  coin count in the TopBar, so the leaderboard reads at-a-glance. */
-  coins: number;
+  /** Points balance — the ranking metric (v8). Earned only from skill
+   *  events (word_found / level_complete / review_correct). */
+  points: number;
 }
 
 interface BuildArgs {
   /** Current user identity. May be null on first-ever launch. */
   currentUserId?: Uuid | null;
   currentDisplayName?: string;
-  /** Current user's coin balance, pulled from EconomyService. */
-  currentCoins?: number;
+  /** Current user's points balance, pulled from EconomyService. */
+  currentPoints?: number;
   /** Current user's furthest unlocked level (1-based). */
   currentFurthestLevel?: number;
   /** Bot seed entries. */
@@ -22,7 +22,7 @@ interface BuildArgs {
 }
 
 /** Build the global leaderboard: bots + self always inserted, sorted by
- *  coins desc, ranked, top N. The self row is always shown so the
+ *  points desc, ranked, top N. The self row is always shown so the
  *  player can see "where they stand"; the visible ranking is local-
  *  only until a real backend ships. */
 export function buildGlobal(
@@ -32,7 +32,7 @@ export function buildGlobal(
   const rows: Omit<LeaderboardEntry, 'rank'>[] = args.bots.map((b) => ({
     userId: b.userId,
     displayName: b.displayName,
-    coins: b.coins,
+    points: b.points,
     furthestLevel: b.furthestLevel,
     isBot: true,
   }));
@@ -40,16 +40,14 @@ export function buildGlobal(
     rows.push({
       userId: args.currentUserId,
       displayName: args.currentDisplayName ?? '你',
-      coins: args.currentCoins ?? 0,
+      points: args.currentPoints ?? 0,
       furthestLevel: args.currentFurthestLevel ?? 0,
       isSelf: true,
     });
   }
-  rows.sort((a, b) => b.coins - a.coins);
-  // Take top N. If the user's row would have been outside top N, swap in
-  // their row at the bottom so they can always see where they roughly
-  // stand. (The sticky-row UI still pins them to viewport edges when
-  // scrolled.)
+  rows.sort((a, b) => b.points - a.points);
+  // Take top N. If the user's row would have been outside top N, swap
+  // them in at the bottom so they can always see where they stand.
   let sliced = rows.slice(0, topN).map((r, i) => ({ ...r, rank: i + 1 }));
   const selfInSlice = sliced.find((r) => r.isSelf);
   const selfAll = rows.find((r) => r.isSelf);

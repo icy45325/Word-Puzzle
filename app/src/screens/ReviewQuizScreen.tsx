@@ -23,7 +23,6 @@ interface QuizQuestion {
 }
 
 const MAX_QUESTIONS = 5;
-const COIN_REWARD_PER_CORRECT = 5;
 
 export function ReviewQuizScreen({ navigation }: Props) {
   useLocale();
@@ -77,12 +76,14 @@ export function ReviewQuizScreen({ navigation }: Props) {
 
   const finish = async (finalCorrect: number) => {
     if (!user) return;
-    const earned = finalCorrect * COIN_REWARD_PER_CORRECT;
-    if (earned > 0) {
-      await services.economy.grantChapterReward(user.userId, {
-        chapter: 0,
-        coins: earned,
-        hints: 0,
+    // v8: use the new review_correct event — LocalEconomy grants both
+    // coins (review.coinPerCorrect * count) AND points
+    // (reward.reviewPoints * count). Old grantChapterReward path only
+    // gave coins; review work now also bumps the leaderboard metric.
+    if (finalCorrect > 0) {
+      await services.economy.grant(user.userId, {
+        type: 'review_correct',
+        count: finalCorrect,
       });
     }
     setDone(true);
@@ -129,7 +130,10 @@ export function ReviewQuizScreen({ navigation }: Props) {
   }
 
   if (done) {
-    const earned = correctCount * COIN_REWARD_PER_CORRECT;
+    const coinPer = services.remoteConfig.getNumber('review.coinPerCorrect', 5);
+    const pointsPer = services.remoteConfig.getNumber('reward.reviewPoints', 10);
+    const earnedCoins = correctCount * coinPer;
+    const earnedPoints = correctCount * pointsPer;
     return (
       <GradientBackground>
         <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
@@ -141,7 +145,7 @@ export function ReviewQuizScreen({ navigation }: Props) {
               {correctCount} / {totalQuestions}
             </Text>
             <Text style={styles.summarySub}>
-              {t('review.summaryReward', { coins: earned })}
+              {t('review.summaryReward', { coins: earnedCoins, points: earnedPoints })}
             </Text>
             <Pressable
               style={[styles.cta, { backgroundColor: theme.primary }]}

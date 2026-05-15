@@ -246,7 +246,7 @@ function GlobalRow({
           )}
         </Text>
       </View>
-      <Text style={styles.score}>💰 {item.coins.toLocaleString()}</Text>
+      <Text style={styles.score}>🏆 {item.points.toLocaleString()}</Text>
     </View>
   );
 }
@@ -276,10 +276,10 @@ function SelfList({
         <View style={[styles.summaryCard, { borderColor: themePrimary }]}>
           <View style={{ flex: 1 }}>
             <Text style={styles.summaryLabel}>
-              {t('leaderboard.coinsLabel', undefined, '金币')}
+              {t('leaderboard.pointsLabel', undefined, '积分')}
             </Text>
             <Text style={[styles.summaryValue, { color: themePrimary }]}>
-              💰 {summary.coins.toLocaleString()}
+              🏆 {summary.points.toLocaleString()}
             </Text>
           </View>
           <View style={{ alignItems: 'flex-end' }}>

@@ -52,8 +52,11 @@ export function StoreScreen({ navigation }: Props) {
     showToast(t('store.restoreDone', undefined, '已恢复购买'));
   };
 
-  const coinPacks = entitlements.products.filter(
-    (p) => p.grantCoins != null
+  const tipPacks = entitlements.products.filter(
+    (p) => p.grantTips != null
+  );
+  const consumables = entitlements.products.filter(
+    (p) => p.consumableKind != null
   );
   const entitlementProducts = entitlements.products.filter(
     (p) => p.entitlement && p.sku !== 'subscription_monthly'
@@ -79,11 +82,22 @@ export function StoreScreen({ navigation }: Props) {
         </View>
 
         <ScrollView contentContainerStyle={styles.body}>
+          {/* Show coin + tip balances side by side: coins are the
+              in-game-only currency that exchanges for tips, tips are
+              what the player actually spends. Both matter at a glance. */}
           <View style={styles.balanceCard}>
-            <Text style={styles.balanceLabel}>
-              {t('store.balance', undefined, '当前金币')}
-            </Text>
-            <Text style={styles.balanceValue}>💰 {economy?.coins ?? 0}</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.balanceLabel}>
+                {t('store.balanceCoins', undefined, '金币')}
+              </Text>
+              <Text style={styles.balanceValue}>💰 {economy?.coins ?? 0}</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: 'flex-end' }}>
+              <Text style={styles.balanceLabel}>
+                {t('store.balanceTips', undefined, '提示')}
+              </Text>
+              <Text style={styles.balanceValue}>💡 {economy?.hints ?? 0}</Text>
+            </View>
           </View>
 
           {storeEmpty ? (
@@ -98,14 +112,32 @@ export function StoreScreen({ navigation }: Props) {
             </View>
           ) : null}
 
-          {coinPacks.length > 0 ? (
-            <Section title={t('store.section.coins', undefined, '金币礼包')}>
-              {coinPacks.map((p) => (
+          {tipPacks.length > 0 ? (
+            <Section title={t('store.section.tips', undefined, '提示礼包')}>
+              {tipPacks.map((p) => (
                 <PackCard
                   key={p.sku}
                   product={p}
                   loading={pendingSku === p.sku}
                   primaryColor={theme.primary}
+                  onPress={() => handlePurchase(p.sku)}
+                />
+              ))}
+            </Section>
+          ) : null}
+
+          {consumables.length > 0 ? (
+            <Section
+              title={t('store.section.consumables', undefined, '一次性道具')}
+            >
+              {consumables.map((p) => (
+                <UpgradeCard
+                  key={p.sku}
+                  product={p}
+                  owned={false}
+                  loading={pendingSku === p.sku}
+                  primaryColor={theme.primary}
+                  primaryText={theme.primaryText}
                   onPress={() => handlePurchase(p.sku)}
                 />
               ))}
@@ -120,6 +152,12 @@ export function StoreScreen({ navigation }: Props) {
                     ? entitlements.removeAds
                     : p.entitlement === 'pro_dictionary'
                     ? entitlements.proDictionary
+                    : p.entitlement === 'exam_ielts'
+                    ? entitlements.examIelts
+                    : p.entitlement === 'exam_toefl'
+                    ? entitlements.examToefl
+                    : p.entitlement === 'exam_gaokao'
+                    ? entitlements.examGaokao
                     : false;
                 return (
                   <UpgradeCard
@@ -206,12 +244,12 @@ function PackCard({ product, loading, primaryColor, onPress }: PackCardProps) {
   return (
     <Pressable style={styles.packCard} onPress={onPress} disabled={loading}>
       <View style={styles.packIconWrap}>
-        <Text style={styles.packIcon}>🪙</Text>
+        <Text style={styles.packIcon}>💡</Text>
       </View>
       <View style={{ flex: 1 }}>
         <Text style={styles.packTitle}>{product.title}</Text>
         <Text style={styles.packSub}>
-          {product.grantCoins} {t('store.coinsLabel', undefined, '金币')}
+          {product.grantTips} {t('store.tipsLabel', undefined, '个提示')}
         </Text>
       </View>
       <View

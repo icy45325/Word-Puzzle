@@ -50,10 +50,13 @@ export function TopBar() {
           <Text style={styles.icon}>💰</Text>
           <Text style={styles.value}>{state?.coins ?? 0}</Text>
         </View>
-        <View style={styles.pill}>
-          <Text style={styles.icon}>💡</Text>
-          <Text style={styles.value}>{state?.hints ?? 0}</Text>
-        </View>
+        <Pressable
+          style={[styles.pill, styles.pointsPill]}
+          onPress={() => navigation.navigate('Leaderboard')}
+        >
+          <Text style={styles.icon}>🏆</Text>
+          <Text style={styles.pointsValue}>{state?.points ?? 0}</Text>
+        </Pressable>
         {dailyCheckIn.loaded ? (
           <Pressable
             style={[styles.pill, styles.streakPill]}
@@ -119,9 +122,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(250,204,21,0.18)',
     borderColor: 'rgba(250,204,21,0.40)',
   },
+  // Points pill — slight green tint to differentiate from coin/hint
+  // pills and reinforce "skill metric" feel. Tappable shortcut to the
+  // leaderboard screen so players who notice a new bot move past them
+  // can investigate immediately.
+  pointsPill: {
+    backgroundColor: 'rgba(34,197,94,0.16)',
+    borderColor: 'rgba(34,197,94,0.40)',
+  },
   icon: { fontSize: 14 },
   value: { fontSize: 14, fontWeight: '900', color: '#F8FAFC' },
   streakValue: { fontSize: 14, fontWeight: '900', color: '#FACC15' },
+  pointsValue: { fontSize: 14, fontWeight: '900', color: '#34D399' },
   profileBtn: {
     width: 38,
     height: 38,

@@ -44,12 +44,20 @@ export function isIapLoaded(): boolean {
   );
 }
 
+// v8: tip packs replace coin packs, plus the streak_insurance one-shot.
 const CONSUMABLE_SKUS = new Set<Sku>([
-  'coin_pack_small',
-  'coin_pack_medium',
-  'coin_pack_large',
+  'tip_pack_small',
+  'tip_pack_medium',
+  'tip_pack_large',
+  'streak_insurance',
 ]);
-const NON_CONSUMABLE_SKUS = new Set<Sku>(['remove_ads', 'pro_dictionary']);
+const NON_CONSUMABLE_SKUS = new Set<Sku>([
+  'remove_ads',
+  'pro_dictionary',
+  'exam_pack_ielts',
+  'exam_pack_toefl',
+  'exam_pack_gaokao',
+]);
 const SUBSCRIPTION_SKUS = new Set<Sku>(['subscription_monthly']);
 
 export class RealIap implements IapService {
@@ -100,7 +108,7 @@ export class RealIap implements IapService {
         : [];
       const all = [...products, ...subs];
       this.cachedProducts = all.map((p) => {
-        const localFallback = SKUS[p.productId as Sku] ?? SKUS.coin_pack_small;
+        const localFallback = SKUS[p.productId as Sku] ?? SKUS.tip_pack_small;
         return {
           ...localFallback,
           sku: p.productId as Sku,
@@ -143,9 +151,11 @@ export class RealIap implements IapService {
       // For MVP we treat the resolved Promise as success; production
       // should verify receipts server-side before granting entitlement.
       const product = SKUS[sku];
-      if (product?.grantCoins && this.currentUserId) {
-        await this.local.purchase(sku); // delegate fulfillment + persistence
-      } else if (product?.entitlement) {
+      // Delegate to LocalIap for fulfillment — it persists tips_grant
+      // entitlement state and runs analytics consistently with the
+      // local/dev path. Covers tip packs, entitlements, and the
+      // streak_insurance consumable.
+      if (this.currentUserId && (product?.grantTips || product?.entitlement || product?.consumableKind)) {
         await this.local.purchase(sku);
       }
       this.analytics.track({ name: 'iap_purchased', props: { sku } });

@@ -17,7 +17,7 @@ const BOTS = (botsData as {
     userId: string;
     displayName: string;
     furthestLevel: number;
-    coins: number;
+    points: number;
   }[];
 }).bots;
 
@@ -25,13 +25,13 @@ const BOTS = (botsData as {
  * Local leaderboard with seeded bot global ranking.
  *
  * Submission model: per-level **personal best** for self-tab history.
- * Global ranking metric is **coins** (pulled live from EconomyService)
- * since users see their coin balance in TopBar — keeps the leaderboard
- * reading at-a-glance.
+ * Global ranking metric is **points** (v8 — pulled live from
+ * EconomyService.points). Points are earned only from skill events
+ * (word_found / level_complete / review_correct), so the leaderboard
+ * reflects actual progress rather than spending power.
  *
- * Self row is always inserted into the global rankings (the earlier
- * "must clear 80% to qualify" gate was hidden per UX feedback so the
- * player always sees roughly where they stand).
+ * Self row is always inserted into the global rankings so the player
+ * sees where they stand from L1; no eligibility gate.
  *
  * Friends / friend-system stays a coming-soon stub until a real
  * backend exists.
@@ -96,14 +96,14 @@ export class LocalLeaderboard implements LeaderboardService {
     if (scope === 'friends') return [];
     const uid = currentUserId ?? this.currentUserId ?? null;
 
-    // Resolve live coin balance + furthest level for the self row.
-    let selfCoins = 0;
+    // Resolve live points balance + furthest level for the self row.
+    let selfPoints = 0;
     let selfFurthest = 0;
     if (uid) {
       try {
         if (this.economy) {
           const eco = await this.economy.getState(uid);
-          selfCoins = eco.coins;
+          selfPoints = eco.points ?? 0;
         }
         if (this.progress) {
           const prog = await this.progress.load(uid);
@@ -116,31 +116,26 @@ export class LocalLeaderboard implements LeaderboardService {
     }
 
     if (scope === 'self') {
-      // self tab returns the aggregate single-row form for the summary
-      // card; the screen reads per-level PBs separately via listPB.
       if (!uid) return [];
       return [
         {
           userId: uid,
           displayName: this.currentDisplayName ?? '你',
           rank: 1,
-          coins: selfCoins,
+          points: selfPoints,
           furthestLevel: selfFurthest,
           isSelf: true,
         },
       ];
     }
 
-    // global: bots + self always inserted (self row is local-only sim
-    // until a real backend exists; the 80% gate from earlier is dropped
-    // per UX feedback — players want to see their estimated position
-    // immediately, not a "你还不够格" prompt).
+    // global: bots + self always inserted.
     return buildGlobal(
       {
         bots: BOTS,
         currentUserId: uid ?? undefined,
         currentDisplayName: this.currentDisplayName ?? '你',
-        currentCoins: selfCoins,
+        currentPoints: selfPoints,
         currentFurthestLevel: selfFurthest,
       },
       n
