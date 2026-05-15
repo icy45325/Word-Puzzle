@@ -21,23 +21,17 @@ const BOTS = (botsData as {
   }[];
 }).bots;
 
-const TOTAL_LEVELS = 200;
-/** Player must clear at least this many levels (80% of 200) before
- *  they show up in the global rankings. Below this they can still
- *  *view* the board (bots only). */
-const ELIGIBILITY_THRESHOLD = Math.floor(TOTAL_LEVELS * 0.8);
-
 /**
  * Local leaderboard with seeded bot global ranking.
  *
  * Submission model: per-level **personal best** for self-tab history.
  * Global ranking metric is **coins** (pulled live from EconomyService)
- * since users see their coin balance in TopBar and elsewhere — keeps
- * the leaderboard reading at-a-glance for what they recognize.
+ * since users see their coin balance in TopBar — keeps the leaderboard
+ * reading at-a-glance.
  *
- * Eligibility: own row only enters the global rankings once the player
- * has cleared >= 80% of available levels. Before that, the board still
- * renders (bots only) so the player has a goal in sight.
+ * Self row is always inserted into the global rankings (the earlier
+ * "must clear 80% to qualify" gate was hidden per UX feedback so the
+ * player always sees roughly where they stand).
  *
  * Friends / friend-system stays a coming-soon stub until a real
  * backend exists.
@@ -137,7 +131,10 @@ export class LocalLeaderboard implements LeaderboardService {
       ];
     }
 
-    // global: bots + self (only if eligible)
+    // global: bots + self always inserted (self row is local-only sim
+    // until a real backend exists; the 80% gate from earlier is dropped
+    // per UX feedback — players want to see their estimated position
+    // immediately, not a "你还不够格" prompt).
     return buildGlobal(
       {
         bots: BOTS,
@@ -145,16 +142,9 @@ export class LocalLeaderboard implements LeaderboardService {
         currentDisplayName: this.currentDisplayName ?? '你',
         currentCoins: selfCoins,
         currentFurthestLevel: selfFurthest,
-        selfEligibleForGlobal: selfFurthest >= ELIGIBILITY_THRESHOLD,
       },
       n
     );
-  }
-
-  /** Threshold + total levels exposed so the screen can show
-   *  "通关 80% 后上榜 (L160)" hint. */
-  getEligibilityInfo(): { thresholdLevel: number; totalLevels: number } {
-    return { thresholdLevel: ELIGIBILITY_THRESHOLD, totalLevels: TOTAL_LEVELS };
   }
 
   async getPersonalBest(

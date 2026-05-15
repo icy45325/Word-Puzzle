@@ -99,6 +99,15 @@
     "milestone": "高考",
     "extra": "alteration 同根"
   },
+  "AM": {
+    "phonetic": "/æm/",
+    "pos": "v.",
+    "meaning": "是（第一人称单数）",
+    "example": "I am here.",
+    "exampleCn": "我在这。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "AMP": {
     "phonetic": "/æmp/",
     "pos": "n.",
@@ -108,6 +117,24 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "电流单位"
+  },
+  "AN": {
+    "phonetic": "/æn/",
+    "pos": "det.",
+    "meaning": "一个（元音前）",
+    "example": "An apple.",
+    "exampleCn": "一个苹果。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "AND": {
+    "phonetic": "/ænd/",
+    "pos": "conj.",
+    "meaning": "和；与",
+    "example": "You and me.",
+    "exampleCn": "你和我。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "ANEW": {
     "phonetic": "/əˈnjuː/",
@@ -148,6 +175,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "复数 ants"
+  },
+  "ANY": {
+    "phonetic": "/ˈeni/",
+    "pos": "det.",
+    "meaning": "任何",
+    "example": "Any time.",
+    "exampleCn": "随时。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "APE": {
     "phonetic": "/eɪp/",
@@ -259,6 +295,15 @@
     "milestone": "小学",
     "extra": "arts and crafts"
   },
+  "AS": {
+    "phonetic": "/əz/",
+    "pos": "prep./conj.",
+    "meaning": "作为；当……时",
+    "example": "As a friend.",
+    "exampleCn": "作为朋友。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "ASP": {
     "phonetic": "/æsp/",
     "pos": "n.",
@@ -278,6 +323,15 @@
     "cefr": "C1",
     "milestone": "六级 · 托福",
     "extra": "花卉名"
+  },
+  "AT": {
+    "phonetic": "/æt/",
+    "pos": "prep.",
+    "meaning": "在；于",
+    "example": "At home.",
+    "exampleCn": "在家。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "ATE": {
     "phonetic": "/eɪt/",
@@ -369,6 +423,15 @@
     "milestone": "小学",
     "extra": "baseball bat"
   },
+  "BE": {
+    "phonetic": "/biː/",
+    "pos": "v.",
+    "meaning": "是；成为",
+    "example": "To be or not to be.",
+    "exampleCn": "生存还是毁灭。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "BEAK": {
     "phonetic": "/biːk/",
     "pos": "n.",
@@ -418,6 +481,15 @@
     "cefr": "A2",
     "milestone": "中考",
     "extra": "beat 三单"
+  },
+  "BIG": {
+    "phonetic": "/bɪɡ/",
+    "pos": "adj.",
+    "meaning": "大的",
+    "example": "Big city.",
+    "exampleCn": "大城市。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "BLASTER": {
     "phonetic": "/ˈblɑːstər/",
@@ -519,6 +591,24 @@
     "milestone": "高考",
     "extra": "breed / bred / bred"
   },
+  "BUT": {
+    "phonetic": "/bʌt/",
+    "pos": "conj.",
+    "meaning": "但是",
+    "example": "Slow but steady.",
+    "exampleCn": "慢但稳。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "BY": {
+    "phonetic": "/baɪ/",
+    "pos": "prep.",
+    "meaning": "通过；在……旁",
+    "example": "By the door.",
+    "exampleCn": "在门旁。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "CAKE": {
     "phonetic": "/keɪk/",
     "pos": "n.",
@@ -528,6 +618,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "piece of cake = 容易"
+  },
+  "CAN": {
+    "phonetic": "/kæn/",
+    "pos": "v.",
+    "meaning": "能；会",
+    "example": "I can swim.",
+    "exampleCn": "我会游泳。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "CAR": {
     "phonetic": "/kɑːr/",
@@ -819,6 +918,15 @@
     "milestone": "小学",
     "extra": "与 damn 同"
   },
+  "DAY": {
+    "phonetic": "/deɪ/",
+    "pos": "n.",
+    "meaning": "天；日子",
+    "example": "Good day.",
+    "exampleCn": "美好的一天。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "DEAD": {
     "phonetic": "/ded/",
     "pos": "adj.",
@@ -888,6 +996,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "dined 同根"
+  },
+  "DO": {
+    "phonetic": "/duː/",
+    "pos": "v.",
+    "meaning": "做；干",
+    "example": "I do my homework.",
+    "exampleCn": "我做作业。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "DOG": {
     "phonetic": "/dɒɡ/",
@@ -1289,6 +1406,15 @@
     "milestone": "中考",
     "extra": "fear 复数"
   },
+  "FEW": {
+    "phonetic": "/fjuː/",
+    "pos": "adj.",
+    "meaning": "几个；少数",
+    "example": "A few minutes.",
+    "exampleCn": "几分钟。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "FIND": {
     "phonetic": "/faɪnd/",
     "pos": "v.",
@@ -1419,6 +1545,24 @@
     "milestone": "中考",
     "extra": "gardener 同根"
   },
+  "GET": {
+    "phonetic": "/ɡet/",
+    "pos": "v.",
+    "meaning": "得到；变成",
+    "example": "Get a job.",
+    "exampleCn": "找份工作。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "GO": {
+    "phonetic": "/ɡəʊ/",
+    "pos": "v.",
+    "meaning": "去；前往",
+    "example": "Let's go.",
+    "exampleCn": "我们走吧。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "GOD": {
     "phonetic": "/ɡɒd/",
     "pos": "n.",
@@ -1479,6 +1623,15 @@
     "milestone": "中考",
     "extra": "英式俚语"
   },
+  "HAS": {
+    "phonetic": "/hæz/",
+    "pos": "v.",
+    "meaning": "有（第三人称单数）",
+    "example": "She has a pen.",
+    "exampleCn": "她有支笔。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "HATE": {
     "phonetic": "/heɪt/",
     "pos": "v.",
@@ -1508,6 +1661,15 @@
     "cefr": "A2",
     "milestone": "中考",
     "extra": "hate 三单"
+  },
+  "HE": {
+    "phonetic": "/hiː/",
+    "pos": "pron.",
+    "meaning": "他",
+    "example": "He is tall.",
+    "exampleCn": "他很高。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "HEAR": {
     "phonetic": "/hɪər/",
@@ -1589,6 +1751,15 @@
     "milestone": "小学",
     "extra": "heroine = 女英雄"
   },
+  "HI": {
+    "phonetic": "/haɪ/",
+    "pos": "int.",
+    "meaning": "嗨；你好",
+    "example": "Hi there!",
+    "exampleCn": "你好！",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "HIKE": {
     "phonetic": "/haɪk/",
     "pos": "v./n.",
@@ -1598,6 +1769,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "hiking 同根"
+  },
+  "HIM": {
+    "phonetic": "/hɪm/",
+    "pos": "pron.",
+    "meaning": "他（宾格）",
+    "example": "Call him.",
+    "exampleCn": "叫他。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "HIS": {
     "phonetic": "/hɪz/",
@@ -1729,6 +1909,15 @@
     "milestone": "小学",
     "extra": "动词读 /haʊz/"
   },
+  "HOW": {
+    "phonetic": "/haʊ/",
+    "pos": "adv.",
+    "meaning": "怎样",
+    "example": "How are you?",
+    "exampleCn": "你好吗？",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "ICE": {
     "phonetic": "/aɪs/",
     "pos": "n.",
@@ -1749,6 +1938,15 @@
     "milestone": "小学",
     "extra": "idly 同根"
   },
+  "IF": {
+    "phonetic": "/ɪf/",
+    "pos": "conj.",
+    "meaning": "如果",
+    "example": "If it rains.",
+    "exampleCn": "如果下雨。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "ILL": {
     "phonetic": "/ɪl/",
     "pos": "adj.",
@@ -1758,6 +1956,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "illness 同根"
+  },
+  "IN": {
+    "phonetic": "/ɪn/",
+    "pos": "prep.",
+    "meaning": "在……里",
+    "example": "In the box.",
+    "exampleCn": "在盒子里。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "INCH": {
     "phonetic": "/ɪntʃ/",
@@ -1858,6 +2065,24 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "irons 复数"
+  },
+  "IS": {
+    "phonetic": "/ɪz/",
+    "pos": "v.",
+    "meaning": "be 的第三人称单数",
+    "example": "She is happy.",
+    "exampleCn": "她很开心。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "IT": {
+    "phonetic": "/ɪt/",
+    "pos": "pron.",
+    "meaning": "它",
+    "example": "It is here.",
+    "exampleCn": "它在这。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "ITCH": {
     "phonetic": "/ɪtʃ/",
@@ -2149,6 +2374,15 @@
     "milestone": "小学",
     "extra": "lend / lent / lent"
   },
+  "LET": {
+    "phonetic": "/let/",
+    "pos": "v.",
+    "meaning": "让；允许",
+    "example": "Let me see.",
+    "exampleCn": "让我看看。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "LIED": {
     "phonetic": "/laɪd/",
     "pos": "v.",
@@ -2419,6 +2653,15 @@
     "milestone": "小学",
     "extra": "mat 的复数"
   },
+  "ME": {
+    "phonetic": "/miː/",
+    "pos": "pron.",
+    "meaning": "我（宾格）",
+    "example": "Give it to me.",
+    "exampleCn": "给我。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "MEAD": {
     "phonetic": "/miːd/",
     "pos": "n.",
@@ -2589,6 +2832,15 @@
     "milestone": "六级 · 托福",
     "extra": "法语借词"
   },
+  "MY": {
+    "phonetic": "/maɪ/",
+    "pos": "pron.",
+    "meaning": "我的",
+    "example": "My book.",
+    "exampleCn": "我的书。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "NAP": {
     "phonetic": "/næp/",
     "pos": "n./v.",
@@ -2669,6 +2921,15 @@
     "milestone": "小学",
     "extra": "net 的复数"
   },
+  "NEW": {
+    "phonetic": "/njuː/",
+    "pos": "adj.",
+    "meaning": "新的",
+    "example": "New shoes.",
+    "exampleCn": "新鞋。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "NICHE": {
     "phonetic": "/niːʃ/",
     "pos": "n.",
@@ -2718,6 +2979,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "nip 三单"
+  },
+  "NO": {
+    "phonetic": "/nəʊ/",
+    "pos": "adv./n.",
+    "meaning": "不；没有",
+    "example": "No problem.",
+    "exampleCn": "没问题。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "NOR": {
     "phonetic": "/nɔːr/",
@@ -2779,6 +3049,42 @@
     "milestone": "小学",
     "extra": "in a nutshell（简言之）"
   },
+  "OF": {
+    "phonetic": "/ɒv/",
+    "pos": "prep.",
+    "meaning": "……的",
+    "example": "Cup of tea.",
+    "exampleCn": "一杯茶。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "OK": {
+    "phonetic": "/ˌəʊˈkeɪ/",
+    "pos": "int.",
+    "meaning": "好；可以",
+    "example": "OK, let's start.",
+    "exampleCn": "好，开始吧。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "OLD": {
+    "phonetic": "/əʊld/",
+    "pos": "adj.",
+    "meaning": "老的；旧的",
+    "example": "Old house.",
+    "exampleCn": "旧房子。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "ON": {
+    "phonetic": "/ɒn/",
+    "pos": "prep./adv.",
+    "meaning": "在……上",
+    "example": "Book on the desk.",
+    "exampleCn": "书在桌上。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "ONE": {
     "phonetic": "/wʌn/",
     "pos": "num.",
@@ -2818,6 +3124,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "opt = 选择"
+  },
+  "OR": {
+    "phonetic": "/ɔːr/",
+    "pos": "conj.",
+    "meaning": "或者",
+    "example": "Tea or coffee?",
+    "exampleCn": "茶还是咖啡？",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "ORES": {
     "phonetic": "/ɔːrz/",
@@ -3869,6 +4184,15 @@
     "milestone": "小学",
     "extra": "seated 同根"
   },
+  "SEE": {
+    "phonetic": "/siː/",
+    "pos": "v.",
+    "meaning": "看见",
+    "example": "I see it.",
+    "exampleCn": "我看见了。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "SENT": {
     "phonetic": "/sent/",
     "pos": "v.",
@@ -3928,6 +4252,15 @@
     "cefr": "B2",
     "milestone": "四级 · 雅思",
     "extra": "sharpen 同根"
+  },
+  "SHE": {
+    "phonetic": "/ʃiː/",
+    "pos": "pron.",
+    "meaning": "她",
+    "example": "She runs fast.",
+    "exampleCn": "她跑得快。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "SHIRT": {
     "phonetic": "/ʃɜːrt/",
@@ -4058,6 +4391,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "snipped 同根"
+  },
+  "SO": {
+    "phonetic": "/səʊ/",
+    "pos": "adv.",
+    "meaning": "所以；这样",
+    "example": "So good.",
+    "exampleCn": "太棒了。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "SOFTER": {
     "phonetic": "/ˈsɒftər/",
@@ -4519,6 +4861,15 @@
     "milestone": "高考",
     "extra": "tear 的复数"
   },
+  "TEN": {
+    "phonetic": "/ten/",
+    "pos": "num.",
+    "meaning": "十",
+    "example": "Ten dogs.",
+    "exampleCn": "十只狗。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "TENS": {
     "phonetic": "/tenz/",
     "pos": "n.pl.",
@@ -4528,6 +4879,15 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "in tens"
+  },
+  "THE": {
+    "phonetic": "/ðə/",
+    "pos": "det.",
+    "meaning": "这个；那个",
+    "example": "The cat.",
+    "exampleCn": "那只猫。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "THEN": {
     "phonetic": "/ðen/",
@@ -4659,6 +5019,15 @@
     "milestone": "六级 · 托福",
     "extra": "诗用古语"
   },
+  "TO": {
+    "phonetic": "/tuː/",
+    "pos": "prep.",
+    "meaning": "到；向",
+    "example": "Go to school.",
+    "exampleCn": "去学校。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "TOE": {
     "phonetic": "/təʊ/",
     "pos": "n.",
@@ -4718,6 +5087,15 @@
     "cefr": "A2",
     "milestone": "中考",
     "extra": "tone 的复数"
+  },
+  "TOP": {
+    "phonetic": "/tɒp/",
+    "pos": "n./adj.",
+    "meaning": "顶部；最高的",
+    "example": "On top.",
+    "exampleCn": "在顶上。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "TOPS": {
     "phonetic": "/tɒps/",
@@ -4849,6 +5227,15 @@
     "milestone": "小学",
     "extra": "turned 同根"
   },
+  "TWO": {
+    "phonetic": "/tuː/",
+    "pos": "num.",
+    "meaning": "二",
+    "example": "Two cats.",
+    "exampleCn": "两只猫。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "TYPE": {
     "phonetic": "/taɪp/",
     "pos": "n./v.",
@@ -4878,6 +5265,24 @@
     "cefr": "C1",
     "milestone": "六级 · 托福",
     "extra": "罕见，常仅出现拼词游戏"
+  },
+  "UP": {
+    "phonetic": "/ʌp/",
+    "pos": "adv./prep.",
+    "meaning": "向上；起来",
+    "example": "Look up.",
+    "exampleCn": "抬头看。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "US": {
+    "phonetic": "/ʌs/",
+    "pos": "pron.",
+    "meaning": "我们（宾格）",
+    "example": "Help us.",
+    "exampleCn": "帮帮我们。",
+    "cefr": "A1",
+    "milestone": "小学"
   },
   "USE": {
     "phonetic": "/juːz/",
@@ -4979,6 +5384,42 @@
     "milestone": "小学",
     "extra": "past tense of be"
   },
+  "WAY": {
+    "phonetic": "/weɪ/",
+    "pos": "n.",
+    "meaning": "路；方式",
+    "example": "This way.",
+    "exampleCn": "这边。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "WE": {
+    "phonetic": "/wiː/",
+    "pos": "pron.",
+    "meaning": "我们",
+    "example": "We are friends.",
+    "exampleCn": "我们是朋友。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "WHO": {
+    "phonetic": "/huː/",
+    "pos": "pron.",
+    "meaning": "谁",
+    "example": "Who are you?",
+    "exampleCn": "你是谁？",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "WHY": {
+    "phonetic": "/waɪ/",
+    "pos": "adv.",
+    "meaning": "为什么",
+    "example": "Why not?",
+    "exampleCn": "为什么不？",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
   "WONDERS": {
     "phonetic": "/ˈwʌndərz/",
     "pos": "n.",
@@ -4998,5 +5439,23 @@
     "cefr": "A1",
     "milestone": "小学",
     "extra": "yearly 同根"
+  },
+  "YES": {
+    "phonetic": "/jes/",
+    "pos": "adv.",
+    "meaning": "是；对；好的",
+    "example": "Yes, I agree.",
+    "exampleCn": "是的，我同意。",
+    "cefr": "A1",
+    "milestone": "小学"
+  },
+  "YOU": {
+    "phonetic": "/juː/",
+    "pos": "pron.",
+    "meaning": "你；你们",
+    "example": "You are kind.",
+    "exampleCn": "你真好。",
+    "cefr": "A1",
+    "milestone": "小学"
   }
 }

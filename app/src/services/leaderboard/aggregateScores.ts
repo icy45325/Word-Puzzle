@@ -15,19 +15,16 @@ interface BuildArgs {
   currentDisplayName?: string;
   /** Current user's coin balance, pulled from EconomyService. */
   currentCoins?: number;
-  /** Current user's furthest unlocked level (1-based). Used by the
-   *  eligibility gate so a brand-new player doesn't crash the bottom
-   *  of the global board. */
+  /** Current user's furthest unlocked level (1-based). */
   currentFurthestLevel?: number;
-  /** True only when the user has cleared enough of the game to appear
-   *  in the global rankings (see leaderboard.global.eligibleAtLevel). */
-  selfEligibleForGlobal: boolean;
   /** Bot seed entries. */
   bots: BotSeed[];
 }
 
-/** Build the global leaderboard: bots + self (if eligible), sorted by
- *  coins desc, ranked, top N. */
+/** Build the global leaderboard: bots + self always inserted, sorted by
+ *  coins desc, ranked, top N. The self row is always shown so the
+ *  player can see "where they stand"; the visible ranking is local-
+ *  only until a real backend ships. */
 export function buildGlobal(
   args: BuildArgs,
   topN: number
@@ -39,7 +36,7 @@ export function buildGlobal(
     furthestLevel: b.furthestLevel,
     isBot: true,
   }));
-  if (args.currentUserId && args.selfEligibleForGlobal) {
+  if (args.currentUserId) {
     rows.push({
       userId: args.currentUserId,
       displayName: args.currentDisplayName ?? '你',
@@ -49,5 +46,19 @@ export function buildGlobal(
     });
   }
   rows.sort((a, b) => b.coins - a.coins);
-  return rows.slice(0, topN).map((r, i) => ({ ...r, rank: i + 1 }));
+  // Take top N. If the user's row would have been outside top N, swap in
+  // their row at the bottom so they can always see where they roughly
+  // stand. (The sticky-row UI still pins them to viewport edges when
+  // scrolled.)
+  let sliced = rows.slice(0, topN).map((r, i) => ({ ...r, rank: i + 1 }));
+  const selfInSlice = sliced.find((r) => r.isSelf);
+  const selfAll = rows.find((r) => r.isSelf);
+  if (!selfInSlice && selfAll) {
+    const selfRank = rows.indexOf(selfAll) + 1;
+    sliced = [
+      ...sliced.slice(0, topN - 1),
+      { ...selfAll, rank: selfRank },
+    ];
+  }
+  return sliced;
 }

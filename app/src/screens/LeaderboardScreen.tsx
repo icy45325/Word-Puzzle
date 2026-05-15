@@ -72,14 +72,6 @@ export function LeaderboardScreen({ navigation }: Props) {
     },
   ];
 
-  // Compute the player's eligibility for the global rankings + a helpful
-  // pinned "you're at" row when they haven't qualified yet. The
-  // leaderboard service exposes its threshold so the UI stays in sync if
-  // it ever changes.
-  const eligibility = (services.leaderboard as any).getEligibilityInfo
-    ? (services.leaderboard as any).getEligibilityInfo()
-    : { thresholdLevel: 160, totalLevels: 200 };
-
   return (
     <GradientBackground>
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
@@ -127,12 +119,7 @@ export function LeaderboardScreen({ navigation }: Props) {
         {scope === 'friends' ? (
           <FriendsPlaceholder />
         ) : scope === 'global' ? (
-          <GlobalList
-            rows={globalRows}
-            themePrimary={theme.primary}
-            eligibility={eligibility}
-            ownFurthest={unlocks.furthestLevel}
-          />
+          <GlobalList rows={globalRows} themePrimary={theme.primary} />
         ) : (
           <SelfList
             summary={selfSummary}
@@ -156,16 +143,9 @@ function FriendsPlaceholder() {
 interface GlobalListProps {
   rows: LeaderboardEntry[];
   themePrimary: string;
-  eligibility: { thresholdLevel: number; totalLevels: number };
-  ownFurthest: number;
 }
 
-function GlobalList({
-  rows,
-  themePrimary,
-  eligibility,
-  ownFurthest,
-}: GlobalListProps) {
+function GlobalList({ rows, themePrimary }: GlobalListProps) {
   // Sticky self-row state. We track viewport scroll position and
   // compare against where the user's row actually sits in the list.
   // - self below viewport → render a sticky row pinned to the bottom
@@ -194,12 +174,7 @@ function GlobalList({
   const showStickyBottom =
     selfRow != null && !inViewport && selfY > scrollY + viewportH;
 
-  // Player hasn't cleared enough levels yet to appear in the rankings.
-  // Pin an info card to the bottom explaining the gate.
-  const showIneligibleHint =
-    selfRow == null && ownFurthest < eligibility.thresholdLevel;
-
-  if (rows.length === 0 && !showIneligibleHint) {
+  if (rows.length === 0) {
     return (
       <View style={styles.emptyWrap}>
         <Text style={styles.empty}>{t('leaderboard.empty')}</Text>
@@ -231,29 +206,6 @@ function GlobalList({
       {showStickyBottom && selfRow ? (
         <View style={[styles.stickyWrap, styles.stickyBottom]}>
           <GlobalRow item={selfRow} themePrimary={themePrimary} />
-        </View>
-      ) : null}
-
-      {showIneligibleHint ? (
-        <View style={[styles.stickyWrap, styles.stickyBottom]}>
-          <View
-            style={[styles.ineligibleCard, { borderColor: themePrimary }]}
-          >
-            <Text style={styles.ineligibleTitle}>
-              {t(
-                'leaderboard.eligibilityTitle',
-                undefined,
-                '通关 80% 解锁上榜资格'
-              )}
-            </Text>
-            <Text style={styles.ineligibleSub}>
-              {t(
-                'leaderboard.eligibilityHint',
-                { level: eligibility.thresholdLevel, current: ownFurthest },
-                `当前 L${ownFurthest} / 上榜需 L${eligibility.thresholdLevel}`
-              )}
-            </Text>
-          </View>
         </View>
       ) : null}
     </View>
@@ -480,24 +432,4 @@ const styles = StyleSheet.create({
   },
   stickyTop: { top: 8 },
   stickyBottom: { bottom: 20 },
-  // "Not yet eligible" card pinned at the bottom when player is below
-  // the threshold.
-  ineligibleCard: {
-    backgroundColor: 'rgba(15, 23, 42, 0.92)',
-    borderWidth: 1,
-    borderRadius: 18,
-    paddingHorizontal: 18,
-    paddingVertical: 14,
-  },
-  ineligibleTitle: {
-    fontSize: 14,
-    fontWeight: '900',
-    color: '#F8FAFC',
-  },
-  ineligibleSub: {
-    marginTop: 4,
-    fontSize: 12,
-    fontWeight: '700',
-    color: 'rgba(255,255,255,0.65)',
-  },
 });

@@ -13,10 +13,6 @@ interface Props {
 }
 
 export function CrosswordGrid({ layout, filledSlots, revealedCells }: Props) {
-  // For each cell, the letter to show comes from the first filled slot that
-  // covers it. For hint-revealed cells that no filled slot covers, we fall
-  // back to the canonical preset letter. Cells in only-unfilled slots stay
-  // blank.
   const cellLetter = useMemo(() => {
     const map = new Map<string, string>();
     for (const cell of layout.cells) {
@@ -31,6 +27,27 @@ export function CrosswordGrid({ layout, filledSlots, revealedCells }: Props) {
         }
       }
       map.set(key, resolved ?? cell.letter);
+    }
+    return map;
+  }, [layout, filledSlots]);
+
+  // For each cell that's the START of an unfilled slot, record the slot's
+  // direction. Renderer uses this to draw a → / ↓ hint inside the cell so
+  // the player knows which way the word goes (two adjacent horizontal
+  // cells that are actually part of different vertical slots no longer
+  // look like a 2-letter horizontal word).
+  const cellArrow = useMemo(() => {
+    const map = new Map<string, 'H' | 'V'>();
+    for (let i = 0; i < layout.slots.length; i++) {
+      if (filledSlots[i]) continue;
+      const slot = layout.slots[i];
+      const key = `${slot.row},${slot.col}`;
+      // If a cell is the start of two unfilled slots (corner shared by
+      // mother H + secondary V), only show the secondary's direction
+      // since the mother's direction is usually obvious (longest row).
+      // We bias toward V which is the less-obvious one.
+      const existing = map.get(key);
+      if (!existing || slot.dir === 'V') map.set(key, slot.dir);
     }
     return map;
   }, [layout, filledSlots]);
@@ -58,12 +75,14 @@ export function CrosswordGrid({ layout, filledSlots, revealedCells }: Props) {
             const fromHint = !!revealedCells?.[key];
             const revealed = fromFound || fromHint;
             const letter = cellLetter.get(key) ?? cell.letter;
+            const arrow = cellArrow.get(key);
             return (
               <AnimatedCell
                 key={`c${r}-${c}`}
                 letter={letter}
                 revealed={revealed}
                 fromFound={fromFound}
+                arrow={revealed ? undefined : arrow}
               />
             );
           })}
@@ -77,9 +96,15 @@ interface AnimatedCellProps {
   letter: string;
   revealed: boolean;
   fromFound: boolean;
+  /** When this cell is the start of an unfilled slot, the slot's
+   *  direction is passed in so we can draw a small arrow inside the
+   *  cell. Helps players see that two adjacent cells aren't always a
+   *  shared horizontal word — sometimes each cell is the start of a
+   *  separate vertical word. */
+  arrow?: 'H' | 'V';
 }
 
-function AnimatedCell({ letter, revealed, fromFound }: AnimatedCellProps) {
+function AnimatedCell({ letter, revealed, fromFound, arrow }: AnimatedCellProps) {
   const scale = useRef(new Animated.Value(1)).current;
   const wasRevealed = useRef(revealed);
 
@@ -117,6 +142,8 @@ function AnimatedCell({ letter, revealed, fromFound }: AnimatedCellProps) {
         >
           {letter}
         </Text>
+      ) : arrow ? (
+        <Text style={styles.arrow}>{arrow === 'H' ? '→' : '↓'}</Text>
       ) : null}
     </Animated.View>
   );
@@ -166,4 +193,9 @@ const styles = StyleSheet.create({
   },
   letterFound: { color: '#0F172A' },
   letterHinted: { color: '#0F172A' },
+  arrow: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: 'rgba(255,255,255,0.55)',
+  },
 });
