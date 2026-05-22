@@ -7,6 +7,9 @@ interface EntitlementsState {
   removeAds: boolean;
   proDictionary: boolean;
   subscriber: boolean;
+  examIelts: boolean;
+  examToefl: boolean;
+  examGaokao: boolean;
   /** Catalog of purchasable products. Empty when `iap.enabled` is false. */
   products: Product[];
   /** Refresh from the IAP service (call after a purchase / restore). */
@@ -17,32 +20,35 @@ interface EntitlementsState {
   restore: () => Promise<Entitlement[]>;
 }
 
-const ENTITLEMENT_KEYS: Entitlement[] = [
-  'remove_ads',
-  'pro_dictionary',
-  'subscriber',
-];
-
 export function useEntitlements(): EntitlementsState {
   const services = useServices();
   const user = useCurrentUser();
   const [removeAds, setRemoveAds] = useState(false);
   const [proDictionary, setProDictionary] = useState(false);
   const [subscriber, setSubscriber] = useState(false);
+  const [examIelts, setExamIelts] = useState(false);
+  const [examToefl, setExamToefl] = useState(false);
+  const [examGaokao, setExamGaokao] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [loaded, setLoaded] = useState(false);
 
   const refresh = useCallback(async () => {
-    const [list, ra, pd, sb] = await Promise.all([
+    const [list, ra, pd, sb, ie, to, gk] = await Promise.all([
       services.iap.listProducts(),
       services.iap.hasEntitlement('remove_ads'),
       services.iap.hasEntitlement('pro_dictionary'),
       services.iap.hasEntitlement('subscriber'),
+      services.iap.hasEntitlement('exam_ielts'),
+      services.iap.hasEntitlement('exam_toefl'),
+      services.iap.hasEntitlement('exam_gaokao'),
     ]);
     setProducts(list);
     setRemoveAds(ra);
     setProDictionary(pd);
     setSubscriber(sb);
+    setExamIelts(ie);
+    setExamToefl(to);
+    setExamGaokao(gk);
     setLoaded(true);
   }, [services.iap]);
 
@@ -65,15 +71,14 @@ export function useEntitlements(): EntitlementsState {
     return granted;
   }, [services.iap, refresh]);
 
-  // Suppress unused-import lint for ENTITLEMENT_KEYS — kept for future
-  // dynamic-entitlement iteration if we add more SKUs.
-  void ENTITLEMENT_KEYS;
-
   return {
     loaded,
     removeAds,
     proDictionary,
     subscriber,
+    examIelts,
+    examToefl,
+    examGaokao,
     products,
     refresh,
     purchase,

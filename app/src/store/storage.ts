@@ -1,12 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const NAMESPACE = 'ws';
-// Bumped to 3 when levels.json was regenerated under CEFR (v6): old
-// levelIds like "L01"..."L200" reference completely different content
-// now, so foundWordsByLevel / completedLevelIds from v2 saves point at
-// the wrong content. The migration clears those two fields but keeps
-// furthestLevelIndex (numeric, content-independent).
-export const CURRENT_SCHEMA_VERSION = 3;
+// Bumped to 4 (v8 three-currency overhaul) — EconomyState now persists a
+// new `points` field alongside coins/hints; old v3 saves get migrated by
+// LocalEconomy when first loaded (points defaults to 0).
+export const CURRENT_SCHEMA_VERSION = 4;
 
 export const keys = {
   user: () => `${NAMESPACE}:user`,

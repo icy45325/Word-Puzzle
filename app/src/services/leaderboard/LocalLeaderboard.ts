@@ -1,33 +1,158 @@
 import type {
+  EconomyService,
   Friend,
+  LeaderboardEntry,
   LeaderboardScope,
   LeaderboardService,
+  ProgressRepo,
   ScoreRecord,
   Uuid,
 } from '../types';
 import { keys, readJson, writeJson } from '../../store/storage';
+import { buildGlobal } from './aggregateScores';
+import botsData from './bots.json';
 
-const MAX_KEEP = 200;
+const BOTS = (botsData as {
+  bots: {
+    userId: string;
+    displayName: string;
+    furthestLevel: number;
+    points: number;
+  }[];
+}).bots;
 
+/**
+ * Local leaderboard with seeded bot global ranking.
+ *
+ * Submission model: per-level **personal best** for self-tab history.
+ * Global ranking metric is **points** (v8 — pulled live from
+ * EconomyService.points). Points are earned only from skill events
+ * (word_found / level_complete / review_correct), so the leaderboard
+ * reflects actual progress rather than spending power.
+ *
+ * Self row is always inserted into the global rankings so the player
+ * sees where they stand from L1; no eligibility gate.
+ *
+ * Friends / friend-system stays a coming-soon stub until a real
+ * backend exists.
+ */
 export class LocalLeaderboard implements LeaderboardService {
+  /** Current user — set externally so getTop('global') can flag isSelf
+   *  without forcing every caller to pass userId. */
+  private currentUserId: Uuid | null = null;
+  private currentDisplayName: string | null = null;
+  /** Optional injections — provider wires these in after construction so
+   *  the global tab can read live coins + furthest level without a
+   *  round-trip through every caller. */
+  private economy: EconomyService | null = null;
+  private progress: ProgressRepo | null = null;
+
+  setUser(userId: Uuid | null, displayName?: string): void {
+    this.currentUserId = userId;
+    this.currentDisplayName = displayName ?? null;
+  }
+
+  setEconomy(economy: EconomyService): void {
+    this.economy = economy;
+  }
+
+  setProgress(progress: ProgressRepo): void {
+    this.progress = progress;
+  }
+
+  private async loadOwnScores(userId: Uuid): Promise<ScoreRecord[]> {
+    const raw = (await readJson<ScoreRecord[]>(keys.scores(userId))) ?? [];
+    // Lazy migration: legacy storage may have multiple rows per levelId
+    // (old ring buffer of all submissions). Collapse to one PB per level.
+    const byLevel = new Map<string, ScoreRecord>();
+    for (const r of raw) {
+      const prev = byLevel.get(r.levelId);
+      if (!prev || prev.score < r.score) byLevel.set(r.levelId, r);
+    }
+    if (byLevel.size !== raw.length) {
+      const collapsed = [...byLevel.values()];
+      await writeJson(keys.scores(userId), collapsed);
+      return collapsed;
+    }
+    return raw;
+  }
+
   async submit(record: ScoreRecord): Promise<void> {
     const key = keys.scores(record.userId);
-    const existing = (await readJson<ScoreRecord[]>(key)) ?? [];
-    const next = [record, ...existing].slice(0, MAX_KEEP);
-    await writeJson(key, next);
-  }
-
-  async getTop(scope: LeaderboardScope, _n: number): Promise<ScoreRecord[]> {
-    if (scope !== 'self') {
-      // Friends and global scopes require a backend; the local impl returns
-      // empty so the UI can already branch on these scopes without crashing.
-      return [];
+    const all = await this.loadOwnScores(record.userId);
+    const existing = all.find((r) => r.levelId === record.levelId);
+    if (!existing || existing.score < record.score) {
+      const next = all.filter((r) => r.levelId !== record.levelId);
+      next.push(record);
+      await writeJson(key, next);
     }
-    return [];
   }
 
-  async getPersonalBest(_levelId: string): Promise<ScoreRecord | null> {
-    return null;
+  async getTop(
+    scope: LeaderboardScope,
+    n: number,
+    currentUserId?: Uuid
+  ): Promise<LeaderboardEntry[]> {
+    if (scope === 'friends') return [];
+    const uid = currentUserId ?? this.currentUserId ?? null;
+
+    // Resolve live points balance + furthest level for the self row.
+    let selfPoints = 0;
+    let selfFurthest = 0;
+    if (uid) {
+      try {
+        if (this.economy) {
+          const eco = await this.economy.getState(uid);
+          selfPoints = eco.points ?? 0;
+        }
+        if (this.progress) {
+          const prog = await this.progress.load(uid);
+          // furthestLevelIndex is 0-based; +1 for 1-based level number
+          selfFurthest = prog.furthestLevelIndex + 1;
+        }
+      } catch {
+        /* if either read fails, fall through with 0s */
+      }
+    }
+
+    if (scope === 'self') {
+      if (!uid) return [];
+      return [
+        {
+          userId: uid,
+          displayName: this.currentDisplayName ?? '你',
+          rank: 1,
+          points: selfPoints,
+          furthestLevel: selfFurthest,
+          isSelf: true,
+        },
+      ];
+    }
+
+    // global: bots + self always inserted.
+    return buildGlobal(
+      {
+        bots: BOTS,
+        currentUserId: uid ?? undefined,
+        currentDisplayName: this.currentDisplayName ?? '你',
+        currentPoints: selfPoints,
+        currentFurthestLevel: selfFurthest,
+      },
+      n
+    );
+  }
+
+  async getPersonalBest(
+    userId: Uuid,
+    levelId: string
+  ): Promise<ScoreRecord | null> {
+    const all = await this.loadOwnScores(userId);
+    return all.find((r) => r.levelId === levelId) ?? null;
+  }
+
+  async listPersonalBests(userId: Uuid): Promise<ScoreRecord[]> {
+    const all = await this.loadOwnScores(userId);
+    return [...all].sort((a, b) => (a.levelId < b.levelId ? -1 : 1));
   }
 
   myFriendCode(userId: Uuid): string {

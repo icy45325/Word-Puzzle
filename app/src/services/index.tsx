@@ -23,6 +23,11 @@ export function createDefaultServices(): Services {
   const learnedWords = new LocalLearnedWordsRepo();
   const leaderboard = new LocalLeaderboard();
   const economy = new LocalEconomy(remoteConfig);
+  // The leaderboard's global tab ranks by live coin balance + furthest
+  // level, so we hand it references to economy + progress after both
+  // are constructed.
+  leaderboard.setEconomy(economy);
+  leaderboard.setProgress(progress);
   const ads = isAdMobLoaded()
     ? new MobileAdsService(remoteConfig, analytics)
     : new NoopAds(remoteConfig, analytics);
@@ -65,13 +70,20 @@ export function ServicesProvider({ services, children }: Props) {
 
   useEffect(() => {
     let cancelled = false;
-    const propagateUser = (uid: string | null) => {
+    const propagateUser = (uid: string | null, displayName?: string) => {
       // IAP needs to know the current user so entitlement reads/writes
-      // hit the right AsyncStorage row. LocalIap exposes setUser; RealIap
-      // forwards to its inner LocalIap. We detect either path via the
-      // setUser method presence.
-      const anyIap = resolved.iap as { setUser?: (uid: string | null) => void };
+      // hit the right AsyncStorage row. LocalIap / RealIap both expose
+      // setUser; we detect via method presence.
+      const anyIap = resolved.iap as {
+        setUser?: (uid: string | null) => void;
+      };
       if (typeof anyIap.setUser === 'function') anyIap.setUser(uid);
+      // Leaderboard caches current user + displayName so getTop('global')
+      // can flag isSelf without a uid round-trip from every caller.
+      const anyLb = resolved.leaderboard as {
+        setUser?: (uid: string | null, displayName?: string) => void;
+      };
+      if (typeof anyLb.setUser === 'function') anyLb.setUser(uid, displayName);
     };
     (async () => {
       await resolved.remoteConfig.refresh();
@@ -79,11 +91,11 @@ export function ServicesProvider({ services, children }: Props) {
       if (cancelled) return;
       resolved.analytics.identify(u.userId, { displayName: u.displayName });
       resolved.analytics.track({ name: 'app_open' });
-      propagateUser(u.userId);
+      propagateUser(u.userId, u.displayName);
       setUser(u);
     })();
     const unsub = resolved.auth.onChange((u) => {
-      propagateUser(u?.userId ?? null);
+      propagateUser(u?.userId ?? null, u?.displayName);
       setUser(u);
     });
     return () => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet, Text } from 'react-native';
 import { t } from '../i18n';
 
 interface Props {
@@ -46,30 +46,44 @@ export function TutorialOverlay({
     ]).start();
   }, [visible, opacity, scale]);
 
-  if (!visible) return null;
-
+  // Use a Modal so the backdrop always covers the WHOLE screen.
+  // Earlier this was a plain absolute-positioned View, which only
+  // covered its nearest positioned ancestor (e.g. TopBar's 56-px row)
+  // when rendered from inside TopBar — the streak tutorial ended up
+  // overlapping the top icons instead of going fullscreen-modal.
   return (
-    <Animated.View style={[styles.backdrop, { opacity }]} pointerEvents="auto">
-      <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} />
-      <Animated.View
-        style={[styles.center, { transform: [{ scale }] }]}
-        pointerEvents="none"
-      >
-        <Text style={styles.icon}>{icon}</Text>
-        <Text style={styles.title}>{t(titleKey, undefined, titleFallback)}</Text>
-        <Text style={styles.body}>{t(bodyKey, undefined, bodyFallback)}</Text>
-        <Text style={styles.hint}>
-          {t('onboarding.tapToDismiss', undefined, '轻点任意处继续')}
-        </Text>
+    <Modal
+      visible={visible}
+      transparent
+      animationType="none"
+      onRequestClose={onDismiss}
+      statusBarTranslucent
+    >
+      <Animated.View style={[styles.backdrop, { opacity }]}>
+        <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} />
+        <Animated.View
+          style={[styles.center, { transform: [{ scale }] }]}
+          pointerEvents="none"
+        >
+          <Text style={styles.icon}>{icon}</Text>
+          <Text style={styles.title}>{t(titleKey, undefined, titleFallback)}</Text>
+          <Text style={styles.body}>{t(bodyKey, undefined, bodyFallback)}</Text>
+          <Text style={styles.hint}>
+            {t('onboarding.tapToDismiss', undefined, '轻点任意处继续')}
+          </Text>
+        </Animated.View>
       </Animated.View>
-    </Animated.View>
+    </Modal>
   );
 }
 
 const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(15, 23, 42, 0.85)',
+    // Solid dark backdrop — was rgba(...,0.85) before, which let the
+    // underlying screen leak through and made the card look mixed up
+    // with the wall of TopBar icons. Fully opaque dimmer reads cleaner.
+    backgroundColor: 'rgba(15, 23, 42, 0.97)',
     zIndex: 60,
     alignItems: 'center',
     justifyContent: 'center',
@@ -79,12 +93,18 @@ const styles = StyleSheet.create({
     paddingVertical: 28,
     alignItems: 'center',
     gap: 14,
-    backgroundColor: 'rgba(255,255,255,0.05)',
+    // Solid card so it reads as a real popup, not a glass tile.
+    backgroundColor: '#1E293B',
     borderRadius: 28,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.10)',
+    borderColor: 'rgba(255,255,255,0.12)',
     marginHorizontal: 24,
     maxWidth: 360,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 12 },
+    elevation: 12,
   },
   icon: { fontSize: 56, marginBottom: 4 },
   title: {

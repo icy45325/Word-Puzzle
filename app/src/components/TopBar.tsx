@@ -1,24 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { keys as storageKeys } from '../store/storage';
 import { useEconomy } from '../hooks/useEconomy';
 import { useDailyCheckIn } from '../hooks/useDailyCheckIn';
-import { ThemePickerModal } from './ThemePickerModal';
 import { DailyCheckInModal } from './DailyCheckInModal';
 import { TutorialOverlay } from './TutorialOverlay';
+import type { RootStackParamList } from '../../App';
 
 export function TopBar() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { state } = useEconomy();
-  const [picker, setPicker] = useState(false);
   const dailyCheckIn = useDailyCheckIn();
   const [checkInOpen, setCheckInOpen] = useState(false);
   const [streakTutorialOpen, setStreakTutorialOpen] = useState(false);
   const autoOpenedRef = useRef(false);
 
-  // Auto-open once per app session the first time the daily check-in
-  // hook reports that today hasn't been claimed yet. Subsequent screen
-  // mounts won't re-open.
   useEffect(() => {
     if (!dailyCheckIn.loaded) return;
     if (autoOpenedRef.current) return;
@@ -31,8 +30,6 @@ export function TopBar() {
   const handleClaim = async () => {
     await dailyCheckIn.claim();
     setCheckInOpen(false);
-    // First-claim streak tutorial — explains the streak mechanic right
-    // after the player sees their first +N coins reward.
     const seen = await AsyncStorage.getItem(storageKeys.onboarding('streak'));
     if (!seen) {
       setTimeout(() => setStreakTutorialOpen(true), 600);
@@ -53,10 +50,13 @@ export function TopBar() {
           <Text style={styles.icon}>💰</Text>
           <Text style={styles.value}>{state?.coins ?? 0}</Text>
         </View>
-        <View style={styles.pill}>
-          <Text style={styles.icon}>💡</Text>
-          <Text style={styles.value}>{state?.hints ?? 0}</Text>
-        </View>
+        <Pressable
+          style={[styles.pill, styles.pointsPill]}
+          onPress={() => navigation.navigate('Leaderboard')}
+        >
+          <Text style={styles.icon}>🏆</Text>
+          <Text style={styles.pointsValue}>{state?.points ?? 0}</Text>
+        </Pressable>
         {dailyCheckIn.loaded ? (
           <Pressable
             style={[styles.pill, styles.streakPill]}
@@ -67,10 +67,14 @@ export function TopBar() {
           </Pressable>
         ) : null}
       </View>
-      <Pressable style={styles.themeBtn} onPress={() => setPicker(true)}>
-        <Text style={styles.themeIcon}>🎨</Text>
+      {/* Right-side: Profile entry. Replaced the old theme-picker shortcut;
+       *  theme switching now lives inside ProfileScreen. */}
+      <Pressable
+        style={styles.profileBtn}
+        onPress={() => navigation.navigate('Profile')}
+      >
+        <Text style={styles.profileIcon}>👤</Text>
       </Pressable>
-      <ThemePickerModal visible={picker} onClose={() => setPicker(false)} />
       <DailyCheckInModal
         visible={checkInOpen}
         status={dailyCheckIn.status}
@@ -99,9 +103,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 10,
-    backgroundColor: 'rgba(0,0,0,0.18)',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'rgba(255,255,255,0.06)',
+    // No background, no divider. Pills float over the screen's
+    // GradientBackground for a cleaner look.
   },
   left: { flex: 1, flexDirection: 'row', gap: 8 },
   pill: {
@@ -119,16 +122,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(250,204,21,0.18)',
     borderColor: 'rgba(250,204,21,0.40)',
   },
+  // Points pill — slight green tint to differentiate from coin/hint
+  // pills and reinforce "skill metric" feel. Tappable shortcut to the
+  // leaderboard screen so players who notice a new bot move past them
+  // can investigate immediately.
+  pointsPill: {
+    backgroundColor: 'rgba(34,197,94,0.16)',
+    borderColor: 'rgba(34,197,94,0.40)',
+  },
   icon: { fontSize: 14 },
   value: { fontSize: 14, fontWeight: '900', color: '#F8FAFC' },
   streakValue: { fontSize: 14, fontWeight: '900', color: '#FACC15' },
-  themeBtn: {
+  pointsValue: { fontSize: 14, fontWeight: '900', color: '#34D399' },
+  profileBtn: {
     width: 38,
     height: 38,
     borderRadius: 19,
     backgroundColor: 'rgba(255,255,255,0.10)',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
   },
-  themeIcon: { fontSize: 18 },
+  profileIcon: { fontSize: 18 },
 });

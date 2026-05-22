@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import {
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
+import { ALL_THEMES } from '../theme/themes';
+import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useCurrentUser, useServices } from '../services';
 import { AnonymousAuth } from '../services/auth/AnonymousAuth';
@@ -30,7 +33,7 @@ export function ProfileScreen({ navigation }: Props) {
   const user = useCurrentUser();
   const { state } = useEconomy();
   const unlocks = useUnlocks();
-  const { theme } = useTheme();
+  const { theme, themeId, setTheme } = useTheme();
   const { locale, setLocale } = useLocale();
   const { settings, setSetting } = useSettings();
   const [learnedCount, setLearnedCount] = useState(0);
@@ -116,7 +119,10 @@ export function ProfileScreen({ navigation }: Props) {
           <Text style={styles.title}>{t('profile.title')}</Text>
         </View>
 
-        <View style={styles.content}>
+        <ScrollView
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.card}>
             <Pressable onPress={openEdit} style={styles.nameRow}>
               <Text style={styles.name}>{user?.displayName ?? '—'}</Text>
@@ -133,6 +139,49 @@ export function ProfileScreen({ navigation }: Props) {
                 value={`L${unlocks.furthestLevel}`}
               />
               <Stat label={t('profile.learnedCount')} value={`${learnedCount}`} />
+            </View>
+          </View>
+
+          <Pressable
+            style={styles.storeBtn}
+            onPress={() => navigation.navigate('Store')}
+          >
+            <Text style={styles.storeText}>
+              🛍  {t('profile.store', undefined, '商店')}
+            </Text>
+            <Text style={styles.storeChevron}>›</Text>
+          </Pressable>
+
+          <View style={styles.langCard}>
+            <Text style={styles.langLabel}>
+              {t('profile.themeLabel', undefined, '视觉风格')}
+            </Text>
+            <View style={styles.themeGrid}>
+              {ALL_THEMES.map((th) => (
+                <Pressable
+                  key={th.id}
+                  style={[
+                    styles.themeOption,
+                    themeId === th.id && [
+                      styles.themeOptionActive,
+                      { borderColor: theme.primary },
+                    ],
+                  ]}
+                  onPress={() => setTheme(th.id)}
+                >
+                  <LinearGradient
+                    colors={
+                      th.gradient as unknown as [string, string, string]
+                    }
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.themeSwatch}
+                  />
+                  <Text style={styles.themeOptionLabel}>
+                    {t(`theme.${th.id}.name`, undefined, th.name)}
+                  </Text>
+                </Pressable>
+              ))}
             </View>
           </View>
 
@@ -208,16 +257,6 @@ export function ProfileScreen({ navigation }: Props) {
           </View>
 
           <Pressable
-            style={styles.storeBtn}
-            onPress={() => navigation.navigate('Store')}
-          >
-            <Text style={styles.storeText}>
-              🛍  {t('profile.store', undefined, '商店')}
-            </Text>
-            <Text style={styles.storeChevron}>›</Text>
-          </Pressable>
-
-          <Pressable
             style={[styles.linkBtn, { backgroundColor: theme.primary }]}
             onPress={async () => {
               if (user?.isAnonymous) {
@@ -232,7 +271,7 @@ export function ProfileScreen({ navigation }: Props) {
             </Text>
           </Pressable>
           <Text style={styles.actionHint}>{t('login.googleHint')}</Text>
-        </View>
+        </ScrollView>
 
         <Modal
           visible={editing}
@@ -379,6 +418,29 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
   langRow: { flexDirection: 'row', gap: 10 },
+  themeGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    justifyContent: 'space-between',
+  },
+  themeOption: {
+    width: '48%',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+    borderRadius: 14,
+    padding: 10,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'transparent',
+    gap: 8,
+  },
+  themeOptionActive: {},
+  themeSwatch: { width: '100%', height: 40, borderRadius: 10 },
+  themeOptionLabel: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#F8FAFC',
+  },
   langBtn: {
     flex: 1,
     paddingVertical: 12,

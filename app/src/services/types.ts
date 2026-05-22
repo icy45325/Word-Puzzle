@@ -91,12 +91,41 @@ export interface ScoreRecord {
   schemaVersion: number;
 }
 
+/** Aggregated leaderboard row — one per user. Computed at read time
+ *  from EconomyState.points (own) or seeded bot data (v8: ranks by
+ *  points, NOT coins — points are the skill-only metric). */
+export interface LeaderboardEntry {
+  userId: Uuid;
+  displayName: string;
+  /** 1-based rank within the requested scope. */
+  rank: number;
+  /** Points balance — the ranking metric. */
+  points: number;
+  /** Highest level (1-based) the user has cleared. */
+  furthestLevel: number;
+  /** True for seed bots; renderer can dim or tag them. */
+  isBot?: boolean;
+  /** True when this row represents the current user. */
+  isSelf?: boolean;
+}
+
 export type LeaderboardScope = 'self' | 'friends' | 'global';
 
 export interface LeaderboardService {
   submit(record: ScoreRecord): Promise<void>;
-  getTop(scope: LeaderboardScope, n: number): Promise<ScoreRecord[]>;
-  getPersonalBest(levelId: string): Promise<ScoreRecord | null>;
+  /** Aggregated ranked list for the given scope. */
+  getTop(
+    scope: LeaderboardScope,
+    n: number,
+    currentUserId?: Uuid
+  ): Promise<LeaderboardEntry[]>;
+  /** Per-level personal-best raw record for the current user. */
+  getPersonalBest(
+    userId: Uuid,
+    levelId: string
+  ): Promise<ScoreRecord | null>;
+  /** All personal-best records for the user — one row per cleared level. */
+  listPersonalBests(userId: Uuid): Promise<ScoreRecord[]>;
   myFriendCode(userId: Uuid): string;
   listFriends(userId: Uuid): Promise<Friend[]>;
   addFriend(userId: Uuid, code: string): Promise<{ ok: boolean; reason?: string }>;
@@ -105,8 +134,17 @@ export interface LeaderboardService {
 
 export interface EconomyState {
   userId: Uuid;
+  /** General-purpose currency. Earned from play / review / daily check-in /
+   *  ads. Spent only on tip exchange (50 coins → 1 tip). */
   coins: number;
+  /** In-game consumable used to reveal letters. Displayed only inside
+   *  GameScreen; not surfaced in TopBar. Earned from chapter rewards,
+   *  ad rewards, and coin exchange. */
   hints: number;
+  /** Read-only leaderboard ranking metric. Earned ONLY from
+   *  skill-based actions (word_found, level_complete, review_correct).
+   *  No spend path — it's pure score. */
+  points: number;
   streakDays: number;
   lastCheckInTs: number | null;
   schemaVersion: number;
@@ -118,7 +156,10 @@ export type EconomyEvent =
   | { type: 'daily_checkin' }
   | { type: 'streak_increment'; days: number }
   | { type: 'ad_rewarded'; placement: string }
-  | { type: 'iap_grant'; sku: string; coins: number };
+  | { type: 'review_correct'; count: number }
+  /** Replaces the old `iap_grant` event — paid SKUs now hand out tips,
+   *  not coins. coins/points stay un-buyable. */
+  | { type: 'tips_grant'; sku: string; tips: number };
 
 export interface EconomyService {
   getState(userId: Uuid): Promise<EconomyState>;
@@ -130,7 +171,7 @@ export interface EconomyService {
   ): Promise<{ ok: boolean; state: EconomyState }>;
   grantChapterReward(
     userId: Uuid,
-    args: { chapter: number; coins: number; hints: number }
+    args: { chapter: number; coins: number; hints: number; points?: number }
   ): Promise<EconomyState>;
   subscribe(userId: Uuid, listener: (s: EconomyState) => void): () => void;
 }
@@ -151,19 +192,32 @@ export interface AdsService {
 export type Sku =
   | 'remove_ads'
   | 'pro_dictionary'
-  | 'coin_pack_small'
-  | 'coin_pack_medium'
-  | 'coin_pack_large'
-  | 'subscription_monthly';
+  | 'tip_pack_small'
+  | 'tip_pack_medium'
+  | 'tip_pack_large'
+  | 'subscription_monthly'
+  | 'streak_insurance'
+  | 'exam_pack_ielts'
+  | 'exam_pack_toefl'
+  | 'exam_pack_gaokao';
 
-export type Entitlement = 'remove_ads' | 'pro_dictionary' | 'subscriber';
+export type Entitlement =
+  | 'remove_ads'
+  | 'pro_dictionary'
+  | 'subscriber'
+  | 'exam_ielts'
+  | 'exam_toefl'
+  | 'exam_gaokao';
 
 export interface Product {
   sku: Sku;
   title: string;
   description: string;
   priceDisplay: string;
-  grantCoins?: number;
+  /** Number of tips to grant on a one-shot consumable purchase. */
+  grantTips?: number;
+  /** Single-use consumable for unique side-effects (e.g. streak rescue). */
+  consumableKind?: 'streak_insurance';
   entitlement?: Entitlement;
 }
 

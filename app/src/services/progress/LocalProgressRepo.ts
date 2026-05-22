@@ -94,6 +94,9 @@ function mergeEconomy(
     userId,
     coins: a.coins + b.coins,
     hints: a.hints + b.hints,
+    // v8: points are the skill-only ranking metric. Sum both sides
+    // when migrating so the merged account keeps every point earned.
+    points: (a.points ?? 0) + (b.points ?? 0),
     streakDays: Math.max(a.streakDays, b.streakDays),
     lastCheckInTs: lastMax > 0 ? lastMax : null,
     schemaVersion: CURRENT_SCHEMA_VERSION,

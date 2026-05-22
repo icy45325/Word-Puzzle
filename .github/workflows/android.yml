@@ -1,0 +1,75 @@
+name: Android Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - claude/word-puzzle-game-PkWPj
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # No cache: workflow ran into npm ci errors when lockfile + json
+          # were out of sync. Falling back to plain `npm install` below
+          # makes the action robust to mild drift.
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install JS deps
+        working-directory: app
+        run: |
+          echo "--- package.json ---"
+          cat package.json | head -40
+          echo "--- attempting install ---"
+          npm install --no-audit --no-fund --legacy-peer-deps
+
+      - name: Expo prebuild
+        working-directory: app
+        run: npx expo prebuild --platform android --no-install
+
+      - name: Generate keystore
+        working-directory: app
+        run: |
+          if [ ! -f android/app/release.keystore ]; then
+            keytool -genkeypair -v \
+              -storetype PKCS12 \
+              -keystore android/app/release.keystore \
+              -alias wordscapes \
+              -storepass wordscapes-zh \
+              -keypass wordscapes-zh \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=wordscapes, O=local, C=CN"
+          fi
+
+      - name: Configure signing
+        working-directory: app
+        run: |
+          cat > android/keystore.properties <<EOF
+          storeFile=release.keystore
+          storePassword=wordscapes-zh
+          keyAlias=wordscapes
+          keyPassword=wordscapes-zh
+          EOF
+
+      - name: Build release APK
+        working-directory: app/android
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: app/android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 14

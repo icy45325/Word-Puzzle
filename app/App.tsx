@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { AppState } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -59,6 +60,8 @@ const screenOptions: NativeStackNavigationOptions = {
 };
 
 function navigateForDeepLink(link: DeepLink): void {
+  // Always clear the badge when the user comes back from a notification.
+  notificationsService.clearBadgeAndDismissed();
   if (!navigationRef.isReady()) return;
   if (link === 'review') {
     navigationRef.navigate('ReviewQuiz');
@@ -93,6 +96,20 @@ function NotificationsBridge() {
       }
     })();
   }, [services, user]);
+
+  // Clear the app icon badge on initial mount + every time the app
+  // returns to foreground. Without this, the launcher icon keeps a stale
+  // "1" / "N" count even after the user has opened the app and seen the
+  // reminder.
+  useEffect(() => {
+    notificationsService.clearBadgeAndDismissed();
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') {
+        notificationsService.clearBadgeAndDismissed();
+      }
+    });
+    return () => sub.remove();
+  }, []);
 
   // Listen for taps on scheduled notifications and deep-link.
   useEffect(() => {

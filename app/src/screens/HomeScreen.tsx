@@ -80,23 +80,6 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.pathArrow}>›</Text>
           </Pressable>
 
-          {/* Daily review nudge — only when there are due words */}
-          {dueCount > 0 ? (
-            <Pressable
-              style={styles.reviewCta}
-              onPress={() => navigation.navigate('ReviewQuiz')}
-            >
-              <Text style={styles.reviewIcon}>📚</Text>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.reviewTitle}>
-                  {t('home.reviewCta', { count: dueCount })}
-                </Text>
-                <Text style={styles.reviewHint}>{t('home.reviewCtaHint')}</Text>
-              </View>
-              <Text style={styles.reviewArrow}>›</Text>
-            </Pressable>
-          ) : null}
-
           {/* Big play button with subtle shimmer sweep */}
           <Pressable
             style={[styles.playBtn, { backgroundColor: '#FFFFFF' }]}
@@ -138,10 +121,16 @@ export function HomeScreen({ navigation }: Props) {
               onPress={() => navigation.navigate('Friends')}
             />
             <MenuTile
-              icon="👤"
-              label={t('home.profile')}
+              icon="📚"
+              label={t('home.review', undefined, '复习单词')}
               unlocked
-              onPress={() => navigation.navigate('Profile')}
+              unlockText={undefined}
+              subtitle={
+                dueCount > 0
+                  ? t('home.reviewDue', { count: dueCount }, `${dueCount} 个待复习`)
+                  : undefined
+              }
+              onPress={() => navigation.navigate('ReviewQuiz')}
             />
           </View>
         </ScrollView>
@@ -155,10 +144,21 @@ interface TileProps {
   label: string;
   unlocked: boolean;
   unlockText?: string;
+  /** Small caption under the tile label — used for things like
+   *  "3 个待复习" so the review tile carries the same info the giant
+   *  CTA used to. */
+  subtitle?: string;
   onPress: () => void;
 }
 
-function MenuTile({ icon, label, unlocked, unlockText, onPress }: TileProps) {
+function MenuTile({
+  icon,
+  label,
+  unlocked,
+  unlockText,
+  subtitle,
+  onPress,
+}: TileProps) {
   return (
     <Pressable
       style={[styles.tile, !unlocked && styles.tileLocked]}
@@ -166,6 +166,7 @@ function MenuTile({ icon, label, unlocked, unlockText, onPress }: TileProps) {
     >
       <Text style={styles.tileIcon}>{icon}</Text>
       <Text style={styles.tileLabel}>{label}</Text>
+      {subtitle ? <Text style={styles.tileSubtitle}>{subtitle}</Text> : null}
       {!unlocked && unlockText ? (
         <Text style={styles.tileLock}>🔒 {unlockText}</Text>
       ) : null}
@@ -305,4 +306,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tileLock: { fontSize: 10, color: 'rgba(255,255,255,0.55)' },
+  tileSubtitle: {
+    marginTop: 4,
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#FACC15',
+    letterSpacing: 0.5,
+  },
 });

@@ -73,14 +73,52 @@ function xForLevel(oneBased: number): number {
   return CENTER_X + Math.sin(oneBased * WAVE_FREQ) * WAVE_AMPLITUDE;
 }
 
-/** SVG path "M ... L ..." between [fromLevel, toLevel] inclusive. */
-function pathBetween(fromLevel: number, toLevel: number): string {
+/** SVG path "M ... L ..." between [fromLevel, toLevel] inclusive, with y
+ *  coordinates expressed relative to `yOffset` (the chunk's top in
+ *  content space). One big SVG covering the full 22000-px map blew
+ *  Android's texture cap and crashed on entry; we now render one Svg
+ *  per chunk of CHUNK_SIZE levels so each is ~1100 px. */
+const CHUNK_SIZE = 12;
+
+function pathBetween(fromLevel: number, toLevel: number, yOffset: number): string {
   if (toLevel < fromLevel) return '';
-  let d = `M ${xForLevel(fromLevel).toFixed(1)} ${yForLevel(fromLevel).toFixed(1)}`;
+  const localY = (lvl: number) => (yForLevel(lvl) - yOffset).toFixed(1);
+  let d = `M ${xForLevel(fromLevel).toFixed(1)} ${localY(fromLevel)}`;
   for (let i = fromLevel + 1; i <= toLevel; i++) {
-    d += ` L ${xForLevel(i).toFixed(1)} ${yForLevel(i).toFixed(1)}`;
+    d += ` L ${xForLevel(i).toFixed(1)} ${localY(i)}`;
   }
   return d;
+}
+
+interface PathChunk {
+  /** Absolute y where this chunk's local origin (0) sits. */
+  topGlobal: number;
+  /** Chunk Svg height. */
+  height: number;
+  /** Dashed-track path string (always full range of chunk). */
+  dashedD: string;
+  /** Lit progress path string. Empty if chunk is entirely past `furthest`. */
+  progressD: string;
+}
+
+function buildChunks(furthest: number): PathChunk[] {
+  const chunks: PathChunk[] = [];
+  for (let c = 0; c < Math.ceil(LEVELS.length / CHUNK_SIZE); c++) {
+    const start = c * CHUNK_SIZE + 1;
+    // +1 overlap with next chunk so the path looks continuous
+    const end = Math.min(start + CHUNK_SIZE, LEVELS.length);
+    // y decreases as level number increases (we grow upward), so the
+    // top of this chunk in global content space is yForLevel(end).
+    const yTopGlobal = yForLevel(end) - NODE_PITCH / 2;
+    const yBottomGlobal = yForLevel(start) + NODE_PITCH / 2;
+    const height = yBottomGlobal - yTopGlobal;
+    const dashedD = pathBetween(start, end, yTopGlobal);
+    const progressEnd = Math.min(end, furthest);
+    const progressD =
+      furthest >= start ? pathBetween(start, progressEnd, yTopGlobal) : '';
+    chunks.push({ topGlobal: yTopGlobal, height, dashedD, progressD });
+  }
+  return chunks;
 }
 
 export function MapScreen({ navigation }: Props) {
@@ -113,7 +151,11 @@ export function MapScreen({ navigation }: Props) {
   }, [unlocks.loaded, furthest]);
 
   const handlePick = async (oneBased: number) => {
-    if (!user || oneBased > furthest) return;
+    // Only the current (next-to-play) level is tappable. Previously this
+    // allowed replaying any earlier level, but the design now treats the
+    // map as a strict forward-progression ladder — completed levels show
+    // a passed-style node but don't navigate.
+    if (!user || oneBased !== furthest) return;
     const idx = Math.max(0, Math.min(LEVELS.length - 1, oneBased - 1));
     const prev = await services.progress.load(user.userId);
     await services.progress.save({ ...prev, currentLevelIndex: idx });
@@ -122,12 +164,8 @@ export function MapScreen({ navigation }: Props) {
 
   const playCurrent = () => handlePick(furthest);
 
-  // Build the two paths: the full dashed track and the lit-up progress.
-  const fullPathD = useMemo(() => pathBetween(1, LEVELS.length), []);
-  const progressPathD = useMemo(
-    () => pathBetween(1, furthest),
-    [furthest]
-  );
+  // Build per-chunk paths so each Svg stays under Android's texture cap.
+  const chunks = useMemo(() => buildChunks(furthest), [furthest]);
 
   return (
     <GradientBackground>
@@ -193,6 +231,13 @@ export function MapScreen({ navigation }: Props) {
           ref={scrollRef}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
+          // Android-only: subviews scrolled off-screen are removed from
+          // the native view hierarchy. Big win for 200-node maps.
+          removeClippedSubviews
+          // Throttle to ~60fps but keep onScroll cheap — we don't use the
+          // event right now; setting this is a hint to RN that we don't
+          // need every frame.
+          scrollEventThrottle={32}
         >
           <View
             style={[
@@ -200,30 +245,37 @@ export function MapScreen({ navigation }: Props) {
               { width: MAP_WIDTH, height: TOTAL_HEIGHT },
             ]}
           >
-            {/* Background dashed track + progress overlay */}
-            <Svg
-              width={MAP_WIDTH}
-              height={TOTAL_HEIGHT}
-              style={StyleSheet.absoluteFill}
-              pointerEvents="none"
-            >
-              <Path
-                d={fullPathD}
-                stroke="rgba(255,255,255,0.18)"
-                strokeWidth={4}
-                strokeLinecap="round"
-                strokeDasharray="10 10"
-                fill="none"
-              />
-              <Path
-                d={progressPathD}
-                stroke={theme.primary}
-                strokeWidth={6}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </Svg>
+            {/* Background dashed track + progress overlay — rendered in
+                ~12-level chunks so each Svg stays small enough for Android
+                to texture-cache without crashing. */}
+            {chunks.map((chunk, i) => (
+              <Svg
+                key={`chunk-${i}`}
+                width={MAP_WIDTH}
+                height={chunk.height}
+                style={{ position: 'absolute', top: chunk.topGlobal, left: 0 }}
+                pointerEvents="none"
+              >
+                <Path
+                  d={chunk.dashedD}
+                  stroke="rgba(255,255,255,0.18)"
+                  strokeWidth={4}
+                  strokeLinecap="round"
+                  strokeDasharray="10 10"
+                  fill="none"
+                />
+                {chunk.progressD ? (
+                  <Path
+                    d={chunk.progressD}
+                    stroke={theme.primary}
+                    strokeWidth={6}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                ) : null}
+              </Svg>
+            ))}
 
             {/* Chapter banners — sit at the boundary between chapters
                 in the bottom-up flow. Chapter 1's banner is at the very
@@ -499,6 +551,10 @@ const styles = StyleSheet.create({
     height: NODE_SIZE + 28,
     borderRadius: (NODE_SIZE + 28) / 2,
   },
+  // NOTE: shadows are deliberately moved out of the base style. 200
+  // shadowed views = ~200 offscreen render passes per frame during
+  // scroll, which was the main culprit behind the lag. Only the
+  // current node gets shadow now; passed + locked are flat.
   node: {
     width: NODE_SIZE,
     height: NODE_SIZE,
@@ -508,26 +564,21 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
   },
   nodePassed: {
     backgroundColor: 'rgba(255,255,255,0.92)',
   },
   nodeCurrent: {
     transform: [{ scale: 1.18 }, { translateY: -4 }],
+    shadowColor: '#000',
     shadowOpacity: 0.45,
     shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
     elevation: 10,
   },
   nodeLocked: {
     backgroundColor: 'rgba(255,255,255,0.10)',
     borderColor: 'rgba(255,255,255,0.10)',
-    shadowOpacity: 0,
-    elevation: 0,
   },
   nodeLabel: {
     fontSize: 18,

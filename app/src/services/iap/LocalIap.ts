@@ -98,12 +98,24 @@ export class LocalIap implements IapService {
       return { ok: false, sku };
     }
     // Mock fulfillment.
-    if (product.grantCoins && this.economy && this.currentUserId) {
+    // v8: tip packs (consumable) hand out tips, not coins. Coins are
+    // no longer a paid currency.
+    if (product.grantTips && this.economy && this.currentUserId) {
       await this.economy.grant(this.currentUserId, {
-        type: 'iap_grant',
+        type: 'tips_grant',
         sku,
-        coins: product.grantCoins,
+        tips: product.grantTips,
       });
+    }
+    // One-shot side-effect consumable (e.g. streak_insurance). We don't
+    // grant an entitlement (it's not a permanent unlock) and the actual
+    // side-effect logic lives in the calling screen (e.g. StoreScreen
+    // calls back into useDailyCheckIn or a dedicated restore service).
+    // Recording the purchase here lets analytics + receipt verification
+    // see it.
+    if (product.consumableKind === 'streak_insurance') {
+      // Side-effect handled by the caller; LocalIap only records the
+      // analytics event.
     }
     if (product.entitlement) {
       const state = { ...(await this.loadState()) };

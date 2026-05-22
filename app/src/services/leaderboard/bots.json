@@ -1,0 +1,455 @@
+{
+  "comment": "Seed bot leaderboard entries. Distribution: 5% top tier (L150+), 25% upper (L80-L150), 40% mid (L30-L80), 30% newer (L1-L30). Names mix CN/Pinyin/EN + emoji for variety. userId prefix 'bot:' so we can detect them at render time.",
+  "bots": [
+    {
+      "userId": "bot:001",
+      "displayName": "Liana 🌸",
+      "furthestLevel": 178,
+      "points": 62340
+    },
+    {
+      "userId": "bot:002",
+      "displayName": "星海 🌌",
+      "furthestLevel": 172,
+      "points": 59820
+    },
+    {
+      "userId": "bot:003",
+      "displayName": "Atlas",
+      "furthestLevel": 165,
+      "points": 54190
+    },
+    {
+      "userId": "bot:004",
+      "displayName": "念安",
+      "furthestLevel": 160,
+      "points": 51230
+    },
+    {
+      "userId": "bot:010",
+      "displayName": "Lucas 🇺🇸",
+      "furthestLevel": 142,
+      "points": 44280
+    },
+    {
+      "userId": "bot:011",
+      "displayName": "Maya 🇮🇳",
+      "furthestLevel": 138,
+      "points": 42010
+    },
+    {
+      "userId": "bot:012",
+      "displayName": "小满",
+      "furthestLevel": 135,
+      "points": 41560
+    },
+    {
+      "userId": "bot:013",
+      "displayName": "Hina ✨",
+      "furthestLevel": 130,
+      "points": 39870
+    },
+    {
+      "userId": "bot:014",
+      "displayName": "Zhao Wei",
+      "furthestLevel": 127,
+      "points": 38420
+    },
+    {
+      "userId": "bot:015",
+      "displayName": "Theo 🎯",
+      "furthestLevel": 124,
+      "points": 37100
+    },
+    {
+      "userId": "bot:016",
+      "displayName": "云鹤",
+      "furthestLevel": 120,
+      "points": 36240
+    },
+    {
+      "userId": "bot:017",
+      "displayName": "Riley 🇬🇧",
+      "furthestLevel": 117,
+      "points": 35030
+    },
+    {
+      "userId": "bot:018",
+      "displayName": "Park Min",
+      "furthestLevel": 113,
+      "points": 33450
+    },
+    {
+      "userId": "bot:019",
+      "displayName": "Aiko 🍃",
+      "furthestLevel": 110,
+      "points": 32100
+    },
+    {
+      "userId": "bot:020",
+      "displayName": "夏目",
+      "furthestLevel": 106,
+      "points": 30890
+    },
+    {
+      "userId": "bot:021",
+      "displayName": "Carlos 🇧🇷",
+      "furthestLevel": 102,
+      "points": 29500
+    },
+    {
+      "userId": "bot:022",
+      "displayName": "Lin Qing",
+      "furthestLevel": 98,
+      "points": 28210
+    },
+    {
+      "userId": "bot:023",
+      "displayName": "Sam 📚",
+      "furthestLevel": 95,
+      "points": 27040
+    },
+    {
+      "userId": "bot:024",
+      "displayName": "知秋",
+      "furthestLevel": 92,
+      "points": 25800
+    },
+    {
+      "userId": "bot:025",
+      "displayName": "Olive 🌿",
+      "furthestLevel": 89,
+      "points": 24650
+    },
+    {
+      "userId": "bot:026",
+      "displayName": "Noah 🎵",
+      "furthestLevel": 86,
+      "points": 23420
+    },
+    {
+      "userId": "bot:027",
+      "displayName": "若梦",
+      "furthestLevel": 83,
+      "points": 22300
+    },
+    {
+      "userId": "bot:028",
+      "displayName": "Mira ⭐",
+      "furthestLevel": 81,
+      "points": 21450
+    },
+    {
+      "userId": "bot:029",
+      "displayName": "陈知行",
+      "furthestLevel": 80,
+      "points": 20850
+    },
+    {
+      "userId": "bot:030",
+      "displayName": "Iris 🌷",
+      "furthestLevel": 76,
+      "points": 19420
+    },
+    {
+      "userId": "bot:031",
+      "displayName": "Daniel",
+      "furthestLevel": 73,
+      "points": 18510
+    },
+    {
+      "userId": "bot:032",
+      "displayName": "婷婷",
+      "furthestLevel": 70,
+      "points": 17630
+    },
+    {
+      "userId": "bot:033",
+      "displayName": "Erika 🇩🇪",
+      "furthestLevel": 68,
+      "points": 16940
+    },
+    {
+      "userId": "bot:034",
+      "displayName": "Mateo",
+      "furthestLevel": 65,
+      "points": 16120
+    },
+    {
+      "userId": "bot:035",
+      "displayName": "雪舟",
+      "furthestLevel": 63,
+      "points": 15380
+    },
+    {
+      "userId": "bot:036",
+      "displayName": "Ada 💎",
+      "furthestLevel": 60,
+      "points": 14620
+    },
+    {
+      "userId": "bot:037",
+      "displayName": "Wang Le",
+      "furthestLevel": 58,
+      "points": 13920
+    },
+    {
+      "userId": "bot:038",
+      "displayName": "Ben 🎨",
+      "furthestLevel": 55,
+      "points": 13180
+    },
+    {
+      "userId": "bot:039",
+      "displayName": "Sofia",
+      "furthestLevel": 53,
+      "points": 12540
+    },
+    {
+      "userId": "bot:040",
+      "displayName": "明远",
+      "furthestLevel": 51,
+      "points": 11920
+    },
+    {
+      "userId": "bot:041",
+      "displayName": "Naomi 🌙",
+      "furthestLevel": 49,
+      "points": 11380
+    },
+    {
+      "userId": "bot:042",
+      "displayName": "Felix 🦊",
+      "furthestLevel": 47,
+      "points": 10820
+    },
+    {
+      "userId": "bot:043",
+      "displayName": "小柚",
+      "furthestLevel": 45,
+      "points": 10310
+    },
+    {
+      "userId": "bot:044",
+      "displayName": "Priya 🇮🇳",
+      "furthestLevel": 43,
+      "points": 9870
+    },
+    {
+      "userId": "bot:045",
+      "displayName": "Jin Ho",
+      "furthestLevel": 41,
+      "points": 9430
+    },
+    {
+      "userId": "bot:046",
+      "displayName": "Hugo 🇫🇷",
+      "furthestLevel": 39,
+      "points": 9020
+    },
+    {
+      "userId": "bot:047",
+      "displayName": "南风",
+      "furthestLevel": 37,
+      "points": 8650
+    },
+    {
+      "userId": "bot:048",
+      "displayName": "Emma",
+      "furthestLevel": 35,
+      "points": 8230
+    },
+    {
+      "userId": "bot:049",
+      "displayName": "Ravi",
+      "furthestLevel": 34,
+      "points": 7920
+    },
+    {
+      "userId": "bot:050",
+      "displayName": "听风",
+      "furthestLevel": 33,
+      "points": 7610
+    },
+    {
+      "userId": "bot:051",
+      "displayName": "Ana 🌹",
+      "furthestLevel": 32,
+      "points": 7320
+    },
+    {
+      "userId": "bot:052",
+      "displayName": "Owen",
+      "furthestLevel": 31,
+      "points": 7050
+    },
+    {
+      "userId": "bot:053",
+      "displayName": "Chenchen",
+      "furthestLevel": 30,
+      "points": 6780
+    },
+    {
+      "userId": "bot:054",
+      "displayName": "Kira 🌊",
+      "furthestLevel": 30,
+      "points": 6540
+    },
+    {
+      "userId": "bot:055",
+      "displayName": "Hassan",
+      "furthestLevel": 29,
+      "points": 6310
+    },
+    {
+      "userId": "bot:060",
+      "displayName": "Aaron",
+      "furthestLevel": 26,
+      "points": 5420
+    },
+    {
+      "userId": "bot:061",
+      "displayName": "Ling",
+      "furthestLevel": 24,
+      "points": 4920
+    },
+    {
+      "userId": "bot:062",
+      "displayName": "Yuna 🇰🇷",
+      "furthestLevel": 22,
+      "points": 4480
+    },
+    {
+      "userId": "bot:063",
+      "displayName": "Tom",
+      "furthestLevel": 20,
+      "points": 4060
+    },
+    {
+      "userId": "bot:064",
+      "displayName": "雨晴",
+      "furthestLevel": 18,
+      "points": 3640
+    },
+    {
+      "userId": "bot:065",
+      "displayName": "Lila",
+      "furthestLevel": 16,
+      "points": 3260
+    },
+    {
+      "userId": "bot:066",
+      "displayName": "Ken 🎮",
+      "furthestLevel": 14,
+      "points": 2910
+    },
+    {
+      "userId": "bot:067",
+      "displayName": "Zoe",
+      "furthestLevel": 12,
+      "points": 2590
+    },
+    {
+      "userId": "bot:068",
+      "displayName": "Alex",
+      "furthestLevel": 11,
+      "points": 2310
+    },
+    {
+      "userId": "bot:069",
+      "displayName": "舒然",
+      "furthestLevel": 10,
+      "points": 2050
+    },
+    {
+      "userId": "bot:070",
+      "displayName": "Maya",
+      "furthestLevel": 9,
+      "points": 1810
+    },
+    {
+      "userId": "bot:071",
+      "displayName": "Cody",
+      "furthestLevel": 8,
+      "points": 1620
+    },
+    {
+      "userId": "bot:072",
+      "displayName": "Lia",
+      "furthestLevel": 7,
+      "points": 1450
+    },
+    {
+      "userId": "bot:073",
+      "displayName": "禾禾",
+      "furthestLevel": 6,
+      "points": 1290
+    },
+    {
+      "userId": "bot:074",
+      "displayName": "Ivan 🇷🇺",
+      "furthestLevel": 6,
+      "points": 1180
+    },
+    {
+      "userId": "bot:075",
+      "displayName": "Jay",
+      "furthestLevel": 5,
+      "points": 1040
+    },
+    {
+      "userId": "bot:076",
+      "displayName": "Sam",
+      "furthestLevel": 4,
+      "points": 920
+    },
+    {
+      "userId": "bot:077",
+      "displayName": "Mei",
+      "furthestLevel": 4,
+      "points": 820
+    },
+    {
+      "userId": "bot:078",
+      "displayName": "Ravi",
+      "furthestLevel": 3,
+      "points": 720
+    },
+    {
+      "userId": "bot:079",
+      "displayName": "Bo",
+      "furthestLevel": 3,
+      "points": 630
+    },
+    {
+      "userId": "bot:080",
+      "displayName": "Ada",
+      "furthestLevel": 2,
+      "points": 540
+    },
+    {
+      "userId": "bot:081",
+      "displayName": "Leo",
+      "furthestLevel": 2,
+      "points": 460
+    },
+    {
+      "userId": "bot:082",
+      "displayName": "Tina",
+      "furthestLevel": 1,
+      "points": 380
+    },
+    {
+      "userId": "bot:083",
+      "displayName": "Kai",
+      "furthestLevel": 1,
+      "points": 310
+    },
+    {
+      "userId": "bot:084",
+      "displayName": "Aurora ✨",
+      "furthestLevel": 1,
+      "points": 240
+    }
+  ]
+}
